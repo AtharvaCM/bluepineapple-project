@@ -1,0 +1,64 @@
+What is the idea?
+
+What is the need for this system?
+
+USP - Unique selling point
+
+Current/existing process followed, if any
+
+Feasibility - understanding of how this is going to work
+
+Target audience/users
+-----------------------------------------------------
+
+1.What is the idea?
+->
+The idea is to make an application  for the unorganised sector that is to bring contractors and the daily wage labourers on a single platform.
+
+2.What is the need for this system ?
+->
+We have seen a Lot of applications where the people who are educated,qualified can easily get jobs on different portals like nokari.com etc
+Similarly we just want to create a system for the people who are dependent on day to day work and mainly & who are in unorganised sectors like mason, portar ,carpenter, plumber etc
+So this system can help this people find job in the locality easily and it will also help the contractors and the people who are in need of such workers for day to day work ,which can reduce a lot of time and efforts of both parties.
+
+3.Process to be followed
+->
+By This system we can engage contractors and common public who want services of these people working in unorganised sectors like masons, daily wage labourers, carpenters etc.
+In the initial step  we can  register these people on our websites and let the contractor know about these people on a day-to-day basis. We could also add location and give a range of 2-5 km which will show the available  workers who are available to work at a particular location.
+And once any person or a contractor selects a person to do his or her work ,we can send a text message to that person informing them about the contractor who is willing to work with them with all the necessary details.
+Contact us can put job updates on the portal on a day to day basis and the labour can also contact them directly on the basis of that requirement so it is just going to be a two-way interaction between a labour and a contractor or some other person who are willing to take the services or who are willing to work.
+
+*****A
+User can select the language of his/her choice for the app. (English, Marathi, Hindi)
+
+The app itself can be free and we will charge a small commission fee whenever a cotractor hires a worker. This way the users won't have to invest any money while getting the app.
+
+Users  can select from a standard plan and a premium plan for Quality Of Service (premium comes at an additional cost).
+A*****
+
+(*We can add more features or options in this system after detail analysis*)
+
+4.Target audience
+->
+As of now the targeted audience are labourers and workers working in unorganised sector and contractors who are in need of their services.
+
+*****A
+5. Feasibility
+->
+
+Economic Feasibility - 
+    cost/benefit analysis - server charges, storage charges, domain charges, marketing charges.
+    commission earned from jobs and premium memberships will fund the app as well.
+
+Technical Feasibility - 
+    backend framework like Node or Django, React for frontend. so the app is Technically Feasible.
+
+6. Personas
+->
+    Admin
+    Worker
+    Contractor
+*****A
+
+(*Scope can be increased after detailed study*)
+
