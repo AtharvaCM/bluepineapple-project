@@ -6,14 +6,21 @@ Synopsis: App's entry point, handles high level functions
 Exports: 
 */
 
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
-const port = 5000;
+const port = process.env.PORT;
+
+var cors = require("cors");
+
+const connectToMongo = require("./dbConfig");
+connectToMongo();
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Sports Live app listening on port ${port}`);
 });
