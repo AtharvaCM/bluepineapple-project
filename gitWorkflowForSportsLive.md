@@ -4,8 +4,8 @@ Follow these instructions for Code Commit and Source Control.
 
 # Branches
 
-**main** - Default branch, will be used for production builds
-**development** - Primary branch for app development. Feature branches will be created from this branch.
+**main** - Default branch, will be used for production builds\
+**development** - Primary branch for app development. Feature branches will be created from this branch.\
 **\<feature-branches>** - Create a branch from `development` branch for each task/feature you want to implement and once the work is complete, create a Pull Request (PR) to merge it back in development branch.
 
 ## Creating branches
@@ -57,7 +57,7 @@ Once you've made the desirable changes to all the files, follow these steps:
 
 Once you make a commit locally, you have to push those changes to remote or you want to pull changes made by others.
 
-Click on the button which appears on the `Source Control` tab after making a commit.
-Or 
+Click on the button which appears on the `Source Control` tab after making a commit.\
+Or\ 
 You can click on the sync icon with :arrow_down: :arrow_up: to sync the changes.
 
