@@ -29,7 +29,7 @@ Your new branch is now created locally, now you can make changes and publish thi
 4. Again click on the button displaying the branch and type name for the new branch.
 5. Click on `Create branch <new-branch-name>: from development`
 
-The new branch is created on the remote repository.
+The new branch is created on the remote repository.\
 To sync your local repo with the remote use: `git fetch`
 
 # Commits
@@ -58,6 +58,6 @@ Once you've made the desirable changes to all the files, follow these steps:
 Once you make a commit locally, you have to push those changes to remote or you want to pull changes made by others.
 
 Click on the button which appears on the `Source Control` tab after making a commit.\
-Or\ 
+Or \ 
 You can click on the sync icon with :arrow_down: :arrow_up: to sync the changes.
 
