@@ -58,6 +58,5 @@ Once you've made the desirable changes to all the files, follow these steps:
 Once you make a commit locally, you have to push those changes to remote or you want to pull changes made by others.
 
 Click on the button which appears on the `Source Control` tab after making a commit.\
-Or \ 
+Or \
 You can click on the sync icon with :arrow_down: :arrow_up: to sync the changes.
-
