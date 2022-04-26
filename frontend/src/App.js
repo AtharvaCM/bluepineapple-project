@@ -1,14 +1,23 @@
-import Login from "./Components/Login/Login";
-import SignUp from "./Components/SignUp/SignUp";
+import Header from './Components/Navbar/Header'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import LandingPage from './Pages/LandingPage'
+
 
 function App() {
   return (
     <>
-      <Login></Login>
-      <SignUp></SignUp>
+    
+      <Router>
+        <div>
+          <Header></Header>
+          <Switch>
+             <Route exact path="/" component={LandingPage}></Route>
+            {/*<Route exact path="/Getnews" component={Getnews}></Route> */}
+          </Switch>
+        </div>
+      </Router>
     </>
   );
 }
 
 export default App;
-//Line added by mokshada
