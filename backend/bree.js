@@ -13,7 +13,12 @@ const bree = new Bree({
   jobs: [
     {
       name: "seriesInfoIPL",
-      //   cron: "0 12 * * *",
+      cron: "0 12 * * *",
+      // interval: "30s",
+    },
+    {
+      name: "currentMatchesCricket",
+      // cron: "0 12 * * *",
       interval: "30s",
     },
   ],
