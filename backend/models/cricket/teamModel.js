@@ -21,6 +21,6 @@ const cricketTeamTable = new Schema(
   { timeStamps: true }
 );
 
-const Team = mongoose.model("Team", cricketTeamTable);
+const Team = mongoose.model("Team", cricketTeamTable, "teams");
 
 module.exports = Team;

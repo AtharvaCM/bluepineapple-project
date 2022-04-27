@@ -17,6 +17,6 @@ const cricketSeriesTable = new Schema(
   { timeStamps: true }
 );
 
-const Series = mongoose.model("Series", cricketSeriesTable);
+const Series = mongoose.model("Series", cricketSeriesTable, "cricketSeries");
 
 module.exports = Series;
