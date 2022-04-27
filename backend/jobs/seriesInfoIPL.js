@@ -15,13 +15,12 @@ fetch = require("node-fetch");
 
 const getResponse = async () => {
   try {
-    const response = await fetch(
-      "https://api.cricapi.com/v1/series_info?apikey=47361986-91d0-41e6-a62d-df3af877ed8c&offset=0&id=47b54677-34de-4378-9019-154e82b9cc1a",
-      {
-        method: "GET",
-        headers: {},
-      }
-    );
+    const cricAPIKey = process.env.CRIC_API_KEY;
+    const url = `https://api.cricapi.com/v1/series_info?apikey=${cricAPIKey}&offset=0&id=47b54677-34de-4378-9019-154e82b9cc1a`;
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {},
+    });
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -46,11 +45,13 @@ const storeResponse = async (req) => {
       status: status,
     };
     // This function has 4 parameters i.e. filter, replacement, options, callback
-    Series.findOneAndReplace(query, replacement, null, (err, docs) => {
+    Series.findOneAndReplace(query, replacement, null, function (err, doc) {
       if (err) {
         console.log(err);
       } else {
-        console.log("[+] Original doc: ", docs);
+        console.log("[+] Original doc: ", doc);
+        // exit the job process and signal parent
+        process.exit(0);
       }
     });
   } catch (err) {
