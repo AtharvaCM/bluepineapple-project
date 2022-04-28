@@ -21,7 +21,7 @@ const logError = (err) => {
   console.log(`[+] Error occurred: ${err}`);
 };
 
-const connectToMongo = () => {
+const connectToMongo = async () => {
   try {
     console.log("[+] Attempting to connect to MongoDB Atlas");
     mongoose.connect(mongoURI, options, () => {

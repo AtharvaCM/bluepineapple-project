@@ -22,10 +22,11 @@ const bree = new Bree({
     },
     {
       name: "seriesListCricket",
-      cron: "* * * * *",
+      cron: "0 12 * * *",
       // interval: "30s",
     },
   ],
+  closeWorkerAfterMs: 60000,
 });
 
 // handle graceful reloads, pm2 support, and events like SIGHUP, SIGINT, etc.

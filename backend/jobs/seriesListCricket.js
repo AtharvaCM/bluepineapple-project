@@ -8,11 +8,9 @@ Exports:
 console.log("[+] Fetching Current Matches info from https://CricketData.org");
 
 const connectToMongo = require("../dbConfig");
-connectToMongo();
+const fetch = require("node-fetch");
 
 const Series = require("../models/cricket/seriesModel");
-
-const fetch = require("node-fetch");
 
 const getResponse = async () => {
   try {
@@ -65,38 +63,43 @@ const updateSeries = (obj) => {
   });
 };
 
-const storeResponse = async (req) => {
+const storeResponse = (req) => {
   try {
     const data = req["data"];
     const status = req["status"];
+    // console.log("[+] data", data);
     console.log("[+] status", status);
-    console.log("[+] data", data);
 
     // push each object in the data arrray to DB
     data.map((obj) => {
-      console.log(obj);
       // check if Id of the obj already exists in DB
       Series.findOne({ id: obj.id }, function (err, doc) {
         if (err) {
           console.log("[+] Find Error", err);
         } else {
-          console.log("[+] Doc found", doc.id);
+          // if doc is null create doc if not null update doc
+          doc === null ? addSeries(obj) : updateSeries(obj);
         }
       });
     });
-
-    // exit the job process and signal parent
-    process.exit(0);
   } catch (err) {
-    console.log(`[+] error: ${err.message || err.toString()}`);
+    console.log(`[+] Error: ${err.message || err.toString()}`);
     process.exit(1);
   }
 };
 
 const seriesInfo = getResponse();
-seriesInfo
-  .then((res) => {
-    // Once the promise is resolved, store in DB
-    storeResponse(res);
+
+connectToMongo()
+  .then(() => {
+    seriesInfo
+      .then((res) => {
+        // Once the promise is resolved, store in DB
+        storeResponse(res);
+
+        // exit the job process and signal parent
+        // process.exit(0);
+      })
+      .catch((err) => console.log(err));
   })
   .catch((err) => console.log(err));
