@@ -4,7 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { CardGroup } from 'react-bootstrap';
 import { useEffect, useState } from 'react'
 import matchInfo from '../../Api/MatchApi'
-import logo from '../../Resources/Images/Basketball.gif'
+//import logo from '../../Resources/Images/Basketball.gif'
+import Spinner from '../../Components/Spinner';
 
 
 function CricFeaturedMatches() {
@@ -24,7 +25,7 @@ function CricFeaturedMatches() {
         return (
             <>
                 <div className='container align-middle' >
-                    {<img src={logo} alt='gif' style={{ marginLeft: "578px" }}></img>}
+                    <Spinner></Spinner>
                 </div>
 
             </>

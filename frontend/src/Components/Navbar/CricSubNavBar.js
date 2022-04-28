@@ -1,12 +1,13 @@
 import React from 'react'
 import Navbar from 'react-bootstrap/Navbar'
 import { Nav, Button, Form, FormControl, Container } from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function cricSubNavBar() {
     return (
         <>
-            <Navbar bg="primary" expand="lg">
+            <Navbar bg="success" expand="lg">
                 <Container fluid>
                     <Navbar.Brand href="#" style={{color:'black',fontWeight:'bold'}} >Cricket</Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
@@ -16,7 +17,7 @@ function cricSubNavBar() {
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <Nav.Link href="#action1" style={{color:'black',fontWeight:'bold'}}>Teams</Nav.Link>
+                            <Nav.Link as={Link} to='/Cricket/Teams' style={{color:'black',fontWeight:'bold'}}>Teams</Nav.Link>
                             <Nav.Link href="#action2" style={{color:'black',fontWeight:'bold'}}>Schedule</Nav.Link>
                             <Nav.Link href="#action2" style={{color:'black',fontWeight:'bold'}}>News</Nav.Link>
                             <Nav.Link href="#" style={{color:'black',fontWeight:'bold'}}>Ranking</Nav.Link>
@@ -27,7 +28,6 @@ function cricSubNavBar() {
                             <Nav.Link href="#" style={{color:'black',fontWeight:'bold'}}>Series</Nav.Link>
                             <Nav.Link href="#" style={{color:'black',fontWeight:'bold'}}>Videos</Nav.Link>
                             <Nav.Link href="#" style={{color:'black',fontWeight:'bold'}}>Stats</Nav.Link>
-                            <Nav.Link href="#" style={{color:'black',fontWeight:'bold'}}>Completed</Nav.Link>
                             <Nav.Link href="#" style={{color:'black',fontWeight:'bold'}}>Contact Us</Nav.Link>
                         </Nav>
                         <Form className="d-flex">
@@ -37,7 +37,7 @@ function cricSubNavBar() {
                                 className="me-2"
                                 aria-label="Search"
                             />
-                            <Button variant="outline-success" style={{color:'black',fontWeight:'bold',borderColor:'black'}}>Search</Button>
+                            <Button variant="outline-primary" style={{color:'black',fontWeight:'bold',borderColor:'black'}}>Search</Button>
                         </Form>
                     </Navbar.Collapse>
                 </Container>

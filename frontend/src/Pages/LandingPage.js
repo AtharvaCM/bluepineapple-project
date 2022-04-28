@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from '../Resources/Images/Basketball.gif';
+//import logo from '../Resources/Images/Basketball.gif';
 import NewsInfo from '../Api/NewsApi'
+import Spinner from '../Components/Spinner';
 
 function LandingPage() {
     const [news, setnews] = useState(null)
@@ -20,7 +21,7 @@ function LandingPage() {
         return (
             <>
                 <div className='container align-middle' >
-                    {<img src={logo} alt='gif' style={{ marginLeft: "578px" }}></img>}
+                    <Spinner></Spinner>
                 </div>
 
             </>

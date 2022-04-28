@@ -10,11 +10,11 @@ function Header() {
 
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand as={Link} to='/' style={{ fontSize: "25px" }}>Sports Live</Navbar.Brand>
-          <Nav className="me-auto mx-auto" style={{ fontSize: "25px" }}>
-            <Nav.Link as={Link} style={{ textDecoration: "none", color: "white" }} to='/'>Home |</Nav.Link>
-            <Nav.Link as={Link} style={{ textDecoration: "none", color: "white" }} to='/Cricket'>Cricket |</Nav.Link>
-            <Nav.Link as={Link} style={{ textDecoration: "none", color: "white" }} to='/Getnews'>Football</Nav.Link>
+          <Navbar.Brand as={Link} to='/'>Sports Live</Navbar.Brand>
+          <Nav className="me-auto mx-auto">
+            <Nav.Link as={Link} style={{ textDecoration: "none", color: "white" }} to='/'>Home</Nav.Link>
+            <Nav.Link as={Link} style={{ textDecoration: "none", color: "white" }} to='/Cricket'>Cricket</Nav.Link>
+            <Nav.Link as={Link} style={{ textDecoration: "none", color: "white" }} to='/Football'>Football</Nav.Link>
 
           </Nav>
         </Container>
