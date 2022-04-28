@@ -3,7 +3,7 @@ Created: 20th, April, 2022
 Updated: 20th, April, 2022
 Author: AtharvaCM
 Synopsis: Contains controller functions related to cricket routes.
-Exports: 
+Exports: getCricketTeams, getCricketTeamDetails, getCurrentCricketMatches
 */
 
 const express = require("express");

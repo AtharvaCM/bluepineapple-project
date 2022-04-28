@@ -25,8 +25,6 @@ const getResponse = async () => {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const res = await response.json();
-    // console.log("res", res);
-    // await storeResponse(res);
     return res;
   } catch (err) {
     console.log(`{ error: ${err.message || err.toString()} }`);

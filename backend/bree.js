@@ -11,15 +11,19 @@ const Graceful = require("@ladjs/graceful");
 
 const bree = new Bree({
   jobs: [
+    // {
+    //   name: "seriesInfoIPL",
+    //   cron: "0 12 * * *",
+    // },
     {
-      name: "seriesInfoIPL",
+      name: "currentMatchesCricket",
       cron: "0 12 * * *",
       // interval: "30s",
     },
     {
-      name: "currentMatchesCricket",
-      // cron: "0 12 * * *",
-      interval: "30s",
+      name: "seriesListCricket",
+      cron: "* * * * *",
+      // interval: "30s",
     },
   ],
 });

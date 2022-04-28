@@ -1,6 +1,6 @@
 /*
 Created: 22nd, April, 2022
-Updated: 27nd, April, 2022
+Updated: 27th, April, 2022
 Author: AtharvaCM
 Synopsis: Job which gets IPL series data from the API provider
 Exports: 
@@ -16,7 +16,8 @@ fetch = require("node-fetch");
 const getResponse = async () => {
   try {
     const cricAPIKey = process.env.CRIC_API_KEY;
-    const url = `https://api.cricapi.com/v1/series_info?apikey=${cricAPIKey}&offset=0&id=47b54677-34de-4378-9019-154e82b9cc1a`;
+    const seriesID = "47b54677-34de-4378-9019-154e82b9cc1a";
+    const url = `https://api.cricapi.com/v1/series_info?apikey=${cricAPIKey}&offset=0&id=${seriesID}`;
     const response = await fetch(url, {
       method: "GET",
       headers: {},
@@ -25,8 +26,6 @@ const getResponse = async () => {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const res = await response.json();
-    // console.log("res", res);
-    // await storeResponse(res);
     return res;
   } catch (err) {
     console.log(`{ error: ${err.message || err.toString()} }`);
