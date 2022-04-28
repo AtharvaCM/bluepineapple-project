@@ -11,8 +11,15 @@ const Schema = mongoose.Schema;
 
 const cricketSeriesTable = new Schema(
   {
-    data: { type: Object },
-    status: { type: String },
+    id: { type: String, required: true },
+    name: { type: String, required: true },
+    startDate: { type: String, required: true },
+    endDate: { type: String, required: true },
+    odi: { type: Number },
+    t20: { type: Number },
+    test: { type: Number },
+    sqauds: { type: Number },
+    matches: { type: Number },
   },
   { timeStamps: true }
 );
