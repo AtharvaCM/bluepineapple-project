@@ -1,8 +1,8 @@
 /*
-Created: 22nd, April, 2022
-Updated: 27nd, April, 2022
+Created: 28th, April, 2022
+Updated: 28th, April, 2022
 Author: AtharvaCM
-Synopsis: Job which gets Series List data from the API provider
+Synopsis: Job which gets Matches List data from the API provider
 Exports: 
 */
 console.log("[+] Fetching Current Matches info from https://CricketData.org");
@@ -10,12 +10,12 @@ console.log("[+] Fetching Current Matches info from https://CricketData.org");
 const connectToMongo = require("../dbConfig");
 const fetch = require("node-fetch");
 
-const Series = require("../models/cricket/seriesModel");
+const Match = require("../models/cricket/matchModel");
 
 const getResponse = async () => {
   try {
     const cricAPIKey = process.env.CRIC_API_KEY;
-    const url = `https://api.cricapi.com/v1/series?apikey=${cricAPIKey}&offset=0`;
+    const url = `https://api.cricapi.com/v1/matches?apikey=${cricAPIKey}&offset=0`;
     const response = await fetch(url, {
       method: "GET",
       headers: {},
@@ -30,37 +30,40 @@ const getResponse = async () => {
   }
 };
 
-const addSeries = (obj) => {
-  let newSeries = new Series({
+const addMatch = (obj) => {
+  let newMatch = new Match({
     id: obj.id,
     name: obj.name,
-    startDate: obj.startDate,
-    endDate: obj.endDate,
-    odi: obj.odi,
-    test: obj.test,
-    t20: obj.t20,
-    squads: obj.squads,
-    matches: obj.matches,
+    matchType: obj.matchType,
+    status: obj.status,
+    venue: obj.venue,
+    date: obj.date,
+    dateTimeGMT: obj.dateTimeGMT,
+    teams: obj.teams,
+    series_id: obj.series_id,
+    fantasyEnabled: obj.fantasyEnabled,
+    hasSquad: obj.hasSquad,
   });
-  newSeries.save((err) => {
+  newMatch.save((err) => {
     if (!err) {
-      console.log("[+] Series Added successfully");
+      console.log("[+] Match Added successfully");
     } else {
       console.log("[+] Error during insertion" + err);
     }
   });
 };
 
-const updateSeries = (obj) => {
+const updateMatch = (obj) => {
   const query = { id: String(obj.id) };
   const replacement = obj;
-  Series.findOneAndReplace(query, replacement, null, function (err, doc) {
+  Match.findOneAndReplace(query, replacement, null, function (err, doc) {
     if (err) {
       console.log("[+] Update Error", err);
     } else {
       console.log("Original Doc", doc);
     }
   });
+  s;
 };
 
 const storeResponse = (req) => {
@@ -72,13 +75,12 @@ const storeResponse = (req) => {
 
     // push each object in the data arrray to DB
     data.map((obj) => {
-      // check if Id of the obj already exists in DB
-      Series.findOne({ id: obj.id }, function (err, doc) {
+      Match.findOne({ id: obj.id }, function (err, doc) {
         if (err) {
           console.log("[+] Find Error", err);
         } else {
           // if doc is null create doc if not null update doc
-          doc === null ? addSeries(obj) : updateSeries(obj);
+          doc === null ? addMatch(obj) : updateMatch(obj);
         }
       });
     });
@@ -88,15 +90,12 @@ const storeResponse = (req) => {
   }
 };
 
-const seriesInfo = getResponse();
+const matchesList = getResponse();
 
 connectToMongo()
   .then(() => {
-    seriesInfo
-      .then((res) => {
-        // Once the promise is resolved, store in DB
-        storeResponse(res);
-      })
+    matchesList
+      .then((res) => storeResponse(res))
       .catch((err) => console.log(err));
   })
   .catch((err) => console.log(err));
