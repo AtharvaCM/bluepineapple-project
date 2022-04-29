@@ -5,11 +5,10 @@ Author: AtharvaCM
 Synopsis: Contains controller functions related to cricket routes.
 Exports: getCricketTeams, getCricketTeamDetails, getCurrentCricketMatches
 */
-
 const express = require("express");
-
 const Team = require("../models/cricket/teamModel");
 const CurrentMatches = require("../models/cricket/currentMatchesModel");
+
 
 const getCricketTeams = async (req, res) => {
   // call DB
@@ -20,6 +19,7 @@ const getCricketTeams = async (req, res) => {
     res.json({ error: err.message || err.toString() });
   }
 };
+
 
 const getCricketTeamDetails = async (req, res) => {
   // call DB
