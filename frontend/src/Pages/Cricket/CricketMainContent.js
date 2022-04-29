@@ -55,7 +55,7 @@ function CricketMainContent() {
                             <Col md={4} >
                                 {series.map((data, index) => {
                                     return (
-                                        <Card className='mt-2'>
+                                        <Card className='mt-2' bg='light'>
                                             <Card.Body>
                                                 <Card.Title>{data.name}</Card.Title>
                                                 <Card.Text>Star Date : {data.startDate}</Card.Text>

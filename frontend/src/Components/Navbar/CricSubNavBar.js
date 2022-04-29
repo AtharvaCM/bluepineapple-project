@@ -7,9 +7,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function cricSubNavBar() {
     return (
         <>
-            <Navbar bg="success" expand="lg">
+            <Navbar  style={{backgroundColor: '#505050', color: "white"}} expand="lg">
                 <Container fluid>
-                    <Navbar.Brand href="#" style={{color:'black',fontWeight:'bold'}} >Cricket</Navbar.Brand>
+                    <Navbar.Brand href="#" style={{color:'white',fontWeight:'bold'}} >Cricket</Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
@@ -17,18 +17,18 @@ function cricSubNavBar() {
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <Nav.Link as={Link} to='/Cricket/Teams' style={{color:'black',fontWeight:'bold'}}>Teams</Nav.Link>
-                            <Nav.Link href="#action2" style={{color:'black',fontWeight:'bold'}}>Schedule</Nav.Link>
-                            <Nav.Link href="#action2" style={{color:'black',fontWeight:'bold'}}>News</Nav.Link>
-                            <Nav.Link href="#" style={{color:'black',fontWeight:'bold'}}>Ranking</Nav.Link>
-                            <Nav.Link href="#" style={{color:'black',fontWeight:'bold'}}>Gallery</Nav.Link>
-                            <Nav.Link href="#" style={{color:'black',fontWeight:'bold'}}>Live Scores</Nav.Link>
-                            <Nav.Link href="#" style={{color:'black',fontWeight:'bold'}}>Quiz</Nav.Link>
-                            <Nav.Link href="#" style={{color:'black',fontWeight:'bold'}}>About</Nav.Link>
-                            <Nav.Link href="#" style={{color:'black',fontWeight:'bold'}}>Series</Nav.Link>
-                            <Nav.Link href="#" style={{color:'black',fontWeight:'bold'}}>Videos</Nav.Link>
-                            <Nav.Link href="#" style={{color:'black',fontWeight:'bold'}}>Stats</Nav.Link>
-                            <Nav.Link href="#" style={{color:'black',fontWeight:'bold'}}>Contact Us</Nav.Link>
+                            <Nav.Link as={Link} to='/Cricket/Teams' style={{color:'white',fontWeight:'bold'}}>Teams</Nav.Link>
+                            <Nav.Link href="#action2" style={{color:'white',fontWeight:'bold'}}>Schedule</Nav.Link>
+                            <Nav.Link href="#action2" style={{color:'white',fontWeight:'bold'}}>News</Nav.Link>
+                            <Nav.Link href="#" style={{color:'white',fontWeight:'bold'}}>Ranking</Nav.Link>
+                            <Nav.Link href="#" style={{color:'white',fontWeight:'bold'}}>Gallery</Nav.Link>
+                            <Nav.Link href="#" style={{color:'white',fontWeight:'bold'}}>Live Scores</Nav.Link>
+                            <Nav.Link href="#" style={{color:'white',fontWeight:'bold'}}>Quiz</Nav.Link>
+                            <Nav.Link href="#" style={{color:'white',fontWeight:'bold'}}>About</Nav.Link>
+                            <Nav.Link href="#" style={{color:'white',fontWeight:'bold'}}>Series</Nav.Link>
+                            <Nav.Link href="#" style={{color:'white',fontWeight:'bold'}}>Videos</Nav.Link>
+                            <Nav.Link href="#" style={{color:'white',fontWeight:'bold'}}>Stats</Nav.Link>
+                            <Nav.Link href="#" style={{color:'white',fontWeight:'bold'}}>Contact Us</Nav.Link>
                         </Nav>
                         <Form className="d-flex">
                             <FormControl
@@ -37,7 +37,7 @@ function cricSubNavBar() {
                                 className="me-2"
                                 aria-label="Search"
                             />
-                            <Button variant="outline-primary" style={{color:'black',fontWeight:'bold',borderColor:'black'}}>Search</Button>
+                            <Button variant="outline-primary" style={{color:'white',fontWeight:'bold',borderColor:'white'}}>Search</Button>
                         </Form>
                     </Navbar.Collapse>
                 </Container>

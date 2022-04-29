@@ -37,12 +37,12 @@ function CricFeaturedMatches() {
         return ( 
             <>
                 <Card className='mt-2 ms-2 me-3' border='dark'>
-                    <Card.Header style={{ backgroundColor: 'black', color: "white" }}>Featured Matches</Card.Header>
+                    <Card.Header style={{ backgroundColor: 'darkgray', color: "white" }}>Featured Matches</Card.Header>
                     <CardGroup>
 
                         {limit.map((data,index) => {
                             return (
-                                <Card key={index}>
+                                <Card key={index} bg='light'>
                                     <Card.Body>
                                         <Card.Text style={{ fontWeight: 'bold', textAlign: 'center' }}>
                                             {data.name}
@@ -53,15 +53,6 @@ function CricFeaturedMatches() {
                                 </Card>
                             )
                         })}
-
-
-
-
-
-
-
-
-
                     </CardGroup>
                 </Card>
             </>
