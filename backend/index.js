@@ -14,6 +14,10 @@ const port = process.env.PORT;
 
 var cors = require("cors");
 
+// init bree
+const bree = require("./bree");
+bree.start();
+
 const connectToMongo = require("./dbConfig");
 connectToMongo();
 
@@ -26,6 +30,6 @@ app.use("/api/v1/cricket", routerCricket);
 // });
 
 app.listen(port, () => {
-  console.log(`Sports Live app listening on port ${port}`);
-  console.log(`Open in browser http://127.0.0.1:${port}`);
+  console.log(`[+] Sports Live app listening on port ${port}`);
+  console.log(`[+] Open in browser http://127.0.0.1:${port}`);
 });

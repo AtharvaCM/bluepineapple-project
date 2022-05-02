@@ -13,10 +13,12 @@ const router = express.Router();
 const {
   getCricketTeams,
   getCricketTeamDetails,
+  getCurrentCricketMatches,
 } = require("../controllers/cricketController");
 
-router.get("/teams", getCricketTeams);
+router.get("/currentMatches", getCurrentCricketMatches);
 
+router.get("/teams", getCricketTeams);
 router.get("/teams/:id", getCricketTeamDetails);
 
 module.exports = router;
