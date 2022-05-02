@@ -25,7 +25,11 @@ const bree = new Bree({
     },
     {
       name: "matchesListCricket",
-      cron: "* * * * *",
+      cron: "0 12 * * *",
+    },
+    {
+      name: "newsArticlesCricket",
+      cron: "0 12 * * *",
     },
   ],
   closeWorkerAfterMs: 50000,

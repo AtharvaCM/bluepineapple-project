@@ -24,9 +24,7 @@ const logError = (err) => {
 const connectToMongo = async () => {
   try {
     console.log("[+] Attempting to connect to MongoDB Atlas");
-    mongoose.connect(mongoURI, options, () => {
-      console.log("[+] Connected to MongoDB Atlas successfully");
-    });
+    mongoose.connect(mongoURI, options);
   } catch (error) {
     handleError(error);
   }

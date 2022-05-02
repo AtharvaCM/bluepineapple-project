@@ -11,14 +11,20 @@ const { route } = require("express/lib/application");
 const router = express.Router();
 
 const {
-  getCricketTeams,
+  getCricketTeamsList,
   getCricketTeamDetails,
   getCurrentCricketMatches,
+  getCricketNews,
+  getCricketSeriesList,
 } = require("../controllers/cricketController");
 
 router.get("/currentMatches", getCurrentCricketMatches);
 
-router.get("/teams", getCricketTeams);
+router.get("/teams", getCricketTeamsList);
 router.get("/teams/:id", getCricketTeamDetails);
+
+router.get("/seriesList", getCricketSeriesList);
+
+router.get("/news", getCricketNews);
 
 module.exports = router;
