@@ -1,0 +1,44 @@
+.teamSpan{
+    display: inline-block;
+   background-color: #CFE0DB;
+    border-radius: 30px;
+    font-size: 20px;
+    padding-left:6%;
+    padding-right:6%;
+    cursor: pointer;
+    color:black;
+    
+    text-align: center;
+    
+}
+
+span:hover{
+    background-color: rgba(231, 24, 24, 0.759);
+}
+
+.grid{
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+  }
+  
+.gridImage{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    align-self: center;
+}
+
+p{
+    
+    font-size: large;
+}
+
+.gridItem{
+    cursor: pointer;
+}
+
+.gridItem:hover{
+    background-color: #2D2D39;
+}

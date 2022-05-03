@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function FootballSubNavBar() {
     return (
         <>
-            <Navbar bg="primary" expand="lg">
+            <Navbar bg="success" expand="lg">
                 <Container fluid>
                     <Navbar.Brand href="#" style={{ color: 'black', fontWeight: 'bold' }} >Football</Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />

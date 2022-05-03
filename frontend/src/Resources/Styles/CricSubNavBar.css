@@ -1,0 +1,10 @@
+.cricSubNavBar:hover{
+    background-color: #2D2D39;
+    margin-top: 0px;
+    padding-top: 0px;
+    border-radius: 5px;
+}
+
+.teamSpan:hover{
+    color: whitesmoke;
+}

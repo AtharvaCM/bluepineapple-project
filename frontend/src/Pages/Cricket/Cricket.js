@@ -1,5 +1,5 @@
 import React from 'react'
-import CricSubNavBar from '../../Components/Navbar/CricSubNavBar'
+import CricSubNavBar from '../../Components/Cricket/CricSubNavBar'
 import CricFeaturedMatches from './CricFeaturedMatches'
 import CricketMainContent from './CricketMainContent'
 

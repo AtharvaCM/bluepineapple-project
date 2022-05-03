@@ -5,20 +5,30 @@ import Cricket from './Pages/Cricket/Cricket';
 import Football from './Pages/Football/Football';
 import Footer from './Components/Navbar/Footer';
 import Teams from './Pages/Cricket/Teams';
+import Helmet from 'react-helmet'
+import Gallery from './Pages/Cricket/Gallery';
+import News from './Pages/Cricket/News';
+//import '../src/Resources/Styles/demo.css'
 
 
 function App() {
   return (
     <>
-    
+      <Helmet>
+        <style>{'body { background-color: #2D2D39; }'}</style>
+      </Helmet>
+
       <Router>
         <div>
           <Header></Header>
           <Switch>
-             <Route exact path="/" component={LandingPage}></Route>
-             <Route exact path="/Cricket" component={Cricket}></Route>
-             <Route exact path="/Football" component={Football}></Route>
-             <Route exact path="/Cricket/Teams" component={Teams}></Route>
+            <Route exact path="/" component={LandingPage}></Route>
+            <Route exact path="/Cricket" component={Cricket}></Route>
+            <Route exact path="/Football" component={Football}></Route>
+            <Route exact path="/Cricket/Teams" component={Teams}></Route>
+            <Route exact path="/Cricket/Gallery" component={Gallery}></Route>
+            <Route exact path="/Cricket/News" component={News}></Route>
+            
             {/*<Route exact path="/Getnews" component={Getnews}></Route> */}
           </Switch>
           <Footer></Footer>
