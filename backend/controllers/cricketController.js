@@ -3,13 +3,16 @@ Created: 20th, April, 2022
 Updated: 3rd, May, 2022
 Author: AtharvaCM
 Synopsis: Contains controller functions related to cricket routes.
-Exports: getCricketTeams, getCricketTeamDetails, getCurrentCricketMatches, getCricketNews
+Exports: getCricketTeamsList, getCricketTeamDetails, getCurrentCricketMatches, getCricketNews, 
+  getCricketPlayersList, getCricketPlayerDetails
 */
 const express = require("express");
 const Team = require("../models/cricket/teamModel");
 const CurrentMatches = require("../models/cricket/currentMatchesModel");
 const newsArticles = require("../models/cricket/newsArticleModel");
 const Series = require("../models/cricket/seriesModel");
+const Player = require("../models/cricket/playerModel");
+const { query } = require("express");
 
 const getCricketTeamsList = async (req, res) => {
   // call DB
@@ -35,7 +38,7 @@ const getCricketTeamDetails = async (req, res) => {
       status: "OK",
       team: team,
     };
-    res.json(team);
+    res.json(response);
   } catch (err) {
     res.json({ error: err.message || err.toString() });
   }
@@ -81,10 +84,42 @@ const getCricketSeriesList = async (req, res) => {
   }
 };
 
+const getCricketPlayersList = async (req, res) => {
+  try {
+    const team = req.params.team;
+    const query = team === null || team === undefined ? {} : { team: team };
+    const players = await Player.find(query);
+    const response = {
+      status: "OK",
+      data: players,
+    };
+    res.json(response);
+  } catch (err) {
+    res.json({ error: err.message || err.toString() });
+  }
+};
+
+const getCricketPlayerDetails = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const query = { id: id };
+    const player = await Player.find(query);
+    const response = {
+      status: "OK",
+      data: player,
+    };
+    res.json(response);
+  } catch (err) {
+    res.json({ error: err.message || err.toString() });
+  }
+};
+
 module.exports = {
   getCricketTeamsList,
   getCricketTeamDetails,
   getCurrentCricketMatches,
   getCricketSeriesList,
   getCricketNews,
+  getCricketPlayersList,
+  getCricketPlayerDetails,
 };

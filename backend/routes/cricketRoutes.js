@@ -16,12 +16,17 @@ const {
   getCurrentCricketMatches,
   getCricketNews,
   getCricketSeriesList,
+  getCricketPlayersList,
+  getCricketPlayerDetails,
 } = require("../controllers/cricketController");
 
 router.get("/currentMatches", getCurrentCricketMatches);
 
 router.get("/teams", getCricketTeamsList);
 router.get("/teams/:id", getCricketTeamDetails);
+
+router.get("/players", getCricketPlayersList);
+router.get("/players/:id", getCricketPlayerDetails);
 
 router.get("/seriesList", getCricketSeriesList);
 
