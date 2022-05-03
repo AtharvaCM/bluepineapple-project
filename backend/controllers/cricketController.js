@@ -9,7 +9,7 @@ Exports: getCricketTeamsList, getCricketTeamDetails, getCurrentCricketMatches, g
 const express = require("express");
 const Team = require("../models/cricket/teamModel");
 const CurrentMatches = require("../models/cricket/currentMatchesModel");
-const newsArticles = require("../models/cricket/newsArticleModel");
+const newsArticles = require("../models/newsArticleModel");
 const Series = require("../models/cricket/seriesModel");
 const Player = require("../models/cricket/playerModel");
 
