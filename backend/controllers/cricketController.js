@@ -12,7 +12,6 @@ const CurrentMatches = require("../models/cricket/currentMatchesModel");
 const newsArticles = require("../models/cricket/newsArticleModel");
 const Series = require("../models/cricket/seriesModel");
 const Player = require("../models/cricket/playerModel");
-const { query } = require("express");
 
 const getCricketTeamsList = async (req, res) => {
   // call DB
