@@ -1,9 +1,9 @@
 /*
 Created: 20th, April, 2022
-Updated: 20th, April, 2022
+Updated: 3rd, May, 2022
 Author: AtharvaCM
 Synopsis: Contains controller functions related to cricket routes.
-Exports: getCricketTeams, getCricketTeamDetails, getCurrentCricketMatches
+Exports: getCricketTeams, getCricketTeamDetails, getCurrentCricketMatches, getCricketNews
 */
 const express = require("express");
 const Team = require("../models/cricket/teamModel");
@@ -15,7 +15,11 @@ const getCricketTeamsList = async (req, res) => {
   // call DB
   try {
     const teams = await Team.find();
-    res.json(teams);
+    const response = {
+      status: "OK",
+      teams: teams,
+    };
+    res.json(response);
   } catch (err) {
     res.json({ error: err.message || err.toString() });
   }
@@ -27,6 +31,10 @@ const getCricketTeamDetails = async (req, res) => {
     const teamID = req.params.id;
     console.log("teamID", teamID);
     const team = await Team.findOne({ id: teamID });
+    const response = {
+      status: "OK",
+      team: team,
+    };
     res.json(team);
   } catch (err) {
     res.json({ error: err.message || err.toString() });
@@ -37,7 +45,10 @@ const getCurrentCricketMatches = async (req, res) => {
   // return capped current matches
   try {
     const matches = await CurrentMatches.find();
-    res.json(matches);
+    const response = {
+      data: matches[0].data,
+    };
+    res.json(response);
   } catch (err) {
     res.json({ error: err.message || err.toString() });
   }
@@ -46,7 +57,12 @@ const getCurrentCricketMatches = async (req, res) => {
 const getCricketNews = async (req, res) => {
   try {
     const articles = await newsArticles.find();
-    res.json(articles);
+    const response = {
+      status: "OK",
+      articles: articles,
+    };
+    console.log("[+] getCricketNews Status = ", response.status);
+    res.json(response);
   } catch (err) {
     res.json({ error: err.message || err.toString() });
   }
@@ -55,7 +71,11 @@ const getCricketNews = async (req, res) => {
 const getCricketSeriesList = async (req, res) => {
   try {
     const series = await Series.find();
-    res.json(series);
+    const response = {
+      status: "Ok",
+      series: series,
+    };
+    res.json(response);
   } catch (err) {
     res.json({ error: err.message || err.toString() });
   }
