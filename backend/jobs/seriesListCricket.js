@@ -5,7 +5,7 @@ Author: AtharvaCM
 Synopsis: Job which gets Series List data from the API provider
 Exports: 
 */
-console.log("[+] Fetching Current Matches info from https://CricketData.org");
+console.log("[+] Fetching Series info from https://CricketData.org");
 
 const connectToMongo = require("../dbConfig");
 const fetch = require("node-fetch");

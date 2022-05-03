@@ -8,9 +8,10 @@ Exports: getCricketTeams, getCricketTeamDetails, getCurrentCricketMatches
 const express = require("express");
 const Team = require("../models/cricket/teamModel");
 const CurrentMatches = require("../models/cricket/currentMatchesModel");
+const newsArticles = require("../models/cricket/newsArticleModel");
+const Series = require("../models/cricket/seriesModel");
 
-
-const getCricketTeams = async (req, res) => {
+const getCricketTeamsList = async (req, res) => {
   // call DB
   try {
     const teams = await Team.find();
@@ -19,7 +20,6 @@ const getCricketTeams = async (req, res) => {
     res.json({ error: err.message || err.toString() });
   }
 };
-
 
 const getCricketTeamDetails = async (req, res) => {
   // call DB
@@ -43,8 +43,28 @@ const getCurrentCricketMatches = async (req, res) => {
   }
 };
 
+const getCricketNews = async (req, res) => {
+  try {
+    const articles = await newsArticles.find();
+    res.json(articles);
+  } catch (err) {
+    res.json({ error: err.message || err.toString() });
+  }
+};
+
+const getCricketSeriesList = async (req, res) => {
+  try {
+    const series = await Series.find();
+    res.json(series);
+  } catch (err) {
+    res.json({ error: err.message || err.toString() });
+  }
+};
+
 module.exports = {
-  getCricketTeams,
+  getCricketTeamsList,
   getCricketTeamDetails,
   getCurrentCricketMatches,
+  getCricketSeriesList,
+  getCricketNews,
 };
