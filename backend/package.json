@@ -9,11 +9,13 @@
   "author": "AtharvaCM",
   "license": "ISC",
   "dependencies": {
+    "@ladjs/graceful": "^2.0.1",
     "bree": "^8.0.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "mongoose": "^6.3.0",
+    "node-fetch": "2.6.1",
     "nodemon": "^2.0.15"
   }
 }
