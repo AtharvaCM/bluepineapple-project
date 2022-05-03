@@ -1,14 +1,12 @@
-import React from 'react'
-import '../Resources/Styles/Spinner.css'
+import React from "react";
+import "../Resources/Styles/Spinner.css";
 
 function Spinner() {
-    return (
-        <>
-
-            <div class="spinner"></div>
-
-        </>
-    )
+  return (
+    <>
+      <div className="spinner"></div>
+    </>
+  );
 }
 
-export default Spinner
+export default Spinner;
