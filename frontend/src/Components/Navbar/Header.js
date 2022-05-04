@@ -8,13 +8,19 @@ function Header() {
   return (
     <>
 
-      <Navbar  variant="dark" style={{backgroundColor:'#3f4156'}}>
+      <Navbar variant="dark" style={{ backgroundColor: '#3f4156' }}>
         <Container>
-          <Navbar.Brand as={Link} to='/' style={{color:'white'}}>Sports Live</Navbar.Brand>
+          <Navbar.Brand as={Link} to='/' style={{ color: 'white' }}>Sports Live</Navbar.Brand>
           <Nav className="me-auto mx-auto">
-            <Nav.Link as={Link} style={{ textDecoration: "none", color: "white" }} to='/'>Home</Nav.Link>
-            <Nav.Link as={Link} style={{ textDecoration: "none", color: "white" }} to='/Cricket'>Cricket</Nav.Link>
-            <Nav.Link as={Link} style={{ textDecoration: "none", color: "white" }} to='/Football'>Football</Nav.Link>
+            <span className='cricSubNavBar'>
+              <Nav.Link as={Link} style={{ textDecoration: "none", color: "white" }} to='/'>Home</Nav.Link>
+            </span>
+            <span className='cricSubNavBar'>
+              <Nav.Link as={Link} style={{ textDecoration: "none", color: "white" }} to='/Cricket'>Cricket</Nav.Link>
+            </span>
+            <span className='cricSubNavBar'>
+              <Nav.Link as={Link} style={{ textDecoration: "none", color: "white" }} to='/Football'>Football</Nav.Link>
+            </span>
 
           </Nav>
         </Container>

@@ -42,3 +42,10 @@ p{
 .gridItem:hover{
     background-color: #2D2D39;
 }
+
+h4{
+    color:white;
+}
+a{
+    text-decoration: none;
+}

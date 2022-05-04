@@ -1,9 +1,13 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
+import TeamSubNavBar from '../../Components/Cricket/TeamSubNavBar'
+import CricSubNavBar from '../../Components/Cricket/CricSubNavBar'
 
 function MensTeam() {
     return (
         <>
+            <CricSubNavBar></CricSubNavBar>
+            <TeamSubNavBar></TeamSubNavBar>
             <div className='container'>
                 <Card style={{backgroundColor:'#3F4156',color:'white'}} className='mb-2 mt-2'>
                 <div className="grid">

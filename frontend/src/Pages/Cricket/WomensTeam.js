@@ -1,8 +1,13 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
+import TeamSubNavBar from '../../Components/Cricket/TeamSubNavBar'
+import CricSubNavBar from '../../Components/Cricket/CricSubNavBar'
 
 function WomensTeam() {
     return (
+        <>
+        <CricSubNavBar></CricSubNavBar>
+        <TeamSubNavBar></TeamSubNavBar>
         <div className='container'>
             <Card className='mb-2 mt-2' style={{backgroundColor:'#3F4156',color:'white'}}>
                 <div className="grid">
@@ -64,9 +69,8 @@ function WomensTeam() {
 
                 </div>
             </Card>
-
-
         </div>
+        </>
     )
 }
 

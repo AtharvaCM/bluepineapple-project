@@ -7,13 +7,13 @@ import '../../Resources/Styles/TeamSubNavBar.css'
 function Teams() {
 
     return (
-        <>
+       <>
             <div className="container mt-2">
                 <Card style={{ backgroundColor: '#51546E' }}>
                     <Card.Header>
                         <Card.Text style={{ fontSize: '30px', fontWeight: 'bold' }}>Teams</Card.Text>
                         <span className='me-5 teamSpan'>
-                            <Link to='/Cricket/Teams' style={{ textDecoration: 'none', color: 'black' }}>Mens</Link>
+                            <Link to='/Cricket/Team/Men' style={{ textDecoration: 'none', color: 'black' }}>Mens</Link>
                         </span>
                         <span className='me-5 teamSpan'>
                             <Link to='/Cricket/Team/Women' style={{ textDecoration: 'none', color: 'black' }}>Women</Link>
@@ -25,8 +25,6 @@ function Teams() {
                 </Card>
             </div>
         </>
-
     )
 }
-
 export default Teams

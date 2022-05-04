@@ -71,6 +71,18 @@ function Gallery() {
           15  
           <img src="https://static01.nyt.com/images/2021/01/20/world/19India-cricket-print/19India-cricket1-videoSixteenByNineJumbo1600.jpg"  alt='img' />
         </div>
+        <div class="item">
+          16  
+          <img src="https://static01.nyt.com/images/2021/01/20/world/19India-cricket-print/19India-cricket1-videoSixteenByNineJumbo1600.jpg"  alt='img' />
+        </div>
+        <div class="item">
+          17  
+          <img src="https://static01.nyt.com/images/2021/01/20/world/19India-cricket-print/19India-cricket1-videoSixteenByNineJumbo1600.jpg"  alt='img' />
+        </div>
+        <div class="item">
+          18  
+          <img src="https://static01.nyt.com/images/2021/01/20/world/19India-cricket-print/19India-cricket1-videoSixteenByNineJumbo1600.jpg"  alt='img' />
+        </div>
       </div>
       
     </>
