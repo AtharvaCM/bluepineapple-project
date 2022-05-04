@@ -1,6 +1,6 @@
 /*
 Created: 15th, April, 2022
-Updated: 20th, April, 2022
+Updated: 3rd, May, 2022
 Author: AtharvaCM
 Synopsis: App's entry point, handles high level functions
 Exports: 
@@ -23,11 +23,8 @@ connectToMongo();
 
 const routerCricket = require("./routes/cricketRoutes");
 
+app.use(cors());
 app.use("/api/v1/cricket", routerCricket);
-
-// app.get("/", (req, res) => {
-//   res.send("Hello World!");
-// });
 
 app.listen(port, () => {
   console.log(`[+] Sports Live app listening on port ${port}`);

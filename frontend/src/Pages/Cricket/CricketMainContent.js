@@ -1,14 +1,13 @@
-import React from 'react'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import NewsInfo from '../../Api/NewsApi'
-import SeriesApi from '../../Api/SeriesApi'
-import { useEffect, useState } from 'react'
-
+import React from "react";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import "bootstrap/dist/css/bootstrap.min.css";
+import NewsInfo from "../../Api/NewsApi";
+import SeriesApi from "../../Api/SeriesApi";
+import { useEffect, useState } from "react";
 
 function CricketMainContent() {
     const [news, setnews] = useState(null)
@@ -103,10 +102,7 @@ function CricketMainContent() {
 
 
     }
-
-
-
-
+  }
 }
 
-export default CricketMainContent
+export default CricketMainContent;
