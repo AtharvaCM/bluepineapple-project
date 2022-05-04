@@ -7,33 +7,39 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function Header() {
   return (
     <>
-      <Navbar style={{ backgroundColor: "rgb(255, 145, 38)" }} variant="dark">
+      <Navbar variant="dark" style={{ backgroundColor: "#3f4156" }}>
         <Container>
-          <Navbar.Brand as={Link} to="/" style={{ color: "black" }}>
+          <Navbar.Brand as={Link} to="/" style={{ color: "white" }}>
             Sports Live
           </Navbar.Brand>
           <Nav className="me-auto mx-auto">
-            <Nav.Link
-              as={Link}
-              style={{ textDecoration: "none", color: "black" }}
-              to="/"
-            >
-              Home
-            </Nav.Link>
-            <Nav.Link
-              as={Link}
-              style={{ textDecoration: "none", color: "black" }}
-              to="/Cricket"
-            >
-              Cricket
-            </Nav.Link>
-            <Nav.Link
-              as={Link}
-              style={{ textDecoration: "none", color: "black" }}
-              to="/Football"
-            >
-              Football
-            </Nav.Link>
+            <span className="cricSubNavBar">
+              <Nav.Link
+                as={Link}
+                style={{ textDecoration: "none", color: "white" }}
+                to="/"
+              >
+                Home
+              </Nav.Link>
+            </span>
+            <span className="cricSubNavBar">
+              <Nav.Link
+                as={Link}
+                style={{ textDecoration: "none", color: "white" }}
+                to="/Cricket"
+              >
+                Cricket
+              </Nav.Link>
+            </span>
+            <span className="cricSubNavBar">
+              <Nav.Link
+                as={Link}
+                style={{ textDecoration: "none", color: "white" }}
+                to="/Football"
+              >
+                Football
+              </Nav.Link>
+            </span>
           </Nav>
         </Container>
       </Navbar>

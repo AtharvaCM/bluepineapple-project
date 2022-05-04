@@ -11,9 +11,8 @@ function CricFeaturedMatches() {
   const [match, setmatch] = useState(null);
 
   useEffect(() => {
-    MatchInfo()
+    matchInfo()
       .then((data) => {
-        console.log("data", data);
         setmatch(data.data);
       })
       .catch((err) => console.log(err));
@@ -33,17 +32,25 @@ function CricFeaturedMatches() {
     let limit = match.slice(0, 4);
     return (
       <>
-        <Card className="mt-2 ms-2 me-3" border="dark">
-          <Card.Header style={{ backgroundColor: "darkgray", color: "white" }}>
+        <Card className="mt-2 ms-2 me-3" style={{ backgroundColor: "#696D97" }}>
+          <Card.Header style={{ backgroundColor: "#696D97", color: "white" }}>
             Featured Matches
           </Card.Header>
           <CardGroup>
             {limit.map((data, index) => {
               return (
-                <Card key={index} bg="light">
+                <Card
+                  key={index}
+                  style={{ backgroundColor: "#3F4156" }}
+                  className="mt-1"
+                >
                   <Card.Body>
                     <Card.Text
-                      style={{ fontWeight: "bold", textAlign: "center" }}
+                      style={{
+                        fontWeight: "bold",
+                        textAlign: "center",
+                        color: "white",
+                      }}
                     >
                       {data.name}
                     </Card.Text>
@@ -53,6 +60,7 @@ function CricFeaturedMatches() {
             })}
           </CardGroup>
         </Card>
+        );
       </>
     );
   }
