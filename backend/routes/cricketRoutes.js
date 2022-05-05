@@ -1,6 +1,6 @@
 /*
 Created: 20th, April, 2022
-Updated: 4th, May, 2022
+Updated: 5th, May, 2022
 Author: AtharvaCM
 Synopsis: Contains routes related to cricket and calls respective controller function of the routes. 
 Exports: Express router obect
@@ -10,16 +10,24 @@ const express = require("express");
 const router = express.Router();
 
 const {
-  getCricketTeamsList,
-  getCricketTeamDetails,
   getCurrentCricketMatches,
   getCricketNews,
   getCricketSeriesList,
+} = require("../controllers/cricketController");
+
+const {
+  getCricketTeamsList,
+  getCricketTeamDetails,
+  getCricketTeamWinPercentageByYear,
+  getCricketTeamTotalMatchesStats,
+} = require("../controllers/cricketTeamController");
+
+const {
   getCricketPlayersList,
   getCricketPlayerDetails,
   getCricketPlayerRunsInLastFiveYears,
-  getCricketTeamWinPercentageByYear,
-} = require("../controllers/cricketController");
+  getCricketPlayerBattingODIRankingsList,
+} = require("../controllers/cricketPlayerController");
 
 router.get("/currentMatches", getCurrentCricketMatches);
 
