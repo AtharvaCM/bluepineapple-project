@@ -3,9 +3,7 @@ Created: 20th, April, 2022
 Updated: 5th, May, 2022
 Author: AtharvaCM
 Synopsis: Contains controller functions related to cricket routes.
-Exports: getCricketTeamsList, getCricketTeamDetails, getCurrentCricketMatches, getCricketNews, 
-  getCricketPlayersList, getCricketPlayerDetails, getCricketTeamWinPercentageByYear,
-  getCricketTeamTotalMatchesStats, getCricketPlayerBattingODIRankingsList
+Exports: getCurrentCricketMatches, getCricketNews, getCricketSeriesList
 */
 
 const CurrentMatches = require("../models/cricket/currentMatchesModel");
