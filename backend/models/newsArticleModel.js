@@ -1,6 +1,5 @@
 /*
 Created: 2nd, May, 2022
-Updated: 2nd, May, 2022
 Synopsis: MongoDB Model for News Article collection
 Exports: News Article model
 */

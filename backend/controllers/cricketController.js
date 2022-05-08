@@ -1,6 +1,5 @@
 /*
 Created: 20th, April, 2022
-Updated: 5th, May, 2022
 Synopsis: Contains controller functions related to cricket routes.
 Exports: getCurrentCricketMatches, getCricketNews, getCricketSeriesList
 */

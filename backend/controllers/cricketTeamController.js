@@ -1,6 +1,5 @@
 /*
 Created: 5th, May, 2022
-Updated: 5th, May, 2022
 Synopsis: Contains controller functions related to cricket team routes.
 Exports: getCricketTeamsList, getCricketTeamDetails, getCricketTeamWinPercentageByYear
 */

@@ -1,6 +1,5 @@
 /*
 Created: 20th, April, 2022
-Updated: 20th, April, 2022
 Synopsis: MongoDB Model for Cricket Team collection
 Exports: Team model
 */

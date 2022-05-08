@@ -1,6 +1,5 @@
 /*
 Created: 15th, April, 2022
-Updated: 27th, April, 2022
 Synopsis: Configuration file for MongoDB connection string
 Exports: connectToMongo()
 */
