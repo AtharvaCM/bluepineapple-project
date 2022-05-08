@@ -1,7 +1,6 @@
 /*
 Created: 2nd, May, 2022
 Updated: 2nd, May, 2022
-Author: AtharvaCM
 Synopsis: Job which gets News articles data from the API provider
 Exports: 
 */

@@ -1,7 +1,6 @@
 /*
 Created: 27th, April, 2022
 Updated: 27th, April, 2022
-Author: AtharvaCM
 Synopsis: MongoDB Model for Cricket CurrentMatches collection
 Exports: CurrentMatches model
 */

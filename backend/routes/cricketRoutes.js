@@ -1,7 +1,6 @@
 /*
 Created: 20th, April, 2022
 Updated: 5th, May, 2022
-Author: AtharvaCM
 Synopsis: Contains routes related to cricket and calls respective controller function of the routes. 
 Exports: Express router obect
 */

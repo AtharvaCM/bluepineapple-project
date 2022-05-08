@@ -1,7 +1,6 @@
 /*
 Created: 28th, April, 2022
 Updated: 28th, April, 2022
-Author: AtharvaCM
 Synopsis: Job which gets Matches List data from the API provider
 Exports: 
 */

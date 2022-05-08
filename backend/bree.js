@@ -1,7 +1,6 @@
 /*
 Created: 21th, April, 2022
 Updated: 28th, April, 2022
-Author: AtharvaCM
 Synopsis: Bree initialization and setup
 Exports: 
 */

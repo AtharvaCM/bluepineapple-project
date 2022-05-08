@@ -1,7 +1,6 @@
 /*
 Created: 22nd, April, 2022
 Updated: 22nd, April, 2022
-Author: AtharvaCM
 Synopsis: MongoDB Model for Cricket Series collection
 Exports: Team model
 */
