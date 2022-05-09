@@ -1,7 +1,5 @@
 /*
-Created: 3rrdd, May, 2022
-Updated: 3rrdd, May, 2022
-Author: AtharvaCM
+Created: 3rd, May, 2022
 Synopsis: MongoDB Model for Cricket Player collection
 Exports: Player model
 */

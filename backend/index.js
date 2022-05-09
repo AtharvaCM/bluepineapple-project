@@ -1,7 +1,5 @@
 /*
 Created: 15th, April, 2022
-Updated: 3rd, May, 2022
-Author: AtharvaCM
 Synopsis: App's entry point, handles high level functions
 Exports: 
 */
