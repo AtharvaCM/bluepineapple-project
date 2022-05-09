@@ -11,7 +11,7 @@ function CricFeaturedMatches() {
   const [match, setmatch] = useState(null);
 
   useEffect(() => {
-    matchInfo()
+    MatchInfo()
       .then((data) => {
         setmatch(data.data);
       })
