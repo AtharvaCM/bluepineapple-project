@@ -11,7 +11,9 @@ function cricSubNavBar() {
             <div>
                 <Navbar style={{ backgroundColor: '#51546e', color: "white" }} expand="lg">
                     <Container fluid>
-                        <Navbar.Brand href="#" style={{ color: 'white', fontWeight: 'bold' }} >Cricket</Navbar.Brand>
+                        <Navbar.Brand href="#" style={{ color: 'white', fontWeight: 'bold' }} >
+                        <Nav.Link as={Link} to='/Cricket' style={{ color: 'white', fontWeight: 'bold' }}>Cricket</Nav.Link>
+                        </Navbar.Brand>
                         <Navbar.Toggle aria-controls="navbarScroll" />
                         <Navbar.Collapse id="navbarScroll" style={{ padding: '0px' }}>
                             <Nav
@@ -28,7 +30,7 @@ function cricSubNavBar() {
                                 </span>
 
                                 <span className='cricSubNavBar'>
-                                    <Nav.Link as={Link} to='/Cricket/Ranking' style={{ color: 'white', fontWeight: 'bold' }}>Ranking</Nav.Link>
+                                    <Nav.Link as={Link} to='/Cricket/Ranking/Batting' style={{ color: 'white', fontWeight: 'bold' }}>Ranking</Nav.Link>
                                 </span>
 
                                 <span className='cricSubNavBar'>

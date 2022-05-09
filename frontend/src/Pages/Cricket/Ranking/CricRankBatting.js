@@ -1,11 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CricRankingNavbar from "../../../Components/Cricket/Ranking/CricRankingNavbar";
 import {Button,Col,Card,Row} from "react-bootstrap"
 import CricSubNavBar from '../../../Components/Cricket/CricSubNavBar';
+import Test from "../../../RankingDemo/RankBatsmanTest";
+import ODI from "../../../RankingDemo/RankBatsmanODI";
+import Twenty from "../../../RankingDemo/RankBatsmanT20";
 
 function CricRankBatting()
 {
+    const clickHandler = (e) =>{
+        console.log(e);
+        setupdatePlayer(e);
+    }
+
+    const [Details,setDetails] = useState(Test);
+    const [updatePlayer, setupdatePlayer] = useState('')
+    const changeData = (Data) => {
+        if(Data==="Test"){
+            setDetails(Test)
+            console.log(Details)}
+        else if(Data==="ODI"){
+            setDetails(ODI)
+            console.log(Details)}
+        else if(Data==="T20"){
+            setDetails(Twenty)
+            console.log(Details)}
+    }
+    
+    //console.log(updatePlayer);
     return (
         <>
             <CricSubNavBar />
@@ -14,66 +37,57 @@ function CricRankBatting()
             <Card style={{backgroundColor:'#3F4156',color:'white'}}  className="mx-auto, w-100 ,my-auto mb-2 mt-2">
                     <Row>
                     <div>              
-                        <Button style={{ textDecoration: 'none', color: 'black',borderRadius:20 }} className="mx-4 w-25">Test</Button>
-                        <Button style={{ textDecoration: 'none', color: 'black',borderRadius:20 }} className="mx-4 w-25">ODI</Button>
-                        <Button style={{ textDecoration: 'none', color: 'black',borderRadius:20 }} className="mx-4 w-25">T20</Button>
+                        <Button onClick={()=>changeData("Test")} style={{ textDecoration: 'none', color: 'black',borderRadius:20 }} className="mx-4 w-25">Test</Button>
+                        <Button onClick={()=>changeData("ODI")} style={{ textDecoration: 'none', color: 'black',borderRadius:20 }} className="mx-4 w-25">ODI</Button>
+                        <Button onClick={()=>changeData("T20")} style={{ textDecoration: 'none', color: 'black',borderRadius:20 }} className="mx-4 w-25">T20</Button>
                     </div>
                           <hr></hr>
                          <Col xs={2} md={6} className="mx-2">
-                        
                          <table className='table'>
                              <tr>
                                  <th>Pos</th>
                                  <th colSpan={2} style={{textAlign:"center"}}>Batsman</th>
                              </tr>
-                             <tr>
-                                 <td>1</td>
-                                 <td><img src="https://www.cricbuzz.com/a/img/v1/50x50/i1/c184115/marnus-labuschagne.jpg" alt=".."></img></td>
-                                 <td><a href="#"><h4>Marnus Labuschagne</h4></a></td>
+                         { Details.map( player => {
+                           //console.log(player) 
+                           return ( 
+                             <tr  key={player.id}>
+                                 <td>{player.id}</td>
+                                 <td><img src={player.img} alt=".."></img></td>
+                                 <td ><a href="#"><h4 onClick={()=>clickHandler(player)}>{player.pname}</h4></a></td>
                              </tr>
-                             <tr>
-                                 <td>2</td>
-                                 <td><img src="https://www.cricbuzz.com/a/img/v1/50x50/i1/c170658/rohit-sharma.jpg" alt=".."></img></td>
-                                 <td><a href="#"><h4>Rohit Sharma</h4></a></td>
-                             </tr>
-                             <tr>
-                                 <td>3</td>
-                                 <td><img src="https://www.cricbuzz.com/a/img/v1/50x50/i1/c170661/virat-kohli.jpg" alt=".."></img></td>
-                                 <td><a href="#"><h4>Virat Kohli</h4></a></td>
-                             </tr>
-                             <tr>
-                                 <td>4</td>
-                                 <td><img src="https://www.cricbuzz.com/a/img/v1/50x50/i1/c170661/virat-kohli.jpg" alt=".."></img></td>
-                                 <td><a href="#"><h4>Virat Kohli</h4></a></td>
-                             </tr>
+                            )}
+                         )}     
                          </table>
+                           
+                       
                         </Col>
                         <Col xs={2} md={5}>
                             <Card style={{backgroundColor:'#3F4156',color:'white'}} className="mx-auto, w-100 ,my-auto  mb-2 mt-2 h-75 my-5">
-                                <img src="https://www.cricbuzz.com/a/img/v1/152x152/i1/c170661/virat-kohli.jpg" className="rounded mx-auto d-block my-4" alt="..."></img>
+                                <img src={updatePlayer.img} className="rounded mx-auto d-block my-4" alt="..."></img>
                                 <table className="mx-4" style={{fontSize:22}}>
                                     <tr>
                                         <td>Name:</td>
-                                        <td>Virat Kohli</td>
+                                        <td>{updatePlayer.pname}</td>
                                     </tr>
                                     <tr>
                                         <td>Born:</td>
-                                        <td>27th May,1984</td>
+                                        <td></td>
                                     </tr>
                                     <tr>
                                         <td>Birth Place:</td>
-                                        <td>Pune</td>
+                                        <td>{}</td>
                                     </tr>
                                     <tr>
                                         <td>Role:</td>
-                                        <td>Batsman</td>
+                                        <td>{updatePlayer.role}</td>
                                     </tr>
                                     <tr>
                                         <td>Team:</td>
                                         <td>India</td>
                                     </tr>
                                 </table>
-                                <a style={{fontSize:18,textAlign:"right",color:"white"}}  href="#">More Details...</a>
+                                <Button style={{backgroundColor:'blue'}}>Reaad more..</Button>
                             </Card>
                             
                         </Col>
@@ -83,5 +97,7 @@ function CricRankBatting()
             </div>
         </>
     );
+
+
 }
 export default CricRankBatting;
