@@ -1,7 +1,7 @@
-import React from 'react'
-import CricSubNavBar from '../../Components/Cricket/CricSubNavBar'
-import CricFeaturedMatches from './CricFeaturedMatches'
-import CricketMainContent from './CricketMainContent'
+import React from "react";
+import CricSubNavBar from "../../Components/Cricket/CricSubNavBar";
+import CricFeaturedMatches from "./CricFeaturedMatches";
+import CricketMainContent from "./CricketMainContent";
 
 function Cricket() {
   return (
@@ -10,8 +10,7 @@ function Cricket() {
       <CricFeaturedMatches></CricFeaturedMatches>
       <CricketMainContent></CricketMainContent>
     </>
-
-  )
+  );
 }
 
-export default Cricket
+export default Cricket;

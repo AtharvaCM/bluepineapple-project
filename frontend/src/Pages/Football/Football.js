@@ -1,15 +1,14 @@
-import React from 'react'
-import FootballMainContent from './FootballMainContent'
-import FootballSubNavBar from './FootballSubNavBar'
-
+import React from "react";
+import FootballMainContent from "./FootballMainContent";
+import FootballSubNavBar from "./FootballSubNavBar";
 
 function Football() {
   return (
     <>
-    <FootballSubNavBar></FootballSubNavBar>
-    <FootballMainContent></FootballMainContent>
+      <FootballSubNavBar></FootballSubNavBar>
+      <FootballMainContent></FootballMainContent>
     </>
-  )
+  );
 }
 
-export default Football
+export default Football;
