@@ -33,8 +33,8 @@ function News() {
 
                     {news.map((data, index) => {
                         return (
-                            <div className='container'>
-                                <Card className="bg-dark text-white mt-2" key={index}>
+                            <div className='container'  key={index}>
+                                <Card className="bg-dark text-white mt-2">
                                     <Card.Img src={data.urlToImage} alt="Card image" />
                                     <Card.ImgOverlay>
                                         <Card.Title style={{fontSize:'30px'}}>{data.title}</Card.Title>
