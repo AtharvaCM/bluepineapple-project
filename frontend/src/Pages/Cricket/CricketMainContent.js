@@ -17,7 +17,7 @@ function CricketMainContent() {
     NewsInfo()
       .then((data) => {
         setnews(data.articles);
-        console.log(data.articles);
+        console.log("articles = ", data.articles);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -25,12 +25,12 @@ function CricketMainContent() {
   useEffect(() => {
     SeriesApi()
       .then((data, index) => {
-        setseries(data.data);
+        setseries(data.series);
       })
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(series);
+  console.log("series", series);
 
   if (news === null) {
     return <></>;
