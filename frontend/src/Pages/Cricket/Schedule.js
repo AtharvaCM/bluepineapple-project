@@ -4,7 +4,7 @@ import {player} from '../../Api/PlayerApi'
 
 function Schedule({team}) {
   const [play, setplay] = useState([])
-  const [sort, setsort] = useState([])
+  //const [sort, setsort] = useState([])
     useEffect(() => {
       player().then((data)=>{
         setplay(data.data);

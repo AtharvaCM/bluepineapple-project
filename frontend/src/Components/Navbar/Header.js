@@ -3,6 +3,9 @@ import Navbar from "react-bootstrap/Navbar";
 import { Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { FaBasketballBall,FaHome} from "react-icons/fa";
+import {MdSportsCricket} from 'react-icons/md'
+
 
 function Header() {
   return (
@@ -10,7 +13,7 @@ function Header() {
       <Navbar variant="dark" style={{ backgroundColor: "#3f4156" }}>
         <Container>
           <Navbar.Brand as={Link} to="/" style={{ color: "white" }}>
-            Sports Live
+          Sports Live
           </Navbar.Brand>
           <Nav className="me-auto mx-auto">
             <span className="cricSubNavBar">
@@ -19,7 +22,7 @@ function Header() {
                 style={{ textDecoration: "none", color: "white" }}
                 to="/"
               >
-                Home
+                <FaHome/> Home
               </Nav.Link>
             </span>
             <span className="cricSubNavBar">
@@ -28,7 +31,7 @@ function Header() {
                 style={{ textDecoration: "none", color: "white" }}
                 to="/Cricket"
               >
-                Cricket
+                <MdSportsCricket />  Cricket
               </Nav.Link>
             </span>
             <span className="cricSubNavBar">
@@ -37,9 +40,27 @@ function Header() {
                 style={{ textDecoration: "none", color: "white" }}
                 to="/Football"
               >
-                Football
+               <FaBasketballBall /> Football
               </Nav.Link>
             </span>
+            {/* <span className="cricSubNavBar">
+              <Nav.Link
+                as={Link}
+                style={{ textDecoration: "none", color: "white" }}
+                to="/Football"
+              >
+                Shop
+              </Nav.Link>
+            </span>
+            <span className="cricSubNavBar">
+              <Nav.Link
+                as={Link}
+                style={{ textDecoration: "none", color: "white" }}
+                to="/Football"
+              >
+                Book
+              </Nav.Link>
+            </span> */}
           </Nav>
         </Container>
       </Navbar>
