@@ -67,7 +67,7 @@ function CricRankTeam()
                                         <td>50</td>
                                     </tr>
                                 </table>
-                                <a style={{fontSize:18,textAlign:"right",color:"white"}}  href="#">More Details...</a>
+                                <a style={{fontSize:18,textAlign:"right",color:"white"}}  href="">More Details...</a>
                             </Card>
                             
                         </Col>

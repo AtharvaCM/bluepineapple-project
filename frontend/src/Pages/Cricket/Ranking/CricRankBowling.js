@@ -1,21 +1,37 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import CricRankingNavbar from "../../../Components/Cricket/Ranking/CricRankingNavbar";
 import {Button,Col,Card,Row} from "react-bootstrap"
 import CricSubNavBar from '../../../Components/Cricket/CricSubNavBar';
 import Test from "../../../RankingDemo/RankBatsmanTest";
 import ODI from "../../../RankingDemo/RankBatsmanODI";
 import Twenty from "../../../RankingDemo/RankBatsmanT20";
+import CricPlayerInfo from "../CricPlayerInfo";
 
 function CricRankBowling()
 {
+    let history = useHistory();
+     
+    const routeChange = (e) => {
+        history.push({
+            pathname:"/Cricket/players/Playernfo",
+            state:{e},
+        })
+    }
+
     const clickHandler = (e) =>{
         console.log(e);
         setupdatePlayer(e);
     }
 
+    const pageChange = () => {
+        <>
+            <CricPlayerInfo/>  
+        </>
+    }
+
     const [Details,setDetails] = useState(Test);
-    const [updatePlayer, setupdatePlayer] = useState('')
+    const [updatePlayer, setupdatePlayer] = useState(Details[0])
     const changeData = (Data) => {
         if(Data==="Test"){
             setDetails(Test)
@@ -42,7 +58,7 @@ function CricRankBowling()
                         <Button onClick={()=>changeData("T20")} style={{ textDecoration: 'none', color: 'black',borderRadius:20 }} className="mx-4 w-25">T20</Button>
                     </div>
                           <hr></hr>
-                         <Col xs={2} md={6} className="mx-2">
+                         <Col md={6} sm={12} className="mx-2">
                          <table className='table'>
                              <tr>
                                  <th>Pos</th>
@@ -62,7 +78,7 @@ function CricRankBowling()
                            
                        
                         </Col>
-                        <Col xs={2} md={5}>
+                        <Col md={5} sm={12}>
                             <Card style={{backgroundColor:'#3F4156',color:'white'}} className="mx-auto, w-100 ,my-auto  mb-2 mt-2 h-75 my-5">
                                 <img src={updatePlayer.img} className="rounded mx-auto d-block my-4" alt="..."></img>
                                 <table className="mx-4" style={{fontSize:22}}>
@@ -87,7 +103,7 @@ function CricRankBowling()
                                         <td>India</td>
                                     </tr>
                                 </table>
-                                <Button style={{ color: 'white', fontWeight: 'bold', backgroundColor: '#71C6DD' , alignSelf:'center'}} className={'w-75'}>Read more..</Button>
+                                <Button style={{ color: 'white', fontWeight: 'bold', backgroundColor: '#71C6DD' , alignSelf:'center'}} className={'w-75'} onClick = { () => routeChange(updatePlayer)}>Read more..</Button>
                              </Card>
                             
                         </Col>
