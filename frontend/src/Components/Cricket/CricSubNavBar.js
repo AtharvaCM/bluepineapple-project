@@ -4,6 +4,10 @@ import { Nav, Button, Form, FormControl, Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../Resources/Styles/CricSubNavBar.css'
+import {RiTeamFill,RiNewspaperFill,RiGalleryFill,RiLiveFill} from 'react-icons/ri'
+import {MdOutlineTransferWithinAStation} from 'react-icons/md'
+import {GiWavyChains} from 'react-icons/gi'
+import {ImStatsDots} from 'react-icons/im'
 
 function cricSubNavBar() {
     return (
@@ -20,31 +24,31 @@ function cricSubNavBar() {
                                 navbarScroll
                             >
                                 <span className='cricSubNavBar'>
-                                    <Nav.Link as={Link} to='/Cricket/Team/Men' style={{ color: 'white', fontWeight: 'bold' }}>Teams</Nav.Link>
+                                    <Nav.Link as={Link} to='/Cricket/Team/Men' style={{ color: 'white', fontWeight: 'bold' }}> <RiTeamFill/> Teams</Nav.Link>
                                 </span>
 
                                 <span className='cricSubNavBar'>
-                                    <Nav.Link as={Link} to='/Cricket/News' style={{ color: 'white', fontWeight: 'bold' }}>News</Nav.Link>
+                                    <Nav.Link as={Link} to='/Cricket/News' style={{ color: 'white', fontWeight: 'bold' }}><RiNewspaperFill/> News</Nav.Link>
                                 </span>
 
                                 <span className='cricSubNavBar'>
-                                    <Nav.Link as={Link} to='/Cricket/Ranking' style={{ color: 'white', fontWeight: 'bold' }}>Ranking</Nav.Link>
+                                    <Nav.Link as={Link} to='/Cricket/Ranking' style={{ color: 'white', fontWeight: 'bold' }}><MdOutlineTransferWithinAStation/> Ranking</Nav.Link>
                                 </span>
 
                                 <span className='cricSubNavBar'>
-                                    <Nav.Link as={Link} to='/Cricket/Gallery' style={{ color: 'white', fontWeight: 'bold' }}>Gallery</Nav.Link>
+                                    <Nav.Link as={Link} to='/Cricket/Gallery' style={{ color: 'white', fontWeight: 'bold' }}><RiGalleryFill/> Gallery</Nav.Link>
                                 </span>
 
                                 <span className='cricSubNavBar'>
-                                    <Nav.Link href="#" style={{ color: 'white', fontWeight: 'bold' }}>Live Scores</Nav.Link>
+                                    <Nav.Link as={Link} to='/Cricket/LiveScore' style={{ color: 'white', fontWeight: 'bold' }}><RiLiveFill /> Live Scores</Nav.Link>
                                 </span>
 
                                 <span className='cricSubNavBar'>
-                                    <Nav.Link href="#" style={{ color: 'white', fontWeight: 'bold' }}>Series</Nav.Link>
+                                    <Nav.Link as={Link} to='/Cricket/Series' style={{ color: 'white', fontWeight: 'bold' }}><GiWavyChains/> Series</Nav.Link>
                                 </span>
 
                                 <span className='cricSubNavBar'>
-                                    <Nav.Link href="#" style={{ color: 'white', fontWeight: 'bold' }}>Stats</Nav.Link>
+                                    <Nav.Link href="#" style={{ color: 'white', fontWeight: 'bold' }}><ImStatsDots/> Stats</Nav.Link>
                                 </span>
 
                             </Nav>

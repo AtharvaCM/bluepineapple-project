@@ -8,98 +8,89 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NewsInfo from "../../Api/NewsApi";
 import SeriesApi from "../../Api/SeriesApi";
 import { useEffect, useState } from "react";
+import {SiStarship} from 'react-icons/si'
+import {GiFinishLine} from 'react-icons/gi'
 
 function CricketMainContent() {
-  const [news, setnews] = useState(null);
-  const [series, setseries] = useState(null);
+    const [news, setnews] = useState(null)
+    const [series, setseries] = useState(null)
 
-  useEffect(() => {
-    NewsInfo()
-      .then((data) => {
-        setnews(data.articles);
-        console.log("articles = ", data.articles);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+    useEffect(() => {
+        NewsInfo().then((data) => {
+            setnews(data.articles);
+            console.log(data.articles);
 
-  useEffect(() => {
-    SeriesApi()
-      .then((data, index) => {
-        setseries(data.series);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+        }).catch((err) => console.log(err));
+    }, [])
 
-  console.log("series", series);
+    useEffect(() => {
+        SeriesApi().then((data, index) => {
+            setseries(data.data)
+        }).catch((err) => console.log(err))
+    }, [])
 
-  if (news === null) {
-    return <></>;
-  } else {
-    if (series == null) {
-      return <></>;
-    } else {
-      return (
-        <>
-          <Container fluid className="mt-2">
-            <Row>
-              <Col md={4}>
-                {series.map((data, index) => {
-                  return (
-                    <Card
-                      className="mt-2"
-                      style={{ backgroundColor: "#3F4156" }}
-                      key={index}
-                    >
-                      <Card.Body>
-                        <Card.Title style={{ color: "white" }}>
-                          {data.name}
-                        </Card.Title>
-                        <Card.Text style={{ color: "white" }}>
-                          Star Date : {data.startDate}
-                        </Card.Text>
-                        <Card.Text style={{ color: "white" }}>
-                          End Date : {data.endDate}
-                        </Card.Text>
-                      </Card.Body>
-                    </Card>
-                  );
-                })}
-              </Col>
-
-              <Col md={8}>
-                {news.map((data, index) => {
-                  return (
-                    <Card
-                      key={index}
-                      className="mt-2"
-                      style={{ backgroundColor: "#3F4156" }}
-                    >
-                      <Card.Img variant="top" src={data.urlToImage} />
-                      <Card.Body>
-                        <Card.Title style={{ color: "white" }}>
-                          {data.title}
-                        </Card.Title>
-                        <Card.Text style={{ color: "white" }}>
-                          {data.description}
-                        </Card.Text>
-                        <Button
-                          variant="primary"
-                          href={data.url}
-                          target="_blank"
-                        >
-                          Read More...
-                        </Button>
-                      </Card.Body>
-                    </Card>
-                  );
-                })}
-              </Col>
-            </Row>
-          </Container>
-        </>
-      );
+    console.log(series)
+    if (news === null) {
+        return (<></>)
     }
-  }
+    else {
+        if (series == null) {
+            return (<></>)
+        }
+        else {
+            return (
+                <>
+                    <Container fluid className='mt-2'>
+                        <Row>
+                            <Col md={4} >
+                                {series.map((data, index) => {
+                                    return (
+                                        <Card className='mt-2' style={{backgroundColor:'#3F4156'}} key={index}>
+                                            <Card.Body>
+                                                <Card.Title style={{color:'white'}}>{data.name}</Card.Title>
+                                                <Card.Text style={{color:'white'}}><SiStarship/> Star Date : {data.startDate}</Card.Text>
+                                                <Card.Text style={{color:'white'}}><GiFinishLine /> End Date : {data.endDate}</Card.Text>
+                                            </Card.Body>
+                                        </Card>
+
+                                    )
+
+                                })
+
+                                }
+                            </Col>
+
+
+                            <Col md={8}>
+
+                                {
+                                    news.map((data, index) => {
+                                        return (
+                                            <Card key={index} className="mt-2" style={{backgroundColor:'#3F4156'}}>
+                                                <Card.Img variant="top" src={data.urlToImage} />
+                                                <Card.Body>
+                                                    <Card.Title style={{color:'white'}}>{data.title}</Card.Title>
+                                                    <Card.Text style={{color:'white'}}>
+                                                        {data.description}
+                                                    </Card.Text>
+                                                    <Button variant="primary" href={data.url} target="_blank">Read More...</Button>
+                                                </Card.Body>
+                                            </Card>
+
+                                        )
+                                    })
+                                }
+                            </Col>
+                        </Row>
+
+                    </Container>
+                </>
+            )
+
+        }
+
+    }
+  
 }
 
 export default CricketMainContent;

@@ -38,18 +38,18 @@ function PlayersRanking() {
                                         </tr>
                                         <tr>
                                             <td>2</td>
-                                            <td><img src="https://www.cricbuzz.com/a/img/v1/50x50/i1/c170658/rohit-sharma.jpg"></img></td>
-                                            <td><a href="#"><h4>Rohit Sharma</h4></a>(India)</td>
+                                            <td><img src="https://www.cricbuzz.com/a/img/v1/50x50/i1/c170658/rohit-sharma.jpg" alt='img'></img></td>
+                                            <td><a href="/"><h4>Rohit Sharma</h4></a>(India)</td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
-                                            <td><img src="https://www.cricbuzz.com/a/img/v1/50x50/i1/c170661/virat-kohli.jpg"></img></td>
-                                            <td><a href="#"><h4>Virat Kohli</h4></a>(India)</td>
+                                            <td><img src="https://www.cricbuzz.com/a/img/v1/50x50/i1/c170661/virat-kohli.jpg" alt='img'></img></td>
+                                            <td><a href="/"><h4>Virat Kohli</h4></a>(India)</td>
                                         </tr>
                                         <tr>
                                             <td>4</td>
-                                            <td><img src="https://www.cricbuzz.com/a/img/v1/50x50/i1/c170661/virat-kohli.jpg"></img></td>
-                                            <td><a href="#"><h4>Virat Kohli</h4></a>(India)</td>
+                                            <td><img src="https://www.cricbuzz.com/a/img/v1/50x50/i1/c170661/virat-kohli.jpg" alt='img'></img></td>
+                                            <td><a href="/"><h4>Virat Kohli</h4></a>(India)</td>
                                         </tr>
                                     </table>
                                 </Col>
