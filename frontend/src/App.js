@@ -11,6 +11,8 @@ import PlayersRanking from './Pages/Cricket/PlayersRanking'
 import MensTeam from './Pages/Cricket/MensTeam'
 import WomensTeam from './Pages/Cricket/WomensTeam';
 import TeamInfo from './Pages/Cricket/TeamInfo';
+import LiveScores from "./Pages/Cricket/LiveScores";
+import Series from "./Pages/Cricket/Series";
 //import '../src/Resources/Styles/demo.css'
 
 function App() {
@@ -35,6 +37,8 @@ function App() {
             <Route exact path="/Cricket/Team/Men" component={MensTeam}></Route>
             <Route exact path="/Cricket/Team/Women" component={WomensTeam}></Route>
             <Route exact path="/Cricket/Team/TeamInfo" component={TeamInfo}></Route>
+            <Route exact path="/Cricket/LiveScore" component={LiveScores}></Route>
+            <Route exact path="/Cricket/Series" component={Series}></Route>
           </Switch>
           <Footer></Footer>
         </div>

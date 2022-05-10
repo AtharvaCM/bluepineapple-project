@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import CurrentMatchesApi from "../../Api/CurrentMatchesApi";
 //import logo from '../../Resources/Images/Basketball.gif'
 import Spinner from "../../Components/Spinner";
+import {MdFeaturedPlayList} from 'react-icons/md'
 
 function CricFeaturedMatches() {
   const [match, setmatch] = useState(null);
@@ -16,7 +17,7 @@ function CricFeaturedMatches() {
         setmatch(data.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [])
 
   console.log(match);
 
@@ -34,7 +35,7 @@ function CricFeaturedMatches() {
       <>
         <Card className="mt-2 ms-2 me-3" style={{ backgroundColor: "#696D97" }}>
           <Card.Header style={{ backgroundColor: "#696D97", color: "white" }}>
-            Featured Matches
+            <MdFeaturedPlayList/> Featured Matches
           </Card.Header>
           <CardGroup>
             {limit.map((data, index) => {
@@ -60,7 +61,7 @@ function CricFeaturedMatches() {
             })}
           </CardGroup>
         </Card>
-        );
+        
       </>
     );
   }
