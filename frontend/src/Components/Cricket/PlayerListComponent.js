@@ -1,5 +1,6 @@
 import { React, useEffect, useState } from "react";
-import { Card } from "react-bootstrap";
+import { Card, Col, Row } from "react-bootstrap";
+import Image from "react-bootstrap/Image";
 import PlayerAPI from "../../Api/PlayerApi";
 
 function PlayerListComponent({ team }) {
@@ -22,20 +23,47 @@ function PlayerListComponent({ team }) {
     <>
       {players === null || players === undefined ? null : (
         <div className="container">
-          <Card
-            style={{ backgroundColor: "#3F4156", color: "white" }}
-            className="mb-2"
-          >
+          <Row>
             {players.map((data, index) => {
               return (
-                <div key={index}>
-                  <h5>{data.id}</h5>
-                  <h5>{data.team}</h5>name
-                  <h5>{data.name}</h5>
-                </div>
+                <Col sm="12" md="6">
+                  <Card
+                    key={index}
+                    style={{
+                      backgroundColor: "#3F4156",
+                      color: "white",
+                      height: "95%",
+                    }}
+                    className="mb-2"
+                  >
+                    <Card.Body>
+                      <Row>
+                        <Col sm="12" md="5">
+                          <Image
+                            roundedCircle="true"
+                            src={data.img_src}
+                            height="150"
+                            width="150"
+                          ></Image>
+                        </Col>
+
+                        <Col>
+                          <Card.Text as="h5">
+                            <b>{data.name}</b>
+                          </Card.Text>
+                          <Card.Text>
+                            Date of Birth: {data.date_of_birth}
+                          </Card.Text>
+                          <Card.Text>Birth Place: {data.birth_place}</Card.Text>
+                          <Card.Text>Role: {data.role}</Card.Text>
+                        </Col>
+                      </Row>
+                    </Card.Body>
+                  </Card>
+                </Col>
               );
             })}
-          </Card>
+          </Row>
         </div>
       )}
     </>
