@@ -1,14 +1,15 @@
-import React from 'react'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import NewsInfo from '../../Api/NewsApi'
-import SeriesApi from '../../Api/SeriesApi'
-import { useEffect, useState } from 'react'
-
+import React from "react";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import "bootstrap/dist/css/bootstrap.min.css";
+import NewsInfo from "../../Api/NewsApi";
+import SeriesApi from "../../Api/SeriesApi";
+import { useEffect, useState } from "react";
+import {SiStarship} from 'react-icons/si'
+import {GiFinishLine} from 'react-icons/gi'
 
 function CricketMainContent() {
     const [news, setnews] = useState(null)
@@ -29,23 +30,12 @@ function CricketMainContent() {
     }, [])
 
     console.log(series)
-
-
-
     if (news === null) {
-        return (
-            <>
-
-            </>
-        )
+        return (<></>)
     }
     else {
         if (series == null) {
-            return (
-                <>
-
-                </>
-            )
+            return (<></>)
         }
         else {
             return (
@@ -58,9 +48,8 @@ function CricketMainContent() {
                                         <Card className='mt-2' style={{backgroundColor:'#3F4156'}} key={index}>
                                             <Card.Body>
                                                 <Card.Title style={{color:'white'}}>{data.name}</Card.Title>
-                                                <Card.Text style={{color:'white'}}>Star Date : {data.startDate}</Card.Text>
-                                                <Card.Text style={{color:'white'}}>End Date : {data.endDate}</Card.Text>
-
+                                                <Card.Text style={{color:'white'}}><SiStarship/> Star Date : {data.startDate}</Card.Text>
+                                                <Card.Text style={{color:'white'}}><GiFinishLine /> End Date : {data.endDate}</Card.Text>
                                             </Card.Body>
                                         </Card>
 
@@ -98,15 +87,10 @@ function CricketMainContent() {
                 </>
             )
 
-
         }
 
-
     }
-
-
-
-
+  
 }
 
-export default CricketMainContent
+export default CricketMainContent;
