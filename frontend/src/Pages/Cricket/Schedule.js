@@ -1,58 +1,54 @@
-import {React,useEffect,useState} from 'react'
-import {Card} from 'react-bootstrap'
-import {player} from '../../Api/PlayerApi'
+import { React, useEffect, useState } from "react";
+import { Card, Col, Row } from "react-bootstrap";
+import TeamSchedule from "../../Api/TeamScheduleAPI";
 
-function Schedule({team}) {
-  const [play, setplay] = useState([])
-  const [sort, setsort] = useState([])
-    useEffect(() => {
-      player().then((data)=>{
-        setplay(data.data);
-      }).catch(err=>console.log(err))
-    }, []);
-
-    console.log(play);
-    let d=[];
-
-    if(team){
-      play.map((data,index)=>{
-          
-          if(data.country === team)
-          {
-            d.push(data)
-          }
-          return d;
+function Schedule({ team }) {
+  const [matches, setMatches] = useState([]);
+  useEffect(() => {
+    TeamSchedule(team)
+      .then((response) => {
+        setMatches(response.schedule);
       })
-    }
+      .catch((err) => console.log(err));
+  }, [team]);
 
-    console.log(d);
-    
-    
-    
+  console.log("matches", matches);
+
   return (
-   <>
-   <div className='container'>
-                <Card style={{ backgroundColor: '#3F4156', color: 'white' }} className='mb-2'>
-                    {
-                      d.map((data,index)=>{
-                        return(
-                          <>
-                          <h5 key={index}>{data.id}</h5>
-                          <h5 key={index}>{data.name}</h5>
-                          <h5 key={index}>{data.country}</h5>
-                          </>
-                        
-                        )
-                      })
-                    }
-
-                </Card>
-
-
-
-            </div>
-   </>
-  )
+    <>
+      {matches === null || matches === undefined ? null : (
+        <div className="container">
+          {matches.map((data, index) => {
+            return (
+              <Card
+                key={index}
+                style={{ backgroundColor: "#3F4156", color: "white" }}
+                className="mb-2"
+              >
+                <Card.Header as="h5">{data.name}</Card.Header>
+                <Card.Body>
+                  <Card.Title>{data.status}</Card.Title>
+                  <Row>
+                    <Col sm="12" md="auto">
+                      <Card.Text>Venue: {data.venue}</Card.Text>
+                    </Col>
+                    <Col sm="12" md="auto">
+                      <Card.Text>Date: {data.date}</Card.Text>
+                    </Col>
+                    <Col>
+                      <Card.Text>
+                        Match Type: {data.matchType.toUpperCase()}
+                      </Card.Text>
+                    </Col>
+                  </Row>
+                </Card.Body>
+              </Card>
+            );
+          })}
+        </div>
+      )}
+    </>
+  );
 }
 
-export default Schedule
+export default Schedule;
