@@ -7,9 +7,13 @@ import Footer from "./Components/Navbar/Footer";
 //import Teams from './Pages/Cricket/Teams';
 import Gallery from './Pages/Cricket/Gallery';
 import News from './Pages/Cricket/News';
-import PlayersRanking from './Pages/Cricket/PlayersRanking'
+//import PlayersRanking from './Pages/Cricket/PlayersRanking'
 import MensTeam from './Pages/Cricket/MensTeam'
 import WomensTeam from './Pages/Cricket/WomensTeam';
+import CricRankBatting from './Pages/Cricket/Ranking/CricRankBatting';
+import CricRankTeam from './Pages/Cricket/Ranking/CricRankTeam';
+import CricRankBowling from './Pages/Cricket/Ranking/CricRankBowling';
+import CricPlayerInfo from './Pages/Cricket/CricPlayerInfo';
 import TeamInfo from './Pages/Cricket/TeamInfo';
 import LiveScores from "./Pages/Cricket/LiveScores";
 import Series from "./Pages/Cricket/Series";
@@ -29,6 +33,11 @@ function App() {
             {/* <Route exact path="/Cricket/Teams" component={MensTeam}></Route> */}
             <Route exact path="/Cricket/Gallery" component={Gallery}></Route>
             <Route exact path="/Cricket/News" component={News}></Route>
+            <Route exact path="/Cricket/Ranking/Batting" component={CricRankBatting}></Route>
+            <Route exact path="/Cricket/Ranking/Bowling" component={CricRankBowling}></Route>
+            <Route exact path="/Cricket/Ranking/Team" component={CricRankTeam}></Route>
+            <Route exact path="/Cricket/players/Playernfo" component={CricPlayerInfo}></Route>            
+            {/*<Route exact path="/Getnews" component={Getnews}></Route> */}
             <Route
               exact
               path="/Cricket/Ranking"
