@@ -9,6 +9,8 @@ const newsArticles = require("../models/newsArticleModel");
 const Series = require("../models/cricket/seriesModel");
 
 const getCurrentCricketMatches = async (req, res) => {
+  console.log("[+] Getting CurrentCricketMatches");
+  console.log(req.originalUrl);
   // return capped current matches
   try {
     const matches = await CurrentMatches.find();
@@ -22,6 +24,8 @@ const getCurrentCricketMatches = async (req, res) => {
 };
 
 const getCricketNews = async (req, res) => {
+  console.log("[+] Getting CricketNews");
+  console.log(req.originalUrl);
   try {
     const articles = await newsArticles.find();
     const response = {
@@ -36,6 +40,8 @@ const getCricketNews = async (req, res) => {
 };
 
 const getCricketSeriesList = async (req, res) => {
+  console.log("[+] Getting CricketSeriesList");
+  console.log(req.originalUrl);
   try {
     const series = await Series.find();
     const response = {
