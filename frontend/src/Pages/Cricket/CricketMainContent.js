@@ -87,9 +87,7 @@ function CricketMainContent() {
                 </>
             )
 
-
         }
-
 
     }
   

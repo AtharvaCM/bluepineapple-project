@@ -1,13 +1,13 @@
 /*
-Created: 28th, April, 2022
+Created: 8th, May, 2022
 Synopsis: MongoDB Model for Cricket Match collection
-Exports: Match model
+Exports: MatchScorecard model
 */
 
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const cricketMatchTable = new Schema(
+const matchScorecardTable = new Schema(
   {
     id: { type: String, required: true },
     name: { type: String, required: true },
@@ -17,13 +17,20 @@ const cricketMatchTable = new Schema(
     date: { type: String },
     dateTimeGMT: { type: String },
     teams: { type: Array },
+    score: { type: Array },
+    tossWinner: { type: String },
+    tossChoice: { type: String },
+    matchWinner: { type: String },
     series_id: { type: String },
-    fantasyEnabled: { type: Boolean },
-    hasSquad: { type: Boolean },
+    scorecard: { type: Array },
   },
   { timeStamps: true }
 );
 
-const Match = mongoose.model("Match", cricketMatchTable, "cricketMatches");
+const MatchScorecard = mongoose.model(
+  "MatchScorecard",
+  matchScorecardTable,
+  "cricketMatchScorecards"
+);
 
-module.exports = Match;
+module.exports = MatchScorecard;
