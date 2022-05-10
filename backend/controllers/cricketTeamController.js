@@ -1,12 +1,16 @@
 /*
 Created: 5th, May, 2022
 Synopsis: Contains controller functions related to cricket team routes.
-Exports: getCricketTeamsList, getCricketTeamDetails, getCricketTeamWinPercentageByYear
+Exports: getCricketTeamsList, getCricketTeamDetails, getCricketTeamWinPercentageByYear, 
+  getCricketTeamSchedule
 */
 
 const Team = require("../models/cricket/teamModel");
+const Match = require("../models/cricket/matchModel");
 
 const getCricketTeamsList = async (req, res) => {
+  console.log("[+] Getting TeamsList");
+  console.log(req.originalUrl);
   // call DB
   try {
     const teams = await Team.find();
@@ -24,7 +28,8 @@ const getCricketTeamDetails = async (req, res) => {
   // call DB
   try {
     const teamID = req.params.id;
-    console.log("teamID", teamID);
+    console.log("[+] Getting Details for cricket team = ", teamID);
+    console.log(req.originalUrl);
     const team = await Team.findOne({ id: teamID });
     const response = {
       status: "OK",
@@ -40,6 +45,8 @@ const getCricketTeamDetails = async (req, res) => {
 const getCricketTeamWinPercentageByYear = async (req, res) => {
   try {
     const id = req.params.id;
+    console.log("[+] Getting WinPercentageByYear for cricket team = ", id);
+    console.log(req.originalUrl);
     const query = { id: id };
     const projection = {
       "stats.odi.win_percentage": 1,
@@ -60,6 +67,8 @@ const getCricketTeamWinPercentageByYear = async (req, res) => {
 const getCricketTeamTotalMatchesStats = async (req, res) => {
   try {
     const id = req.params.id;
+    console.log("[+] Getting TotalMatchesStats for cricket team = ", id);
+    console.log(req.originalUrl);
     const query = { id: id };
     const projection = {
       "stats.odi.matches_played": 1,
@@ -86,9 +95,28 @@ const getCricketTeamTotalMatchesStats = async (req, res) => {
   }
 };
 
+const getCricketTeamSchedule = async (req, res) => {
+  try {
+    const name = req.params.name;
+    console.log("[+] Getting Schedule for cricket team = ", name);
+    console.log(req.originalUrl);
+    const query = { teams: { $elemMatch: { $eq: name } } };
+    const projection = {};
+    const matches = await Match.find(query, projection);
+    const response = {
+      status: "OK",
+      schedule: matches,
+    };
+    res.json(response);
+  } catch (err) {
+    res.json({ error: err.message || err.toString() });
+  }
+};
+
 module.exports = {
   getCricketTeamsList,
   getCricketTeamDetails,
   getCricketTeamWinPercentageByYear,
   getCricketTeamTotalMatchesStats,
+  getCricketTeamSchedule,
 };

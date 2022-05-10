@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { CardGroup } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import MatchInfo from "../../Api/MatchApi";
+import CurrentMatchesApi from "../../Api/CurrentMatchesApi";
 //import logo from '../../Resources/Images/Basketball.gif'
 import Spinner from "../../Components/Spinner";
 import {MdFeaturedPlayList} from 'react-icons/md'
@@ -12,7 +12,7 @@ function CricFeaturedMatches() {
   const [match, setmatch] = useState(null);
 
   useEffect(() => {
-    MatchInfo()
+    CurrentMatchesApi()
       .then((data) => {
         setmatch(data.data);
       })

@@ -6,8 +6,6 @@ import MensTeam from "./MensTeam";
 //import MensTeam from './MensTeam';
 //import WomensTeam from './WomensTeam';
 
-import CricSubNavBar from "../../Components/Navbar/CricSubNavBar";
-
 function Teams() {
   return (
     <>

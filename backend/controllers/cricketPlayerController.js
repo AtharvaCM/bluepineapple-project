@@ -11,6 +11,8 @@ const Player = require("../models/cricket/playerModel");
 const getCricketPlayersList = async (req, res) => {
   try {
     const team = req.params.team;
+    console.log("[+] Getting CricketPlayersList for team = ", team);
+    console.log(req.originalUrl);
     const query = team === null || team === undefined ? {} : { team: team };
     const players = await Player.find(query);
     const response = {
@@ -26,6 +28,8 @@ const getCricketPlayersList = async (req, res) => {
 const getCricketPlayerDetails = async (req, res) => {
   try {
     const id = req.params.id;
+    console.log("[+] Getting Details For Cricket Player = ", id);
+    console.log(req.originalUrl);
     const query = { id: id };
     const player = await Player.find(query);
     const response = {
@@ -41,6 +45,8 @@ const getCricketPlayerDetails = async (req, res) => {
 const getCricketPlayerRunsInLastFiveYears = async (req, res) => {
   try {
     const id = req.params.id;
+    console.log("[+] Getting RunsInLastFiveYears For Cricket Player = ", id);
+    console.log(req.originalUrl);
     const query = { id: id };
     const projection = { runs_in_past_5_years: 1 };
     const player = await Player.findOne(query, projection);
@@ -56,6 +62,8 @@ const getCricketPlayerRunsInLastFiveYears = async (req, res) => {
 };
 
 const getCricketPlayerBattingODIRankingsList = async (req, res) => {
+  console.log("[+] Getting BattingODIRankingsList");
+  console.log(req.originalUrl);
   try {
     const query = { "batting.odi.ranking": { $ne: "" } };
     const sortingQuery = { "batting.odi.Ranking": 1, _id: 1 };
@@ -86,6 +94,8 @@ const getCricketPlayerBattingODIRankingsList = async (req, res) => {
 };
 
 const getCricketPlayerBattingTestRankingsList = async (req, res) => {
+  console.log("[+] Getting BattingTestRankingsList");
+  console.log(req.originalUrl);
   try {
     const query = { "batting.test.ranking": { $ne: "" } };
     const sortingQuery = { "batting.test.Ranking": 1, _id: 1 };
@@ -116,6 +126,8 @@ const getCricketPlayerBattingTestRankingsList = async (req, res) => {
 };
 
 const getCricketPlayerBattingT20RankingsList = async (req, res) => {
+  console.log("[+] Getting BattingT20RankingsList");
+  console.log(req.originalUrl);
   try {
     const query = { "batting.t20.ranking": { $ne: "" } };
     const sortingQuery = { "batting.t20.Ranking": 1, _id: 1 };
