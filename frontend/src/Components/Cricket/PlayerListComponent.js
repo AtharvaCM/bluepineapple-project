@@ -52,10 +52,14 @@ function PlayerListComponent({ team }) {
                             <b>{data.name}</b>
                           </Card.Text>
                           <Card.Text>
-                            Date of Birth: {data.date_of_birth}
+                            <b>Date of Birth:</b> {data.date_of_birth}
                           </Card.Text>
-                          <Card.Text>Birth Place: {data.birth_place}</Card.Text>
-                          <Card.Text>Role: {data.role}</Card.Text>
+                          <Card.Text>
+                            <b>Birth Place:</b> {data.birth_place}
+                          </Card.Text>
+                          <Card.Text>
+                            <b>Role:</b> {data.role}
+                          </Card.Text>
                         </Col>
                       </Row>
                     </Card.Body>
