@@ -49,7 +49,6 @@ function CricRankBatting()
                                  <th colSpan={2} style={{textAlign:"center"}}>Batsman</th>
                              </tr>
                          { Details.map( player => {
-                           //console.log(player) 
                            return ( 
                              <tr  key={player.id}>
                                  <td>{player.id}</td>
@@ -87,7 +86,7 @@ function CricRankBatting()
                                         <td>India</td>
                                     </tr>
                                 </table>
-                                <Button style={{backgroundColor:'blue'}}>Reaad more..</Button>
+                                <Button style={{ color: 'white', fontWeight: 'bold', backgroundColor: '#71C6DD' ,alignSelf:'center'}} className={'w-75'}>Read more..</Button>
                             </Card>
                             
                         </Col>
