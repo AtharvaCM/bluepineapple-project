@@ -6,7 +6,7 @@ import CricSubNavBar from '../../../Components/Cricket/CricSubNavBar';
 import Test from "../../../RankingDemo/RankBatsmanTest";
 import ODI from "../../../RankingDemo/RankBatsmanODI";
 import Twenty from "../../../RankingDemo/RankBatsmanT20";
-import CricPlayerInfo from "../CricPlayerInfo";
+
 
 function CricRankBowling()
 {
@@ -22,12 +22,6 @@ function CricRankBowling()
     const clickHandler = (e) =>{
         console.log(e);
         setupdatePlayer(e);
-    }
-
-    const pageChange = () => {
-        <>
-            <CricPlayerInfo/>  
-        </>
     }
 
     const [Details,setDetails] = useState(Test);
@@ -70,7 +64,7 @@ function CricRankBowling()
                              <tr  key={player.id}>
                                  <td>{player.id}</td>
                                  <td><img src={player.img} alt=".."></img></td>
-                                 <td ><a href="#"><h4 onClick={()=>clickHandler(player)}>{player.pname}</h4></a></td>
+                                 <td ><a href="/"><h4 onClick={()=>clickHandler(player)}>{player.pname}</h4></a></td>
                              </tr>
                             )}
                          )}     

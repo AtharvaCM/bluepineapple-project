@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../Resources/Styles/CricSubNavBar.css'
 import {RiTeamFill,RiNewspaperFill,RiGalleryFill,RiLiveFill} from 'react-icons/ri'
-import {MdOutlineTransferWithinAStation} from 'react-icons/md'
+//import {MdOutlineTransferWithinAStation} from 'react-icons/md'
 import {GiWavyChains} from 'react-icons/gi'
 import {ImStatsDots} from 'react-icons/im'
 

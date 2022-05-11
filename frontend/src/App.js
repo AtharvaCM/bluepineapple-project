@@ -18,7 +18,7 @@ import TeamInfo from "./Pages/Cricket/TeamInfo";
 import LiveScores from "./Pages/Cricket/LiveScores";
 import Series from "./Pages/Cricket/Series";
 import PlayersRanking from "./Pages/Cricket/PlayersRanking";
-//import '../src/Resources/Styles/demo.css'
+
 
 function App() {
   return (

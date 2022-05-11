@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import CricRankingNavbar from "../../../Components/Cricket/Ranking/CricRankingNavbar";
-import {Button,Col,Card,Row,Table} from "react-bootstrap"
+import {Button,Col,Card,Row} from "react-bootstrap"
 import CricSubNavBar from '../../../Components/Cricket/CricSubNavBar';
 import Test from "../../../RankingDemo/RankBatsmanTest";
 import ODI from "../../../RankingDemo/RankBatsmanODI";
@@ -60,7 +60,7 @@ function CricRankBatting()
                              <tr  key={player.id}>
                                  <td>{player.id}</td>
                                  <td><img src={player.img} alt=".."></img></td>
-                                 <td ><a href="#"><h4 onClick={()=>clickHandler(player)}>{player.pname}</h4></a></td>
+                                 <td ><h4 onClick={()=>clickHandler(player)}>{player.pname}</h4></td>
                              </tr>
                             )}
                          )}     

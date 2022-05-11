@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card, Row,Col} from 'react-bootstrap'
-import { useLocation } from 'react-router-dom';
+//import { useLocation } from 'react-router-dom';
 import CricSubNavBar from '../../Components/Cricket/CricSubNavBar';
 
 function CricPlayerInfo(prop) {
