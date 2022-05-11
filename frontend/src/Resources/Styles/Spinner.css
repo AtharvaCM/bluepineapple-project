@@ -1,6 +1,4 @@
-/* 
-  
-  .spinner {
+ .spinner {
 	color: whitesmoke;
 	display: flex;
 	align-items: center;
@@ -25,6 +23,6 @@
 	70% { content: "⠧"; }
 	80% { content: "⠇"; }
 	90% { content: "⠏"; }
-  } */
+  } 
 
   

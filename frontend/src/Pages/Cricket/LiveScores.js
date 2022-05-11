@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from 'react'
 import { Card, CardGroup, Button, Table } from 'react-bootstrap'
 import CricSubNavBar from '../../Components/Cricket/CricSubNavBar'
-import currentMatchInfo from '../../Api/CurrentMatchInfo'
+import currentMatchesApi from '../../Api/CurrentMatchesApi'
 import Spinner from '../../Components/Spinner'
 
 function LiveScores() {
@@ -13,7 +13,7 @@ function LiveScores() {
     }, []);
 
     const getdata = () => {
-        currentMatchInfo().then((data) => {
+        currentMatchesApi().then((data) => {
             //setcurrentMatches(...currentMatches,data.data)
             //console.log(data.data);
             setcurrentMatches(data.data);
