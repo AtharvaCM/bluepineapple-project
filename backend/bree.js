@@ -39,7 +39,7 @@ const bree = new Bree({
     },
     {
       name: "leaguesListFootball",
-      cron: "* * * * *",
+      cron: "0 12 * * *",
     },
   ],
   closeWorkerAfterMs: 50000,
