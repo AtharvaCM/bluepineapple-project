@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../Resources/Styles/CricSubNavBar.css'
 import {RiTeamFill,RiNewspaperFill,RiGalleryFill,RiLiveFill} from 'react-icons/ri'
-import {MdOutlineTransferWithinAStation} from 'react-icons/md'
-import {GiWavyChains} from 'react-icons/gi'
+import {FaHandshake} from 'react-icons/fa'
 import {ImStatsDots} from 'react-icons/im'
+import {AiFillThunderbolt} from 'react-icons/ai'
+//import {motion} from 'framer-motion'
 
 function cricSubNavBar() {
     return (
@@ -34,7 +35,7 @@ function cricSubNavBar() {
                                 </span>
 
                                 <span className='cricSubNavBar'>
-                                    <Nav.Link as={Link} to='/Cricket/Ranking/Batting' style={{ color: 'white', fontWeight: 'bold' }}>Ranking</Nav.Link>
+                                    <Nav.Link as={Link} to='/Cricket/Ranking/Batting' style={{ color: 'white', fontWeight: 'bold' }}><AiFillThunderbolt />Ranking</Nav.Link>
                                 </span>
 
                                 <span className='cricSubNavBar'>
@@ -46,7 +47,7 @@ function cricSubNavBar() {
                                 </span>
 
                                 <span className='cricSubNavBar'>
-                                    <Nav.Link as={Link} to='/Cricket/Series' style={{ color: 'white', fontWeight: 'bold' }}><GiWavyChains/> Series</Nav.Link>
+                                    <Nav.Link as={Link} to='/Cricket/Series' style={{ color: 'white', fontWeight: 'bold' }}><FaHandshake /> Series</Nav.Link>
                                 </span>
 
                                 <span className='cricSubNavBar'>

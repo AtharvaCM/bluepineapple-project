@@ -5,15 +5,17 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaBasketballBall,FaHome} from "react-icons/fa";
 import {MdSportsCricket} from 'react-icons/md'
+import {motion} from 'framer-motion'
 
 
 function Header() {
   return (
     <>
+    <div>
       <Navbar variant="dark" style={{ backgroundColor: "#3f4156" }}>
         <Container>
           <Navbar.Brand as={Link} to="/" style={{ color: "white" }}>
-          Sports Live
+          <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.2,duration:2}}>Sports Live</motion.div>
           </Navbar.Brand>
           <Nav className="me-auto mx-auto">
             <span className="cricSubNavBar">
@@ -64,6 +66,7 @@ function Header() {
           </Nav>
         </Container>
       </Navbar>
+      </div>
     </>
   );
 }

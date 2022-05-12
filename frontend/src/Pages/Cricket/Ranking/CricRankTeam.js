@@ -29,22 +29,22 @@ function CricRankTeam()
                              </tr>
                              <tr>
                                  <td>1</td>
-                                 <td><img src="https://cdn.countryflags.com/thumbs/india/flag-3d-250.png" height={70} width={100}></img></td>
+                                 <td><img src="https://cdn.countryflags.com/thumbs/india/flag-3d-250.png" height={70} width={100} alt="alt"></img></td>
                                  <td><h4>India</h4></td>
                             </tr>
                             <tr>
                                  <td>1</td>
-                                 <td><img src="https://cdn.countryflags.com/thumbs/india/flag-3d-250.png" height={70} width={100}></img></td>
+                                 <td><img src="https://cdn.countryflags.com/thumbs/india/flag-3d-250.png" height={70} width={100} alt="alt"></img></td>
                                  <td><h4>India</h4></td>
                             </tr>
                             <tr>
                                  <td>1</td>
-                                 <td><img src="https://cdn.countryflags.com/thumbs/india/flag-3d-250.png" height={70} width={100}></img></td>
+                                 <td><img src="https://cdn.countryflags.com/thumbs/india/flag-3d-250.png" height={70} width={100} alt="alt"></img></td>
                                  <td><h4>India</h4></td>
                             </tr>
                             <tr>
                                  <td>1</td>
-                                 <td><img src="https://cdn.countryflags.com/thumbs/india/flag-3d-250.png" height={70} width={100}></img></td>
+                                 <td><img src="https://cdn.countryflags.com/thumbs/india/flag-3d-250.png" height={70} width={100} alt="alt"></img></td>
                                  <td><h4>India</h4></td>
                             </tr>
                              
@@ -52,7 +52,7 @@ function CricRankTeam()
                         </Col>
                         <Col xs={2} md={5}>
                         <Card style={{backgroundColor:'#3F4156',color:'white'}} className="mx-auto, w-100 ,my-auto  mb-2 mt-2 h-75 my-5">
-                                <img src="https://cdn.countryflags.com/thumbs/india/flag-3d-250.png" height={100} width={140} className="rounded mx-auto d-block my-4" alt="..."></img>
+                                <img src="https://cdn.countryflags.com/thumbs/india/flag-3d-250.png" height={100} width={140} className="rounded mx-auto d-block my-4" alt="img"></img>
                                 <table className="mx-4" style={{fontSize:22}}>
                                     <tr>
                                         <td>Team:</td>
@@ -67,7 +67,7 @@ function CricRankTeam()
                                         <td>50</td>
                                     </tr>
                                 </table>
-                                <a style={{fontSize:18,textAlign:"right",color:"white"}}  href="">More Details...</a>
+                                <a style={{fontSize:18,textAlign:"right",color:"white"}}  href="/">More Details...</a>
                             </Card>
                             
                         </Col>
