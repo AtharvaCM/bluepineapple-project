@@ -7,7 +7,6 @@ import Footer from "./Components/Navbar/Footer";
 //import Teams from './Pages/Cricket/Teams';
 import Gallery from "./Pages/Cricket/Gallery";
 import News from "./Pages/Cricket/News";
-//import PlayersRanking from './Pages/Cricket/PlayersRanking'
 import MensTeam from "./Pages/Cricket/MensTeam";
 import WomensTeam from "./Pages/Cricket/WomensTeam";
 import CricRankBatting from "./Pages/Cricket/Ranking/CricRankBatting";
@@ -17,7 +16,8 @@ import CricPlayerInfo from "./Pages/Cricket/CricPlayerInfo";
 import TeamInfo from "./Pages/Cricket/TeamInfo";
 import LiveScores from "./Pages/Cricket/LiveScores";
 import Series from "./Pages/Cricket/Series";
-import PlayersRanking from "./Pages/Cricket/PlayersRanking";
+
+
 
 
 function App() {
@@ -57,7 +57,7 @@ function App() {
             <Route
               exact
               path="/Cricket/Ranking"
-              component={PlayersRanking}
+              component={CricRankBatting}
             ></Route>
             <Route exact path="/Cricket/Team/Men" component={MensTeam}></Route>
             <Route
