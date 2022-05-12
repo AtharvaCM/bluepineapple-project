@@ -2,7 +2,7 @@ import { React, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Card } from "react-bootstrap";
 import Schedule from "./Schedule";
-import News from "./News";
+import TeamNews from "../../Components/Cricket/TeamNews";
 import CricSubNavBar from "../../Components/Cricket/CricSubNavBar";
 import PlayerList from "../../Components/Cricket/PlayerList";
 import TeamStats from "../../Components/Cricket/TeamStats";
@@ -74,7 +74,7 @@ function TeamInfo() {
         "schedule" ? (
         <Schedule team={team.name}></Schedule>
       ) : activeComponent === "news" ? (
-        <News></News>
+        <TeamNews></TeamNews>
       ) : activeComponent === "players" ? (
         <PlayerList team={team.name}></PlayerList>
       ) : activeComponent === "stats" ? (

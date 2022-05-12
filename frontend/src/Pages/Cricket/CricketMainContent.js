@@ -25,7 +25,7 @@ function CricketMainContent() {
 
     useEffect(() => {
         SeriesApi().then((data, index) => {
-            setseries(data.data)
+            setseries(data.series)
         }).catch((err) => console.log(err))
     }, [])
 
