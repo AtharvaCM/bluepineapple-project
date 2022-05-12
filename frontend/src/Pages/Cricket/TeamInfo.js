@@ -4,7 +4,8 @@ import { Card } from "react-bootstrap";
 import Schedule from "./Schedule";
 import News from "./News";
 import CricSubNavBar from "../../Components/Cricket/CricSubNavBar";
-import PlayerListComponent from "../../Components/Cricket/PlayerListComponent";
+import PlayerList from "../../Components/Cricket/PlayerList";
+import TeamStats from "../../Components/Cricket/TeamStats";
 import TeamInfoAPI from "../../Api/TeamInfoAPI";
 
 function TeamInfo() {
@@ -75,7 +76,9 @@ function TeamInfo() {
       ) : activeComponent === "news" ? (
         <News></News>
       ) : activeComponent === "players" ? (
-        <PlayerListComponent team={team.name}></PlayerListComponent>
+        <PlayerList team={team.name}></PlayerList>
+      ) : activeComponent === "stats" ? (
+        <TeamStats team={team}></TeamStats>
       ) : null}
     </>
   );
