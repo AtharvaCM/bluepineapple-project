@@ -41,6 +41,10 @@ const bree = new Bree({
       name: "leaguesListFootball",
       cron: "0 12 * * *",
     },
+    {
+      name: "teamsListFootball",
+      cron: "0 12 * * *",
+    },
   ],
   closeWorkerAfterMs: 50000,
 });

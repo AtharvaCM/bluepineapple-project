@@ -1,5 +1,5 @@
 /*
-Created: 28th, April, 2022
+Created: 11th, May, 2022
 Synopsis: Job which gets Football Matches List data from the API provider
 Exports: 
 */
@@ -87,7 +87,7 @@ const addMatch = (obj) => {
 };
 
 const updateMatch = (obj) => {
-  const query = { evend_key: String(obj.event_key) };
+  const query = { event_key: String(obj.event_key) };
   const replacement = obj;
   MatchFootball.findOneAndReplace(
     query,
