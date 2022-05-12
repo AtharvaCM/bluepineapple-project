@@ -7,6 +7,16 @@ Exports: Express router object
 const express = require("express");
 const router = express.Router();
 
-const {} = require("../controllers/cricketController");
+const {
+  getCurrentFootballMatches,
+  getFootballLeaguesList,
+  getFootballNews,
+} = require("../controllers/footballController");
+
+router.get("/currentMatches", getCurrentFootballMatches);
+
+router.get("/leaguesList", getFootballLeaguesList);
+
+router.get("/news", getFootballNews);
 
 module.exports = router;
