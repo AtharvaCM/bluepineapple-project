@@ -1,4 +1,4 @@
-import { Bar, Pie, Doughnut } from "react-chartjs-2";
+import { Bar, Pie, Doughnut, Line } from "react-chartjs-2";
 
 export const BarChart = ({ chartData, title }) => {
   return (
@@ -53,6 +53,9 @@ export const PieChart = ({ chartData, title }) => {
               display: true,
               text: title,
               color: "white",
+              font: {
+                size: 30,
+              },
             },
             legend: {
               display: true,
@@ -80,10 +83,55 @@ export const DoughnutChart = ({ chartData, title }) => {
               display: true,
               text: title,
               color: "white",
+              font: {
+                size: 30,
+              },
             },
             legend: {
               display: true,
               position: "bottom",
+            },
+          },
+          maintainAspectRatio: false,
+        }}
+      />
+    </div>
+  );
+};
+
+export const LineChart = ({ chartData, title }) => {
+  return (
+    <div>
+      <Line
+        height={400}
+        width={500}
+        data={chartData}
+        options={{
+          color: "white",
+          plugins: {
+            title: {
+              display: true,
+              text: title,
+              color: "white",
+              font: {
+                size: 30,
+              },
+            },
+            legend: {
+              display: true,
+              position: "bottom",
+            },
+          },
+          scales: {
+            x: {
+              ticks: {
+                color: "white",
+              },
+            },
+            y: {
+              ticks: {
+                color: "white",
+              },
             },
           },
           maintainAspectRatio: false,

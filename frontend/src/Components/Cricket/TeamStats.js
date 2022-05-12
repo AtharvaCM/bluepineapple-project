@@ -5,11 +5,29 @@ import {
   TeamStatsTotalMatchesAPI,
   TeamStatsWinPercentageByYearAPI,
 } from "../../Api/TeamStatsAPI";
-import { BarChart, PieChart, DoughnutChart } from "./Chart";
+import { BarChart, PieChart, DoughnutChart, LineChart } from "./Chart";
 import { Chart as ChartJS } from "chart.js/auto";
 import { Chart } from "react-chartjs-2";
+import { COLORS } from "../../Constants/colors";
 
-function TeamStatsComponent({ team }) {
+const doughnutChartBGColors = [
+  COLORS.chartGreen,
+  COLORS.chartRed,
+  COLORS.chartOrange,
+];
+
+const lineChartBGColors = [
+  COLORS.chartPink,
+  COLORS.chartRed,
+  COLORS.chartOrange,
+  COLORS.chartYellow,
+  COLORS.chartGreen,
+];
+
+const lineChartPointRadius = 7;
+const lineChartPointHoverRadius = 8;
+
+function TeamStats({ team }) {
   const [chartData, setChartData] = useState(null);
   const [winPercentage, setWinPercentage] = useState(null);
 
@@ -28,7 +46,7 @@ function TeamStatsComponent({ team }) {
                 {
                   label: `${team.name} ODI Stats`,
                   data: dataODI,
-                  backgroundColor: ["green", "red", "yellow"],
+                  backgroundColor: doughnutChartBGColors,
                 },
               ],
             },
@@ -38,7 +56,7 @@ function TeamStatsComponent({ team }) {
                 {
                   label: `${team.name} Test Stats`,
                   data: dataTest,
-                  backgroundColor: ["green", "red", "yellow"],
+                  backgroundColor: doughnutChartBGColors,
                 },
               ],
             },
@@ -48,7 +66,7 @@ function TeamStatsComponent({ team }) {
                 {
                   label: `${team.name} T20 Stats`,
                   data: dataT20,
-                  backgroundColor: ["green", "red", "yellow"],
+                  backgroundColor: doughnutChartBGColors,
                 },
               ],
             },
@@ -77,15 +95,12 @@ function TeamStatsComponent({ team }) {
               labels: labels,
               datasets: [
                 {
-                  label: `${team.name} ODI Win Percentage By Year`,
+                  label: `${team.name} ODI Win Percentage By Years`,
                   data: dataODI,
-                  backgroundColor: [
-                    "rgba(255, 99, 132)",
-                    "rgba(54, 162, 235)",
-                    "rgba(255, 206, 86)",
-                    "rgba(75, 192, 192)",
-                    "rgba(153, 102, 255)",
-                  ],
+                  backgroundColor: lineChartBGColors,
+                  pointRadius: lineChartPointRadius,
+                  pointHoverRadius: lineChartPointHoverRadius,
+                  borderColor: COLORS.lineChartBorder,
                 },
               ],
             },
@@ -95,13 +110,10 @@ function TeamStatsComponent({ team }) {
                 {
                   label: `${team.name} Test Win Percentage By Year`,
                   data: dataTest,
-                  backgroundColor: [
-                    "rgba(255, 99, 132)",
-                    "rgba(54, 162, 235)",
-                    "rgba(255, 206, 86)",
-                    "rgba(75, 192, 192)",
-                    "rgba(153, 102, 255)",
-                  ],
+                  backgroundColor: lineChartBGColors,
+                  pointRadius: lineChartPointRadius,
+                  pointHoverRadius: lineChartPointHoverRadius,
+                  borderColor: COLORS.lineChartBorder,
                 },
               ],
             },
@@ -111,13 +123,10 @@ function TeamStatsComponent({ team }) {
                 {
                   label: `${team.name} T20 Win Percentage By Year`,
                   data: dataT20,
-                  backgroundColor: [
-                    "rgba(255, 99, 132)",
-                    "rgba(54, 162, 235)",
-                    "rgba(255, 206, 86)",
-                    "rgba(75, 192, 192)",
-                    "rgba(153, 102, 255)",
-                  ],
+                  backgroundColor: lineChartBGColors,
+                  pointRadius: lineChartPointRadius,
+                  pointHoverRadius: lineChartPointHoverRadius,
+                  borderColor: COLORS.lineChartBorder,
                 },
               ],
             },
@@ -141,10 +150,10 @@ function TeamStatsComponent({ team }) {
               title={`${team.name} ODI Stats`}
             ></DoughnutChart>
             <hr></hr>
-            <BarChart
+            <LineChart
               chartData={winPercentage.odi}
-              title={`${team.name} Win Percentage`}
-            ></BarChart>
+              title={`${team.name} ODI Win Percentage`}
+            ></LineChart>
           </Card.Body>
         </Card>
       </>
@@ -162,10 +171,10 @@ function TeamStatsComponent({ team }) {
               title={`${team.name} Test Stats`}
             ></DoughnutChart>
             <hr></hr>
-            <BarChart
+            <LineChart
               chartData={winPercentage.test}
-              title={`${team.name} Win Percentage`}
-            ></BarChart>
+              title={`${team.name} Test Win Percentage`}
+            ></LineChart>
           </Card.Body>
         </Card>
       </>
@@ -183,10 +192,10 @@ function TeamStatsComponent({ team }) {
               title={`${team.name} T20 Stats`}
             ></DoughnutChart>
             <hr></hr>
-            <BarChart
+            <LineChart
               chartData={winPercentage.t20}
-              title={`${team.name} Win Percentage`}
-            ></BarChart>
+              title={`${team.name} T20 Win Percentage`}
+            ></LineChart>
           </Card.Body>
         </Card>
       </>
@@ -204,4 +213,4 @@ function TeamStatsComponent({ team }) {
   );
 }
 
-export default TeamStatsComponent;
+export default TeamStats;
