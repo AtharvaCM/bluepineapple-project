@@ -157,6 +157,102 @@ const getCricketPlayerBattingT20RankingsList = async (req, res) => {
   }
 };
 
+const getCricketPlayerBowlingODIRankingsList = async (req, res) => {
+  console.log("[+] Getting BowlingODIRankingsList");
+  console.log(req.originalUrl);
+  try {
+    const query = { "bowling.odi.ranking": { $ne: "" } };
+    const sortingQuery = { "bowling.odi.Ranking": 1, _id: 1 };
+    const projection = {
+      id: 1,
+      name: 1,
+      description: 1,
+      img_src: 1,
+      date_of_birth: 1,
+      age: 1,
+      birth_place: 1,
+      role: 1,
+      "bowling.t20.ranking": 1,
+    };
+    const collation = { locale: "en_US", numericOrdering: true };
+
+    const rankingsList = await Player.find(query, projection)
+      .sort(sortingQuery)
+      .collation(collation);
+    const response = {
+      status: "OK",
+      data: rankingsList,
+    };
+    res.json(response);
+  } catch (err) {
+    res.json({ error: err.message || err.toString() });
+  }
+};
+
+const getCricketPlayerBowlingTestRankingsList = async (req, res) => {
+  console.log("[+] Getting BowlingTestRankingsList");
+  console.log(req.originalUrl);
+  try {
+    const query = { "bowling.test.ranking": { $ne: "" } };
+    const sortingQuery = { "bowling.test.Ranking": 1, _id: 1 };
+    const projection = {
+      id: 1,
+      name: 1,
+      description: 1,
+      img_src: 1,
+      date_of_birth: 1,
+      age: 1,
+      birth_place: 1,
+      role: 1,
+      "bowling.test.ranking": 1,
+    };
+    const collation = { locale: "en_US", numericOrdering: true };
+
+    const rankingsList = await Player.find(query, projection)
+      .sort(sortingQuery)
+      .collation(collation);
+    const response = {
+      status: "OK",
+      data: rankingsList,
+    };
+    res.json(response);
+  } catch (err) {
+    res.json({ error: err.message || err.toString() });
+  }
+};
+
+const getCricketPlayerBowlingT20RankingsList = async (req, res) => {
+  console.log("[+] Getting BowlingT20RankingsList");
+  console.log(req.originalUrl);
+  try {
+    const query = { "bowling.t20.ranking": { $ne: "" } };
+    const sortingQuery = { "bowling.t20.Ranking": 1, _id: 1 };
+    const projection = {
+      id: 1,
+      name: 1,
+      description: 1,
+      img_src: 1,
+      date_of_birth: 1,
+      age: 1,
+      birth_place: 1,
+      role: 1,
+      "bowling.t20.ranking": 1,
+    };
+    const collation = { locale: "en_US", numericOrdering: true };
+
+    const rankingsList = await Player.find(query, projection)
+      .sort(sortingQuery)
+      .collation(collation);
+    const response = {
+      status: "OK",
+      data: rankingsList,
+    };
+    res.json(response);
+  } catch (err) {
+    res.json({ error: err.message || err.toString() });
+  }
+};
+
 module.exports = {
   getCricketPlayersList,
   getCricketPlayerDetails,
@@ -164,4 +260,7 @@ module.exports = {
   getCricketPlayerBattingODIRankingsList,
   getCricketPlayerBattingTestRankingsList,
   getCricketPlayerBattingT20RankingsList,
+  getCricketPlayerBowlingODIRankingsList,
+  getCricketPlayerBowlingTestRankingsList,
+  getCricketPlayerBowlingT20RankingsList,
 };
