@@ -1,12 +1,11 @@
 import { React, useState, useEffect } from "react";
-import {  Container, Table, Card, Accordion } from "react-bootstrap";
-import CricSubNavBar from "../../Components/Cricket/CricSubNavBar";
-import SeriesApi from "../../Api/SeriesApi";
+import { Container, Table, Card, Accordion } from "react-bootstrap";
+import CricSubNavBar from "../../Components/Navbar/CricSubNavBar";
+import SeriesApi from "../../Api/SeriesAPI";
 import Spinner from "../../Components/Spinner";
 
 function Series() {
   const [series, setseries] = useState(null);
-  
 
   useEffect(() => {
     SeriesApi()
@@ -21,7 +20,6 @@ function Series() {
   if (series === null) {
     return <Spinner></Spinner>;
   } else {
-
     return (
       <>
         <CricSubNavBar />
@@ -31,11 +29,13 @@ function Series() {
               return (
                 <Accordion.Item key={index}>
                   <Accordion.Header>
-                    <h5 style={{fontWeight:'bold'}}>{index+1}.{series ? data.name : ''}</h5>
+                    <h5 style={{ fontWeight: "bold" }}>
+                      {index + 1}.{series ? data.name : ""}
+                    </h5>
                   </Accordion.Header>
-                  <Accordion.Body style={{backgroundColor:'white'}}>
+                  <Accordion.Body style={{ backgroundColor: "white" }}>
                     <Container>
-                      <Card style={{border:'none'}}>
+                      <Card style={{ border: "none" }}>
                         <Card.Body style={{ backgroundColor: "white" }}>
                           <Table
                             striped
@@ -47,27 +47,31 @@ function Series() {
                             <thead>
                               <tr>
                                 <th>Start Date</th>
-                                <th>{series ? data.startDate : ''}</th>
+                                <th>{series ? data.startDate : ""}</th>
                               </tr>
                               <tr>
                                 <th>End Date</th>
-                                <th>{series ? data.endDate : ''}</th>
+                                <th>{series ? data.endDate : ""}</th>
                               </tr>
                               <tr>
                                 <th>ODI</th>
-                                <th>{series ? data.odi : ''}</th>
+                                <th>{series ? data.odi : ""}</th>
                               </tr>
                               <tr>
                                 <th>T20</th>
-                                <th>{series ? data.t20 : ''}</th>
+                                <th>{series ? data.t20 : ""}</th>
                               </tr>
                               <tr>
                                 <th>Test Match</th>
-                                <th>{series ? data.test : ''}</th>
+                                <th>{series ? data.test : ""}</th>
                               </tr>
                               <tr>
                                 <th>Total Matches</th>
-                                <th>{series ? data.odi + data.t20 + data.test : ''}</th>
+                                <th>
+                                  {series
+                                    ? data.odi + data.t20 + data.test
+                                    : ""}
+                                </th>
                               </tr>
                             </thead>
                           </Table>
@@ -76,11 +80,9 @@ function Series() {
                     </Container>
                   </Accordion.Body>
                 </Accordion.Item>
-              )
+              );
             })}
-
           </Accordion>
-          
         </Container>
       </>
     );

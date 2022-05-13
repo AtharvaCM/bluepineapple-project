@@ -1,5 +1,5 @@
 import { React } from "react";
-import CricSubNavBar from "../../Components/Cricket/CricSubNavBar";
+import CricSubNavBar from "../../Components/Navbar/CricSubNavBar";
 //import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import TeamSubNavBar from "../../Components/Cricket/TeamSubNavBar";
 import MensTeam from "./MensTeam";

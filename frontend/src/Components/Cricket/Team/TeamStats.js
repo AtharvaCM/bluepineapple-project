@@ -4,11 +4,11 @@ import { Card, Container } from "react-bootstrap";
 import {
   TeamStatsTotalMatchesAPI,
   TeamStatsWinPercentageByYearAPI,
-} from "../../Api/TeamStatsAPI";
-import { BarChart, PieChart, DoughnutChart, LineChart } from "./Chart";
+} from "../../../Api/TeamStatsAPI";
+import { BarChart, PieChart, DoughnutChart, LineChart } from "../Chart";
 import { Chart as ChartJS } from "chart.js/auto";
 import { Chart } from "react-chartjs-2";
-import { COLORS } from "../../Constants/colors";
+import { COLORS } from "../../../Constants/colors";
 
 const doughnutChartBGColors = [
   COLORS.chartGreen,
@@ -143,7 +143,9 @@ function TeamStats({ team }) {
     return (
       <>
         <Card style={{ backgroundColor: "gray" }}>
-          <Card.Header style={{color:'black'}}>{team.name} ODI Stats</Card.Header>
+          <Card.Header style={{ color: "black" }}>
+            {team.name} ODI Stats
+          </Card.Header>
           <Card.Body>
             <DoughnutChart
               chartData={chartData.odi}
@@ -163,8 +165,10 @@ function TeamStats({ team }) {
   const testCard = () => {
     return (
       <>
-        <Card style={{ backgroundColor: "gray"}} className="mt-4">
-          <Card.Header style={{color:'black'}}>{team.name} Test Stats</Card.Header>
+        <Card style={{ backgroundColor: "gray" }} className="mt-4">
+          <Card.Header style={{ color: "black" }}>
+            {team.name} Test Stats
+          </Card.Header>
           <Card.Body>
             <DoughnutChart
               chartData={chartData.test}

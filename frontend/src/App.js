@@ -17,8 +17,6 @@ import CricPlayerInfo from "./Pages/Cricket/CricPlayerInfo";
 import TeamInfo from "./Pages/Cricket/TeamInfo";
 import LiveScores from "./Pages/Cricket/LiveScores";
 import Series from "./Pages/Cricket/Series";
-import PlayersRanking from "./Pages/Cricket/PlayersRanking";
-
 
 function App() {
   return (
@@ -54,11 +52,6 @@ function App() {
               component={CricPlayerInfo}
             ></Route>
             {/*<Route exact path="/Getnews" component={Getnews}></Route> */}
-            <Route
-              exact
-              path="/Cricket/Ranking"
-              component={PlayersRanking}
-            ></Route>
             <Route exact path="/Cricket/Team/Men" component={MensTeam}></Route>
             <Route
               exact

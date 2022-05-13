@@ -14,15 +14,13 @@ import { FaHandshake } from "react-icons/fa";
 // import { ImStatsDots } from "react-icons/im";
 import { AiFillThunderbolt } from "react-icons/ai";
 //import {motion} from 'framer-motion'
+import { THEME } from "../../Constants/colors";
 
 function cricSubNavBar() {
   return (
     <>
       <div>
-        <Navbar
-          style={{ backgroundColor: "#FFC000", color: "white" }}
-          expand="lg"
-        >
+        <Navbar style={styles.navbar} expand="lg">
           <Container fluid>
             <Navbar.Brand
               href="#"
@@ -31,7 +29,7 @@ function cricSubNavBar() {
               <Nav.Link
                 as={Link}
                 to="/Cricket"
-                style={{ color: "black", fontWeight: "bold"}}
+                style={{ color: "black", fontWeight: "bold" }}
               >
                 Cricket
               </Nav.Link>
@@ -134,5 +132,12 @@ function cricSubNavBar() {
     </>
   );
 }
+
+const styles = {
+  navbar: {
+    backgroundColor: THEME.bgPrimary,
+    color: "white",
+  },
+};
 
 export default cricSubNavBar;
