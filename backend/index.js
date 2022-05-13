@@ -20,9 +20,11 @@ const connectToMongo = require("./dbConfig");
 connectToMongo();
 
 const routerCricket = require("./routes/cricketRoutes");
+const routerFootball = require("./routes/footballRoutes");
 
 app.use(cors());
 app.use("/api/v1/cricket", routerCricket);
+app.use("/api/v1/football", routerFootball);
 
 app.listen(port, () => {
   console.log(`[+] Sports Live app listening on port ${port}`);

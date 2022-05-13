@@ -29,6 +29,22 @@ const bree = new Bree({
       name: "newsArticlesCricket",
       cron: "0 12 * * *",
     },
+    {
+      name: "currentMatchesFootball",
+      cron: "0 12 * * *",
+    },
+    {
+      name: "matchesListFootball",
+      cron: "0 12 * * *",
+    },
+    {
+      name: "leaguesListFootball",
+      cron: "0 12 * * *",
+    },
+    {
+      name: "teamsListFootball",
+      cron: "0 12 * * *",
+    },
   ],
   closeWorkerAfterMs: 50000,
 });
