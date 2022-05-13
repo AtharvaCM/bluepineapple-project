@@ -19,4 +19,10 @@ router.get("/leaguesList", getFootballLeaguesList);
 
 router.get("/news", getFootballNews);
 
+const {
+  getFootballTeamsList,
+} = require("../controllers/footballTeamController");
+
+router.get("/teamsList", getFootballTeamsList);
+
 module.exports = router;
