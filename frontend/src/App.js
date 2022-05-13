@@ -17,12 +17,13 @@ import CricPlayerInfo from "./Pages/Cricket/CricPlayerInfo";
 import TeamInfo from "./Pages/Cricket/TeamInfo";
 import LiveScores from "./Pages/Cricket/LiveScores";
 import Series from "./Pages/Cricket/Series";
+import { THEME } from "./Constants/colors";
 
 function App() {
   return (
     <>
       <Router>
-        <div>
+        <div style={{ backgroundColor: THEME.bgColor }}>
           <Header></Header>
           <Switch>
             <Route exact path="/" component={LandingPage}></Route>

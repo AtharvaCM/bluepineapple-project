@@ -9,11 +9,15 @@ export const COLORS = {
 };
 
 export const THEME = {
-  bgColor: "#E1F5FE",
-  colorPrimary: "#039BE5",
-  colorSecondary: "#29B6F6",
-  colorButton: "",
-  colorButtonActive: "",
+  bgColor: "#c8cdcd",
+  colorPrimary: "#001e28",
+  colorPrimaryHover: "#00838f",
+  colorSecondary: "#00796b",
+  colorWhite: "#FFF",
+  colorBlack: "#000",
+  colorButton: "#999",
+  colorButtonHover: "#555e61",
+  colorButtonActive: "#d6033f",
   colorButtonDisabled: "",
   colorLight: "#d7e1ee",
   colorDark: "#2e2b28",

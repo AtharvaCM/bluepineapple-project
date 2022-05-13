@@ -6,12 +6,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { FaBasketballBall, FaHome } from "react-icons/fa";
 import { MdSportsCricket } from "react-icons/md";
 import { motion } from "framer-motion";
+import { THEME } from "../../Constants/colors";
 
 function Header() {
   return (
     <>
       <div>
-        <Navbar variant="dark" style={{ backgroundColor: "#FFC000" }}>
+        <Navbar variant="dark" style={{ backgroundColor: THEME.colorPrimary }}>
           {/*"#3f4156"*/}
           <Container>
             <Navbar.Brand
@@ -23,7 +24,7 @@ function Header() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2, duration: 2 }}
-                style={{ color: "black" }}
+                style={{ color: THEME.colorLight }}
               >
                 Sports Live
               </motion.div>
@@ -34,7 +35,7 @@ function Header() {
                   as={Link}
                   style={{
                     textDecoration: "none",
-                    color: "black",
+                    color: THEME.colorLight,
                     fontWeight: "bold",
                     fontSize: "1.5rem",
                   }}
@@ -48,7 +49,7 @@ function Header() {
                   as={Link}
                   style={{
                     textDecoration: "none",
-                    color: "black",
+                    color: THEME.colorLight,
                     fontWeight: "bold",
                     fontSize: "1.5rem",
                   }}
@@ -62,7 +63,7 @@ function Header() {
                   as={Link}
                   style={{
                     textDecoration: "none",
-                    color: "black",
+                    color: THEME.colorLight,
                     fontWeight: "bold",
                     fontSize: "1.5rem",
                   }}

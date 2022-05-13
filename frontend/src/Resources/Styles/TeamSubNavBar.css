@@ -1,52 +1,50 @@
-.teamSpan{
-    display: inline-block;
-   background-color: #CFE0DB;
-    border-radius: 30px;
-    font-size: 20px;
-    padding-left:6%;
-    padding-right:6%;
-    cursor: pointer;
-    color:black;
-    
-    text-align: center;
-    
+.teamSpan {
+  display: inline-block;
+  background-color: #cfe0db;
+  border-radius: 30px;
+  font-size: 20px;
+  padding-left: 6%;
+  padding-right: 6%;
+  cursor: pointer;
+  color: black;
+
+  text-align: center;
 }
 
-span:hover{
-    background-color: blue;
-    color:white;
+span:hover {
+  background-color: #00796b;
+  color: white;
 }
 
-.grid{
-    display: grid;
-    gap: 1px;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: center;
-  }
-  
-.gridImage{
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    align-self: center;
+.grid {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
 }
 
-p{
-    
-    font-size: large;
+.gridImage {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  align-self: center;
 }
 
-.gridItem{
-    cursor: pointer;
+p {
+  font-size: large;
 }
 
-.gridItem:hover{
-    background-color:#F5F5DC;
+.gridItem {
+  cursor: pointer;
 }
 
-h4{
-    color:white;
+.gridItem:hover {
+  background-color: #f5f5dc;
 }
-a{
-    text-decoration: none;
+
+h4 {
+  color: white;
+}
+a {
+  text-decoration: none;
 }
