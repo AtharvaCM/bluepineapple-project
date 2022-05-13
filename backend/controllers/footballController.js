@@ -7,6 +7,9 @@ Exports: getCurrentFootballMatches
 const CurrentMatchesFootball = require("../models/football/currentMatchesModel");
 const LeagueModel = require("../models/football/leagueModel");
 const NewsArticles = require("../models/newsArticleModel");
+const MatchFootball = require("../models/football/matchModel");
+
+const dateTime = require("node-datetime");
 
 const getCurrentFootballMatches = async (req, res) => {
   console.log("[+] Getting CurrentFootballMatches");
@@ -52,8 +55,27 @@ const getFootballNews = async (req, res) => {
   }
 };
 
+const getFootballMatches = async (req, res) => {
+  console.log("[+] Getting FootballMatchesList");
+  console.log(req.originalUrl);
+  try {
+    const currentDate = dateTime.create();
+    const query = { event_date: { $gt: currentDate.format("Y-m-d") } };
+    const sortingQuery = { event_date: 1, _id: 1 };
+    const matches = await MatchFootball.find();
+    const response = {
+      status: "OK",
+      matches: matches,
+    };
+    res.json(response);
+  } catch (err) {
+    res.json({ error: err.message || err.toString() });
+  }
+};
+
 module.exports = {
   getCurrentFootballMatches,
   getFootballLeaguesList,
   getFootballNews,
+  getFootballMatches,
 };
