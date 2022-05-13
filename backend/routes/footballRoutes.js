@@ -9,11 +9,13 @@ const router = express.Router();
 
 const {
   getCurrentFootballMatches,
+  getFootballFinishedMatches,
   getFootballLeaguesList,
   getFootballNews,
 } = require("../controllers/footballController");
 
 router.get("/currentMatches", getCurrentFootballMatches);
+router.get("/finishedMatches", getFootballFinishedMatches);
 
 router.get("/leaguesList", getFootballLeaguesList);
 
