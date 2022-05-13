@@ -34,7 +34,7 @@ function CricFeaturedMatches() {
     return (
       <>
         <Card className="mt-2 ms-2 me-3" style={{ backgroundColor: "#696D97" }}>
-          <Card.Header style={{ backgroundColor: "#696D97", color: "white" }}>
+          <Card.Header style={{ backgroundColor: "#0336FF", color: "white" }}>
             <MdFeaturedPlayList/> Featured Matches
           </Card.Header>
           <CardGroup>
@@ -42,7 +42,7 @@ function CricFeaturedMatches() {
               return (
                 <Card
                   key={index}
-                  style={{ backgroundColor: "#3F4156" }}
+                  style={{ backgroundColor: "whitesmoke" }}
                   className="mt-1"
                 >
                   <Card.Body>
@@ -50,7 +50,7 @@ function CricFeaturedMatches() {
                       style={{
                         fontWeight: "bold",
                         textAlign: "center",
-                        color: "white",
+                        color: "black",
                       }}
                     >
                       {data.name}

@@ -43,7 +43,7 @@ function CricRankBatting() {
             <CricSubNavBar />
             <CricRankingNavbar />
             <div className='container'>
-                <Card style={{ backgroundColor: '#3F4156', color: 'white' }} className="mx-auto, w-100 ,my-auto mb-2 mt-2">
+                <Card style={{ backgroundColor: 'white', color: 'black' }} className="mx-auto, w-100 ,my-auto mb-2 mt-2">
                     <Row>
                         <div className="mt-3 mb-3">
                             <Button onClick={() => changeData("Test")} style={{ textDecoration: 'none', color: 'black', borderRadius: 20 }} className="mx-4 w-25">Test</Button>
@@ -52,7 +52,7 @@ function CricRankBatting() {
                         </div>
 
                         <Col md={6} sm={12} className="mx-2">
-                            <Table style={{color:'white'}}>
+                            <Table style={{color:'black'}}>
                                 <tr>
                                     <th style={{fontSize:'3.5vh'}}>Pos</th>
                                     <th colSpan={2} style={{ textAlign: "center",fontSize:'3.5vh'}}>Batsman</th>
@@ -62,7 +62,7 @@ function CricRankBatting() {
                                         <tr key={player.id}>
                                             <td>{player.id}</td>
                                             <td><img src={player.img} alt=".."></img></td>
-                                            <td ><h4 onClick={() => clickHandler(player)}>{player.pname}</h4></td>
+                                            <td ><h4 onClick={() => clickHandler(player)} style={{color:'black'}}>{player.pname}</h4></td>
                                         </tr>
                                     )
                                 }
@@ -70,9 +70,9 @@ function CricRankBatting() {
                             </Table>
                         </Col>
                         <Col md={5} sm={12} className="d-none d-md-block">
-                            <Card style={{ backgroundColor: '#3F4156', color: 'white',border:'none'}} className="mx-auto w-100 my-auto mb-2 h-100">
+                            <Card style={{ backgroundColor: 'white', color: 'black',border:'none'}} className="mx-auto w-100 my-auto mb-2 h-100">
                                 <img src={updatePlayer.img} className="rounded mx-auto d-block my-4" style={{width:'20vh'}}alt="..."></img>
-                                <Table className="mx-4" style={{ fontSize: 22, color: 'white' }}>
+                                <Table className="mx-4" style={{ fontSize: 22, color: 'black' }}>
                                     <tr>
                                         <td>Name:</td>
                                         <td>{updatePlayer.pname}</td>

@@ -12,16 +12,16 @@ function Header() {
   return (
     <>
     <div>
-      <Navbar variant="dark" style={{ backgroundColor: "#3f4156" }}>
+      <Navbar variant="dark" style={{ backgroundColor:'#FFC000' }}>{/*"#3f4156"*/}
         <Container>
-          <Navbar.Brand as={Link} to="/" style={{ color: "white" }}>
-          <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.2,duration:2}}>Sports Live</motion.div>
+          <Navbar.Brand as={Link} to="/" style={{ color: "white",fontWeight:'bold'}}>
+          <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.2,duration:2}} style={{color:'black'}}>Sports Live</motion.div>
           </Navbar.Brand>
           <Nav className="me-auto mx-auto">
             <span className="cricSubNavBar">
               <Nav.Link
                 as={Link}
-                style={{ textDecoration: "none", color: "white" }}
+                style={{ textDecoration: "none", color: "black",fontWeight:'bold',fontSize:'1.5rem'}}
                 to="/"
               >
                 <FaHome/> Home
@@ -30,7 +30,7 @@ function Header() {
             <span className="cricSubNavBar">
               <Nav.Link
                 as={Link}
-                style={{ textDecoration: "none", color: "white" }}
+                style={{ textDecoration: "none", color: "black",fontWeight:'bold',fontSize:'1.5rem'}}
                 to="/Cricket"
               >
                 <MdSportsCricket />  Cricket
@@ -39,7 +39,7 @@ function Header() {
             <span className="cricSubNavBar">
               <Nav.Link
                 as={Link}
-                style={{ textDecoration: "none", color: "white" }}
+                style={{ textDecoration: "none", color: "black",fontWeight:'bold',fontSize:'1.5rem' }}
                 to="/Football"
               >
                <FaBasketballBall /> Football

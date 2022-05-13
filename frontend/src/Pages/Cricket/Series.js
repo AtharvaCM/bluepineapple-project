@@ -33,15 +33,15 @@ function Series() {
                   <Accordion.Header>
                     <h5 style={{fontWeight:'bold'}}>{index+1}.{series ? data.name : ''}</h5>
                   </Accordion.Header>
-                  <Accordion.Body style={{backgroundColor:'#3F4156'}}>
+                  <Accordion.Body style={{backgroundColor:'white'}}>
                     <Container>
                       <Card style={{border:'none'}}>
-                        <Card.Body style={{ backgroundColor: "#3F4156" }}>
+                        <Card.Body style={{ backgroundColor: "white" }}>
                           <Table
                             striped
                             bordered
                             hover
-                            variant="dark"
+                            variant="light"
                             className="mt-2"
                           >
                             <thead>

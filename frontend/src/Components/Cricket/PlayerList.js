@@ -29,8 +29,8 @@ function PlayerListComponent({ team }) {
                 <Col key={index} sm="12" md="6">
                   <Card
                     style={{
-                      backgroundColor: "#3F4156",
-                      color: "white",
+                      backgroundColor: "white",
+                      color: "black",
                       height: "95%",
                     }}
                     className="mb-2"

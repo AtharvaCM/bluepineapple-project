@@ -9,9 +9,9 @@ function Teams() {
     return (
        <>
             <div className="container mt-2">
-                <Card style={{ backgroundColor: '#51546E' }}>
+                <Card style={{ backgroundColor: 'white' }}>
                     <Card.Header>
-                        <Card.Text style={{ fontSize: '30px', fontWeight: 'bold' }}>Teams</Card.Text>
+                        <Card.Text style={{ fontSize: '30px', fontWeight: 'bold' }}>ICC Teams</Card.Text>
                         <span className='me-5 teamSpan'>
                             <Link to='/Cricket/Team/Men' style={{ textDecoration: 'none', color: 'black' }}>Mens</Link>
                         </span>

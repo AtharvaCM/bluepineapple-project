@@ -20,7 +20,7 @@ function cricSubNavBar() {
     <>
       <div>
         <Navbar
-          style={{ backgroundColor: "#51546e", color: "white" }}
+          style={{ backgroundColor: "#FFC000", color: "white" }}
           expand="lg"
         >
           <Container fluid>
@@ -31,7 +31,7 @@ function cricSubNavBar() {
               <Nav.Link
                 as={Link}
                 to="/Cricket"
-                style={{ color: "white", fontWeight: "bold" }}
+                style={{ color: "black", fontWeight: "bold"}}
               >
                 Cricket
               </Nav.Link>
@@ -47,7 +47,7 @@ function cricSubNavBar() {
                   <Nav.Link
                     as={Link}
                     to="/Cricket/Team/Men"
-                    style={{ color: "white", fontWeight: "bold" }}
+                    style={{ color: "black", fontWeight: "bold" }}
                   >
                     {" "}
                     <RiTeamFill /> Teams
@@ -58,7 +58,7 @@ function cricSubNavBar() {
                   <Nav.Link
                     as={Link}
                     to="/Cricket/News"
-                    style={{ color: "white", fontWeight: "bold" }}
+                    style={{ color: "black", fontWeight: "bold" }}
                   >
                     <RiNewspaperFill /> News
                   </Nav.Link>
@@ -68,7 +68,7 @@ function cricSubNavBar() {
                   <Nav.Link
                     as={Link}
                     to="/Cricket/Ranking/Batting"
-                    style={{ color: "white", fontWeight: "bold" }}
+                    style={{ color: "black", fontWeight: "bold" }}
                   >
                     <AiFillThunderbolt />
                     Ranking
@@ -79,7 +79,7 @@ function cricSubNavBar() {
                   <Nav.Link
                     as={Link}
                     to="/Cricket/Gallery"
-                    style={{ color: "white", fontWeight: "bold" }}
+                    style={{ color: "black", fontWeight: "bold" }}
                   >
                     <RiGalleryFill /> Gallery
                   </Nav.Link>
@@ -89,7 +89,7 @@ function cricSubNavBar() {
                   <Nav.Link
                     as={Link}
                     to="/Cricket/LiveScore"
-                    style={{ color: "white", fontWeight: "bold" }}
+                    style={{ color: "black", fontWeight: "bold" }}
                   >
                     <RiLiveFill /> Live Scores
                   </Nav.Link>
@@ -99,7 +99,7 @@ function cricSubNavBar() {
                   <Nav.Link
                     as={Link}
                     to="/Cricket/Series"
-                    style={{ color: "white", fontWeight: "bold" }}
+                    style={{ color: "black", fontWeight: "bold" }}
                   >
                     <FaHandshake /> Series
                   </Nav.Link>

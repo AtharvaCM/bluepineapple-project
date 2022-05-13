@@ -45,11 +45,11 @@ function CricketMainContent() {
                             <Col md={4} >
                                 {series.map((data, index) => {
                                     return (
-                                        <Card className='mt-2' style={{backgroundColor:'#3F4156'}} key={index}>
+                                        <Card className='mt-2' style={{backgroundColor:'white'}} key={index}>
                                             <Card.Body>
-                                                <Card.Title style={{color:'white'}}>{data.name}</Card.Title>
-                                                <Card.Text style={{color:'white'}}><SiStarship/> Star Date : {data.startDate}</Card.Text>
-                                                <Card.Text style={{color:'white'}}><GiFinishLine /> End Date : {data.endDate}</Card.Text>
+                                                <Card.Title style={{color:'black',fontWeight:'bold'}}>{data.name}</Card.Title>
+                                                <Card.Text style={{color:'black'}}><SiStarship/> Star Date : {data.startDate}</Card.Text>
+                                                <Card.Text style={{color:'black'}}><GiFinishLine /> End Date : {data.endDate}</Card.Text>
                                             </Card.Body>
                                         </Card>
 
@@ -66,11 +66,11 @@ function CricketMainContent() {
                                 {
                                     news.map((data, index) => {
                                         return (
-                                            <Card key={index} className="mt-2" style={{backgroundColor:'#3F4156'}}>
+                                            <Card key={index} className="mt-2" style={{backgroundColor:'white'}}>
                                                 <Card.Img variant="top" src={data.urlToImage} />
                                                 <Card.Body>
-                                                    <Card.Title style={{color:'white'}}>{data.title}</Card.Title>
-                                                    <Card.Text style={{color:'white'}}>
+                                                    <Card.Title style={{color:'black'}}>{data.title}</Card.Title>
+                                                    <Card.Text style={{color:'black'}}>
                                                         {data.description}
                                                     </Card.Text>
                                                     <Button variant="primary" href={data.url} target="_blank">Read More...</Button>

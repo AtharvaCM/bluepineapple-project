@@ -36,7 +36,7 @@ function TeamInfo() {
       <CricSubNavBar></CricSubNavBar>
       <div className="container mt-2 mb-2">
         {team === null || team === undefined ? null : (
-          <Card style={{ backgroundColor: "#51546E" }}>
+          <Card style={{backgroundColor:'white'}}>
             <Card.Header>
               <Card.Text style={{ fontSize: "30px", fontWeight: "bold" }}>
                 {team.name}

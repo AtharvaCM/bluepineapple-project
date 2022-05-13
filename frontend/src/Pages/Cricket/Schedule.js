@@ -22,10 +22,10 @@ function Schedule({ team }) {
             return (
               <Card
                 key={index}
-                style={{ backgroundColor: "#3F4156", color: "white" }}
+                style={{ backgroundColor: "white", color: "black" }}
                 className="mb-2"
               >
-                <Card.Header as="h5">{data.name}</Card.Header>
+                <Card.Header as="h5" style={{fontWeight:'bold'}}>{data.name}</Card.Header>
                 <Card.Body>
                   <Card.Title>{data.status}</Card.Title>
                   <Row>
