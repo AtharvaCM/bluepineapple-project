@@ -18,6 +18,9 @@ import TeamInfo from "./Pages/Cricket/TeamInfo";
 import LiveScores from "./Pages/Cricket/LiveScores";
 import Series from "./Pages/Cricket/Series";
 import PlayersRanking from "./Pages/Cricket/PlayersRanking";
+import CurrentMatches from "./Pages/Football/CurrentMatches";
+import TeamList from "./Pages/Football/TeamList";
+
 
 
 function App() {
@@ -76,6 +79,8 @@ function App() {
               component={LiveScores}
             ></Route>
             <Route exact path="/Cricket/Series" component={Series}></Route>
+            <Route exact path="/football/Scores" component={CurrentMatches}></Route>
+            <Route exact path="/football/Teams" component={TeamList}></Route>
           </Switch>
           <Footer></Footer>
         </div>
