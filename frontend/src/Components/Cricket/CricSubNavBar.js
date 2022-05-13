@@ -14,10 +14,10 @@ function cricSubNavBar() {
     return (
         <>
             <div>
-                <Navbar style={{ backgroundColor: '#51546e', color: "white" }} expand="lg">
+                <Navbar style={{ backgroundColor: '#FFC400', color: "black" }} expand="lg">
                     <Container fluid>
                         <Navbar.Brand href="#" style={{ color: 'white', fontWeight: 'bold' }} >
-                        <Nav.Link as={Link} to='/Cricket' style={{ color: 'white', fontWeight: 'bold' }}>Cricket</Nav.Link>
+                        <Nav.Link as={Link} to='/Cricket' style={{ color: 'black', fontWeight: 'bold' }}>Cricket</Nav.Link>
                         </Navbar.Brand>
                         <Navbar.Toggle aria-controls="navbarScroll" />
                         <Navbar.Collapse id="navbarScroll" style={{ padding: '0px' }}>
@@ -27,31 +27,31 @@ function cricSubNavBar() {
                                 navbarScroll
                             >
                                 <span className='cricSubNavBar'>
-                                    <Nav.Link as={Link} to='/Cricket/Team/Men' style={{ color: 'white', fontWeight: 'bold' }}> <RiTeamFill/> Teams</Nav.Link>
+                                    <Nav.Link as={Link} to='/Cricket/Team/Men' style={{ color: 'black', fontWeight: 'bold' }}> <RiTeamFill/> Teams</Nav.Link>
                                 </span>
 
                                 <span className='cricSubNavBar'>
-                                    <Nav.Link as={Link} to='/Cricket/News' style={{ color: 'white', fontWeight: 'bold' }}><RiNewspaperFill/> News</Nav.Link>
+                                    <Nav.Link as={Link} to='/Cricket/News' style={{ color: 'black', fontWeight: 'bold' }}><RiNewspaperFill/> News</Nav.Link>
                                 </span>
 
                                 <span className='cricSubNavBar'>
-                                    <Nav.Link as={Link} to='/Cricket/Ranking/Batting' style={{ color: 'white', fontWeight: 'bold' }}><AiFillThunderbolt />Ranking</Nav.Link>
+                                    <Nav.Link as={Link} to='/Cricket/Ranking/Batting' style={{ color: 'black', fontWeight: 'bold' }}><AiFillThunderbolt />Ranking</Nav.Link>
                                 </span>
 
                                 <span className='cricSubNavBar'>
-                                    <Nav.Link as={Link} to='/Cricket/Gallery' style={{ color: 'white', fontWeight: 'bold' }}><RiGalleryFill/> Gallery</Nav.Link>
+                                    <Nav.Link as={Link} to='/Cricket/Gallery' style={{ color: 'black', fontWeight: 'bold' }}><RiGalleryFill/> Gallery</Nav.Link>
                                 </span>
 
                                 <span className='cricSubNavBar'>
-                                    <Nav.Link as={Link} to='/Cricket/LiveScore' style={{ color: 'white', fontWeight: 'bold' }}><RiLiveFill /> Live Scores</Nav.Link>
+                                    <Nav.Link as={Link} to='/Cricket/LiveScore' style={{ color: 'black', fontWeight: 'bold' }}><RiLiveFill /> Live Scores</Nav.Link>
                                 </span>
 
                                 <span className='cricSubNavBar'>
-                                    <Nav.Link as={Link} to='/Cricket/Series' style={{ color: 'white', fontWeight: 'bold' }}><FaHandshake /> Series</Nav.Link>
+                                    <Nav.Link as={Link} to='/Cricket/Series' style={{ color: 'black', fontWeight: 'bold' }}><FaHandshake /> Series</Nav.Link>
                                 </span>
 
                                 <span className='cricSubNavBar'>
-                                    <Nav.Link href="#" style={{ color: 'white', fontWeight: 'bold' }}><ImStatsDots/> Stats</Nav.Link>
+                                    <Nav.Link href="#" style={{ color: 'black', fontWeight: 'bold' }}><ImStatsDots/> Stats</Nav.Link>
                                 </span>
 
                             </Nav>

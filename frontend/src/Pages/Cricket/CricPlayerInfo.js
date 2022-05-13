@@ -11,8 +11,8 @@ function CricPlayerInfo(prop) {
         <div className='container'>
             <table>
                 <tr>
-                    <th><img src={prop.location.state.e.img} class="rounded float-left" alt="..."></img></th>
-                    <th><h1>{prop.location.state.e.pname}</h1>(India)</th>
+                    <th><img src={prop.location.state.e.img_src} class="rounded float-left" alt="..."></img></th>
+                    <th><h1>{prop.location.state.e.name}</h1>(India)</th>
                 </tr>
                
                         
@@ -27,11 +27,11 @@ function CricPlayerInfo(prop) {
                             </tr>
                             <tr>
                                 <td><h5>Born:</h5></td>
-                                <td>Jun 02,1987 (32years)</td>
+                                <td>{prop.location.state.e.date_of_birth} ({prop.location.state.e.age})</td>
                             </tr>
                             <tr>
                                 <td><h5>Birth place:</h5></td>
-                                <td>Sydney,New south Wales</td>
+                                <td>{prop.location.state.e.birth_place}</td>
                             </tr>
                             <tr>
                                 <td><h5>Role</h5></td>
@@ -45,8 +45,7 @@ function CricPlayerInfo(prop) {
                 </Col>
                 <Col sm={12} md={6}>
                     <h5>Profile</h5>
-                    <p>A spunky, chubby teenager with gelled hair shot to fame after leading India to glory in the Under-19 World Cup at Kuala Lumpur in early 2008. In an Indian team filled with saint-like icons worthy of their own hagiographies, Virat Kohli, with his most un-Indian, 'bad-boy' intensity, would clearly be an outcast.
-                     . In the aplayeept Kohli out of the team</p>
+                    <p>{prop.location.state.e.description}</p>
                 
                 </Col>
             </Row>

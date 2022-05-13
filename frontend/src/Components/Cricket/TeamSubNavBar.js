@@ -9,7 +9,7 @@ function Teams() {
     return (
        <>
             <div className="container mt-2">
-                <Card style={{ backgroundColor: '#51546E' }}>
+                <Card style={{ backgroundColor: '#FFFFFF' }}>
                     <Card.Header>
                         <Card.Text style={{ fontSize: '30px', fontWeight: 'bold' }}>Teams</Card.Text>
                         <span className='me-5 teamSpan'>
