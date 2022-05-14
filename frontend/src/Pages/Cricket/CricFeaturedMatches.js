@@ -1,12 +1,11 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { CardGroup } from "react-bootstrap";
+import { CardGroup, Container } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import CurrentMatchesApi from "../../Api/CurrentMatchesApi";
-//import logo from '../../Resources/Images/Basketball.gif'
 import Spinner from "../../Components/Spinner";
-import {MdFeaturedPlayList} from 'react-icons/md'
+import { MdFeaturedPlayList } from 'react-icons/md'
 
 function CricFeaturedMatches() {
   const [match, setmatch] = useState(null);
@@ -33,38 +32,41 @@ function CricFeaturedMatches() {
     let limit = match.slice(0, 4);
     return (
       <>
-        <Card className="mt-2 ms-2 me-3" style={{ backgroundColor: "#696D97" }}>
-          <Card.Header style={{ backgroundColor: "#0336FF", color: "white" }}>
-            <MdFeaturedPlayList/> Featured Matches
-          </Card.Header>
-          <CardGroup>
-            {limit.map((data, index) => {
-              return (
-                <Card
-                  key={index}
-                  style={{ backgroundColor: "whitesmoke" }}
-                  className="mt-1"
-                >
-                  <Card.Body>
-                    <Card.Text
-                      style={{
-                        fontWeight: "bold",
-                        textAlign: "center",
-                        color: "black",
-                      }}
+        <Container>
+          <Container>
+            <Card className="mt-2 " style={{ backgroundColor: "#A5DFD2" }}>
+              <Card.Header style={{ backgroundColor: "#A5DFD2", color: "black" }}>
+                <MdFeaturedPlayList /> Featured Matches
+              </Card.Header>
+              <CardGroup>
+                {limit.map((data, index) => {
+                  return (
+                    <Card
+                      key={index}
+                      style={{ backgroundColor: "whitesmoke" }}
+                      className="mt-1"
                     >
-                      {data.name}
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              );
-            })}
-          </CardGroup>
-        </Card>
-        
-      </>
-    );
+                      <Card.Body>
+                        <Card.Text
+                          style={{
+                            fontWeight: "bold",
+                            textAlign: "center",
+                            color: "black",
+                          }}
+                        >
+                          {data.name}
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
+                  );
+                })}
+              </CardGroup>
+            </Card>
+            </Container>
+            </Container>
+          </>
+          );
   }
 }
 
-export default CricFeaturedMatches;
+          export default CricFeaturedMatches;

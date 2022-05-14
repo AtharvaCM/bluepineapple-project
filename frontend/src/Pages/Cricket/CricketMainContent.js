@@ -8,8 +8,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NewsInfo from "../../Api/NewsApi";
 import SeriesApi from "../../Api/SeriesApi";
 import { useEffect, useState } from "react";
-import {SiStarship} from 'react-icons/si'
-import {GiFinishLine} from 'react-icons/gi'
+import { SiStarship } from 'react-icons/si'
+import { GiFinishLine } from 'react-icons/gi'
 
 function CricketMainContent() {
     const [news, setnews] = useState(null)
@@ -41,48 +41,51 @@ function CricketMainContent() {
             return (
                 <>
                     <Container fluid className='mt-2'>
-                        <Row>
-                            <Col md={4} >
-                                {series.map((data, index) => {
-                                    return (
-                                        <Card className='mt-2' style={{backgroundColor:'white'}} key={index}>
-                                            <Card.Body>
-                                                <Card.Title style={{color:'black',fontWeight:'bold'}}>{data.name}</Card.Title>
-                                                <Card.Text style={{color:'black'}}><SiStarship/> Star Date : {data.startDate}</Card.Text>
-                                                <Card.Text style={{color:'black'}}><GiFinishLine /> End Date : {data.endDate}</Card.Text>
-                                            </Card.Body>
-                                        </Card>
+                        <Container>
+                            <Container>
+                                <Row>
+                                    <Col md={4} >
+                                        {series.map((data, index) => {
+                                            return (
+                                                <Card className='mt-2' style={{ backgroundColor: '#FFFFF0' }} key={index}>
+                                                    <Card.Header><Card.Title style={{ color: 'black', fontWeight: 'bold' }}>{data.name}</Card.Title></Card.Header>
+                                                    <Card.Body>     
+                                                        <Card.Text style={{ color: 'black' }}><SiStarship /> Star Date : {data.startDate}</Card.Text>
+                                                        <Card.Text style={{ color: 'black' }}><GiFinishLine /> End Date : {data.endDate}</Card.Text>
+                                                    </Card.Body>
+                                                </Card>
 
-                                    )
+                                            )
 
-                                })
+                                        })
 
-                                }
-                            </Col>
+                                        }
+                                    </Col>
 
 
-                            <Col md={8}>
+                                    <Col md={8}>
 
-                                {
-                                    news.map((data, index) => {
-                                        return (
-                                            <Card key={index} className="mt-2" style={{backgroundColor:'white'}}>
-                                                <Card.Img variant="top" src={data.urlToImage} />
-                                                <Card.Body>
-                                                    <Card.Title style={{color:'black'}}>{data.title}</Card.Title>
-                                                    <Card.Text style={{color:'black'}}>
-                                                        {data.description}
-                                                    </Card.Text>
-                                                    <Button variant="primary" href={data.url} target="_blank">Read More...</Button>
-                                                </Card.Body>
-                                            </Card>
+                                        {
+                                            news.map((data, index) => {
+                                                return (
+                                                    <Card key={index} className="mt-2" style={{ backgroundColor: 'white' }}>
+                                                        <Card.Img variant="top" src={data.urlToImage} />
+                                                        <Card.Body>
+                                                            <Card.Title style={{ color: 'black' }}>{data.title}</Card.Title>
+                                                            <Card.Text style={{ color: 'black' }}>
+                                                                {data.description}
+                                                            </Card.Text>
+                                                            <Button variant="primary" href={data.url} target="_blank">Read More...</Button>
+                                                        </Card.Body>
+                                                    </Card>
 
-                                        )
-                                    })
-                                }
-                            </Col>
-                        </Row>
-
+                                                )
+                                            })
+                                        }
+                                    </Col>
+                                </Row>
+                            </Container>
+                        </Container>
                     </Container>
                 </>
             )
@@ -90,7 +93,7 @@ function CricketMainContent() {
         }
 
     }
-  
+
 }
 
 export default CricketMainContent;

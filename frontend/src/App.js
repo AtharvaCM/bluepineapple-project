@@ -20,6 +20,7 @@ import Series from "./Pages/Cricket/Series";
 import PlayersRanking from "./Pages/Cricket/PlayersRanking";
 import CurrentMatches from "./Pages/Football/CurrentMatches";
 import TeamList from "./Pages/Football/TeamList";
+import DetailScore from "./Pages/Football/DetailScore";
 
 
 
@@ -32,57 +33,25 @@ function App() {
           <Switch>
             <Route exact path="/" component={LandingPage}></Route>
             <Route exact path="/Cricket" component={Cricket}></Route>
-            <Route exact path="/Football" component={Football}></Route>
-            {/* <Route exact path="/Cricket/Teams" component={MensTeam}></Route> */}
             <Route exact path="/Cricket/Gallery" component={Gallery}></Route>
             <Route exact path="/Cricket/News" component={News}></Route>
-            <Route
-              exact
-              path="/Cricket/Ranking/Batting"
-              component={CricRankBatting}
-            ></Route>
-            <Route
-              exact
-              path="/Cricket/Ranking/Bowling"
-              component={CricRankBowling}
-            ></Route>
-            <Route
-              exact
-              path="/Cricket/Ranking/Team"
-              component={CricRankTeam}
-            ></Route>
-            <Route
-              exact
-              path="/Cricket/players/Playernfo"
-              component={CricPlayerInfo}
-            ></Route>
-            {/*<Route exact path="/Getnews" component={Getnews}></Route> */}
-            <Route
-              exact
-              path="/Cricket/Ranking"
-              component={PlayersRanking}
-            ></Route>
+            <Route exact path="/Cricket/Ranking/Batting" component={CricRankBatting}></Route>
+            <Route exact path="/Cricket/Ranking/Bowling" component={CricRankBowling}></Route>
+            <Route exact path="/Cricket/Ranking/Team" component={CricRankTeam}></Route>
+            <Route exact path="/Cricket/players/Playernfo" component={CricPlayerInfo}></Route>
+            <Route exact path="/Cricket/Ranking" component={PlayersRanking}></Route>
             <Route exact path="/Cricket/Team/Men" component={MensTeam}></Route>
-            <Route
-              exact
-              path="/Cricket/Team/Women"
-              component={WomensTeam}
-            ></Route>
-            <Route
-              exact
-              path="/Cricket/Team/TeamInfo"
-              component={TeamInfo}
-            ></Route>
-            <Route
-              exact
-              path="/Cricket/LiveScore"
-              component={LiveScores}
-            ></Route>
+            <Route exact path="/Cricket/Team/Women" component={WomensTeam}></Route>
+            <Route exact path="/Cricket/Team/TeamInfo" component={TeamInfo}></Route>
+            <Route exact path="/Cricket/LiveScore" component={LiveScores}></Route>
             <Route exact path="/Cricket/Series" component={Series}></Route>
+            <Route exact path="/Football" component={Football}></Route>
             <Route exact path="/football/Scores" component={CurrentMatches}></Route>
             <Route exact path="/football/Teams" component={TeamList}></Route>
+            <Route exact path="/football/Scores/MatchSummary" component={DetailScore}></Route>
+            
           </Switch>
-          <Footer></Footer>
+          {/* <Footer></Footer> */}
         </div>
       </Router>
     </>

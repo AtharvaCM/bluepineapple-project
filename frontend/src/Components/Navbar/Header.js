@@ -12,7 +12,7 @@ function Header() {
   return (
     <>
     <div>
-      <Navbar variant="dark" style={{ backgroundColor:'#FFC000' }}>{/*"#3f4156"*/}
+      <Navbar variant="dark" style={{ backgroundColor:'#A5DFD2' }}>{/*"#3f4156"*/}
         <Container>
           <Navbar.Brand as={Link} to="/" style={{ color: "white",fontWeight:'bold'}}>
           <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.2,duration:2}} style={{color:'black'}}>Sports Live</motion.div>
@@ -24,7 +24,16 @@ function Header() {
                 style={{ textDecoration: "none", color: "black",fontWeight:'bold',fontSize:'1.5rem'}}
                 to="/"
               >
-                <FaHome/> Home
+                <FaHome/> Home |
+              </Nav.Link>
+            </span>
+            <span className="cricSubNavBar">
+              <Nav.Link
+                as={Link}
+                style={{ textDecoration: "none", color: "black",fontWeight:'bold',fontSize:'1.5rem' }}
+                to="/Football"
+              >
+               <FaBasketballBall /> Football |
               </Nav.Link>
             </span>
             <span className="cricSubNavBar">
@@ -36,15 +45,7 @@ function Header() {
                 <MdSportsCricket />  Cricket
               </Nav.Link>
             </span>
-            <span className="cricSubNavBar">
-              <Nav.Link
-                as={Link}
-                style={{ textDecoration: "none", color: "black",fontWeight:'bold',fontSize:'1.5rem' }}
-                to="/Football"
-              >
-               <FaBasketballBall /> Football
-              </Nav.Link>
-            </span>
+            
             {/* <span className="cricSubNavBar">
               <Nav.Link
                 as={Link}

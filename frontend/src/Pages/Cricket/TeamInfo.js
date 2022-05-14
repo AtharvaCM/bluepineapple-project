@@ -71,9 +71,7 @@ function TeamInfo() {
       </div>
 
       {team === null || team === undefined ? null : activeComponent ===
-        "schedule" ? (
-        <Schedule team={team.name}></Schedule>
-      ) : activeComponent === "news" ? (
+        "schedule" ? (<Schedule team={team.name}></Schedule>) : activeComponent === "news" ? (
         <TeamNews></TeamNews>
       ) : activeComponent === "players" ? (
         <PlayerList team={team.name}></PlayerList>

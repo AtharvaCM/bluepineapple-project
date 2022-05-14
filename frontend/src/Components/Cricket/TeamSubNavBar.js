@@ -13,7 +13,9 @@ function Teams() {
                     <Card.Header>
                         <Card.Text style={{ fontSize: '30px', fontWeight: 'bold' }}>ICC Teams</Card.Text>
                         <span className='me-5 teamSpan'>
+                        
                             <Link to='/Cricket/Team/Men' style={{ textDecoration: 'none', color: 'black' }}>Mens</Link>
+                    
                         </span>
                         <span className='me-5 teamSpan'>
                             <Link to='/Cricket/Team/Women' style={{ textDecoration: 'none', color: 'black' }}>Women</Link>

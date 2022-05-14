@@ -20,7 +20,7 @@ function cricSubNavBar() {
     <>
       <div>
         <Navbar
-          style={{ backgroundColor: "#FFC000", color: "white" }}
+          style={{ background: 'rgb(238,174,202)', background: 'radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(53,198,194,0.9808298319327731) 100%)', color: "white" }}
           expand="lg"
         >
           <Container fluid>
@@ -31,7 +31,7 @@ function cricSubNavBar() {
               <Nav.Link
                 as={Link}
                 to="/Cricket"
-                style={{ color: "black", fontWeight: "bold"}}
+                style={{ color: "black", fontWeight: "bold" }}
               >
                 Cricket
               </Nav.Link>
@@ -43,6 +43,15 @@ function cricSubNavBar() {
                 style={{ maxHeight: "100px" }}
                 navbarScroll
               >
+                <span className="cricSubNavBar">
+                  <Nav.Link
+                    as={Link}
+                    to="/Cricket/LiveScore"
+                    style={{ color: "black", fontWeight: "bold" }}
+                  >
+                    <RiLiveFill /> Live Scores
+                  </Nav.Link>
+                </span>
                 <span className="cricSubNavBar">
                   <Nav.Link
                     as={Link}
@@ -82,16 +91,6 @@ function cricSubNavBar() {
                     style={{ color: "black", fontWeight: "bold" }}
                   >
                     <RiGalleryFill /> Gallery
-                  </Nav.Link>
-                </span>
-
-                <span className="cricSubNavBar">
-                  <Nav.Link
-                    as={Link}
-                    to="/Cricket/LiveScore"
-                    style={{ color: "black", fontWeight: "bold" }}
-                  >
-                    <RiLiveFill /> Live Scores
                   </Nav.Link>
                 </span>
 
