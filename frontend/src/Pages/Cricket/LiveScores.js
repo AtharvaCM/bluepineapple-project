@@ -46,13 +46,13 @@ function LiveScores() {
                         <Card>
                             <Dropdown className="d-inline mx-5">
                                 <Dropdown.Toggle id="dropdown-basic" style={{ backgroundColor: '#E9DCC9', border: 'none', color: 'black' }}>
-                                    Series
+                                    Match Type
                                 </Dropdown.Toggle>
 
                                 <Dropdown.Menu>
-                                    <Dropdown.Item onClick={() => matchHandler('t20')}>Premier League</Dropdown.Item>
-                                    <Dropdown.Item onClick={() => matchHandler('test')}>Cup - Round of 32</Dropdown.Item>
-                                    <Dropdown.Item onClick={() => matchHandler('odi')}>All</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => matchHandler('t20')}>T20</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => matchHandler('test')}>ODI</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => matchHandler('odi')}>TEST</Dropdown.Item>
                                     <Dropdown.Item onClick={() => matchHandler('N/A')}>Other</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>

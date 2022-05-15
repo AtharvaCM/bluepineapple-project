@@ -55,7 +55,7 @@ function CurrentMatches() {
 
   const seasonHandler  = (e)=>{
     console.log(e === '2021/2022');
-    if(e ==='2021/22'){
+    if(e ==='2021/2022'){
       
       const updatedMatches = currentMatches.filter((data) => {
         return data.league_season === e;
