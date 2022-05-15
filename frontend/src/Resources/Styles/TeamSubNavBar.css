@@ -12,9 +12,10 @@
     
 }
 
-span:hover{
-    background-color: rgba(231, 24, 24, 0.759);
-}
+/* span:hover{
+    background-color: blue;
+    color:white;
+} */
 
 .grid{
     display: grid;
@@ -39,9 +40,9 @@ p{
     cursor: pointer;
 }
 
-.gridItem:hover{
-    background-color: #2D2D39;
-}
+/* .gridItem:hover{
+    background-color:#F5F5DC;
+} */
 
 h4{
     color:white;

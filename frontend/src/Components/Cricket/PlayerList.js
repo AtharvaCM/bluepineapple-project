@@ -26,12 +26,11 @@ function PlayerListComponent({ team }) {
           <Row>
             {players.map((data, index) => {
               return (
-                <Col sm="12" md="6">
+                <Col key={index} sm="12" md="6">
                   <Card
-                    key={index}
                     style={{
-                      backgroundColor: "#3F4156",
-                      color: "white",
+                      backgroundColor: "white",
+                      color: "black",
                       height: "95%",
                     }}
                     className="mb-2"

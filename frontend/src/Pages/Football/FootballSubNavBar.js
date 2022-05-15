@@ -1,12 +1,14 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import { Nav, Button, Form, FormControl, Container } from "react-bootstrap";
+import {Link} from 'react-router-dom'
 import "bootstrap/dist/css/bootstrap.min.css";
+
 
 function FootballSubNavBar() {
   return (
     <>
-      <Navbar bg="success" expand="lg">
+      <Navbar style={{ background: 'rgb(238,174,202)',background: 'radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(53,198,194,0.9808298319327731) 100%)', color: "white" }} expand="lg">
         <Container fluid>
           <Navbar.Brand href="#" style={{ color: "black", fontWeight: "bold" }}>
             Football
@@ -19,7 +21,9 @@ function FootballSubNavBar() {
               navbarScroll
             >
               <Nav.Link
-                href="#action1"
+              as={Link}
+              to={"/Football/Teams"}
+               
                 style={{ color: "black", fontWeight: "bold" }}
               >
                 Teams
@@ -42,7 +46,7 @@ function FootballSubNavBar() {
               <Nav.Link href="#" style={{ color: "black", fontWeight: "bold" }}>
                 Gallery
               </Nav.Link>
-              <Nav.Link href="#" style={{ color: "black", fontWeight: "bold" }}>
+              <Nav.Link as={Link} to={"/football/Scores"} style={{ color: "black", fontWeight: "bold" }}>
                 Live Scores
               </Nav.Link>
               <Nav.Link href="#" style={{ color: "black", fontWeight: "bold" }}>
