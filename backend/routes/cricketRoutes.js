@@ -28,6 +28,9 @@ const {
   getCricketPlayerBattingODIRankingsList,
   getCricketPlayerBattingTestRankingsList,
   getCricketPlayerBattingT20RankingsList,
+  getCricketPlayerBowlingODIRankingsList,
+  getCricketPlayerBowlingTestRankingsList,
+  getCricketPlayerBowlingT20RankingsList,
 } = require("../controllers/cricketPlayerController");
 
 router.get("/currentMatches", getCurrentCricketMatches);
@@ -43,6 +46,26 @@ router.get(
   "/players/batting/ranking/odi",
   getCricketPlayerBattingODIRankingsList
 );
+router.get(
+  "/players/batting/ranking/test",
+  getCricketPlayerBattingTestRankingsList
+);
+router.get(
+  "/players/batting/ranking/t20",
+  getCricketPlayerBattingT20RankingsList
+);
+router.get(
+  "/players/bowling/ranking/odi",
+  getCricketPlayerBowlingODIRankingsList
+);
+router.get(
+  "/players/bowling/ranking/test",
+  getCricketPlayerBowlingTestRankingsList
+);
+router.get(
+  "/players/bowling/ranking/t20",
+  getCricketPlayerBowlingT20RankingsList
+);
 
 // for graph purposes
 router.get("/stats/players/:id/", getCricketPlayerRunsInLastFiveYears);
@@ -50,6 +73,7 @@ router.get(
   "/stats/team/winPercentageByYear/:id",
   getCricketTeamWinPercentageByYear
 );
+router.get("/stats/team/totalMatches/:id", getCricketTeamTotalMatchesStats);
 
 router.get("/seriesList", getCricketSeriesList);
 

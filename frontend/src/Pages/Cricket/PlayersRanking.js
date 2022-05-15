@@ -20,7 +20,7 @@ function PlayersRanking() {
                 className="py-2"
               >
                 <Nav.Item>
-                  <Nav.Link href="#" style={{ color: "white" }}>
+                  <Nav.Link href="/" style={{ color: "white" }}>
                     Teams
                   </Nav.Link>
                 </Nav.Item>

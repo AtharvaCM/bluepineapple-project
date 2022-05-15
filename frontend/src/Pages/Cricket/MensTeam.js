@@ -39,7 +39,7 @@ function MensTeam() {
       <TeamSubNavBar></TeamSubNavBar>
       <div className="container">
         <Card
-          style={{ backgroundColor: "#3F4156", color: "white" }}
+          style={{ backgroundColor: "white", color: "black" }}
           className="mb-2 mt-2"
         >
           {teams === null || teams === undefined ? null : (

@@ -2,9 +2,10 @@ import { React, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Card } from "react-bootstrap";
 import Schedule from "./Schedule";
-import News from "./News";
+import TeamNews from "../../Components/Cricket/TeamNews";
 import CricSubNavBar from "../../Components/Cricket/CricSubNavBar";
-import PlayerListComponent from "../../Components/Cricket/PlayerListComponent";
+import PlayerList from "../../Components/Cricket/PlayerList";
+import TeamStats from "../../Components/Cricket/TeamStats";
 import TeamInfoAPI from "../../Api/TeamInfoAPI";
 
 function TeamInfo() {
@@ -35,7 +36,7 @@ function TeamInfo() {
       <CricSubNavBar></CricSubNavBar>
       <div className="container mt-2 mb-2">
         {team === null || team === undefined ? null : (
-          <Card style={{ backgroundColor: "#51546E" }}>
+          <Card style={{backgroundColor:'white'}}>
             <Card.Header>
               <Card.Text style={{ fontSize: "30px", fontWeight: "bold" }}>
                 {team.name}
@@ -70,12 +71,12 @@ function TeamInfo() {
       </div>
 
       {team === null || team === undefined ? null : activeComponent ===
-        "schedule" ? (
-        <Schedule team={team.name}></Schedule>
-      ) : activeComponent === "news" ? (
-        <News></News>
+        "schedule" ? (<Schedule team={team.name}></Schedule>) : activeComponent === "news" ? (
+        <TeamNews></TeamNews>
       ) : activeComponent === "players" ? (
-        <PlayerListComponent team={team.name}></PlayerListComponent>
+        <PlayerList team={team.name}></PlayerList>
+      ) : activeComponent === "stats" ? (
+        <TeamStats team={team}></TeamStats>
       ) : null}
     </>
   );
