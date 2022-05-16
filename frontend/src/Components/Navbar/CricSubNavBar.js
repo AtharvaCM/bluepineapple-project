@@ -64,15 +64,6 @@ function CricSubNavBar() {
                 <span className="cricSubNavBar">
                   <Nav.Link
                     as={Link}
-                    to="/Cricket/LiveScore"
-                    style={styles.navLink}
-                  >
-                    <RiLiveFill /> Live Scores
-                  </Nav.Link>
-                </span>
-                <span className="cricSubNavBar">
-                  <Nav.Link
-                    as={Link}
                     to="/Cricket/Team/Men"
                     style={styles.navLink}
                   >
