@@ -4,9 +4,8 @@ Synopsis: Contains controller functions related to football team routes.
 Exports: 
 */
 
-const TeamFootball = require("../models/football/teamModel");
-const LeagueFootball = require("../models/football/leagueModel");
 const MatchFootball = require("../models/football/matchModel");
+const TeamRankingModel = require("../models/football/teamRankingModel");
 
 const getFootballTeamsList = async (req, res) => {
   console.log("[+] Getting Football TeamsList");
@@ -31,6 +30,24 @@ const getFootballTeamsList = async (req, res) => {
   }
 };
 
+const getFootballTeamRankingsList = async (req, res) => {
+  console.log("[+] Getting FootballTeamsRankingList");
+  console.log(req.originalUrl);
+  // call DB
+  try {
+    const query = {};
+    const rankings = await TeamRankingModel.find(query);
+    const response = {
+      status: "OK",
+      rankings: rankings,
+    };
+    res.json(response);
+  } catch (err) {
+    res.json({ error: err.message || err.toString() });
+  }
+};
+
 module.exports = {
   getFootballTeamsList,
+  getFootballTeamRankingsList,
 };

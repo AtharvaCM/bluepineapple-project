@@ -30,8 +30,10 @@ router.get("/allMatches/stats", getFootballMatchStatictics);
 
 const {
   getFootballTeamsList,
+  getFootballTeamRankingsList,
 } = require("../controllers/footballTeamController");
 
 router.get("/teamsList/:leagueKey", getFootballTeamsList);
+router.get("/teams/ranking", getFootballTeamRankingsList);
 
 module.exports = router;
