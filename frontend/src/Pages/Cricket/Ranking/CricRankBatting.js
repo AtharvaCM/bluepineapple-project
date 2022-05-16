@@ -3,9 +3,6 @@ import React, { useState, useEffect } from "react";
 import CricRankingNavbar from "../../../Components/Cricket/Ranking/CricRankingNavbar";
 import { Button, Card, Table, Container } from "react-bootstrap";
 import CricSubNavBar from "../../../Components/Cricket/CricSubNavBar";
-import Test from "../../../RankingDemo/RankBatsmanTest";
-//import ODI from "../../../RankingDemo/RankBatsmanODI";
-//import Twenty from "../../../RankingDemo/RankBatsmanT20";
 import { useHistory } from "react-router-dom";
 import {
   CricRankTestApi,
