@@ -9,16 +9,24 @@ const router = express.Router();
 
 const {
   getCurrentFootballMatches,
+  getFootballFinishedMatches,
   getFootballLeaguesList,
   getFootballNews,
-  getFootballMatches,
+  getAllFootballMatches,
 } = require("../controllers/footballController");
 
 router.get("/currentMatches", getCurrentFootballMatches);
-router.get("/fixtures", getFootballMatches);
+router.get("/finishedMatches", getFootballFinishedMatches);
+router.get("/allMatches/:leagueKey", getAllFootballMatches);
 
 router.get("/leaguesList", getFootballLeaguesList);
 
 router.get("/news", getFootballNews);
+
+const {
+  getFootballTeamsList,
+} = require("../controllers/footballTeamController");
+
+router.get("/teamsList/:league_name", getFootballTeamsList);
 
 module.exports = router;

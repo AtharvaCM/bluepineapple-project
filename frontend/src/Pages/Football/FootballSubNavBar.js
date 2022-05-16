@@ -1,12 +1,14 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import { Nav, Button, Form, FormControl, Container } from "react-bootstrap";
+import {Link} from 'react-router-dom'
 import "bootstrap/dist/css/bootstrap.min.css";
+
 
 function FootballSubNavBar() {
   return (
     <>
-      <Navbar bg="success" expand="lg">
+      <Navbar style={{ background: 'rgb(238,174,202)',color: "white" }} expand="lg">
         <Container fluid>
           <Navbar.Brand href="#" style={{ color: "black", fontWeight: "bold" }}>
             Football
@@ -18,18 +20,19 @@ function FootballSubNavBar() {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
+              <Nav.Link as={Link} to={"/football/Scores"} style={{ color: "black", fontWeight: "bold" }}>
+                Live Scores
+              </Nav.Link>
+              
               <Nav.Link
-                href="#action1"
+              as={Link}
+              to={"/Football/LeagueList"}
+               
                 style={{ color: "black", fontWeight: "bold" }}
               >
-                Teams
+                Leagues
               </Nav.Link>
-              <Nav.Link
-                href="#action2"
-                style={{ color: "black", fontWeight: "bold" }}
-              >
-                Schedule
-              </Nav.Link>
+             
               <Nav.Link
                 href="#action2"
                 style={{ color: "black", fontWeight: "bold" }}
@@ -39,18 +42,8 @@ function FootballSubNavBar() {
               <Nav.Link href="#" style={{ color: "black", fontWeight: "bold" }}>
                 Ranking
               </Nav.Link>
-              <Nav.Link href="#" style={{ color: "black", fontWeight: "bold" }}>
-                Gallery
-              </Nav.Link>
-              <Nav.Link href="#" style={{ color: "black", fontWeight: "bold" }}>
-                Live Scores
-              </Nav.Link>
-              <Nav.Link href="#" style={{ color: "black", fontWeight: "bold" }}>
-                Series
-              </Nav.Link>
-              <Nav.Link href="#" style={{ color: "black", fontWeight: "bold" }}>
-                Stats
-              </Nav.Link>
+              
+              
             </Nav>
             <Form className="d-flex">
               <FormControl

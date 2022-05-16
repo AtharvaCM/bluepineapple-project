@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar from "react-bootstrap/Navbar";
-import { Container, Nav } from "react-bootstrap";
+//import Navbar from "react-bootstrap/Navbar";
+import { Nav, Navbar, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaBasketballBall, FaHome } from "react-icons/fa";

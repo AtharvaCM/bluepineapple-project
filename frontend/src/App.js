@@ -17,6 +17,11 @@ import CricPlayerInfo from "./Pages/Cricket/CricPlayerInfo";
 import TeamInfo from "./Pages/Cricket/TeamInfo";
 import LiveScores from "./Pages/Cricket/LiveScores";
 import Series from "./Pages/Cricket/Series";
+import CurrentMatches from "./Pages/Football/CurrentMatches";
+import LeagueList from "./Pages/Football/LeagueList";
+import DetailScore from "./Pages/Football/DetailScore";
+import LeagueInfo from "./Pages/Football/LeagueInfo";
+
 import { THEME } from "./Constants/colors";
 
 function App() {
@@ -28,8 +33,6 @@ function App() {
           <Switch>
             <Route exact path="/" component={LandingPage}></Route>
             <Route exact path="/Cricket" component={Cricket}></Route>
-            <Route exact path="/Football" component={Football}></Route>
-            {/* <Route exact path="/Cricket/Teams" component={MensTeam}></Route> */}
             <Route exact path="/Cricket/Gallery" component={Gallery}></Route>
             <Route exact path="/Cricket/News" component={News}></Route>
             <Route
@@ -52,7 +55,6 @@ function App() {
               path="/Cricket/players/Playernfo"
               component={CricPlayerInfo}
             ></Route>
-            {/*<Route exact path="/Getnews" component={Getnews}></Route> */}
             <Route exact path="/Cricket/Team/Men" component={MensTeam}></Route>
             <Route
               exact
@@ -70,8 +72,29 @@ function App() {
               component={LiveScores}
             ></Route>
             <Route exact path="/Cricket/Series" component={Series}></Route>
+            <Route exact path="/Football" component={Football}></Route>
+            <Route
+              exact
+              path="/football/Scores"
+              component={CurrentMatches}
+            ></Route>
+            <Route
+              exact
+              path="/football/LeagueList"
+              component={LeagueList}
+            ></Route>
+            <Route
+              exact
+              path="/football/Scores/MatchSummary"
+              component={DetailScore}
+            ></Route>
+            <Route
+              exact
+              path="/football/League/LeagueInfo"
+              component={LeagueInfo}
+            ></Route>
           </Switch>
-          <Footer></Footer>
+          {/* <Footer></Footer> */}
         </div>
       </Router>
     </>
