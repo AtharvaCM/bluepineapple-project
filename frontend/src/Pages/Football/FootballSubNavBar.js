@@ -43,7 +43,7 @@ function FootballSubNavBar() {
               <Nav.Link href="#" style={{ color: "black", fontWeight: "bold" }}>
                 Ranking
               </Nav.Link>
-              <Nav.Link href="#" style={{ color: "black", fontWeight: "bold" }}>
+              <Nav.Link as={Link} to={"/football/Gallery"} style={{ color: "black", fontWeight: "bold" }}>
                 Gallery
               </Nav.Link>
               <Nav.Link as={Link} to={"/football/Scores"} style={{ color: "black", fontWeight: "bold" }}>

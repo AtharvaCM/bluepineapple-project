@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LandingPage from "./Pages/LandingPage";
 import Cricket from "./Pages/Cricket/Cricket";
 import Football from "./Pages/Football/Football";
-import Footer from "./Components/Navbar/Footer";
+//import Footer from "./Components/Navbar/Footer";
 //import Teams from './Pages/Cricket/Teams';
 import Gallery from "./Pages/Cricket/Gallery";
 import News from "./Pages/Cricket/News";
@@ -21,6 +21,7 @@ import PlayersRanking from "./Pages/Cricket/PlayersRanking";
 import CurrentMatches from "./Pages/Football/CurrentMatches";
 import TeamList from "./Pages/Football/TeamList";
 import DetailScore from "./Pages/Football/DetailScore";
+import Gallery1 from "./Pages/Football/Gallery";
 
 
 
@@ -49,6 +50,7 @@ function App() {
             <Route exact path="/football/Scores" component={CurrentMatches}></Route>
             <Route exact path="/football/Teams" component={TeamList}></Route>
             <Route exact path="/football/Scores/MatchSummary" component={DetailScore}></Route>
+            <Route exact path="/football/Gallery" component={Gallery1}></Route>
             
           </Switch>
           {/* <Footer></Footer> */}
