@@ -22,7 +22,7 @@ function Header() {
             <span className="cricSubNavBar">
               <Nav.Link
                 as={Link}
-                style={{ textDecoration: "none", color: "black",fontSize:'1.5rem'}}
+                style={{ color: "black"}}
                 to="/"
               >
                 <FaHome/> Home |
@@ -31,7 +31,7 @@ function Header() {
             <span className="cricSubNavBar">
               <Nav.Link
                 as={Link}
-                style={{ textDecoration: "none", color: "black",fontSize:'1.5rem' }}
+                style={{  color: "black" }}
                 to="/Football"
               >
                <FaBasketballBall /> Football |
@@ -40,7 +40,7 @@ function Header() {
             <span className="cricSubNavBar">
               <Nav.Link
                 as={Link}
-                style={{ textDecoration: "none", color: "black",fontSize:'1.5rem'}}
+                style={{ color: "black"}}
                 to="/Cricket"
               >
                 <MdSportsCricket />  Cricket

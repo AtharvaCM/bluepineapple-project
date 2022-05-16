@@ -85,6 +85,7 @@ function FootballMainContent() {
           <Card className="mt-2 ms-5 me-5">
             <Card.Header>
               <Table className="table table-borderless">
+                <tbody>
                 <tr>
                   <td style={{ fontSize: "35px", fontWeight: "bold" }} colSpan={3}>
                     Team Abc Vs Team Xyz
@@ -96,6 +97,7 @@ function FootballMainContent() {
                   <td>Date & Time : 28th April,2pm</td>
                   <td>Series : Bundesliga 2021-2022</td>
                 </tr>
+                </tbody>
               </Table>
             </Card.Header>
 
@@ -158,6 +160,7 @@ function FootballMainContent() {
           <Card className="mt-2 ms-5 me-5">
             <Card.Header>
               <Table className="table table-borderless">
+                <tbody>
                 <tr>
                   <td style={{ fontSize: "35px", fontWeight: "bold" }} colSpan={3}>
                     Team Abc Vs Team Xyz
@@ -169,6 +172,7 @@ function FootballMainContent() {
                   <td>Date & Time : 28th April,2pm</td>
                   <td>Series : Bundesliga 2021-2022</td>
                 </tr>
+                </tbody>
               </Table>
             </Card.Header>
 
@@ -231,6 +235,7 @@ function FootballMainContent() {
           <Card className="mt-2 ms-5 me-5">
             <Card.Header>
               <Table className="table table-borderless">
+                <tbody>
                 <tr>
                   <td style={{ fontSize: "35px", fontWeight: "bold" }} colSpan={3}>
                     Team Abc Vs Team Xyz
@@ -242,6 +247,7 @@ function FootballMainContent() {
                   <td>Date & Time : 28th April,2pm</td>
                   <td>Series : Bundesliga 2021-2022</td>
                 </tr>
+                </tbody>
               </Table>
             </Card.Header>
 

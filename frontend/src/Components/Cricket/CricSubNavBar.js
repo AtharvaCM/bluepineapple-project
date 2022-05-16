@@ -1,9 +1,10 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import Navbar from "react-bootstrap/Navbar";
-import { Nav, Button, Form, FormControl, Container } from "react-bootstrap";
+import { Nav, Button, Form, FormControl, Container, ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../Resources/Styles/CricSubNavBar.css";
+import PlayerApi from '../../Api/PlayerApi'
 import {
   RiTeamFill,
   RiNewspaperFill,
@@ -11,11 +12,29 @@ import {
   RiLiveFill,
 } from "react-icons/ri";
 import { FaHandshake } from "react-icons/fa";
-// import { ImStatsDots } from "react-icons/im";
 import { AiFillThunderbolt } from "react-icons/ai";
-//import {motion} from 'framer-motion'
 
-function cricSubNavBar() {
+
+function CricSubNavBar() {
+  const [data, setdata] = useState([])
+  const [search, setsearch] = useState("");
+
+
+  useEffect(() => {
+    PlayerApi().then((data) => {
+      setdata(data.data);
+
+    })
+  }, [])
+
+  let player = data.map((player) => {
+    return player.name;
+  })
+
+  //setsearch(player
+
+  //console.log('searchdata:', data);
+  //console.log('playerList', search)
   return (
     <>
       <div>
@@ -25,7 +44,6 @@ function cricSubNavBar() {
         >
           <Container fluid>
             <Navbar.Brand
-              href="#"
               style={{ color: "white", fontWeight: "bold" }}
             >
               <Nav.Link
@@ -103,18 +121,15 @@ function cricSubNavBar() {
                     <FaHandshake /> Series
                   </Nav.Link>
                 </span>
-
-                {/* <span className='cricSubNavBar'>
-                                    <Nav.Link href="#" style={{ color: 'white', fontWeight: 'bold' }}><ImStatsDots/> Stats</Nav.Link>
-                                </span> */}
               </Nav>
 
               <Form className="d-flex">
                 <FormControl
                   type="search"
-                  placeholder="Search"
+                  placeholder="Player Search"
                   className="me-2"
                   aria-label="Search"
+                  onChange={(event) => { setsearch(event.target.value) }}
                 />
                 <Button
                   style={{
@@ -126,12 +141,30 @@ function cricSubNavBar() {
                   Search
                 </Button>
               </Form>
+
             </Navbar.Collapse>
           </Container>
         </Navbar>
       </div>
+      <ListGroup>
+        {
+          data.filter((val) => {
+            if (search === "") {
+              return ''
+            }
+            else if (val.name.includes(search)) {
+              return val
+            }
+          }).map((val, key) => {
+            return (
+
+              <ListGroup.Item>{val.name}</ListGroup.Item>
+
+            )
+          })
+        }
+      </ListGroup>
     </>
   );
 }
-
-export default cricSubNavBar;
+export default CricSubNavBar;

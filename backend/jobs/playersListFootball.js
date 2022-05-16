@@ -82,7 +82,7 @@ const storeResponse = (req) => {
     console.log(`[+] Error: ${err.message || err.toString()}`);
   }
 };
-==
+
 const getFootballLeaguesList = async () => {
   try {
     const allSportsAPIKey = process.env.ALL_SPORTS_API_KEY;

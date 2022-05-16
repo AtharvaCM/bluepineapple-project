@@ -6,6 +6,8 @@ import Spinner from '../../Components/Spinner'
 
 function LiveScores() {
     const [currentMatches, setcurrentMatches] = useState(null)
+    const [sortdata,setsortdata] = useState(null)
+    const [sortdate,setsortDate] = useState(null)
 
     useEffect(() => {
 
@@ -17,17 +19,97 @@ function LiveScores() {
             //setcurrentMatches(...currentMatches,data.data)
             //console.log(data.data);
             setcurrentMatches(data.data);
+            setsortdata(data.data);
+            setsortDate(data.data);
+            
 
         }).catch(err => console.log(err))
 
     }
 
-    console.log(currentMatches);
+    //console.log(currentMatches);
 
 
-    const matchHandler = () => {
+    const matchHandler = (e) => {
+        if (e === 't20') {
+            const updatedMatches = currentMatches.filter((data) => {
+              return data.matchType === e;
+            })
+            setsortdata(updatedMatches);
+            console.log(updatedMatches);
+          }
 
+          if (e === 'odi') {
+            const updatedMatches = currentMatches.filter((data) => {
+              return data.matchType === e;
+            })
+            setsortdata(updatedMatches);
+            console.log(updatedMatches);
+          }
+
+          if (e === 'test') {
+            const updatedMatches = currentMatches.filter((data) => {
+              return data.matchType === e;
+            })
+            setsortdata(updatedMatches);
+            //console.log(updatedMatches);
+          }
+
+          if (e === 'all') {
+            
+            setsortdata(currentMatches);
+            //console.log(updatedMatches);
+          }
     }
+
+    const dateHandler=(e)=>{
+
+        if(e==='ascending'){
+
+            const  date =  sortdate.sort(function(a,b){
+                let c = a.date;
+                let d =b.date;
+                if(c < d){
+                    return -1;
+                }
+      
+                if(c > d){
+                  return 1;
+              }
+      
+              return 0;
+            });
+      
+            console.log(date);
+            setsortdata(date);
+
+        }
+      
+        if(e === 'descending')
+        {
+            const  date =  sortdate.sort(function(a,b){
+                let c = a.date;
+                let d =b.date;
+                if(c < d){
+                    return -1;
+                }
+      
+                if(c > d){
+                  return 1;
+              }
+      
+              return 0;
+            }).reverse();
+      
+            setsortdata(date);
+            console.log(date);
+        }
+        
+        //
+        //console.log(sort);
+    }
+
+    console.log(sortdata);
 
     if (currentMatches === null) {
         return (
@@ -44,24 +126,39 @@ function LiveScores() {
                 <Container className='mt-2'>
                     <Container>
                         <Card>
-                            <Dropdown className="d-inline mx-5">
-                                <Dropdown.Toggle id="dropdown-basic" style={{ backgroundColor: '#E9DCC9', border: 'none', color: 'black' }}>
-                                    Match Type
-                                </Dropdown.Toggle>
+                            <Card.Header>
+                                <Dropdown className="d-inline mx-5">
+                                    <Dropdown.Toggle id="dropdown-basic" style={{ backgroundColor: '#E9DCC9', border: 'none', color: 'black' }}>
+                                        Match Type
+                                    </Dropdown.Toggle>
 
-                                <Dropdown.Menu>
-                                    <Dropdown.Item onClick={() => matchHandler('t20')}>T20</Dropdown.Item>
-                                    <Dropdown.Item onClick={() => matchHandler('test')}>ODI</Dropdown.Item>
-                                    <Dropdown.Item onClick={() => matchHandler('odi')}>TEST</Dropdown.Item>
-                                    <Dropdown.Item onClick={() => matchHandler('N/A')}>Other</Dropdown.Item>
-                                </Dropdown.Menu>
-                            </Dropdown>
+                                    <Dropdown.Menu>
+                                        <Dropdown.Item onClick={() => matchHandler('test')}>Test</Dropdown.Item>
+                                        <Dropdown.Item onClick={() => matchHandler('t20')}>T20</Dropdown.Item>
+                                        <Dropdown.Item onClick={() => matchHandler('odi')}>ODI</Dropdown.Item>
+                                        <Dropdown.Item onClick={() => matchHandler('all')}>All</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
+
+                                {/* //sort by date */}
+                                <Dropdown className="d-inline mx-5">
+                                    <Dropdown.Toggle id="dropdown-basic" style={{ backgroundColor: '#E9DCC9', border: 'none', color: 'black' }}>
+                                        Sort by Date
+                                    </Dropdown.Toggle>
+
+                                    <Dropdown.Menu>
+                                        <Dropdown.Item onClick={() => dateHandler('ascending')}>LATEST</Dropdown.Item>
+                                        <Dropdown.Item onClick={() => dateHandler('descending')}>OLDEST</Dropdown.Item>
+                                        
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                            </Card.Header>
                         </Card>
                     </Container>
                 </Container>
 
-                {currentMatches.map((data, index) => {
-
+                {sortdata?sortdata.map((data, index) => {
+                    console.log(data);
                     return (
                         <Container>
                             <Container>
@@ -134,7 +231,7 @@ function LiveScores() {
                             </Container>
                         </Container>
                     )
-                })}
+                }):<Spinner></Spinner>}
 
             </>
         )
