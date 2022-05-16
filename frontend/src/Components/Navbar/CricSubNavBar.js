@@ -11,7 +11,7 @@ import {
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../Resources/Styles/CricSubNavBar.css";
-import PlayerApi from "../../Api/PlayerApi";
+import PlayerAPI from "../../Api/PlayerAPI";
 import {
   RiTeamFill,
   RiNewspaperFill,
@@ -27,7 +27,7 @@ function CricSubNavBar() {
   const [search, setsearch] = useState("");
 
   useEffect(() => {
-    PlayerApi().then((data) => {
+    PlayerAPI().then((data) => {
       setdata(data.data);
     });
   }, []);

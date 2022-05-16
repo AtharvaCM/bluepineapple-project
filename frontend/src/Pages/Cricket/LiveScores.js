@@ -7,8 +7,8 @@ import {
   Container,
   Dropdown,
 } from "react-bootstrap";
-import CricSubNavBar from "../../Components/Cricket/CricSubNavBar";
-import currentMatchesApi from "../../Api/CurrentMatchesApi";
+import CricSubNavBar from "../../Components/Navbar/CricSubNavBar";
+import currentMatchesApi from "../../Api/CurrentMatchesAPI";
 import Spinner from "../../Components/Spinner";
 
 function LiveScores() {
