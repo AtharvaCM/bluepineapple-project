@@ -12,10 +12,12 @@ const {
   getFootballFinishedMatches,
   getFootballLeaguesList,
   getFootballNews,
+  getAllFootballMatches,
 } = require("../controllers/footballController");
 
 router.get("/currentMatches", getCurrentFootballMatches);
-router.get("/finishedMatches", getFootballFinishedMatches);
+router.get("/finishedMatches/:leagueKey", getFootballFinishedMatches);
+router.get("/allMatches/:leagueKey", getAllFootballMatches);
 
 router.get("/leaguesList", getFootballLeaguesList);
 
@@ -25,6 +27,6 @@ const {
   getFootballTeamsList,
 } = require("../controllers/footballTeamController");
 
-router.get("/teamsList", getFootballTeamsList);
+router.get("/teamsList/:leagueKey", getFootballTeamsList);
 
 module.exports = router;
