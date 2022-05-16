@@ -16,7 +16,7 @@ const {
 } = require("../controllers/footballController");
 
 router.get("/currentMatches", getCurrentFootballMatches);
-router.get("/finishedMatches/:leagueKey", getFootballFinishedMatches);
+router.get("/finishedMatches", getFootballFinishedMatches);
 router.get("/allMatches/:leagueKey", getAllFootballMatches);
 
 router.get("/leaguesList", getFootballLeaguesList);
