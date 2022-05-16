@@ -8,7 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function FootballSubNavBar() {
   return (
     <>
-      <Navbar style={{ background: 'rgb(238,174,202)',background: 'radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(53,198,194,0.9808298319327731) 100%)', color: "white" }} expand="lg">
+      <Navbar style={{ background: 'rgb(238,174,202)',color: "white" }} expand="lg">
         <Container fluid>
           <Navbar.Brand href="#" style={{ color: "black", fontWeight: "bold" }}>
             Football

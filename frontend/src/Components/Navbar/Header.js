@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from "react-bootstrap/Navbar";
-import { Container, Nav } from "react-bootstrap";
+//import Navbar from "react-bootstrap/Navbar";
+import { Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FaBasketballBall, FaHome } from "react-icons/fa";
-import { MdSportsCricket } from 'react-icons/md'
-import { motion } from 'framer-motion'
+//import { FaBasketballBall, FaHome } from "react-icons/fa";
+// import { MdSportsCricket } from 'react-icons/md'
+// import { motion } from 'framer-motion'
 
 
 function Header() {
@@ -13,9 +13,9 @@ function Header() {
     <>
       <div>
 
-        <Nav variant="tabs" defaultActiveKey="/" style={{backgroundColor:'black'}} >
+        <Nav variant="tabs" defaultActiveKey="/" style={{backgroundColor:'#9BE6D3'}} >
         
-            <Nav.Link disable style={{color:'black',fontWeight:'bolder',color:'white'}}>Sports Live</Nav.Link>
+            <Nav.Link disable style={{fontWeight:'bolder',color:'white'}}>Sports Live</Nav.Link>
          
           <Nav.Item>
             <Nav.Link as={Link} href="/" to="/">Home</Nav.Link>

@@ -3,6 +3,7 @@ import FinishedMatches from '../../Api/footballApi/FinishedMatches'
 import { Card, Table, CardGroup, Container, Dropdown } from 'react-bootstrap'
 import Marquee from "react-fast-marquee";
 import { useHistory } from "react-router-dom"
+import FootballSubNavBar from './FootballSubNavBar';
 
 function CurrentMatches() {
   const [currentMatches, setcurrentMatches] = useState(null)
@@ -76,6 +77,7 @@ function CurrentMatches() {
 
   return (
     <>
+    <FootballSubNavBar></FootballSubNavBar>
       <Container className='mt-2'>
         <Container>
           <Card>
