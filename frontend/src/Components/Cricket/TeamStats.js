@@ -142,8 +142,10 @@ function TeamStats({ team }) {
   const odiCard = () => {
     return (
       <>
-        <Card style={{ backgroundColor: "gray" }}>
-          <Card.Header style={{color:'black'}}>{team.name} ODI Stats</Card.Header>
+        <Card style={{ backgroundColor: "white" }}>
+          <Card.Header style={{ color: "black" }}>
+            {team.name} ODI Stats
+          </Card.Header>
           <Card.Body>
             <DoughnutChart
               chartData={chartData.odi}
@@ -163,8 +165,10 @@ function TeamStats({ team }) {
   const testCard = () => {
     return (
       <>
-        <Card style={{ backgroundColor: "gray"}} className="mt-4">
-          <Card.Header style={{color:'black'}}>{team.name} Test Stats</Card.Header>
+        <Card style={{ backgroundColor: "white" }} className="mt-4">
+          <Card.Header style={{ color: "black" }}>
+            {team.name} Test Stats
+          </Card.Header>
           <Card.Body>
             <DoughnutChart
               chartData={chartData.test}
@@ -184,7 +188,7 @@ function TeamStats({ team }) {
   const t20Card = () => {
     return (
       <>
-        <Card style={{ backgroundColor: "gray" }} className="mt-4 mb-5">
+        <Card style={{ backgroundColor: "white" }} className="mt-4 mb-5">
           <Card.Header>{team.name} T20 Stats</Card.Header>
           <Card.Body>
             <DoughnutChart

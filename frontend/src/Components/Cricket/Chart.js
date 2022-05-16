@@ -8,12 +8,13 @@ export const BarChart = ({ chartData, title }) => {
         width={500}
         data={chartData}
         options={{
-          color: "white",
+          backgroundColor: "white",
+          color: "black",
           plugins: {
             title: {
               display: true,
               text: title,
-              color: "white",
+              color: "black",
             },
             legend: {
               display: true,
@@ -47,12 +48,12 @@ export const PieChart = ({ chartData, title }) => {
         width={500}
         data={chartData}
         options={{
-          color: "white",
+          color: "black",
           plugins: {
             title: {
               display: true,
               text: title,
-              color: "white",
+              color: "black",
               font: {
                 size: 30,
               },
@@ -77,12 +78,13 @@ export const DoughnutChart = ({ chartData, title }) => {
         width={500}
         data={chartData}
         options={{
-          color: "white",
+          backgroundColor: "white",
+          color: "black",
           plugins: {
             title: {
               display: true,
               text: title,
-              color: "white",
+              color: "black",
               font: {
                 size: 30,
               },
@@ -107,12 +109,12 @@ export const LineChart = ({ chartData, title }) => {
         width={500}
         data={chartData}
         options={{
-          color: "white",
+          color: "black",
           plugins: {
             title: {
               display: true,
               text: title,
-              color: "white",
+              color: "black",
               font: {
                 size: 30,
               },
@@ -125,12 +127,12 @@ export const LineChart = ({ chartData, title }) => {
           scales: {
             x: {
               ticks: {
-                color: "white",
+                color: "black",
               },
             },
             y: {
               ticks: {
-                color: "white",
+                color: "black",
               },
             },
           },
