@@ -65,7 +65,7 @@ function CricSubNavBar() {
                   <Nav.Link
                     as={Link}
                     to="/Cricket/LiveScore"
-                    style={{ color: "black", fontWeight: "bold" }}
+                    style={styles.navLink}
                   >
                     <RiLiveFill /> Live Scores
                   </Nav.Link>

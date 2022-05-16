@@ -183,9 +183,9 @@ function LiveScores() {
           sortdata.map((data, index) => {
             console.log(data);
             return (
-              <Container>
+              <Container key={index}>
                 <Container>
-                  <Card className="mt-2 ms-5 me-5 mb-2" key={index} bg="light">
+                  <Card className="mt-2 ms-5 me-5 mb-2" bg="light">
                     <Card.Header>
                       <Table
                         className="table table-borderless"
