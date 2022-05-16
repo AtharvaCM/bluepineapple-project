@@ -175,7 +175,7 @@ function LiveScores() {
 
                                                 <tr style={{ fontSize: "15px", fontWeight: "bold", color: 'black' }}>
                                                     <td>Venue : {data.venue}</td>
-                                                    <td>Date & Time : {new Date(data.dateTimeGMT).toLocaleString()}</td>
+                                                    <td>Date : {data.date}</td>
                                                     <td>Match Type : {data.hasOwnProperty('matchType') ? data.matchType : 'N/A'}</td>
                                                 </tr>
                                             </tbody>

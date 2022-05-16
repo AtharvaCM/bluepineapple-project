@@ -1,6 +1,6 @@
-const footBallTeamsApi = async () => {
+const LeagueListApi = async () => {
     try {
-      const url = "http://127.0.0.1:5000/api/v1/football/teamsList";
+      const url = "http://127.0.0.1:5000/api/v1/football/leaguesList";
       const response = await fetch(url, {
         method: "GET",
         headers: {},
@@ -14,4 +14,4 @@ const footBallTeamsApi = async () => {
       console.log(`{ error: ${err.message || err.toString()} }`);
     }
   };
-  export default footBallTeamsApi;
+  export default LeagueListApi;

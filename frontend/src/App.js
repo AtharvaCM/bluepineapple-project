@@ -19,7 +19,7 @@ import LiveScores from "./Pages/Cricket/LiveScores";
 import Series from "./Pages/Cricket/Series";
 import PlayersRanking from "./Pages/Cricket/PlayersRanking";
 import CurrentMatches from "./Pages/Football/CurrentMatches";
-import TeamList from "./Pages/Football/TeamList";
+import LeagueList from "./Pages/Football/LeagueList";
 import DetailScore from "./Pages/Football/DetailScore";
 
 
@@ -47,7 +47,7 @@ function App() {
             <Route exact path="/Cricket/Series" component={Series}></Route>
             <Route exact path="/Football" component={Football}></Route>
             <Route exact path="/football/Scores" component={CurrentMatches}></Route>
-            <Route exact path="/football/Teams" component={TeamList}></Route>
+            <Route exact path="/football/LeagueList" component={LeagueList}></Route>
             <Route exact path="/football/Scores/MatchSummary" component={DetailScore}></Route>
             
           </Switch>

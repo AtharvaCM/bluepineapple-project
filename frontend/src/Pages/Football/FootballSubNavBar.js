@@ -20,20 +20,19 @@ function FootballSubNavBar() {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
+              <Nav.Link as={Link} to={"/football/Scores"} style={{ color: "black", fontWeight: "bold" }}>
+                Live Scores
+              </Nav.Link>
+              
               <Nav.Link
               as={Link}
-              to={"/Football/Teams"}
+              to={"/Football/LeagueList"}
                
                 style={{ color: "black", fontWeight: "bold" }}
               >
-                Teams
+                Leagues
               </Nav.Link>
-              <Nav.Link
-                href="#action2"
-                style={{ color: "black", fontWeight: "bold" }}
-              >
-                Schedule
-              </Nav.Link>
+             
               <Nav.Link
                 href="#action2"
                 style={{ color: "black", fontWeight: "bold" }}
@@ -43,18 +42,8 @@ function FootballSubNavBar() {
               <Nav.Link href="#" style={{ color: "black", fontWeight: "bold" }}>
                 Ranking
               </Nav.Link>
-              <Nav.Link href="#" style={{ color: "black", fontWeight: "bold" }}>
-                Gallery
-              </Nav.Link>
-              <Nav.Link as={Link} to={"/football/Scores"} style={{ color: "black", fontWeight: "bold" }}>
-                Live Scores
-              </Nav.Link>
-              <Nav.Link href="#" style={{ color: "black", fontWeight: "bold" }}>
-                Series
-              </Nav.Link>
-              <Nav.Link href="#" style={{ color: "black", fontWeight: "bold" }}>
-                Stats
-              </Nav.Link>
+              
+              
             </Nav>
             <Form className="d-flex">
               <FormControl

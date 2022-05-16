@@ -77,56 +77,58 @@ function CurrentMatches() {
   return (
     <>
       <Container className='mt-2'>
-        <Card>
-          <Card.Header>
-            <div className="mt-2 me-2 mb-2 d-flex justify-content-between">
+        <Container>
+          <Card>
+            <Card.Header>
+              <div className="mt-2 me-2 mb-2 d-flex">
 
-              <Dropdown className="d-inline mx-5">
-                <Dropdown.Toggle id="dropdown-basic" style={{ backgroundColor: '#E9DCC9', border: 'none', color: 'black' }}>
-                  Series
-                </Dropdown.Toggle>
+                <Dropdown className="d-inline mx-5">
+                  <Dropdown.Toggle id="dropdown-basic" style={{ backgroundColor: '#E9DCC9', border: 'none', color: 'black' }}>
+                    Series
+                  </Dropdown.Toggle>
 
-                <Dropdown.Menu>
-                  <Dropdown.Item onClick={() => seriesHandler('Premier League')}>Premier League</Dropdown.Item>
-                  <Dropdown.Item onClick={() => seriesHandler('Cup - Round of 32')}>Cup - Round of 32</Dropdown.Item>
-                  <Dropdown.Item onClick={() => seriesHandler('All')}>All</Dropdown.Item>
-                  <Dropdown.Item onClick={() => seriesHandler('Other')}>Other</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-
-
-
-              <Dropdown className="d-inline mx-5" >
-                <Dropdown.Toggle style={{ backgroundColor: '#E9DCC9', border: 'none', color: 'black' }} id="dropdown-basic">
-                  Status
-                </Dropdown.Toggle>
-
-                <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1">Finished</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">OnGoing</Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
+                  <Dropdown.Menu>
+                    <Dropdown.Item onClick={() => seriesHandler('Premier League')}>Premier League</Dropdown.Item>
+                    <Dropdown.Item onClick={() => seriesHandler('Cup - Round of 32')}>Cup - Round of 32</Dropdown.Item>
+                    <Dropdown.Item onClick={() => seriesHandler('All')}>All</Dropdown.Item>
+                    <Dropdown.Item onClick={() => seriesHandler('Other')}>Other</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
 
 
 
-              <Dropdown className="d-inline mx-5" align="end">
-                <Dropdown.Toggle style={{ backgroundColor: '#E9DCC9', border: 'none', color: 'black' }} id="dropdown-basic">
-                  League Season
-                </Dropdown.Toggle>
+                <Dropdown className="d-inline mx-5" >
+                  <Dropdown.Toggle style={{ backgroundColor: '#E9DCC9', border: 'none', color: 'black' }} id="dropdown-basic">
+                    Status
+                  </Dropdown.Toggle>
 
-                <Dropdown.Menu>
-                  <Dropdown.Item onClick={() => seasonHandler('2022')}>2022</Dropdown.Item>
-                  <Dropdown.Item onClick={() => seasonHandler('2021/2022')}>2021/2022</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="#/action-1">Finished</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">OnGoing</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
 
-            </div>
-          </Card.Header>
-        </Card>
+
+
+                <Dropdown className="d-inline mx-5" align="end">
+                  <Dropdown.Toggle style={{ backgroundColor: '#E9DCC9', border: 'none', color: 'black' }} id="dropdown-basic">
+                    League Season
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <Dropdown.Item onClick={() => seasonHandler('2022')}>2022</Dropdown.Item>
+                    <Dropdown.Item onClick={() => seasonHandler('2021/2022')}>2021/2022</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+
+              </div>
+            </Card.Header>
+
+          </Card>
+        </Container>
         {sort ? sort.map((data, index) => {
-          //fetch(data.home_team_logo).then(response =>console.log(response)).catch(err => console.log(err))
-          //console.log(typeof(parseInt(data.event_ft_result.split("")[0])))
+          
           return (
             <Card className="mt-2 ms-5 me-5" onClick={() => cardClickHadler(data)} style={{ boxShadow: '23px solid white', border: 'none' }} key={index}>
               <Card.Header>
