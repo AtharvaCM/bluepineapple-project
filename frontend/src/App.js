@@ -22,6 +22,7 @@ import CurrentMatches from "./Pages/Football/CurrentMatches";
 import TeamList from "./Pages/Football/TeamList";
 import DetailScore from "./Pages/Football/DetailScore";
 import Gallery1 from "./Pages/Football/Gallery";
+import Ranking from "./Pages/Football/Ranking";
 
 
 
@@ -51,7 +52,7 @@ function App() {
             <Route exact path="/football/Teams" component={TeamList}></Route>
             <Route exact path="/football/Scores/MatchSummary" component={DetailScore}></Route>
             <Route exact path="/football/Gallery" component={Gallery1}></Route>
-            
+            <Route exact path="/football/Ranking" component={Ranking}></Route>
           </Switch>
           {/* <Footer></Footer> */}
         </div>
