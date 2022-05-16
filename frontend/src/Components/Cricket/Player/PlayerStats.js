@@ -1,8 +1,8 @@
 import { React, useEffect, useState } from "react";
 import { Card, Container } from "react-bootstrap";
-import { COLORS } from "../../Constants/colors";
-import { PlayerStatsRunsInPastFiveYearsAPI } from "../../Api/PlayerStatsAPI";
-import { LineChart } from "./Chart";
+import { COLORS } from "../../../Constants/colors";
+import { PlayerStatsRunsInPastFiveYearsAPI } from "../../../Api/PlayerStatsAPI";
+import { LineChart } from "../Chart";
 
 const lineChartBGColors = [
   COLORS.chartPink,

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
-import NewsInfo from "../Api/NewsApi";
+//import logo from '../Resources/Images/Basketball.gif';
+import NewsInfo from "../Api/NewsAPI";
 import Spinner from "../Components/Spinner";
 
 function LandingPage() {
