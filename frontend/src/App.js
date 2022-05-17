@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LandingPage from "./Pages/LandingPage";
 import Cricket from "./Pages/Cricket/Cricket";
 import Football from "./Pages/Football/Football";
-import Footer from "./Components/Navbar/Footer";
+//import Footer from "./Components/Navbar/Footer";
 //import Teams from './Pages/Cricket/Teams';
 import Gallery from "./Pages/Cricket/Gallery";
 import News from "./Pages/Cricket/News";
@@ -20,7 +20,10 @@ import Series from "./Pages/Cricket/Series";
 import CurrentMatches from "./Pages/Football/CurrentMatches";
 import LeagueList from "./Pages/Football/LeagueList";
 import DetailScore from "./Pages/Football/DetailScore";
+import Gallery1 from "./Pages/Football/Gallery";
+import Ranking from "./Pages/Football/Ranking";
 import LeagueInfo from "./Pages/Football/LeagueInfo";
+
 
 import { THEME } from "./Constants/colors";
 
@@ -73,20 +76,15 @@ function App() {
             ></Route>
             <Route exact path="/Cricket/Series" component={Series}></Route>
             <Route exact path="/Football" component={Football}></Route>
-            <Route
-              exact
-              path="/football/Scores"
-              component={CurrentMatches}
-            ></Route>
+            <Route exact path="/football/Scores" component={CurrentMatches}></Route>
+            <Route exact path="/football/Teams" component={TeamList}></Route>
+            <Route exact path="/football/Scores/MatchSummary" component={DetailScore}></Route>
+            <Route exact path="/football/Gallery" component={Gallery1}></Route>
+            <Route exact path="/football/Ranking" component={Ranking}></Route>
             <Route
               exact
               path="/football/LeagueList"
               component={LeagueList}
-            ></Route>
-            <Route
-              exact
-              path="/football/Scores/MatchSummary"
-              component={DetailScore}
             ></Route>
             <Route
               exact
