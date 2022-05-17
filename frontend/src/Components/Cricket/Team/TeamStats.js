@@ -5,7 +5,7 @@ import {
   TeamStatsTotalMatchesAPI,
   TeamStatsWinPercentageByYearAPI,
 } from "../../../Api/TeamStatsAPI";
-import { BarChart, PieChart, DoughnutChart, LineChart } from "../Chart";
+import { BarChart, PieChart, DoughnutChart, LineChart } from "../../Chart";
 import { Chart as ChartJS } from "chart.js/auto";
 import { Chart } from "react-chartjs-2";
 import { COLORS } from "../../../Constants/colors";
@@ -142,7 +142,7 @@ function TeamStats({ team }) {
   const odiCard = () => {
     return (
       <>
-        <Card style={{ backgroundColor: "gray" }}>
+        <Card style={{ backgroundColor: "white" }}>
           <Card.Header style={{ color: "black" }}>
             {team.name} ODI Stats
           </Card.Header>
@@ -165,7 +165,7 @@ function TeamStats({ team }) {
   const testCard = () => {
     return (
       <>
-        <Card style={{ backgroundColor: "gray" }} className="mt-4">
+        <Card style={{ backgroundColor: "white" }} className="mt-4">
           <Card.Header style={{ color: "black" }}>
             {team.name} Test Stats
           </Card.Header>
@@ -188,7 +188,7 @@ function TeamStats({ team }) {
   const t20Card = () => {
     return (
       <>
-        <Card style={{ backgroundColor: "gray" }} className="mt-4 mb-5">
+        <Card style={{ backgroundColor: "white" }} className="mt-4 mb-5">
           <Card.Header>{team.name} T20 Stats</Card.Header>
           <Card.Body>
             <DoughnutChart

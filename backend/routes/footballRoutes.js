@@ -8,25 +8,35 @@ const express = require("express");
 const router = express.Router();
 
 const {
-  getCurrentFootballMatches,
-  getFootballFinishedMatches,
   getFootballLeaguesList,
   getFootballNews,
-  getAllFootballMatches,
+  getFootballGalleryList,
 } = require("../controllers/footballController");
-
-router.get("/currentMatches", getCurrentFootballMatches);
-router.get("/finishedMatches", getFootballFinishedMatches);
-router.get("/allMatches/:leagueKey", getAllFootballMatches);
 
 router.get("/leaguesList", getFootballLeaguesList);
 
 router.get("/news", getFootballNews);
 
+router.get("/galleryList", getFootballGalleryList);
+
+const {
+  getCurrentFootballMatches,
+  getFootballFinishedMatches,
+  getAllFootballMatches,
+  getFootballMatchStatictics,
+} = require("../controllers/footballMatchController");
+
+router.get("/currentMatches", getCurrentFootballMatches);
+router.get("/finishedMatches", getFootballFinishedMatches);
+router.get("/allMatches/:leagueKey", getAllFootballMatches);
+router.get("/stats/allMatches/", getFootballMatchStatictics);
+
 const {
   getFootballTeamsList,
+  getFootballTeamRankingsList,
 } = require("../controllers/footballTeamController");
 
-router.get("/teamsList/:league_name", getFootballTeamsList);
+router.get("/teamsList/:leagueKey", getFootballTeamsList);
+router.get("/teams/ranking", getFootballTeamRankingsList);
 
 module.exports = router;
