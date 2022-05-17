@@ -113,7 +113,6 @@ function CurrentMatches() {
 
   return (
     <>
-      <FootballSubNavBar></FootballSubNavBar>
 
       {alert ? <Alert variant='dark' style={{ fontWeight: 'bold', textAlign: 'center' }}>
         Live Matches according to {message} !!!

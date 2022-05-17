@@ -36,10 +36,110 @@ function CricSubNavBar() {
   //   return player.name;
   // });
 
-  
+
   return (
     <>
-      <div>
+
+      <Nav
+        variant="tabs"
+        defaultActiveKey="/Cricket"
+        style={{ background: "#00796b" }}
+        justify
+      >
+        <Nav.Item>
+          <Nav.Link
+            href="/Cricket"
+            as={Link}
+            to="/Cricket"
+            style={{ color: "black", fontWeight: "bold" }}
+          >
+             CricHome
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link
+            eventKey="link-1"
+            as={Link}
+            href="/Cricket/Team/Men"
+            to="/Cricket/Team/Men"
+            style={{ color: "black", fontWeight: "bold" }}
+          >
+            <RiTeamFill /> Teams
+          </Nav.Link>
+        </Nav.Item>
+
+        <Nav.Item>
+          <Nav.Link
+            eventKey="link-2"
+            as={Link}
+            to="/Cricket/News"
+            style={{ color: "black", fontWeight: "bold" }}
+          >
+            <RiNewspaperFill></RiNewspaperFill> News
+          </Nav.Link>
+        </Nav.Item>
+
+        <Nav.Item>
+          <Nav.Link
+            eventKey="link-3"
+            as={Link}
+            to="/Cricket/Ranking/Batting"
+            style={{ color: "black", fontWeight: "bold" }}
+          >
+            <AiFillThunderbolt></AiFillThunderbolt> Rankings
+          </Nav.Link>
+        </Nav.Item>
+
+        <Nav.Item>
+          <Nav.Link
+            eventKey="link-4"
+            as={Link}
+            to="/Cricket/Gallery"
+            style={{ color: "black", fontWeight: "bold" }}
+          >
+            <RiGalleryFill /> Gallery
+          </Nav.Link>
+        </Nav.Item>
+
+        <Nav.Item>
+          <Nav.Link
+            eventKey="link-5"
+            as={Link}
+            to="/Cricket/LiveScore"
+            style={{ color: "black", fontWeight: "bold" }}
+          >
+            <RiLiveFill></RiLiveFill> Live Scores
+          </Nav.Link>
+        </Nav.Item>
+
+        <Nav.Item>
+          <Nav.Link
+            eventKey="link-6"
+            as={Link}
+            to="/Cricket/Series"
+            style={{ color: "black", fontWeight: "bold" }}
+          >
+            <FaHandshake /> Series
+          </Nav.Link>
+        </Nav.Item>
+
+        <Nav.Item>
+          <Form className="d-flex">
+            <FormControl
+              type="search"
+              placeholder="Player Search"
+              className="ms-4"
+              aria-label="Search"
+              onChange={(event) => { setsearch(event.target.value) }}
+            />
+          </Form>
+        </Nav.Item>
+      </Nav>
+
+
+
+
+      {/* <div>
         <Navbar style={{backgroundColor:'#00796b'}} expand="lg" varient='pills'>
           <Container fluid>
             <Navbar.Brand style={{ color: "white", fontWeight: "bold" }}>
@@ -143,7 +243,7 @@ function CricSubNavBar() {
 
 
 
-      </div>
+      </div> */}
       <ListGroup>
         {data
           .filter((val) => {

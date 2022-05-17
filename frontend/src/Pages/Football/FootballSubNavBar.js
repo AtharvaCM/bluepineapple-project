@@ -23,6 +23,7 @@ function FootballSubNavBar() {
             <RiLiveFill></RiLiveFill> Live Scores
           </Nav.Link>
         </Nav.Item>
+
         <Nav.Item>
           <Nav.Link
             eventKey="link-1"
@@ -33,16 +34,18 @@ function FootballSubNavBar() {
             Leagues
           </Nav.Link>
         </Nav.Item>
+
         <Nav.Item>
           <Nav.Link
             eventKey="link-2"
             as={Link}
-            to="#"
+            to="/football/News"
             style={{ color: "black", fontWeight: "bold" }}
           >
             <RiNewspaperFill></RiNewspaperFill> News
           </Nav.Link>
         </Nav.Item>
+
         <Nav.Item>
           <Nav.Link
             eventKey="link-3"
@@ -53,6 +56,7 @@ function FootballSubNavBar() {
             <AiFillThunderbolt></AiFillThunderbolt> Rankings
           </Nav.Link>
         </Nav.Item>
+        
         <Nav.Item>
           <Nav.Link
             eventKey="link-4"
@@ -64,16 +68,7 @@ function FootballSubNavBar() {
           </Nav.Link>
         </Nav.Item>
 
-        <Nav.Item>
-          <Form className="d-flex">
-            <FormControl
-              type="search"
-              placeholder="Player Search"
-              className="ms-4"
-              aria-label="Search"
-            />
-          </Form>
-        </Nav.Item>
+        
       </Nav>
     </>
   );

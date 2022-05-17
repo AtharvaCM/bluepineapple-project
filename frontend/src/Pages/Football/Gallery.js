@@ -4,8 +4,9 @@ import FootballSubNavBar from './FootballSubNavBar'
 import FootballGalleryAPI from '../../Api/footballApi/FootballGalleryAPI'
 
 function Gallery() {
+ // const [first, setfirst] = useState(FootballGalleryAPI)
   console.log('hello from football gallery')
-  console.log(FootballGalleryAPI);
+  //console.log(first);
   return (
     <>
       <FootballSubNavBar></FootballSubNavBar>

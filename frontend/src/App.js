@@ -25,6 +25,7 @@ import Ranking from "./Pages/Football/Ranking";
 import LeagueInfo from "./Pages/Football/LeagueInfo";
 
 import { THEME } from "./Constants/colors";
+import FootballNews from "./Pages/Football/FootballNews";
 
 function App() {
   return (
@@ -74,13 +75,13 @@ function App() {
               component={LiveScores}
             ></Route>
             <Route exact path="/Cricket/Series" component={Series}></Route>
-            <Route exact path="/Football" component={Football}></Route>
-            <Route
-              exact
-              path="/football/Scores"
-              component={CurrentMatches}
-            ></Route>
-            {/* <Route exact path="/football/Teams" component={TeamList}></Route> */}
+
+            <Route exact path="/Football" component={Football}>
+
+            </Route>
+              <Route exact path="/football/Scores" component={CurrentMatches}></Route>
+
+
             <Route
               exact
               path="/football/Scores/MatchSummary"
@@ -97,6 +98,11 @@ function App() {
               exact
               path="/football/League/LeagueInfo"
               component={LeagueInfo}
+            ></Route>
+            <Route
+              exact
+              path="/football/News"
+              component={FootballNews}
             ></Route>
           </Switch>
           {/* <Footer></Footer> */}
