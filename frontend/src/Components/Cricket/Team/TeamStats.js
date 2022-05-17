@@ -5,7 +5,7 @@ import {
   TeamStatsTotalMatchesAPI,
   TeamStatsWinPercentageByYearAPI,
 } from "../../../Api/TeamStatsAPI";
-import { BarChart, PieChart, DoughnutChart, LineChart } from "../Chart";
+import { BarChart, PieChart, DoughnutChart, LineChart } from "../../Chart";
 import { Chart as ChartJS } from "chart.js/auto";
 import { Chart } from "react-chartjs-2";
 import { COLORS } from "../../../Constants/colors";
