@@ -21,7 +21,8 @@ function Ranking() {
                         <thead>
                         <tr>
                             <th>Position</th>
-                            <th colSpan={2}>Team</th>
+                            <th>Flag</th>
+                            <th>Team</th>
                         </tr>
                         </thead>
                         <tbody>
