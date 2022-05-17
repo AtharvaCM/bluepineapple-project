@@ -36,14 +36,11 @@ function CricSubNavBar() {
     return player.name;
   });
 
-  //setsearch(player
-
-  //console.log('searchdata:', data);
-  //console.log('playerList', search)
+  
   return (
     <>
       <div>
-        <Navbar style={styles.navbar} expand="lg">
+        <Navbar style={{backgroundColor:'#00796b'}} expand="lg" varient='pills'>
           <Container fluid>
             <Navbar.Brand style={{ color: "white", fontWeight: "bold" }}>
               <Nav.Link
@@ -120,7 +117,7 @@ function CricSubNavBar() {
                 </span>
               </Nav>
 
-              {/* <Form className="d-flex">
+               <Form className="d-flex">
                 <FormControl
                   type="search"
                   placeholder="Player Search"
@@ -137,10 +134,15 @@ function CricSubNavBar() {
                 >
                   Search
                 </Button>
-              </Form> */}
-            </Navbar.Collapse>
+              </Form>
+             </Navbar.Collapse>
           </Container>
-        </Navbar>
+        </Navbar> 
+
+
+
+
+
       </div>
       <ListGroup>
         {data

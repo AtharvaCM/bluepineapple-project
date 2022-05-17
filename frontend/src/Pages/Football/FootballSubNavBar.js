@@ -1,14 +1,45 @@
 import React from "react";
-import Navbar from "react-bootstrap/Navbar";
-import { Nav, Button, Form, FormControl, Container } from "react-bootstrap";
-import {Link} from 'react-router-dom'
-import "bootstrap/dist/css/bootstrap.min.css";
+import { Nav,Form,FormControl,Button} from "react-bootstrap";
+import { Link } from 'react-router-dom'
+import {RiLiveFill,RiNewspaperFill} from 'react-icons/ri'
+import { AiFillThunderbolt } from "react-icons/ai";
 
 
 function FootballSubNavBar() {
   return (
     <>
-      <Navbar style={{ background: 'rgb(238,174,202)',color: "white" }} expand="lg">
+
+      <Nav variant="tabs" defaultActiveKey="/football/Scores" style={{ background: '#00796b'}} justify>
+        <Nav.Item>
+          <Nav.Link href="/football/Scores" as={Link} to='/football/Scores' style={{color:'black',fontWeight:'bold'}}><RiLiveFill></RiLiveFill> Live Scores</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-1" as={Link} to='/Football/LeagueList' style={{color:'black',fontWeight:'bold'}}>Leagues</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-2" as={Link} to='#' style={{color:'black',fontWeight:'bold'}}><RiNewspaperFill></RiNewspaperFill> News</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-3" as={Link} to='#' style={{color:'black',fontWeight:'bold'}}><AiFillThunderbolt></AiFillThunderbolt> Rankings</Nav.Link>
+        </Nav.Item>
+
+        <Nav.Item>
+        <Form className="d-flex">
+          <FormControl
+            type="search"
+            placeholder="Player Search"
+            className="ms-4"
+            aria-label="Search"
+          />
+        </Form>
+        </Nav.Item>
+      </Nav>
+
+
+
+
+
+      {/* <Navbar style={{ background: 'rgb(238,174,202)',color: "white" }} expand="lg">
         <Container fluid>
           <Navbar.Brand href="#" style={{ color: "black", fontWeight: "bold" }}>
             Football
@@ -65,7 +96,7 @@ function FootballSubNavBar() {
             </Form>
           </Navbar.Collapse>
         </Container>
-      </Navbar>
+      </Navbar> */}
     </>
   );
 }

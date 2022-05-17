@@ -1,13 +1,16 @@
 import { React, useEffect, useState } from 'react'
 import FinishedMatches from '../../Api/footballApi/FinishedMatches'
-import { Card, Table, CardGroup, Container, Dropdown } from 'react-bootstrap'
+import { Card, Table, CardGroup, Container, Dropdown} from 'react-bootstrap'
 import Marquee from "react-fast-marquee";
 import { useHistory } from "react-router-dom"
 import FootballSubNavBar from './FootballSubNavBar';
+import Alert from 'react-bootstrap/Alert'
 
 function CurrentMatches() {
   const [currentMatches, setcurrentMatches] = useState(null)
   const [sort, setsort] = useState(null)
+  const [alert, setalert] = useState(false)
+  const [message, setmessage] = useState('')
   useEffect(() => {
     FinishedMatches().then((data) => {
       setcurrentMatches(data.matches);
@@ -29,6 +32,11 @@ function CurrentMatches() {
 
   const seriesHandler = (e) => {
     //console.log(e);
+    setmessage(e);
+    setalert(true);
+    setTimeout(() => {
+      setalert(false);
+    }, 3000);
     if (e === 'Premier League') {
       const updatedMatches = currentMatches.filter((data) => {
         return data.league_name === e;
@@ -55,6 +63,13 @@ function CurrentMatches() {
   }
 
   const seasonHandler = (e) => {
+    setmessage(e);
+    setalert(true);
+    setTimeout(() => {
+      setalert(false);
+    }, 3000);
+
+
     console.log(e === '2021/2022');
     if (e === '2021/2022') {
 
@@ -78,6 +93,11 @@ function CurrentMatches() {
   return (
     <>
     <FootballSubNavBar></FootballSubNavBar>
+
+    {alert?<Alert variant='dark' style={{fontWeight:'bold',textAlign:'center'}}>
+      Live Matches according to {message} !!!
+    </Alert> : ''}
+
       <Container className='mt-2'>
         <Container>
           <Card>

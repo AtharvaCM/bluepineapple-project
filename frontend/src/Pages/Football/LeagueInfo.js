@@ -6,7 +6,7 @@ import FinishedMatches from '../../Api/footballApi/FinishedMatches'
 function LeagueInfo(e) {
 
     const [data, setdata] = useState(null)
-    const [league, setleague] = useState()
+    const [league, setleague] = useState('')
     
     useEffect(() => {
       FinishedMatches().then((data) => {
@@ -18,16 +18,18 @@ function LeagueInfo(e) {
     let leagueName = e.location.state.e.league_name;
 
     if(leagueName === "Premier League" && data !== null){
+
       const updatedMatches = data.filter((data) => {
         return data.league_name === leagueName;
       })
       //
-      console.log(updatedMatches);
-      setleague(updatedMatches);
+      console.log('updatedmatches',updatedMatches);
+      //setleague(updatedMatches);
       
     }
      
-    console.log(league);
+    console.log('league',league);
+    console.log('league_data',data);
            
 
     
