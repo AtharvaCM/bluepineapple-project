@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Card } from "react-bootstrap";
-import TeamSubNavBar from "../../Components/Cricket/TeamSubNavBar";
-import CricSubNavBar from "../../Components/Cricket/CricSubNavBar";
+import TeamSubNavBar from "../../Components/Cricket/Team/TeamSubNavBar";
+import CricSubNavBar from "../../Components/Navbar/CricSubNavBar";
 import TeamsAPI from "../../Api/TeamsListAPI";
 
 import { useHistory } from "react-router-dom";

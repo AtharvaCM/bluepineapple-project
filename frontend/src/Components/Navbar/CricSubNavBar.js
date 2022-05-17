@@ -1,9 +1,17 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import Navbar from "react-bootstrap/Navbar";
-import { Nav, Button, Form, FormControl, Container } from "react-bootstrap";
+import {
+  Nav,
+  Button,
+  Form,
+  FormControl,
+  Container,
+  ListGroup,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../Resources/Styles/CricSubNavBar.css";
+import PlayerAPI from "../../Api/PlayerAPI";
 import {
   RiTeamFill,
   RiNewspaperFill,
@@ -11,27 +19,37 @@ import {
   RiLiveFill,
 } from "react-icons/ri";
 import { FaHandshake } from "react-icons/fa";
-// import { ImStatsDots } from "react-icons/im";
 import { AiFillThunderbolt } from "react-icons/ai";
-//import {motion} from 'framer-motion'
+import { THEME } from "../../Constants/colors";
 
-function cricSubNavBar() {
+function CricSubNavBar() {
+  const [data, setdata] = useState([]);
+  const [search, setsearch] = useState("");
+
+  useEffect(() => {
+    PlayerAPI().then((data) => {
+      setdata(data.data);
+    });
+  }, []);
+
+  let player = data.map((player) => {
+    return player.name;
+  });
+
+  //setsearch(player
+
+  //console.log('searchdata:', data);
+  //console.log('playerList', search)
   return (
     <>
       <div>
-        <Navbar
-          style={{ background: 'rgb(238,174,202)', background: 'radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(53,198,194,0.9808298319327731) 100%)', color: "white" }}
-          expand="lg"
-        >
+        <Navbar style={styles.navbar} expand="lg">
           <Container fluid>
-            <Navbar.Brand
-              href="#"
-              style={{ color: "white", fontWeight: "bold" }}
-            >
+            <Navbar.Brand style={{ color: "white", fontWeight: "bold" }}>
               <Nav.Link
                 as={Link}
                 to="/Cricket"
-                style={{ color: "black", fontWeight: "bold" }}
+                style={{ color: THEME.colorLight, fontWeight: "bold" }}
               >
                 Cricket
               </Nav.Link>
@@ -46,17 +64,8 @@ function cricSubNavBar() {
                 <span className="cricSubNavBar">
                   <Nav.Link
                     as={Link}
-                    to="/Cricket/LiveScore"
-                    style={{ color: "black", fontWeight: "bold" }}
-                  >
-                    <RiLiveFill /> Live Scores
-                  </Nav.Link>
-                </span>
-                <span className="cricSubNavBar">
-                  <Nav.Link
-                    as={Link}
                     to="/Cricket/Team/Men"
-                    style={{ color: "black", fontWeight: "bold" }}
+                    style={styles.navLink}
                   >
                     {" "}
                     <RiTeamFill /> Teams
@@ -64,11 +73,7 @@ function cricSubNavBar() {
                 </span>
 
                 <span className="cricSubNavBar">
-                  <Nav.Link
-                    as={Link}
-                    to="/Cricket/News"
-                    style={{ color: "black", fontWeight: "bold" }}
-                  >
+                  <Nav.Link as={Link} to="/Cricket/News" style={styles.navLink}>
                     <RiNewspaperFill /> News
                   </Nav.Link>
                 </span>
@@ -77,7 +82,7 @@ function cricSubNavBar() {
                   <Nav.Link
                     as={Link}
                     to="/Cricket/Ranking/Batting"
-                    style={{ color: "black", fontWeight: "bold" }}
+                    style={styles.navLink}
                   >
                     <AiFillThunderbolt />
                     Ranking
@@ -88,7 +93,7 @@ function cricSubNavBar() {
                   <Nav.Link
                     as={Link}
                     to="/Cricket/Gallery"
-                    style={{ color: "black", fontWeight: "bold" }}
+                    style={styles.navLink}
                   >
                     <RiGalleryFill /> Gallery
                   </Nav.Link>
@@ -97,24 +102,31 @@ function cricSubNavBar() {
                 <span className="cricSubNavBar">
                   <Nav.Link
                     as={Link}
+                    to="/Cricket/LiveScore"
+                    style={styles.navLink}
+                  >
+                    <RiLiveFill /> Live Scores
+                  </Nav.Link>
+                </span>
+
+                <span className="cricSubNavBar">
+                  <Nav.Link
+                    as={Link}
                     to="/Cricket/Series"
-                    style={{ color: "black", fontWeight: "bold" }}
+                    style={styles.navLink}
                   >
                     <FaHandshake /> Series
                   </Nav.Link>
                 </span>
-
-                {/* <span className='cricSubNavBar'>
-                                    <Nav.Link href="#" style={{ color: 'white', fontWeight: 'bold' }}><ImStatsDots/> Stats</Nav.Link>
-                                </span> */}
               </Nav>
 
-              <Form className="d-flex">
+              {/* <Form className="d-flex">
                 <FormControl
                   type="search"
-                  placeholder="Search"
+                  placeholder="Player Search"
                   className="me-2"
                   aria-label="Search"
+                  onChange={(event) => { setsearch(event.target.value) }}
                 />
                 <Button
                   style={{
@@ -125,13 +137,37 @@ function cricSubNavBar() {
                 >
                   Search
                 </Button>
-              </Form>
+              </Form> */}
             </Navbar.Collapse>
           </Container>
         </Navbar>
       </div>
+      <ListGroup>
+        {data
+          .filter((val) => {
+            if (search === "") {
+              return "";
+            } else if (val.name.includes(search)) {
+              return val;
+            }
+          })
+          .map((val, key) => {
+            return <ListGroup.Item>{val.name}</ListGroup.Item>;
+          })}
+      </ListGroup>
     </>
   );
 }
 
-export default cricSubNavBar;
+const styles = {
+  navbar: {
+    backgroundColor: THEME.colorPrimary,
+    color: "white",
+  },
+  navLink: {
+    color: THEME.colorLight,
+    fontWeight: "bold",
+  },
+};
+
+export default CricSubNavBar;

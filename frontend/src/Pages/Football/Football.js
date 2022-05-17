@@ -5,7 +5,6 @@ import FootballSubNavBar from "./FootballSubNavBar";
 function Football() {
   return (
     <>
-      <FootballSubNavBar></FootballSubNavBar>
       <FootballMainContent></FootballMainContent>
     </>
   );

@@ -8,7 +8,7 @@ Exports:
 ================
 */
 console.log("[+] Fetching Football Players Info from https://allsportsapi.com");
-=======
+/*
 Created: 12th, May, 2022
 Synopsis: Job which gets Football PLayers List data from the API provider
 Exports: 
@@ -46,10 +46,11 @@ const getPlayerFootball = async (player_key) => {
     console.log(`{ error: ${err.message || err.toString()} }`);
   }
 };
+}
 
 const addPlayer = (obj) => {
 
-  let newPlayer = new PlayerFootball({});
+  //let newPlayer = new PlayerFootball({});
 
   let newPlayer = new PlayerFootball({
     team_key: obj.team_key,
@@ -132,14 +133,6 @@ const storeResponse = (req) => {
   }
 };
 
-
-const playersList = getResponse();
-
-connectToMongo()
-  .then(() => {
-    playersList
-      .then((res) => storeResponse(res))
-
 const getFootballLeaguesList = async () => {
   try {
     const allSportsAPIKey = process.env.ALL_SPORTS_API_KEY;
@@ -162,8 +155,7 @@ const leaguesList = getFootballLeaguesList();
 
 // Fetch all the leagues and for every league fetch the teams playing in that league
 // Store all the teams in to DB
-connectToMongo()
-  .then(() => {
+connectToMongo().then(() => {
     leaguesList
       .then((res) => {
         res.result.map((obj) => {
@@ -172,8 +164,5 @@ connectToMongo()
             .then((res) => storeResponse(res))
             .catch((err) => console.log(err));
         });
-      })
-
-      .catch((err) => console.log(err));
-  })
-  .catch((err) => console.log(err));
+      }).catch((err) => console.log(err));
+  }).catch((err) => console.log(err));
