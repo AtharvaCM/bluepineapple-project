@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { Card, Container, Button } from "react-bootstrap";
-import NewsInfo from "../../Api/NewsApi";
-import Spinner from "../../Components/Spinner";
+import NewsInfo from "../../../Api/NewsAPI";
+import Spinner from "../../Spinner";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { motion } from "framer-motion";
 

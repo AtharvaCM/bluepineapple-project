@@ -1,7 +1,7 @@
 import React from "react";
-import CricSubNavBar from "../../Components/Cricket/CricSubNavBar";
-import CricFeaturedMatches from "./CricFeaturedMatches";
-import CricketMainContent from "./CricketMainContent";
+import CricSubNavBar from "../../Components/Navbar/CricSubNavBar";
+import CricFeaturedMatches from "../../Components/Cricket/CricFeaturedMatches";
+import CricketMainContent from "../../Components/Cricket/CricketMainContent";
 
 function Cricket() {
   return (

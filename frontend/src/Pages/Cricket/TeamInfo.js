@@ -1,11 +1,11 @@
 import { React, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Card } from "react-bootstrap";
-import Schedule from "./Schedule";
-import TeamNews from "../../Components/Cricket/TeamNews";
-import CricSubNavBar from "../../Components/Cricket/CricSubNavBar";
-import PlayerList from "../../Components/Cricket/PlayerList";
-import TeamStats from "../../Components/Cricket/TeamStats";
+import Schedule from "../../Components/Cricket/Team/Schedule";
+import TeamNews from "../../Components/Cricket/Team/TeamNews";
+import CricSubNavBar from "../../Components/Navbar/CricSubNavBar";
+import PlayerList from "../../Components/Cricket/Player/PlayerList";
+import TeamStats from "../../Components/Cricket/Team/TeamStats";
 import TeamInfoAPI from "../../Api/TeamInfoAPI";
 
 function TeamInfo() {
@@ -36,7 +36,7 @@ function TeamInfo() {
       <CricSubNavBar></CricSubNavBar>
       <div className="container mt-2 mb-2">
         {team === null || team === undefined ? null : (
-          <Card style={{backgroundColor:'white'}}>
+          <Card style={{ backgroundColor: "white" }}>
             <Card.Header>
               <Card.Text style={{ fontSize: "30px", fontWeight: "bold" }}>
                 {team.name}

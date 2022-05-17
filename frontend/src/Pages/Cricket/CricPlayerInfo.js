@@ -1,25 +1,25 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card, Row,Col} from 'react-bootstrap'
 //import { useLocation } from 'react-router-dom';
-import CricSubNavBar from '../../Components/Cricket/CricSubNavBar';
+import CricSubNavBar from '../../Components/Navbar/CricSubNavBar';
 
 function CricPlayerInfo(prop) {
-    //console.log(prop.location.state.e.pname)
+    console.log(prop.location.state.e)
     return (
         <>
         <CricSubNavBar/>
-        <div className='container'>
-            <table>
+        <div className='container mt-2' style={{backgroundColor:'#FFFFFF'}} >
+            <table style={{color:'black'}} className="mt-2">
                 <tr>
-                    <th><img src={prop.location.state.e.img} class="rounded float-left" alt="..."></img></th>
-                    <th><h1>{prop.location.state.e.pname}</h1>(India)</th>
+                    <th><img src={prop.location.state.e.img_src} class="rounded float-left" alt="..."></img></th>
+                    <th><h1>{prop.location.state.e.name}</h1>(India)</th>
                 </tr>
                
                         
             </table>
             <Row>
                 <Col md={5} sm={12}>
-                <Card style={{backgroundColor:'#3F4156',color:'white'}} className="mb-3">
+                <Card style={{backgroundColor:'#ffffe6',color:'black'}} className="mb-1">
                     <Card.Body>
                         <table>
                             <tr colSpan={2}>
@@ -27,33 +27,33 @@ function CricPlayerInfo(prop) {
                             </tr>
                             <tr>
                                 <td><h5>Born:</h5></td>
-                                <td>Jun 02,1987 (32years)</td>
+                                <td>{prop.location.state.e.date_of_birth} ({prop.location.state.e.age})</td>
                             </tr>
                             <tr>
                                 <td><h5>Birth place:</h5></td>
-                                <td>Sydney,New south Wales</td>
+                                <td>{prop.location.state.e.birth_place}</td>
                             </tr>
                             <tr>
                                 <td><h5>Role</h5></td>
                                 <td>{prop.location.state.e.role}</td>
                             </tr>
                             
-                        </table>
-                        
+                        </table>     
                     </Card.Body>
                 </Card>
                 </Col>
                 <Col sm={12} md={6}>
+                <Card style={{backgroundColor:'#ffffe6',color:'black'}} className="mb-1">
                     <h5>Profile</h5>
-                    <p>A spunky, chubby teenager with gelled hair shot to fame after leading India to glory in the Under-19 World Cup at Kuala Lumpur in early 2008. In an Indian team filled with saint-like icons worthy of their own hagiographies, Virat Kohli, with his most un-Indian, 'bad-boy' intensity, would clearly be an outcast.
-                     . In the aplayeept Kohli out of the team</p>
+                    <p>{prop.location.state.e.description}</p>
+                    </Card>
                 
                 </Col>
             </Row>
-                <Card style={{backgroundColor:'#3F4156',color:'white'}} className="mb-3">
+                <Card style={{backgroundColor:'#ffffe6',color:'black'}} className="mb-1">
                   <Card.Body>
                     <h5>Batting Career Summary</h5>
-                    <table className='table' style={{color:'white'}}>
+                    <table className='table' style={{color:'black'}}>
                         <tr>
                             <th></th>
                             <th>M</th>
@@ -102,10 +102,10 @@ function CricPlayerInfo(prop) {
                 </Card.Body>
             </Card>
 
-            <Card style={{backgroundColor:'#3F4156',color:'white'}} className="mb-3">
+            <Card style={{backgroundColor:'#ffffe6',color:'black'}} className="mb-3">
                 <Card.Body>
                     <h5>Bowling Career Summary</h5>
-                    <table className='table' style={{color:'white'}}>
+                    <table className='table' style={{color:'black'}}>
                         <tr>
                             <th></th>
                             <th>M</th>

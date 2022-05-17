@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import Image from "react-bootstrap/Image";
-import PlayerAPI from "../../Api/PlayerApi";
+import PlayerAPI from "../../../Api/PlayerAPI";
 
 function PlayerListComponent({ team }) {
   const [players, setPlayers] = useState(null);
