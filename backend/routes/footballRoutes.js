@@ -29,7 +29,7 @@ const {
 router.get("/currentMatches", getCurrentFootballMatches);
 router.get("/finishedMatches", getFootballFinishedMatches);
 router.get("/allMatches/:leagueKey", getAllFootballMatches);
-router.get("/allMatches/stats", getFootballMatchStatictics);
+router.get("/stats/allMatches/", getFootballMatchStatictics);
 
 const {
   getFootballTeamsList,
