@@ -57,60 +57,61 @@ function CricRankBatting() {
     <>
       <CricSubNavBar />
       <CricRankingNavbar />
-      <div className="container">
-        <Card
-          style={{ backgroundColor: "#3F4156", color: "white" }}
-          className="mx-auto, w-100 ,my-auto mb-2 mt-2"
-        >
-          <div className="mt-3 mb-3">
-            <Button
-              onClick={() => changeData("Test")}
-              style={{
-                textDecoration: "none",
-                color: "black",
-                borderRadius: 20,
-              }}
-              className="mx-4 w-25"
-            >
-              Test
-            </Button>
-            <Button
-              onClick={() => changeData("ODI")}
-              style={{
-                textDecoration: "none",
-                color: "black",
-                borderRadius: 20,
-              }}
-              className="mx-4 w-25"
-            >
-              ODI
-            </Button>
-            <Button
-              onClick={() => changeData("T20")}
-              style={{
-                textDecoration: "none",
-                color: "black",
-                borderRadius: 20,
-              }}
-              className="mx-4 w-25"
-            >
-              T20
-            </Button>
-          </div>
-          <Container>
-            <Table responsive className="border-less">
-              <tr style={{ backgroundColor: "gray" }}>
-                <th style={{ fontSize: "3.5vh" }}>Pos</th>
-                <th
-                  colSpan={2}
-                  style={{ textAlign: "center", fontSize: "3.5vh" }}
-                >
-                  Batsman
-                </th>
-              </tr>
-              {Details === null
-                ? null
-                : Details.map((player) => {
+      <div>
+        <Container>
+          <Card
+
+            className="mx-auto, w-100 ,my-auto mb-2 mt-2"
+          >
+            <div className="mt-3 mb-3">
+              <Button
+                onClick={() => changeData("Test")}
+                style={{
+                  textDecoration: "none",
+                  color: "black",
+                  borderRadius: 20,
+                }}
+                className="mx-4 w-25"
+              >
+                Test
+              </Button>
+              <Button
+                onClick={() => changeData("ODI")}
+                style={{
+                  textDecoration: "none",
+                  color: "black",
+                  borderRadius: 20,
+                }}
+                className="mx-4 w-25"
+              >
+                ODI
+              </Button>
+              <Button
+                onClick={() => changeData("T20")}
+                style={{
+                  textDecoration: "none",
+                  color: "black",
+                  borderRadius: 20,
+                }}
+                className="mx-4 w-25"
+              >
+                T20
+              </Button>
+            </div>
+            <Container>
+              <Table responsive className="border-less" striped bordered hover>
+                <tr style={{ backgroundColor: "gray" }}>
+                  <th style={{ fontSize: "3.5vh" }}>Pos</th>
+                  <th
+                    colSpan={2}
+                    style={{ textAlign: "center", fontSize: "3.5vh" }}
+                  >
+                    Batsman
+                  </th>
+                </tr>
+                {Details === null
+                  ? null
+                  : Details.map((player) => {
                     return (
                       <tr key={player.id}>
                         <td>{player.id}</td>
@@ -126,16 +127,17 @@ function CricRankBatting() {
                           ></img>
                         </td>
                         <td>
-                          <h4 onClick={() => routeChange(player)}>
+                          <h4 onClick={() => routeChange(player)} style={{ color: 'black' }}>
                             {player.name}
                           </h4>
                         </td>
                       </tr>
                     );
                   })}
-            </Table>
-          </Container>
-        </Card>
+              </Table>
+            </Container>
+          </Card>
+        </Container>
       </div>
     </>
   );

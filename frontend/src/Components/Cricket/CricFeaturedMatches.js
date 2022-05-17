@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { CardGroup, Container } from "react-bootstrap";
+import { CardGroup} from "react-bootstrap";
 import { useEffect, useState } from "react";
 import CurrentMatchesAPI from "../../Api/CurrentMatchesAPI";
 import Spinner from "../../Components/Spinner";

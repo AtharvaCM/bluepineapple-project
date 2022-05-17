@@ -1,7 +1,7 @@
 import React from "react";
 import CricRankingNavbar from "../../../Components/Cricket/Ranking/CricRankingNavbar";
 import {Col,Card,Row,Button} from "react-bootstrap"
-import CricSubNavBar from '../../../Components/Cricket/CricSubNavBar';
+import CricSubNavBar from '../../../Components/Navbar/CricSubNavBar';
 
 
 

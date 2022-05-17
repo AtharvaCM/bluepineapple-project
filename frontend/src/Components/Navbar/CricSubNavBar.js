@@ -32,9 +32,9 @@ function CricSubNavBar() {
     });
   }, []);
 
-  let player = data.map((player) => {
-    return player.name;
-  });
+  // let player = data.map((player) => {
+  //   return player.name;
+  // });
 
   
   return (
