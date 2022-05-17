@@ -7,7 +7,7 @@ Exports: News Article model
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const newsArticleTable = new Schema(
+const newsArticleFootballTable = new Schema(
   {
     source: { type: Object, required: true },
     author: { type: String },
@@ -21,10 +21,10 @@ const newsArticleTable = new Schema(
   { timeStamps: true }
 );
 
-const NewsArticle = mongoose.model(
-  "NewsArticle",
-  newsArticleTable,
-  "newsArticles"
+const NewsArticleFootball = mongoose.model(
+  "NewsArticleFootball",
+  newsArticleFootballTable,
+  "footballNews"
 );
 
-module.exports = NewsArticle;
+module.exports = NewsArticleFootball;

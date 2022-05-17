@@ -5,7 +5,7 @@ Exports: getCurrentFootballMatches
 */
 
 const LeagueModel = require("../models/football/leagueModel");
-const NewsArticles = require("../models/newsArticleModel");
+const NewsArticlesFootball = require("../models/football/newsFootballModel");
 const GalleryFootball = require("../models/football/galleryModel");
 
 const getFootballLeaguesList = async (req, res) => {
@@ -27,7 +27,7 @@ const getFootballNews = async (req, res) => {
   console.log("[+] Getting FootballLeaguesList");
   console.log(req.originalUrl);
   try {
-    const articles = await NewsArticles.find();
+    const articles = await NewsArticlesFootball.find();
     const response = {
       status: "OK",
       articles: articles,
