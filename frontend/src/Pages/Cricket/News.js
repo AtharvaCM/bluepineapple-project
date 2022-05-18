@@ -62,7 +62,7 @@ function News() {
                   </CardContent>
                   <CardActions>
                     <Button size="small">Share</Button>
-                    <Button size="small">Learn More</Button>
+                    <Button size="small" href={data.url} target="_blank">Learn More</Button>
                   </CardActions>
                 </Card>
               </Grid>
