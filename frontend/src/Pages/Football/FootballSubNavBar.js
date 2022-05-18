@@ -1,24 +1,28 @@
 import React from "react";
 import { Nav, Form, FormControl, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link,withRouter} from "react-router-dom";
 import { RiLiveFill, RiNewspaperFill } from "react-icons/ri";
 import { AiFillThunderbolt } from "react-icons/ai";
 
-function FootballSubNavBar() {
+const activeTab = (history,path) =>{
+  if(history.location.pathname === path)
+  {
+    return {backgroundColor:'white'};
+  }
+};
+
+function FootballSubNavBar({history}) {
   return (
     <>
       <Nav
-        variant="tabs"
-        defaultActiveKey="/football/Scores"
-        style={{ background: "#00796b" }}
-        justify
+      style={{backgroundColor:'#00796B'}}
+      justify
       >
         <Nav.Item>
           <Nav.Link
-            href="/football/Scores"
             as={Link}
             to="/football/Scores"
-            style={{ color: "black", fontWeight: "bold" }}
+            style={activeTab(history,"/football/Scores")}
           >
             <RiLiveFill></RiLiveFill> Live Scores
           </Nav.Link>
@@ -29,7 +33,7 @@ function FootballSubNavBar() {
             eventKey="link-1"
             as={Link}
             to="/Football/LeagueList"
-            style={{ color: "black", fontWeight: "bold" }}
+            style={activeTab(history,"/Football/LeagueList")}
           >
             Leagues
           </Nav.Link>
@@ -40,7 +44,7 @@ function FootballSubNavBar() {
             eventKey="link-2"
             as={Link}
             to="/football/News"
-            style={{ color: "black", fontWeight: "bold" }}
+            style={activeTab(history,"/football/News")}
           >
             <RiNewspaperFill></RiNewspaperFill> News
           </Nav.Link>
@@ -51,7 +55,7 @@ function FootballSubNavBar() {
             eventKey="link-3"
             as={Link}
             to="/football/Ranking"
-            style={{ color: "black", fontWeight: "bold" }}
+            style={activeTab(history,"/football/Ranking")}
           >
             <AiFillThunderbolt></AiFillThunderbolt> Rankings
           </Nav.Link>
@@ -62,7 +66,7 @@ function FootballSubNavBar() {
             eventKey="link-4"
             as={Link}
             to="/football/Gallery"
-            style={{ color: "black", fontWeight: "bold" }}
+            style={activeTab(history,"/football/Gallery")}
           >
             <AiFillThunderbolt></AiFillThunderbolt> Gallery
           </Nav.Link>
@@ -74,4 +78,4 @@ function FootballSubNavBar() {
   );
 }
 
-export default FootballSubNavBar;
+export default withRouter(FootballSubNavBar);
