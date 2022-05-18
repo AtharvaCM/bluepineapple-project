@@ -11,9 +11,11 @@ const {
   getFootballLeaguesList,
   getFootballNews,
   getFootballGalleryList,
+  getFootballStandings,
 } = require("../controllers/footballController");
 
 router.get("/leaguesList", getFootballLeaguesList);
+router.get("/standings/:leagueKey", getFootballStandings);
 
 router.get("/news", getFootballNews);
 

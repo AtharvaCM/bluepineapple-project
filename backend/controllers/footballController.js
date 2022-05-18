@@ -7,6 +7,7 @@ Exports: getCurrentFootballMatches
 const LeagueModel = require("../models/football/leagueModel");
 const NewsArticlesFootball = require("../models/football/newsFootballModel");
 const GalleryFootball = require("../models/football/galleryModel");
+const StandingsFootball = require("../models/football/standingsModel");
 
 const getFootballLeaguesList = async (req, res) => {
   console.log("[+] Getting FootballLeaguesList");
@@ -53,8 +54,26 @@ const getFootballGalleryList = async (req, res) => {
   }
 };
 
+const getFootballStandings = async (req, res) => {
+  console.log("[+] Getting FootballStandings");
+  console.log(req.originalUrl);
+  try {
+    const league_key = req.params.leagueKey;
+    const query = { league_key: league_key };
+    const standings = await StandingsFootball.find(query);
+    const response = {
+      status: "OK",
+      standings: standings,
+    };
+    res.json(response);
+  } catch (err) {
+    res.json({ error: err.message || err.toString() });
+  }
+};
+
 module.exports = {
   getFootballLeaguesList,
   getFootballNews,
   getFootballGalleryList,
+  getFootballStandings,
 };
