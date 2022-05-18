@@ -72,13 +72,13 @@ function CricPlayerInfo(prop) {
                     <h5>Batting Career Summary</h5>
                     <table className='table' style={{color:'black'}}>
                         <tr>
-                            <th></th>
-                            <th>M</th>
-                            <th>Inn</th>
+                            <th>Type</th>
+                            <th>Matches</th>
+                            <th>Innings</th>
                             <th>Runs</th>
-                            <th>HS</th>
-                            <th>Avg</th>
-                            <th>SR</th>
+                            <th>High score</th>
+                            <th>Average</th>
+                            <th>Strike Rate</th>
                             {/* <th>100</th>
                             <th>50</th> */}
                         </tr>
@@ -124,13 +124,13 @@ function CricPlayerInfo(prop) {
                     <h5>Bowling Career Summary</h5>
                     <table className='table' style={{color:'black'}}>
                         <tr>
-                            <th></th>
-                            <th>M</th>
-                            <th>Inn</th>
+                            <th>Type</th>
+                            <th>Matches</th>
+                            <th>Innings</th>
                             <th>Wickets</th>
-                            <th>HS</th>
-                            <th>Avg</th>
-                            <th>SR</th>
+                            <th>High score</th>
+                            <th>Average</th>
+                            <th>Strike Rate</th>
                             <th>5w</th>
                             <th>10w</th>
                         </tr>

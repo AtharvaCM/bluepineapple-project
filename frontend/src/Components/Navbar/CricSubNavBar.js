@@ -110,17 +110,6 @@ function CricSubNavBar({history}) {
           <Nav.Link
             eventKey="link-4"
             as={Link}
-            to="/Cricket/LiveScore"
-            style={activeTab(history,"/Cricket/LiveScore")}  
-          >
-            <b style={{color:'black'}}><RiLiveFill></RiLiveFill>LiveScores</b>
-          </Nav.Link>
-        </Nav.Item>
-
-        <Nav.Item>
-          <Nav.Link
-            eventKey="link-4"
-            as={Link}
             to="/Cricket/Series"
             style={activeTab(history,"/Cricket/Series")}  
           >
