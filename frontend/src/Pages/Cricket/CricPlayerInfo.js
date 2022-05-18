@@ -127,31 +127,31 @@ function CricPlayerInfo(prop) {
                             <th></th>
                             <th>M</th>
                             <th>Inn</th>
-                            <th>Runs</th>
+                            <th>Wickets</th>
                             <th>HS</th>
                             <th>Avg</th>
                             <th>SR</th>
-                            <th>100</th>
-                            <th>50</th>
+                            <th>5w</th>
+                            <th>10w</th>
                         </tr>
                         <tr>
                             <td>Test</td>
                             <td>{PlayerDetails[0].bowling.test.maches}</td>
                             <td>{PlayerDetails[0].bowling.test.innings}</td>
-                            <td>{PlayerDetails[0].bowling.test.runs}</td>
-                            <td>{PlayerDetails[0].bowling.test.high_score}</td>
-                            <td>{PlayerDetails[0].bowling.test.batting_avg}</td>
+                            <td>{PlayerDetails[0].bowling.test.wickets}</td>
+                            <td>{PlayerDetails[0].bowling.test.Economy}</td>
+                            <td>{PlayerDetails[0].bowling.test.bowling_avg}</td>
                             <td>{PlayerDetails[0].bowling.test.sr}</td>
-                            <td>2</td>
+                            <td>4</td>
                             <td>55</td>
                         </tr>
                         <tr>
                             <td>ODI</td>
                             <td>{PlayerDetails[0].bowling.odi.maches}</td>
                             <td>{PlayerDetails[0].bowling.odi.innings}</td>
-                            <td>{PlayerDetails[0].bowling.odi.runs}</td>
-                            <td>{PlayerDetails[0].bowling.odi.high_score}</td>
-                            <td>{PlayerDetails[0].bowling.odi.batting_avg}</td>
+                            <td>{PlayerDetails[0].bowling.odi.wickets}</td>
+                            <td>{PlayerDetails[0].bowling.odi.Economy}</td>
+                            <td>{PlayerDetails[0].bowling.odi.bowling_avg}</td>
                             <td>{PlayerDetails[0].bowling.odi.sr}</td>
                             <td>2</td>
                             <td>55</td>
@@ -160,8 +160,8 @@ function CricPlayerInfo(prop) {
                             <td>T20l</td>
                             <td>{PlayerDetails[0].bowling.t20.maches}</td>
                             <td>{PlayerDetails[0].bowling.t20.innings}</td>
-                            <td>{PlayerDetails[0].bowling.t20.runs}</td>
-                            <td>{PlayerDetails[0].bowling.t20.high_score}</td>
+                            <td>{PlayerDetails[0].bowling.t20.wickets}</td>
+                            <td>{PlayerDetails[0].bowling.t20.Economy}</td>
                             <td>{PlayerDetails[0].bowling.t20.batting_avg}</td>
                             <td>{PlayerDetails[0].bowling.t20.sr}</td>
                             <td>2</td>
