@@ -12,7 +12,7 @@ function CricPlayerInfo(prop) {
             <table style={{color:'black'}} className="mt-2">
                 <tr>
                     <th><img src={prop.location.state.e.img_src} class="rounded float-left" alt="..."></img></th>
-                    <th><h1>{prop.location.state.e.name}</h1>(India)</th>
+                    <th><h1>{prop.location.state.e.name}</h1></th>
                 </tr>
                
                         

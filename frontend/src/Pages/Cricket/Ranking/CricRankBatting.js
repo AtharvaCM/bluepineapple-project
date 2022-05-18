@@ -61,15 +61,15 @@ function CricRankBatting() {
         <Container>
           <Card
 
-            className="mx-auto, w-100 ,my-auto mb-2 mt-2"
-          >
-            <div className="mt-3 mb-3">
+            className="mx-auto, w-100 ,my-auto mb-2 mt-2" >
+            <div className="mt-3 mb-3 d-flex justify-content-center">
               <Button
                 onClick={() => changeData("Test")}
                 style={{
                   textDecoration: "none",
                   color: "black",
                   borderRadius: 20,
+                  backgroundColor: "#00796b"
                 }}
                 className="mx-4 w-25"
               >
@@ -81,6 +81,7 @@ function CricRankBatting() {
                   textDecoration: "none",
                   color: "black",
                   borderRadius: 20,
+                  backgroundColor: "#00796b"
                 }}
                 className="mx-4 w-25"
               >
@@ -92,14 +93,16 @@ function CricRankBatting() {
                   textDecoration: "none",
                   color: "black",
                   borderRadius: 20,
+                  backgroundColor: "#00796b"
                 }}
                 className="mx-4 w-25"
               >
                 T20
               </Button>
             </div>
-            <Container>
-              <Table responsive className="border-less" striped bordered hover>
+            {/* <Container> */}
+              <div className="mx-5">
+              <Table responsive className="border-less" striped bordered hover style={{backgroundColor:'#ffffe6'}}>
                 <tr style={{ backgroundColor: "gray" }}>
                   <th style={{ fontSize: "3.5vh" }}>Pos</th>
                   <th
@@ -111,10 +114,10 @@ function CricRankBatting() {
                 </tr>
                 {Details === null
                   ? null
-                  : Details.map((player) => {
+                  : Details.map((player,index) => {
                     return (
                       <tr key={player.id}>
-                        <td>{player.id}</td>
+                        <td>{index+1}</td>
                         <td>
                           <img
                             src={player.img_src}
@@ -135,7 +138,8 @@ function CricRankBatting() {
                     );
                   })}
               </Table>
-            </Container>
+              </div>
+            {/* </Container> */}
           </Card>
         </Container>
       </div>
