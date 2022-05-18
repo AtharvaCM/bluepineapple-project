@@ -28,7 +28,7 @@ function CricPlayerInfo(prop) {
         <div className='container mt-2' style={{backgroundColor:'#FFFFFF'}} >
             <table style={{color:'black'}} className="mt-2">
                 <tr>
-                    <th><img src={PlayerDetails[0].img_src} class="rounded float-left" alt="..."></img></th>
+                    <th><img src={PlayerDetails[0].img_src} class="rounded float-left mt-2 mb-2" alt="..."></img></th>
                     <th><h1>{PlayerDetails[0].name}</h1></th>
                 </tr>
                
@@ -162,7 +162,7 @@ function CricPlayerInfo(prop) {
                             <td>{PlayerDetails[0].bowling.t20.innings}</td>
                             <td>{PlayerDetails[0].bowling.t20.wickets}</td>
                             <td>{PlayerDetails[0].bowling.t20.Economy}</td>
-                            <td>{PlayerDetails[0].bowling.t20.batting_avg}</td>
+                            <td>{PlayerDetails[0].bowling.t20.bowling_avg}</td>
                             <td>{PlayerDetails[0].bowling.t20.sr}</td>
                             <td>2</td>
                             <td>55</td>
