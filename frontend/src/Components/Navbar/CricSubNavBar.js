@@ -124,9 +124,7 @@ function CricSubNavBar({history}) {
                 >
                   Search
                 </Button>
-              </Form>
-
-        
+              </Form> 
       </Nav>
 
 

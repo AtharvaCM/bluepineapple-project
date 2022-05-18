@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from 'react'
 import FootballSubNavBar from './FootballSubNavBar'
 import FinishedMatches from '../../Api/footballApi/FinishedMatches'
-//import LeagueWiseMatchesApi from '../../Api/footballApi/LeagueWiseMatchesApi'
+import LeagueWiseMatchesApi from '../../Api/footballApi/LeagueWiseMatchesApi'
 
 function LeagueInfo(e) {
 
@@ -19,19 +19,20 @@ function LeagueInfo(e) {
   useEffect(() => {
 
     let leagueName = e.location.state.e.league_name;
-
-    if (leagueName === "Premier League" && data !== null) {
-
-      const updatedMatches = data.filter((data) => {
-        return data.league_name === leagueName;
+    if(leagueName === 'Cup'){
+      LeagueWiseMatchesApi('Cup - Round of 32').then((data)=>{
+        setleague(data);
       })
-      
-      console.log('updatedmatches', updatedMatches);
-      setleague(updatedMatches);
-
     }
+    //console.log(leagueName);
+
+    LeagueWiseMatchesApi(leagueName).then((data)=>{
+      setleague(data);
+    })
 
   }, [])
+
+  console.log(league);
 
 
 
