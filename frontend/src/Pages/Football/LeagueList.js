@@ -7,6 +7,8 @@ import { useHistory } from 'react-router-dom'
 
 function LeagueList() {
 
+  console.log('hello from league list')
+
   const [league, setleague] = useState(null)
 
   useEffect(() => {
@@ -30,8 +32,6 @@ function LeagueList() {
 
   return (
     <>
-      <FootballSubNavBar></FootballSubNavBar>
-
       <div>
         <Container className='mt-2'>
           <Container>

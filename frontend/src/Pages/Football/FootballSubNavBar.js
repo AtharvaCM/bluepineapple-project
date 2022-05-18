@@ -9,15 +9,15 @@ function FootballSubNavBar() {
     <>
       <Nav
         variant="tabs"
-        defaultActiveKey="/football/Scores"
+        defaultActiveKey="/Football/Scores"
         style={{ background: "#00796b" }}
         justify
       >
         <Nav.Item>
           <Nav.Link
-            href="/football/Scores"
+            href="/Football/Scores"
             as={Link}
-            to="/football/Scores"
+            to="/Football/Scores"
             style={{ color: "black", fontWeight: "bold" }}
           >
             <RiLiveFill></RiLiveFill> Live Scores
@@ -39,7 +39,7 @@ function FootballSubNavBar() {
           <Nav.Link
             eventKey="link-2"
             as={Link}
-            to="/football/News"
+            to="/Football/News"
             style={{ color: "black", fontWeight: "bold" }}
           >
             <RiNewspaperFill></RiNewspaperFill> News
@@ -50,7 +50,7 @@ function FootballSubNavBar() {
           <Nav.Link
             eventKey="link-3"
             as={Link}
-            to="football/Ranking"
+            to="Football/Ranking"
             style={{ color: "black", fontWeight: "bold" }}
           >
             <AiFillThunderbolt></AiFillThunderbolt> Rankings

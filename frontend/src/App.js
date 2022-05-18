@@ -18,14 +18,14 @@ import TeamInfo from "./Pages/Cricket/TeamInfo";
 import LiveScores from "./Pages/Cricket/LiveScores";
 import Series from "./Pages/Cricket/Series";
 import CurrentMatches from "./Pages/Football/CurrentMatches";
-import LeagueList from "./Pages/Football/LeagueList";
-import DetailScore from "./Pages/Football/DetailScore";
-import Gallery1 from "./Pages/Football/Gallery";
-import Ranking from "./Pages/Football/Ranking";
-import LeagueInfo from "./Pages/Football/LeagueInfo";
+//import LeagueList from "./Pages/Football/LeagueList";
+// import DetailScore from "./Pages/Football/DetailScore";
+// import Gallery1 from "./Pages/Football/Gallery";
+// import Ranking from "./Pages/Football/Ranking";
+// import LeagueInfo from "./Pages/Football/LeagueInfo";
 
 import { THEME } from "./Constants/colors";
-import FootballNews from "./Pages/Football/FootballNews";
+//import FootballNews from "./Pages/Football/FootballNews";
 
 function App() {
   return (
@@ -76,34 +76,33 @@ function App() {
             ></Route>
             <Route exact path="/Cricket/Series" component={Series}></Route>
 
-            <Route exact path="/Football" component={Football}>
-
+            <Route path="/Football" component={Football}>
             </Route>
-              <Route exact path="/football/Scores" component={CurrentMatches}></Route>
+              {/* <Route exact path="/football/Scores" component={CurrentMatches}></Route>  */}
 
 
-            <Route
+            {/* <Route
               exact
               path="/football/Scores/MatchSummary"
               component={DetailScore}
-            ></Route>
-            <Route exact path="/football/Gallery" component={Gallery1}></Route>
-            <Route exact path="/football/Ranking" component={Ranking}></Route>
-            <Route
+            ></Route> */}
+            {/* <Route exact path="/football/Gallery" component={Gallery1}></Route>
+            <Route exact path="/football/Ranking" component={Ranking}></Route> */}
+            {/* <Route
               exact
               path="/football/LeagueList"
               component={LeagueList}
-            ></Route>
-            <Route
+            ></Route> */}
+            {/* <Route
               exact
               path="/football/League/LeagueInfo"
               component={LeagueInfo}
-            ></Route>
-            <Route
+            ></Route> */}
+            {/* <Route
               exact
               path="/football/News"
               component={FootballNews}
-            ></Route>
+            ></Route> */}
           </Switch>
           {/* <Footer></Footer> */}
         </div>

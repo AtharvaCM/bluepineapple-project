@@ -9,7 +9,7 @@ function Gallery() {
   //console.log(first);
   return (
     <>
-      <FootballSubNavBar></FootballSubNavBar>
+      {/* <FootballSubNavBar></FootballSubNavBar> */}
       <h1>The Football Gallery</h1>
       <p className='galleryPara'>Some memories to cherish...</p>
       <div className="masonry">
