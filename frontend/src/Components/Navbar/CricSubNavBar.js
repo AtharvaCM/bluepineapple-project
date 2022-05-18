@@ -7,10 +7,12 @@ import {
   FormControl,
   Container,
   ListGroup,
+  Image
 } from "react-bootstrap";
 import { Link,withRouter} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../Resources/Styles/CricSubNavBar.css";
+import { useHistory } from "react-router-dom";
 import PlayerAPI from "../../Api/PlayerAPI";
 import {
   RiTeamFill,
@@ -27,7 +29,6 @@ const activeTab = (history,path) =>{
   
   if(history.location.pathname === path)
   {
-    //console.log('history.location.pathname',history.location.pathname,'path:',path);
     return {backgroundColor:'white',color:'black'};
   }
 };
@@ -39,6 +40,7 @@ const activeTab = (history,path) =>{
 
 
 function CricSubNavBar({history}) {
+
   const [data, setdata] = useState([]);
   const [search, setsearch] = useState("");
 
@@ -49,7 +51,13 @@ function CricSubNavBar({history}) {
   }, []);
 
   
-
+const routeChange =(e)=>{
+  console.log(e);
+  history.push({
+    pathname: "/Cricket/players/Playernfo",
+    state: { e },
+  });
+}
 
   return (
     <>
@@ -124,6 +132,7 @@ function CricSubNavBar({history}) {
                   placeholder="Player Search"
                   className="me-2 ms-4"
                   aria-label="Search"
+                  style={{backgroundColor:'#F2F2F2'}}
                   onChange={(event) => { setsearch(event.target.value) }}
                 />
                 <Button
@@ -149,7 +158,12 @@ function CricSubNavBar({history}) {
             }
           })
           .map((val, key) => {
-            return <ListGroup.Item>{val.name}</ListGroup.Item>;
+            return( <ListGroup.Item onClick={()=>routeChange(val)} action varient='success'>
+              <Image src={val.img_src} style={{width:'50px'}}></Image>
+              <b className="ms-1"><plaintext style={{display:'inline'}}>{val.name}({val.team})</plaintext></b>
+              <br />
+              
+              </ListGroup.Item>);
           })}
       </ListGroup>
     </>

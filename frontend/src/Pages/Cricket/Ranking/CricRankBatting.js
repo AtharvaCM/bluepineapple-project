@@ -26,6 +26,7 @@ function CricRankBatting() {
   //console.log(Details);
 
   const routeChange = (e) => {
+    //console.log(e);
     history.push({
       pathname: "/Cricket/players/Playernfo",
       state: { e },
