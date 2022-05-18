@@ -98,12 +98,9 @@ const getFootballLeaguesList = async () => {
 const storeResponse = (req) => {
   try {
     const result = req["result"];
-    const success = req["success"];
-    // console.log("[+] data", data);
-    console.log("[+] success", success);
 
     // push each object in the data arrray to DB
-    result.map((obj) => {
+    result.total.map((obj) => {
       StandingsFootball.findOne(
         { league_key: obj.league_key },
         function (err, doc) {
@@ -129,7 +126,12 @@ connectToMongo()
     leaguesList
       .then((res) =>
         res.result.map((obj) => {
-          const standing = storeResponse(obj.league_key);
+          const standings = getStandings(obj.league_key);
+          standings
+            .then((res) => {
+              storeResponse(res);
+            })
+            .catch((err) => console.log(err));
         })
       )
       .catch((err) => console.log(err));
