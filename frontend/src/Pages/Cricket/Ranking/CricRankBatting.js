@@ -23,7 +23,7 @@ function CricRankBatting() {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(Details);
+  //console.log(Details);
 
   const routeChange = (e) => {
     history.push({
@@ -59,7 +59,12 @@ function CricRankBatting() {
       <CricRankingNavbar />
       <div>
         <Container>
+
+          <Card
+            className="mx-auto, w-100 ,my-auto mb-2 mt-2" >
+
           <Card  className="mx-auto, w-100 ,my-auto mb-2 mt-2" >
+
             <Card.Header>
             <div className="mt-3 mb-3 d-flex justify-content-center">
               <Button
@@ -103,9 +108,15 @@ function CricRankBatting() {
             </Card.Header>
             <Card.Body>
               <div className="mx-5">
+
+              <Table style={{backgroundColor:'#ffffe6'}}>
+                <thead>
+                <tr >
+
               <Table  style={{backgroundColor:'#ffffe6'}}>
                 <thead>
                 <tr>
+
                   <th style={{ fontSize: "3.5vh" }}>Pos</th>
                   <th colSpan={2} style={{ textAlign: "center", fontSize: "3.5vh" }}>Batsman</th>
                 </tr>
@@ -134,11 +145,18 @@ function CricRankBatting() {
                       </tr>
                     );
                   })}
+
+                </tbody>  
+              </Table>
+              </div>
+              </Card.Body>
+
                   </tbody>
               </Table>
               </div>
               </Card.Body>
             {/* </Container> */}
+
           </Card>
         </Container>
       </div>

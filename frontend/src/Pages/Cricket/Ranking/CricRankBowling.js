@@ -56,7 +56,6 @@ function CricRankBowling() {
       <div>
         <Container>
           <Card
-
             className="mx-auto, w-100 ,my-auto mb-2 mt-2" >
             <div className="mt-3 mb-3 d-flex justify-content-center">
               <Button
@@ -96,10 +95,10 @@ function CricRankBowling() {
                 T20
               </Button>
             </div>
-            {/* <Container> */}
               <div className="mx-5">
-              <Table responsive className="border-less" striped bordered hover style={{backgroundColor:'#ffffe6'}}>
-                <tr style={{ backgroundColor: "gray" }}>
+              <Table  style={{backgroundColor:'#ffffe6'}}>
+                <thead>
+                <tr >
                   <th style={{ fontSize: "3.5vh" }}>Pos</th>
                   <th
                     colSpan={2}
@@ -108,6 +107,8 @@ function CricRankBowling() {
                     Batsman
                   </th>
                 </tr>
+                </thead>
+                <tbody>
                 {Details === null
                   ? null
                   : Details.map((player,index) => {
@@ -133,9 +134,9 @@ function CricRankBowling() {
                       </tr>
                     );
                   })}
+                  </tbody>
               </Table>
               </div>
-            {/* </Container> */}
           </Card>
         </Container>
       </div>

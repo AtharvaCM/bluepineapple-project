@@ -2,17 +2,34 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card, Row,Col} from 'react-bootstrap'
 //import { useLocation } from 'react-router-dom';
 import CricSubNavBar from '../../Components/Navbar/CricSubNavBar';
+import PlayerDetailsAPI from '../../Api/PlayerDetailsAPI';
+import { useEffect, useState } from 'react';
 
 function CricPlayerInfo(prop) {
-    console.log(prop.location.state.e)
+    //console.log(prop.location.state.e.id)
+    const [PlayerDetails,setPlayerDetails]=useState(null)
+
+    useEffect(() => {
+    PlayerDetailsAPI(prop.location.state.e.id)
+      .then((response) => {
+        setPlayerDetails(response.data);
+        //  console.log(response.data);
+      })
+      .catch((err) => console.log(err));
+    },[]);
+    if (PlayerDetails === null )
+    return null 
+    else
+    {
+        console.log(PlayerDetails[0].bowling)
     return (
         <>
         <CricSubNavBar/>
         <div className='container mt-2' style={{backgroundColor:'#FFFFFF'}} >
             <table style={{color:'black'}} className="mt-2">
                 <tr>
-                    <th><img src={prop.location.state.e.img_src} class="rounded float-left" alt="..."></img></th>
-                    <th><h1>{prop.location.state.e.name}</h1></th>
+                    <th><img src={PlayerDetails[0].img_src} class="rounded float-left" alt="..."></img></th>
+                    <th><h1>{PlayerDetails[0].name}</h1></th>
                 </tr>
                
                         
@@ -27,15 +44,15 @@ function CricPlayerInfo(prop) {
                             </tr>
                             <tr>
                                 <td><h5>Born:</h5></td>
-                                <td>{prop.location.state.e.date_of_birth} ({prop.location.state.e.age})</td>
+                                <td>{PlayerDetails[0].date_of_birth} ({prop.location.state.e.age})</td>
                             </tr>
                             <tr>
                                 <td><h5>Birth place:</h5></td>
-                                <td>{prop.location.state.e.birth_place}</td>
+                                <td>{PlayerDetails[0].birth_place}</td>
                             </tr>
                             <tr>
                                 <td><h5>Role</h5></td>
-                                <td>{prop.location.state.e.role}</td>
+                                <td>{PlayerDetails[0].role}</td>
                             </tr>
                             
                         </table>     
@@ -45,7 +62,7 @@ function CricPlayerInfo(prop) {
                 <Col sm={12} md={6}>
                 <Card style={{backgroundColor:'#ffffe6',color:'black'}} className="mb-1">
                     <h5>Profile</h5>
-                    <p>{prop.location.state.e.description}</p>
+                    <p>{PlayerDetails[0].description}</p>
                     </Card>
                 
                 </Col>
@@ -67,36 +84,36 @@ function CricPlayerInfo(prop) {
                         </tr>
                         <tr>
                             <td>Test</td>
-                            <td>100</td>
-                            <td>44</td>
-                            <td>550</td>
-                            <td>111</td>
-                            <td>45.55</td>
-                            <td>SR</td>
-                            <td>100</td>
-                            <td>50</td>
+                            <td>{PlayerDetails[0].batting.test.maches}</td>
+                            <td>{PlayerDetails[0].batting.test.innings}</td>
+                            <td>{PlayerDetails[0].batting.test.runs}</td>
+                            <td>{PlayerDetails[0].batting.test.high_score}</td>
+                            <td>{PlayerDetails[0].batting.test.batting_avg}</td>
+                            <td>{PlayerDetails[0].batting.test.sr}</td>
+                            <td>2</td>
+                            <td>55</td>
                         </tr>
                         <tr>
                             <td>ODI</td>
-                            <td>100</td>
-                            <td>44</td>
-                            <td>550</td>
-                            <td>111</td>
-                            <td>45.55</td>
-                            <td>SR</td>
-                            <td>100</td>
-                            <td>50</td>
+                            <td>{PlayerDetails[0].batting.odi.maches}</td>
+                            <td>{PlayerDetails[0].batting.odi.innings}</td>
+                            <td>{PlayerDetails[0].batting.odi.runs}</td>
+                            <td>{PlayerDetails[0].batting.odi.high_score}</td>
+                            <td>{PlayerDetails[0].batting.odi.batting_avg}</td>
+                            <td>{PlayerDetails[0].batting.odi.sr}</td>
+                            <td>2</td>
+                            <td>55</td>
                         </tr>
                         <tr>
                             <td>T20l</td>
-                            <td>100</td>
-                            <td>44</td>
-                            <td>550</td>
-                            <td>111</td>
-                            <td>45.55</td>
-                            <td>SR</td>
-                            <td>100</td>
-                            <td>50</td>
+                            <td>{PlayerDetails[0].batting.t20.maches}</td>
+                            <td>{PlayerDetails[0].batting.t20.innings}</td>
+                            <td>{PlayerDetails[0].batting.t20.runs}</td>
+                            <td>{PlayerDetails[0].batting.t20.high_score}</td>
+                            <td>{PlayerDetails[0].batting.t20.batting_avg}</td>
+                            <td>{PlayerDetails[0].batting.t20.sr}</td>
+                            <td>2</td>
+                            <td>55</td>
                         </tr>
                     </table>
                 </Card.Body>
@@ -119,43 +136,45 @@ function CricPlayerInfo(prop) {
                         </tr>
                         <tr>
                             <td>Test</td>
-                            <td>100</td>
-                            <td>44</td>
-                            <td>550</td>
-                            <td>111</td>
-                            <td>45.55</td>
-                            <td>SR</td>
-                            <td>100</td>
-                            <td>50</td>
+                            <td>{PlayerDetails[0].bowling.test.maches}</td>
+                            <td>{PlayerDetails[0].bowling.test.innings}</td>
+                            <td>{PlayerDetails[0].bowling.test.runs}</td>
+                            <td>{PlayerDetails[0].bowling.test.high_score}</td>
+                            <td>{PlayerDetails[0].bowling.test.batting_avg}</td>
+                            <td>{PlayerDetails[0].bowling.test.sr}</td>
+                            <td>2</td>
+                            <td>55</td>
                         </tr>
                         <tr>
                             <td>ODI</td>
-                            <td>100</td>
-                            <td>44</td>
-                            <td>550</td>
-                            <td>111</td>
-                            <td>45.55</td>
-                            <td>SR</td>
-                            <td>100</td>
-                            <td>50</td>
+                            <td>{PlayerDetails[0].bowling.odi.maches}</td>
+                            <td>{PlayerDetails[0].bowling.odi.innings}</td>
+                            <td>{PlayerDetails[0].bowling.odi.runs}</td>
+                            <td>{PlayerDetails[0].bowling.odi.high_score}</td>
+                            <td>{PlayerDetails[0].bowling.odi.batting_avg}</td>
+                            <td>{PlayerDetails[0].bowling.odi.sr}</td>
+                            <td>2</td>
+                            <td>55</td>
                         </tr>
                         <tr>
                             <td>T20l</td>
-                            <td>100</td>
-                            <td>44</td>
-                            <td>550</td>
-                            <td>111</td>
-                            <td>45.55</td>
-                            <td>SR</td>
-                            <td>100</td>
-                            <td>50</td>
+                            <td>{PlayerDetails[0].bowling.t20.maches}</td>
+                            <td>{PlayerDetails[0].bowling.t20.innings}</td>
+                            <td>{PlayerDetails[0].bowling.t20.runs}</td>
+                            <td>{PlayerDetails[0].bowling.t20.high_score}</td>
+                            <td>{PlayerDetails[0].bowling.t20.batting_avg}</td>
+                            <td>{PlayerDetails[0].bowling.t20.sr}</td>
+                            <td>2</td>
+                            <td>55</td>
                         </tr>
                     </table>
                 </Card.Body>
             </Card>
-            
+       
         </div>
+        
         </>
     );
+    }
 }
 export default CricPlayerInfo;
