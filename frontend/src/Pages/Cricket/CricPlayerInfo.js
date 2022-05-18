@@ -13,7 +13,7 @@ function CricPlayerInfo(prop) {
     PlayerDetailsAPI(prop.location.state.e.id)
       .then((response) => {
         setPlayerDetails(response.data);
-        //  console.log(response.data);
+        console.log(response.data);
       })
       .catch((err) => console.log(err));
     },[]);
@@ -67,6 +67,8 @@ function CricPlayerInfo(prop) {
                 
                 </Col>
             </Row>
+
+            {/*batting details*/}
                 <Card style={{backgroundColor:'#ffffe6',color:'black'}} className="mb-1">
                   <Card.Body>
                     <h5>Batting Career Summary</h5>
@@ -147,7 +149,7 @@ function CricPlayerInfo(prop) {
                         </tr>
                         <tr>
                             <td>ODI</td>
-                            <td>{PlayerDetails[0].bowling.odi.maches}</td>
+                            <td>{PlayerDetails[0].bowling.odi.}</td>
                             <td>{PlayerDetails[0].bowling.odi.innings}</td>
                             <td>{PlayerDetails[0].bowling.odi.runs}</td>
                             <td>{PlayerDetails[0].bowling.odi.high_score}</td>
