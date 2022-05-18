@@ -58,8 +58,8 @@ const getFootballStandings = async (req, res) => {
   console.log("[+] Getting FootballStandings");
   console.log(req.originalUrl);
   try {
-    const league_key = req.params.leagueKey;
-    const query = { league_key: league_key };
+    const league_name = req.params.leagueKey;
+    const query = { league_name: league_name };
     const standings = await StandingsFootball.find(query);
     const response = {
       status: "OK",
