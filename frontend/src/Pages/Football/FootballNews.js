@@ -74,7 +74,7 @@ function News() {
                                             </Typography>
                                         </CardContent>
                                         <CardActions>
-                                            <Button size="small">Read more...</Button>
+                                            <Button size="small" href={data.url} target="_blank">Read more...</Button>
 
                                         </CardActions>
                                     </Card>
