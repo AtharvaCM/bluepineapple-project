@@ -13,7 +13,7 @@ function CricPlayerInfo(prop) {
     PlayerDetailsAPI(prop.location.state.e.id)
       .then((response) => {
         setPlayerDetails(response.data);
-        //  console.log(response.data);
+        console.log(response.data);
       })
       .catch((err) => console.log(err));
     },[]);
@@ -67,6 +67,8 @@ function CricPlayerInfo(prop) {
                 
                 </Col>
             </Row>
+
+            {/*batting details*/}
                 <Card style={{backgroundColor:'#ffffe6',color:'black'}} className="mb-1">
                   <Card.Body>
                     <h5>Batting Career Summary</h5>
@@ -147,6 +149,7 @@ function CricPlayerInfo(prop) {
                         </tr>
                         <tr>
                             <td>ODI</td>
+
                             <td>{PlayerDetails[0].bowling.odi.matches === '' ? '-' : PlayerDetails[0].bowling.odi.matches }</td>
                             <td>{PlayerDetails[0].bowling.odi.innings  === '' ? '-' : PlayerDetails[0].bowling.odi.innings}</td>
                             <td>{PlayerDetails[0].bowling.odi.wickets  === '' ? '-' :PlayerDetails[0].bowling.odi.wickets}</td>
@@ -155,6 +158,7 @@ function CricPlayerInfo(prop) {
                             <td>{PlayerDetails[0].bowling.odi.sr  === '' ? '-' :PlayerDetails[0].bowling.odi.sr}</td>
                             <td>{PlayerDetails[0].bowling.odi.five_w  === '' ? '-' :PlayerDetails[0].bowling.odi.five_w}</td>
                             <td>{PlayerDetails[0].bowling.odi.ten_w  === '' ? '-' :PlayerDetails[0].bowling.odi.ten_w}</td>
+
                         </tr>
                         <tr>
                             <td>T20l</td>
