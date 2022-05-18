@@ -13,7 +13,7 @@ function Ranking() {
         <div className='container'>
             <Card>
                 <Card.Header>
-                    <h2>Internatinal Football Ranking</h2>
+                    <h2>FIFA RANKINGS</h2>
                 </Card.Header>
                 <Card.Body>
                     <div className="d-flex justify-content-center">

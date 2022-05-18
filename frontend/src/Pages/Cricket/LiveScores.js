@@ -120,8 +120,8 @@ function LiveScores() {
       <>
         <CricSubNavBar></CricSubNavBar>
 
-        <Container className="mt-2">
-          <Container>
+        
+          
             <Card>
               <Card.Header>
                 <Dropdown className="d-inline mx-5">
@@ -176,16 +176,15 @@ function LiveScores() {
                 </Dropdown>
               </Card.Header>
             </Card>
-          </Container>
-        </Container>
-
+          
+        
         {sortdata ? (
           sortdata.map((data, index) => {
             console.log(data);
             return (
               <Container key={index}>
-                <Container>
-                  <Card className="mt-2 ms-5 me-5 mb-2" bg="light">
+                
+                  <Card className="mt-2 mb-2" bg="light">
                     <Card.Header>
                       <Table
                         className="table table-borderless"
@@ -330,7 +329,7 @@ function LiveScores() {
                       </CardGroup>
                     </Card.Body>
                   </Card>
-                </Container>
+                
               </Container>
             );
           })

@@ -32,14 +32,21 @@ function News() {
 
 
     if (news === null) {
-        return <Spinner></Spinner>;
+        return (
+            <>
+                <Spinner></Spinner>
+                <FootballSubNavBar></FootballSubNavBar>
+            </>
+        )
+
+
     } else {
         return (
             <>
                 <FootballSubNavBar></FootballSubNavBar>
                 <Container className="mt-2">
 
-                    <h3 style={{textAlign:"center"}}>Top Headlines</h3>
+                    <h3 style={{ textAlign: "center" }}>Top Headlines</h3>
                 </Container>
                 <Container sx={{ mt: 2 }}>
 
@@ -48,10 +55,10 @@ function News() {
                             {news.map((data, index) => (
                                 <Grid item xs={4} key={index}>
                                     <Badge pill bg="danger">{data.source.name}
-                                        </Badge>
+                                    </Badge>
                                     <Card sx={{ maxWidth: 345 }}>
-                                        
-                                          
+
+
                                         <CardMedia
                                             component="img"
                                             height="140"
@@ -68,7 +75,7 @@ function News() {
                                         </CardContent>
                                         <CardActions>
                                             <Button size="small">Reaad more...</Button>
-                                            
+
                                         </CardActions>
                                     </Card>
                                 </Grid>
