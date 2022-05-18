@@ -50,7 +50,7 @@ function FootballSubNavBar() {
           <Nav.Link
             eventKey="link-3"
             as={Link}
-            to="football/Ranking"
+            to="/football/Ranking"
             style={{ color: "black", fontWeight: "bold" }}
           >
             <AiFillThunderbolt></AiFillThunderbolt> Rankings
@@ -61,7 +61,7 @@ function FootballSubNavBar() {
           <Nav.Link
             eventKey="link-4"
             as={Link}
-            to="Football/Gallery"
+            to="/football/Gallery"
             style={{ color: "black", fontWeight: "bold" }}
           >
             <AiFillThunderbolt></AiFillThunderbolt> Gallery
