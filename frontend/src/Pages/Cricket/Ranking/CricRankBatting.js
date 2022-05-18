@@ -59,8 +59,12 @@ function CricRankBatting() {
       <CricRankingNavbar />
       <div>
         <Container>
+
           <Card
             className="mx-auto, w-100 ,my-auto mb-2 mt-2" >
+
+          <Card  className="mx-auto, w-100 ,my-auto mb-2 mt-2" >
+
             <Card.Header>
             <div className="mt-3 mb-3 d-flex justify-content-center">
               <Button
@@ -81,7 +85,8 @@ function CricRankBatting() {
                   textDecoration: "none",
                   color: "black",
                   borderRadius: 20,
-                  backgroundColor: "#00796b"
+                  backgroundColor: "#00796b",
+                  
                 }}
                 className="mx-4 w-25"
               >
@@ -103,16 +108,17 @@ function CricRankBatting() {
             </Card.Header>
             <Card.Body>
               <div className="mx-5">
+
               <Table style={{backgroundColor:'#ffffe6'}}>
                 <thead>
                 <tr >
+
+              <Table  style={{backgroundColor:'#ffffe6'}}>
+                <thead>
+                <tr>
+
                   <th style={{ fontSize: "3.5vh" }}>Pos</th>
-                  <th
-                    colSpan={2}
-                    style={{ textAlign: "center", fontSize: "3.5vh" }}
-                  >
-                    Batsman
-                  </th>
+                  <th colSpan={2} style={{ textAlign: "center", fontSize: "3.5vh" }}>Batsman</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -124,9 +130,7 @@ function CricRankBatting() {
                         <td>{index+1}</td>
                         <td>
                           <img
-                            src={player.img_src}
-                            alt=".."
-                            style={{
+                            src={player.img_src} alt=".." style={{
                               width: "100px",
                               height: "100px",
                               borderRadius: "50px",
@@ -141,10 +145,18 @@ function CricRankBatting() {
                       </tr>
                     );
                   })}
+
                 </tbody>  
               </Table>
               </div>
               </Card.Body>
+
+                  </tbody>
+              </Table>
+              </div>
+              </Card.Body>
+            {/* </Container> */}
+
           </Card>
         </Container>
       </div>

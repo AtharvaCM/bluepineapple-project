@@ -74,7 +74,7 @@ function News() {
                                             </Typography>
                                         </CardContent>
                                         <CardActions>
-                                            <Button size="small">Reaad more...</Button>
+                                            <Button size="small">Read more...</Button>
 
                                         </CardActions>
                                     </Card>

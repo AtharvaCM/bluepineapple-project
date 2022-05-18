@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import { Badge } from "react-bootstrap";
 import CricSubNavBar from "../../Components/Navbar/CricSubNavBar";
 import NewsInfo from "../../Api/NewsAPI";
 import Spinner from "../../Components/Spinner";
@@ -43,6 +44,7 @@ function News() {
           <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
             {news.map((data, index) => (
               <Grid item xs={4} key={index}>
+                <Badge pill bg="danger">{data.source.name}</Badge>
                 <Card sx={{ maxWidth: 345 }}>
                   <CardMedia
                     component="img"
