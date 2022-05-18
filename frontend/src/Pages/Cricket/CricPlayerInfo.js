@@ -28,7 +28,7 @@ function CricPlayerInfo(prop) {
         <div className='container mt-2' style={{backgroundColor:'#FFFFFF'}} >
             <table style={{color:'black'}} className="mt-2">
                 <tr>
-                    <th><img src={PlayerDetails[0].img_src} class="rounded float-left" alt="..."></img></th>
+                    <th><img src={PlayerDetails[0].img_src} class="rounded float-left mt-2 mb-2" alt="..."></img></th>
                     <th><h1>{PlayerDetails[0].name}</h1></th>
                 </tr>
                

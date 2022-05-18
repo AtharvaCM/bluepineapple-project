@@ -32,7 +32,7 @@ function CricFeaturedMatches() {
     let limit = match.slice(0, 4);
     return (
       <>
-        <Card className="mt-2 ms-2 me-3" style={{ backgroundColor: "#696D97" }}>
+        <Card className="mt-2 ms-2 me-3" style={{ backgroundColor: "#C8CDCD" }}>
           <Card.Header style={{ backgroundColor: "#dcdcdc", color: "black" }}>
             <MdFeaturedPlayList /> Featured Matches
           </Card.Header>
@@ -42,7 +42,6 @@ function CricFeaturedMatches() {
                 <Card
                   key={index}
                   style={{ backgroundColor: "whitesmoke" }}
-                  className="mt-1"
                 >
                   <Card.Body>
                     <Card.Text
