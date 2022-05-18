@@ -31,8 +31,7 @@ function FootballSubNavBar({history}) {
             eventKey="link-1"
             as={Link}
             to="/Football/LeagueList"
-            style={activeTab(history,"/Football/LeagueList")}
-            
+            style={activeTab(history,"/Football/LeagueList")}  
           >
             <b style={{color:'black'}}>Leagues</b>
           </Nav.Link>
@@ -43,8 +42,7 @@ function FootballSubNavBar({history}) {
             eventKey="link-2"
             as={Link}
             to="/football/News"
-            style={activeTab(history,"/football/News")}
-            
+            style={activeTab(history,"/football/News")}           
           >
             <b style={{color:'black'}}><RiNewspaperFill></RiNewspaperFill> News</b>
           </Nav.Link>
@@ -55,8 +53,7 @@ function FootballSubNavBar({history}) {
             eventKey="link-3"
             as={Link}
             to="/football/Ranking"
-            style={activeTab(history,"/football/Ranking")}
-            
+            style={activeTab(history,"/football/Ranking")}  
           >
             <b style={{color:'black'}}><AiFillThunderbolt></AiFillThunderbolt> Rankings</b>
           </Nav.Link>
@@ -67,9 +64,7 @@ function FootballSubNavBar({history}) {
             eventKey="link-4"
             as={Link}
             to="/football/Gallery"
-            style={activeTab(history,"/football/Gallery")}
-            
-            
+            style={activeTab(history,"/football/Gallery")}  
           >
             <b style={{color:'black'}}><AiFillThunderbolt></AiFillThunderbolt> Gallery</b>
           </Nav.Link>
@@ -81,4 +76,4 @@ function FootballSubNavBar({history}) {
   );
 }
 
-export default FootballSubNavBar;
+export default withRouter(FootballSubNavBar);
