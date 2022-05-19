@@ -5,7 +5,7 @@ import { MatchStatsAPI } from "../../Api/footballApi/MatchStatsAPI";
 import { BarChart, PieChart, DoughnutChart, LineChart } from "../Chart";
 import { Chart as ChartJS } from "chart.js/auto";
 import { Chart } from "react-chartjs-2";
-import { COLORS } from "../../Constants/colors";
+import { COLORS, THEME } from "../../Constants/colors";
 
 const doughnutChartBGColors = [
   COLORS.chartGreen,
@@ -13,13 +13,7 @@ const doughnutChartBGColors = [
   COLORS.chartOrange,
 ];
 
-const lineChartBGColors = [
-  COLORS.chartPink,
-  COLORS.chartRed,
-  COLORS.chartOrange,
-  COLORS.chartYellow,
-  COLORS.chartGreen,
-];
+const lineChartBGColors = [THEME.colorButton];
 
 const lineChartPointRadius = 7;
 const lineChartPointHoverRadius = 8;
@@ -89,18 +83,25 @@ function MatchStats({ match }) {
           // for goals
           if (response.match.goalscorers !== undefined) {
             const data = response.match.goalscorers.map((goal) => {
-              return Object.values(goal).slice(1, 2)[0] === ""
-                ? Object.values(goal).slice(6, 7)[0]
-                : Object.values(goal).slice(1, 2)[0];
+              const goalTime = Object.values(goal).slice(0, 1)[0];
+              return typeof parseInt(goalTime) === Number
+                ? parseInt(goalTime)
+                : eval(goalTime);
               // console.log(data);
             });
-            const labels = ["time"];
-            console.log(data);
+            const labels = response.match.goalscorers.map((goal) => {
+              const scorers =
+                Object.values(goal).slice(1, 2)[0] === ""
+                  ? Object.values(goal).slice(6, 7)[0]
+                  : Object.values(goal).slice(1, 2)[0];
+              return scorers;
+            });
+            console.log("goals", data);
             setGoalscorers({
               labels: labels,
               datasets: [
                 {
-                  label: `Timeline`,
+                  label: `Time`,
                   data: data,
                   backgroundColor: lineChartBGColors,
                   pointRadius: lineChartPointRadius,
@@ -190,7 +191,11 @@ function MatchStats({ match }) {
 
   return (
     <>
-      <Container>{statsCard()}</Container>
+      <Container>
+        {scoreTimelineCard()}
+        <div className="mt-4"></div>
+        {statsCard()}
+      </Container>
     </>
   );
 }

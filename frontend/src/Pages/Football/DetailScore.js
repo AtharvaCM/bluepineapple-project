@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Card, Table, CardGroup } from "react-bootstrap";
 import Marquee from "react-fast-marquee";
 import MatchStats from "../../Components/Football/MatchStats";
+import FootballSubNavBar from "./FootballSubNavBar";
 
 function DetailScore() {
   const location = useLocation();
@@ -182,6 +183,7 @@ function DetailScore() {
 
   return (
     <>
+      <FootballSubNavBar></FootballSubNavBar>
       {match === null ? null : matchCard()}
       <div className="mt-4"></div>
       {match === null ? null : <MatchStats match={match}></MatchStats>}
