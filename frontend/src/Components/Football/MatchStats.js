@@ -28,6 +28,7 @@ function MatchStats({ match }) {
   const [subsData, setSubsData] = useState(null);
   const [attacksData, setAttacksData] = useState(null);
   const [dangerousAttacksData, setDangerousAttacksData] = useState(null);
+  const [goalscorers, setGoalscorers] = useState(null);
 
   useEffect(() => {
     const getMatchStats = () => {
@@ -84,6 +85,31 @@ function MatchStats({ match }) {
               ],
             });
           }
+
+          // for goals
+          if (response.match.goalscorers !== undefined) {
+            const data = response.match.goalscorers.map((goal) => {
+              return Object.values(goal).slice(1, 2)[0] === ""
+                ? Object.values(goal).slice(6, 7)[0]
+                : Object.values(goal).slice(1, 2)[0];
+              // console.log(data);
+            });
+            const labels = ["time"];
+            console.log(data);
+            setGoalscorers({
+              labels: labels,
+              datasets: [
+                {
+                  label: `Timeline`,
+                  data: data,
+                  backgroundColor: lineChartBGColors,
+                  pointRadius: lineChartPointRadius,
+                  pointHoverRadius: lineChartPointHoverRadius,
+                  borderColor: COLORS.lineChartBorder,
+                },
+              ],
+            });
+          }
         })
         .catch((err) => console.log(err));
     };
@@ -114,6 +140,25 @@ function MatchStats({ match }) {
           chartData={dangerousAttacksData}
           title={`Dangerous Attacks`}
         ></PieChart>
+      </>
+    );
+  };
+
+  const timelineChart = () => {
+    return (
+      <>
+        <LineChart chartData={goalscorers} title={`Timeline`}></LineChart>
+      </>
+    );
+  };
+
+  const scoreTimelineCard = () => {
+    return (
+      <>
+        <Card style={{ backgroundColor: "white" }}>
+          <Card.Header style={{ color: "black" }}>Timeline</Card.Header>
+          <Card.Body>{goalscorers === null ? null : timelineChart()}</Card.Body>
+        </Card>
       </>
     );
   };

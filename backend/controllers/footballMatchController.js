@@ -70,6 +70,7 @@ const getFootballMatchStatictics = async (req, res) => {
       event_away_team: 1,
       event_date: 1,
       statistics: 1,
+      goalscorers: 1,
     };
     const sortingQuery = { event_date: 1, _id: 1 };
     const match = await MatchFootball.findOne(query, projection).sort(
