@@ -6,7 +6,7 @@ import PlayerDetailsAPI from '../../Api/PlayerDetailsAPI';
 import { useEffect, useState } from 'react';
 
 function CricPlayerInfo(prop) {
-    //console.log(prop.location.state.e.id)
+    console.log(prop.location.state.e)
     const [PlayerDetails,setPlayerDetails]=useState(null)
 
     useEffect(() => {
@@ -61,8 +61,10 @@ function CricPlayerInfo(prop) {
                 </Col>
                 <Col sm={12} md={6}>
                 <Card style={{backgroundColor:'#ffffe6',color:'black'}} className="mb-1">
-                    <h5>Profile</h5>
-                    <p>{PlayerDetails[0].description}</p>
+                    <h5>Debut</h5>
+                    <p>Test : {PlayerDetails[0].batting.test.debut}</p>
+                    <p>ODI : {PlayerDetails[0].batting.odi.debut}</p>
+                    <p>T20 : {PlayerDetails[0].batting.t20.debut}</p>
                     </Card>
                 
                 </Col>
