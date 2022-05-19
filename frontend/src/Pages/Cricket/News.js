@@ -1,8 +1,8 @@
 import { React, useState, useEffect } from "react";
 import { Badge } from "react-bootstrap";
-import CricSubNavBar from "../../Components/Navbar/CricSubNavBar";
 import NewsInfo from "../../Api/NewsAPI";
 import Spinner from "../../Components/Spinner";
+import CricSubNavBar from "../../Components/Navbar/CricSubNavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -32,43 +32,49 @@ function News() {
 
 
   if (news === null) {
-    return <Spinner></Spinner>;
+    return (
+      <>
+        <CricSubNavBar></CricSubNavBar>
+        <Spinner></Spinner>
+      </>
+
+    );
   } else {
     return (
       <>
         <CricSubNavBar></CricSubNavBar>
 
-        <Container sx={{mt:2}}>
+        <Container sx={{ mt: 2 }}>
 
-        <Box sx={{ flexGrow: 1 }}>
-          <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-            {news.map((data, index) => (
-              <Grid item xs={4} key={index}>
-                <Badge pill bg="danger">{data.source.name}</Badge>
-                <Card sx={{ maxWidth: 345 }}>
-                  <CardMedia
-                    component="img"
-                    height="140"
-                    image={data.urlToImage}
-                    alt="img"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      {data.title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {data.description}
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small">Share</Button>
-                    <Button size="small" href={data.url} target="_blank">Learn More</Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
+          <Box sx={{ flexGrow: 1 }}>
+            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+              {news.map((data, index) => (
+                <Grid item xs={4} key={index}>
+                  <Badge pill bg="danger">{data.source.name}</Badge>
+                  <Card sx={{ maxWidth: 345 }}>
+                    <CardMedia
+                      component="img"
+                      height="140"
+                      image={data.urlToImage}
+                      alt="img"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        {data.title}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {data.description}
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button size="small">Share</Button>
+                      <Button size="small" href={data.url} target="_blank">Learn More</Button>
+                    </CardActions>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
         </Container>
 
       </>
