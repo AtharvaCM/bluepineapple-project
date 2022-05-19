@@ -1,3 +1,4 @@
+/* eslint-disable no-eval */
 /* eslint-disable no-unused-vars */
 import { React, useEffect, useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";

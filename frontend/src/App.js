@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LandingPage from "./Pages/LandingPage";
 import Cricket from "./Pages/Cricket/Cricket";
 import Football from "./Pages/Football/Football";
-import Footer from "./Components/Navbar/Footer";
+// import Footer from "./Components/Navbar/Footer";
 //import Teams from './Pages/Cricket/Teams';
 import Gallery from "./Pages/Cricket/Gallery";
 import News from "./Pages/Cricket/News";
