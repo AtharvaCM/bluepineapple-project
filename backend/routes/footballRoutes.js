@@ -30,7 +30,7 @@ const {
 
 router.get("/currentMatches", getCurrentFootballMatches);
 router.get("/finishedMatches", getFootballFinishedMatches);
-router.get("/allMatches/:leagueKey", getAllFootballMatches);
+router.get("/allMatches/:leagueName", getAllFootballMatches);
 router.get("/stats/match/:matchKey", getFootballMatchStatictics);
 
 const {
