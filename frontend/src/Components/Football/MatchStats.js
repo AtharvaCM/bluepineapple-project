@@ -3,7 +3,13 @@
 import { React, useEffect, useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { MatchStatsAPI } from "../../Api/footballApi/MatchStatsAPI";
-import { BarChart, PieChart, DoughnutChart, LineChart } from "../Chart";
+import {
+  BarChart,
+  PieChart,
+  DoughnutChart,
+  LineChart,
+  StackedBarChart,
+} from "../Chart";
 import { Chart as ChartJS } from "chart.js/auto";
 import { Chart } from "react-chartjs-2";
 import { COLORS, THEME } from "../../Constants/colors";
@@ -24,6 +30,7 @@ function MatchStats({ match }) {
   const [attacksData, setAttacksData] = useState(null);
   const [dangerousAttacksData, setDangerousAttacksData] = useState(null);
   const [goalscorers, setGoalscorers] = useState(null);
+  const [totalAttacksData, setTotalAttacksData] = useState(null);
 
   useEffect(() => {
     const getMatchStats = () => {
@@ -76,6 +83,43 @@ function MatchStats({ match }) {
                   label: `Dangerous Attacks`,
                   data: data,
                   backgroundColor: doughnutChartBGColors,
+                },
+              ],
+            });
+          }
+
+          // for total attacks
+          if (
+            response.match.statistics[3] !== undefined &&
+            response.match.statistics[4] !== undefined
+          ) {
+            const labels = ["On Target", "Off Target"];
+            const onTargetData = [
+              Object.values(response.match.statistics[3]).slice(1, 2)[0],
+              Object.values(response.match.statistics[3]).slice(2, 3)[0],
+            ];
+            const offTargetData = [
+              Object.values(response.match.statistics[4]).slice(1, 2)[0],
+              Object.values(response.match.statistics[4]).slice(2, 3)[0],
+            ];
+            console.log("onTarget", onTargetData);
+            console.log("offTarget", offTargetData);
+            setTotalAttacksData({
+              labels: labels,
+              datasets: [
+                {
+                  label: `On Target`,
+                  data: onTargetData,
+                  backgroundColor: [COLORS.chartGreen],
+                  barThickness: 50,
+                  stack: "Stack 0",
+                },
+                {
+                  label: `Off Target`,
+                  data: offTargetData,
+                  backgroundColor: [COLORS.chartRed],
+                  barThickness: 50,
+                  stack: "Stack 1",
                 },
               ],
             });
@@ -190,12 +234,38 @@ function MatchStats({ match }) {
     );
   };
 
+  const totalAttacksChart = () => {
+    return (
+      <>
+        <StackedBarChart
+          chartData={totalAttacksData}
+          title={`Home team vs Away team`}
+        ></StackedBarChart>
+      </>
+    );
+  };
+
+  const totalAttacksCard = () => {
+    return (
+      <>
+        <Card style={{ backgroundColor: "white" }}>
+          <Card.Header style={{ color: "black" }}>Total Attacks</Card.Header>
+          <Card.Body>
+            {totalAttacksData === null ? null : totalAttacksChart()}
+          </Card.Body>
+        </Card>
+      </>
+    );
+  };
+
   return (
     <>
       <Container>
         {scoreTimelineCard()}
         <div className="mt-4"></div>
         {statsCard()}
+        <div className="mt-4"></div>
+        {totalAttacksCard()}
       </Container>
     </>
   );
