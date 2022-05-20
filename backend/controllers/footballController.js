@@ -58,9 +58,13 @@ const getFootballStandings = async (req, res) => {
   console.log("[+] Getting FootballStandings");
   console.log(req.originalUrl);
   try {
-    const league_name = req.params.leagueKey;
-    const query = { league_name: league_name };
-    const standings = await StandingsFootball.find(query);
+    const league_key = req.params.leagueKey;
+    const query = { league_key: league_key };
+    const sortingQuery = { standing_place: 1, _id: 1 };
+    const collation = { locale: "en_US", numericOrdering: true };
+    const standings = await StandingsFootball.find(query)
+      .sort(sortingQuery)
+      .collation(collation);
     const response = {
       status: "OK",
       standings: standings,
