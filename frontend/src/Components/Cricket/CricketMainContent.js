@@ -51,12 +51,13 @@ function CricketMainContent() {
                       style={{ backgroundColor: "white" }}
                       key={index}
                     >
-                      <Card.Body>
-                        <Card.Title
+                     
+                        <Card.Header
                           style={{ color: "black", fontWeight: "bold" }}
                         >
                           {data.name}
-                        </Card.Title>
+                        </Card.Header>
+                        <Card.Body>
                         <Card.Text style={{ color: "black" }}>
                           <SiStarship /> Star Date : {data.startDate}
                         </Card.Text>

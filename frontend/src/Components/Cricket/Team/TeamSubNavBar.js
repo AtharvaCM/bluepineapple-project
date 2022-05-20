@@ -28,11 +28,11 @@ function Teams() {
                 Women
               </Link>
             </span>
-            <span className="me-5 teamSpan">
+            {/* <span className="me-5 teamSpan">
               <Link to="/" style={{ textDecoration: "none", color: "black" }}>
                 IPL
               </Link>
-            </span>
+            </span> */}
           </Card.Header>
         </Card>
       </div>

@@ -47,12 +47,12 @@ function TeamInfo() {
               >
                 Schedule
               </span>
-              <span
+              {/* <span
                 className="me-5 teamSpan"
                 onClick={() => clickHandler("news")}
               >
                 News
-              </span>
+              </span> */}
               <span
                 className="me-5 teamSpan"
                 onClick={() => clickHandler("players")}

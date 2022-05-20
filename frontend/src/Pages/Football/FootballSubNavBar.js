@@ -1,73 +1,79 @@
-import React from "react";
-import Navbar from "react-bootstrap/Navbar";
-import { Nav, Button, Form, FormControl, Container } from "react-bootstrap";
-import {Link} from 'react-router-dom'
-import "bootstrap/dist/css/bootstrap.min.css";
+import {React,useState} from "react";
+import { Nav, Form, FormControl, Button } from "react-bootstrap";
+import { Link,withRouter} from "react-router-dom";
+import { RiLiveFill, RiNewspaperFill } from "react-icons/ri";
+import { AiFillThunderbolt } from "react-icons/ai";
 
+const activeTab = (history,path) =>{
+  
+  if(history.location.pathname === path)
+  {
+    //console.log('history.location.pathname',history.location.pathname,'path:',path);
+    return {backgroundColor:'white',color:'black'};
+  }
+};
 
-function FootballSubNavBar() {
+function FootballSubNavBar({history}) {
+
   return (
     <>
-      <Navbar style={{ background: 'rgb(238,174,202)',color: "white" }} expand="lg">
-        <Container fluid>
-          <Navbar.Brand href="#" style={{ color: "black", fontWeight: "bold" }}>
-            Football
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
-            <Nav
-              className="me-auto my-2 my-lg-0"
-              style={{ maxHeight: "100px" }}
-              navbarScroll
-            >
-              <Nav.Link as={Link} to={"/football/Scores"} style={{ color: "black", fontWeight: "bold" }}>
-                Live Scores
-              </Nav.Link>
-              
-              <Nav.Link
-              as={Link}
-              to={"/Football/LeagueList"}
-               
-                style={{ color: "black", fontWeight: "bold" }}
-              >
-                Leagues
-              </Nav.Link>
-             
-              <Nav.Link
-                href="#action2"
-                style={{ color: "black", fontWeight: "bold" }}
-              >
-                News
-              </Nav.Link>
-              <Nav.Link href="#" style={{ color: "black", fontWeight: "bold" }}>
-                Ranking
-              </Nav.Link>
-              
-              
-            </Nav>
-            <Form className="d-flex">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-              <Button
-                variant="outline-success"
-                style={{
-                  color: "black",
-                  fontWeight: "bold",
-                  borderColor: "black",
-                }}
-              >
-                Search
-              </Button>
-            </Form>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+      <Nav
+      style={{backgroundColor:'#00796B'}} justify>
+
+        <Nav.Item>
+          <Nav.Link as={Link} to="/Football" style={activeTab(history,"/Football")}>
+             <b style={{color:'black'}}><RiLiveFill></RiLiveFill>Live Scores</b>    
+          </Nav.Link>
+        </Nav.Item>
+
+        <Nav.Item>
+          <Nav.Link
+            eventKey="link-1"
+            as={Link}
+            to="/Football/LeagueList"
+            style={activeTab(history,"/Football/LeagueList")}  
+          >
+            <b style={{color:'black'}}>Leagues</b>
+          </Nav.Link>
+        </Nav.Item>
+
+        <Nav.Item>
+          <Nav.Link
+            eventKey="link-2"
+            as={Link}
+            to="/football/News"
+            style={activeTab(history,"/football/News")}           
+          >
+            <b style={{color:'black'}}><RiNewspaperFill></RiNewspaperFill> News</b>
+          </Nav.Link>
+        </Nav.Item>
+
+        <Nav.Item>
+          <Nav.Link
+            eventKey="link-3"
+            as={Link}
+            to="/football/Ranking"
+            style={activeTab(history,"/football/Ranking")}  
+          >
+            <b style={{color:'black'}}><AiFillThunderbolt></AiFillThunderbolt> Rankings</b>
+          </Nav.Link>
+        </Nav.Item>
+        
+        <Nav.Item>
+          <Nav.Link
+            eventKey="link-4"
+            as={Link}
+            to="/football/Gallery"
+            style={activeTab(history,"/football/Gallery")}  
+          >
+            <b style={{color:'black'}}><AiFillThunderbolt></AiFillThunderbolt> Gallery</b>
+          </Nav.Link>
+        </Nav.Item>
+
+        
+      </Nav>
     </>
   );
 }
 
-export default FootballSubNavBar;
+export default withRouter(FootballSubNavBar);

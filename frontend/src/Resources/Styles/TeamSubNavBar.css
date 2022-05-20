@@ -11,7 +11,7 @@
   text-align: center;
 }
 
-span:hover {
+.teamSpan:hover {
   background-color: #00796b;
   color: white;
 }

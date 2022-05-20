@@ -1,19 +1,33 @@
 import React from "react";
 //import Navbar from "react-bootstrap/Navbar";
-import { Nav, Navbar, Container } from "react-bootstrap";
+import { Nav} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FaBasketballBall, FaHome } from "react-icons/fa";
-import { MdSportsCricket } from "react-icons/md";
-import { motion } from "framer-motion";
 import { THEME } from "../../Constants/colors";
 
 function Header() {
   return (
     <>
       <div>
-        <Navbar variant="dark" style={{ backgroundColor: THEME.colorPrimary }}>
-          {/*"#3f4156"*/}
+
+        <Nav variant="pills" defaultActiveKey="/" style={{ backgroundColor: THEME.colorPrimary,color:'white' }} className="justify-content-center" >
+          <Nav.Item>
+            <Nav.Link href="/" as={Link} to='/'><b style={{color:'white'}}>Home</b></Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link eventKey="link-1" as={Link} to='/Football'><b style={{color:'white'}}>Football</b></Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link eventKey="link-2" as={Link} to='/Cricket'>
+              <b style={{color:'white'}}>Cricket</b>
+            </Nav.Link>
+          </Nav.Item>
+        </Nav>
+
+
+
+        {/* <Navbar variant="dark" style={{ backgroundColor: THEME.colorPrimary }}>
+          
           <Container>
             <Navbar.Brand
               as={Link}
@@ -74,7 +88,7 @@ function Header() {
               </span>
             </Nav>
           </Container>
-        </Navbar>
+        </Navbar> */}
       </div>
     </>
   );

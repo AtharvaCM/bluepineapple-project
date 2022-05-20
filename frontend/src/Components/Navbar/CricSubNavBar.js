@@ -7,10 +7,12 @@ import {
   FormControl,
   Container,
   ListGroup,
+  Image
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link,withRouter} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../Resources/Styles/CricSubNavBar.css";
+import { useHistory } from "react-router-dom";
 import PlayerAPI from "../../Api/PlayerAPI";
 import {
   RiTeamFill,
@@ -22,7 +24,23 @@ import { FaHandshake } from "react-icons/fa";
 import { AiFillThunderbolt } from "react-icons/ai";
 import { THEME } from "../../Constants/colors";
 
-function CricSubNavBar() {
+
+const activeTab = (history,path) =>{
+  
+  if(history.location.pathname === path)
+  {
+    return {backgroundColor:'white',color:'black'};
+  }
+};
+
+
+
+
+
+
+
+function CricSubNavBar({history}) {
+
   const [data, setdata] = useState([]);
   const [search, setsearch] = useState("");
 
@@ -32,116 +50,99 @@ function CricSubNavBar() {
     });
   }, []);
 
-  let player = data.map((player) => {
-    return player.name;
+  
+const routeChange =(e)=>{
+  console.log('cricketNavBar',e);
+  
+  history.push({
+    pathname: "/Cricket/players/Playernfo",
+    state: {e},
   });
+  console.log('History:',history);
 
-  //setsearch(player
+}
 
-  //console.log('searchdata:', data);
-  //console.log('playerList', search)
   return (
     <>
-      <div>
-        <Navbar style={styles.navbar} expand="lg">
-          <Container fluid>
-            <Navbar.Brand style={{ color: "white", fontWeight: "bold" }}>
-              <Nav.Link
-                as={Link}
-                to="/Cricket"
-                style={{ color: THEME.colorLight, fontWeight: "bold" }}
-              >
-                Cricket
-              </Nav.Link>
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls="navbarScroll" />
-            <Navbar.Collapse id="navbarScroll" style={{ padding: "0px" }}>
-              <Nav
-                className="me-auto my-2 my-lg-0 mt-0"
-                style={{ maxHeight: "100px" }}
-                navbarScroll
-              >
-                <span className="cricSubNavBar">
-                  <Nav.Link
-                    as={Link}
-                    to="/Cricket/Team/Men"
-                    style={styles.navLink}
-                  >
-                    {" "}
-                    <RiTeamFill /> Teams
-                  </Nav.Link>
-                </span>
+    <Nav
+      style={{backgroundColor:'#00796B'}} justify>
 
-                <span className="cricSubNavBar">
-                  <Nav.Link as={Link} to="/Cricket/News" style={styles.navLink}>
-                    <RiNewspaperFill /> News
-                  </Nav.Link>
-                </span>
+        <Nav.Item>
+          <Nav.Link as={Link} to="/Cricket" style={activeTab(history,"/Cricket")}>
+             <b style={{color:'black'}}>Cricket</b>    
+          </Nav.Link>
+        </Nav.Item>
 
-                <span className="cricSubNavBar">
-                  <Nav.Link
-                    as={Link}
-                    to="/Cricket/Ranking/Batting"
-                    style={styles.navLink}
-                  >
-                    <AiFillThunderbolt />
-                    Ranking
-                  </Nav.Link>
-                </span>
+        <Nav.Item>
+          <Nav.Link
+            eventKey="link-1"
+            as={Link}
+            to="/Cricket/Team/Men"
+            style={activeTab(history,"/Cricket/Team/Men")}  
+          >
+            <b style={{color:'black'}}><RiTeamFill />Teams</b>
+          </Nav.Link>
+        </Nav.Item>
 
-                <span className="cricSubNavBar">
-                  <Nav.Link
-                    as={Link}
-                    to="/Cricket/Gallery"
-                    style={styles.navLink}
-                  >
-                    <RiGalleryFill /> Gallery
-                  </Nav.Link>
-                </span>
+        <Nav.Item>
+          <Nav.Link
+            eventKey="link-2"
+            as={Link}
+            to="/Cricket/News"
+            style={activeTab(history,"/Cricket/News")}           
+          >
+            <b style={{color:'black'}}><RiNewspaperFill></RiNewspaperFill> News</b>
+          </Nav.Link>
+        </Nav.Item>
 
-                <span className="cricSubNavBar">
-                  <Nav.Link
-                    as={Link}
-                    to="/Cricket/LiveScore"
-                    style={styles.navLink}
-                  >
-                    <RiLiveFill /> Live Scores
-                  </Nav.Link>
-                </span>
+        <Nav.Item>
+          <Nav.Link
+            eventKey="link-3"
+            as={Link}
+            to="/Cricket/Ranking/Batting"
+            style={activeTab(history,"/Cricket/Ranking/Batting")}  
+          >
+            <b style={{color:'black'}}><AiFillThunderbolt></AiFillThunderbolt> Rankings</b>
+          </Nav.Link>
+        </Nav.Item>
+        
+        <Nav.Item>
+          <Nav.Link
+            eventKey="link-4"
+            as={Link}
+            to="/Cricket/LiveScore"
+            style={activeTab(history,"/Cricket/LiveScore")}  
+          >
+            <b style={{color:'black'}}><RiLiveFill></RiLiveFill>LiveScores</b>
+          </Nav.Link>
+        </Nav.Item>
 
-                <span className="cricSubNavBar">
-                  <Nav.Link
-                    as={Link}
-                    to="/Cricket/Series"
-                    style={styles.navLink}
-                  >
-                    <FaHandshake /> Series
-                  </Nav.Link>
-                </span>
-              </Nav>
+        <Nav.Item>
+          <Nav.Link
+            eventKey="link-4"
+            as={Link}
+            to="/Cricket/Series"
+            style={activeTab(history,"/Cricket/Series")}  
+          >
+            <b style={{color:'black'}}><FaHandshake></FaHandshake>Series</b>
+          </Nav.Link>
+        </Nav.Item>
 
-              {/* <Form className="d-flex">
+
+        <Form className="d-flex">
                 <FormControl
                   type="search"
                   placeholder="Player Search"
-                  className="me-2"
+                  className="me-2 ms-4"
                   aria-label="Search"
+                  style={{backgroundColor:'#F2F2F2'}}
                   onChange={(event) => { setsearch(event.target.value) }}
                 />
-                <Button
-                  style={{
-                    color: "white",
-                    fontWeight: "bold",
-                    backgroundColor: "#71C6DD",
-                  }}
-                >
-                  Search
-                </Button>
-              </Form> */}
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
-      </div>
+                
+              </Form> 
+      </Nav>
+
+
       <ListGroup>
         {data
           .filter((val) => {
@@ -152,7 +153,12 @@ function CricSubNavBar() {
             }
           })
           .map((val, key) => {
-            return <ListGroup.Item>{val.name}</ListGroup.Item>;
+            return( <ListGroup.Item onClick={()=>routeChange(val)} action varient='success'>
+              <Image src={val.img_src} style={{width:'50px'}}></Image>
+              <b className="ms-1"><plaintext style={{display:'inline'}}>{val.name}({val.team})</plaintext></b>
+              <br />
+              
+              </ListGroup.Item>);
           })}
       </ListGroup>
     </>
@@ -170,4 +176,4 @@ const styles = {
   },
 };
 
-export default CricSubNavBar;
+export default withRouter(CricSubNavBar)

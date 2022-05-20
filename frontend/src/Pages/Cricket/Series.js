@@ -23,7 +23,7 @@ function Series() {
     return (
       <>
         <CricSubNavBar />
-        <Container fluid>
+        {/* <Container fluid>
           <Accordion className="mt-2 mb-2" alwaysOpen>
             {series.map((data, index) => {
               return (
@@ -83,7 +83,7 @@ function Series() {
               );
             })}
           </Accordion>
-        </Container>
+        </Container> */}
       </>
     );
   }

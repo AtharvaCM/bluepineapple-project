@@ -49,10 +49,10 @@ function LeagueList() {
               <Table striped bordered hover>
                 <thead>
                   <tr>
-                    <td>League Country</td>
-                    <td>Country Name</td>
-                    <td>League Logo</td>
-                    <td>League Name</td>
+                    <td style={{fontWeight:'bold'}}>League Country</td>
+                    <td style={{fontWeight:'bold'}}>Country Name</td>
+                    <td style={{fontWeight:'bold'}}>League Logo</td>
+                    <td style={{fontWeight:'bold'}}>League Name</td>
                   </tr>
                   </thead>
                   <tbody>
@@ -60,7 +60,7 @@ function LeagueList() {
                     return (
                       <tr onClick={()=>routeChange(data)}>
                         <td>
-                          <Image src={data.country_logo} roundedCircle fluid style={{width:'4rem'}}></Image>
+                          <Image src={data.country_logo} roundedCircle fluid style={{width:'4rem',alignSelf:'center'}}></Image>
                           </td>
                         <td>{data.country_name}</td>
                         <td>

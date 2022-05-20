@@ -45,7 +45,7 @@ const getAllFootballMatches = async (req, res) => {
   console.log(req.originalUrl);
   try {
     const league_key = req.params.leagueKey;
-    const query = { league_key: league_key };
+    const query = { league_name: league_key };
     const sortingQuery = { event_date: 1, _id: 1 };
     const matches = await MatchFootball.find(query).sort(sortingQuery);
     const response = {
