@@ -1,8 +1,8 @@
 // returns Football Match Stats
 
-export const MatchStatsAPI = async () => {
+export const MatchStatsAPI = async (matchKey) => {
   try {
-    const url = `http://127.0.0.1:5000/api/v1/football/stats/allMatches`;
+    const url = `http://127.0.0.1:5000/api/v1/football/stats/match/${matchKey}`;
     const response = await fetch(url, {
       method: "GET",
       headers: {},

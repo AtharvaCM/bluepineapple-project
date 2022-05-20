@@ -7,14 +7,14 @@ console.log("[+] Fetching Cricket News Artiles from https://newsapi.org");
 
 const connectToMongo = require("../dbConfig");
 connectToMongo();
-const NewsArticleCricket = require("../models/cricket/newsArticleModel");
+const NewsArticleFootball = require("../models/football/newsFootballModel");
 
 fetch = require("node-fetch");
 
 const getResponse = async () => {
   try {
     const newsAPIKey = process.env.NEWS_API_KEY;
-    const url = `https://newsapi.org/v2/everything?apiKey=${newsAPIKey}&q=cricket`;
+    const url = `https://newsapi.org/v2/everything?apiKey=${newsAPIKey}&q=football`;
     const response = await fetch(url, {
       method: "GET",
       headers: {},
@@ -30,7 +30,7 @@ const getResponse = async () => {
 };
 
 const addArticle = (obj) => {
-  let newArticle = new NewsArticleCricket({
+  let newArticle = new NewsArticleFootball({
     source: obj.source,
     author: obj.author,
     title: obj.title,
@@ -52,7 +52,7 @@ const addArticle = (obj) => {
 const updateArticle = (obj) => {
   const query = { title: String(obj.title) };
   const replacement = obj;
-  NewsArticleCricket.findOneAndReplace(
+  NewsArticleFootball.findOneAndReplace(
     query,
     replacement,
     null,
@@ -75,7 +75,7 @@ const storeResponse = (req) => {
 
     // push each object in the articles arrray to DB
     articles.map((obj) => {
-      NewsArticleCricket.findOne({ id: obj.id }, function (err, doc) {
+      NewsArticleFootball.findOne({ id: obj.id }, function (err, doc) {
         if (err) {
           console.log("[+] Find Error", err);
         } else {

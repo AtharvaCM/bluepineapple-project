@@ -30,6 +30,10 @@ const bree = new Bree({
       cron: "0 12 * * *",
     },
     {
+      name: "newsArticlesFootball",
+      cron: "0 12 * * *",
+    },
+    {
       name: "currentMatchesFootball",
       cron: "0 12 * * *",
     },
@@ -43,6 +47,10 @@ const bree = new Bree({
     },
     {
       name: "teamsListFootball",
+      cron: "0 12 * * *",
+    },
+    {
+      name: "standingsFootball",
       cron: "0 12 * * *",
     },
   ],

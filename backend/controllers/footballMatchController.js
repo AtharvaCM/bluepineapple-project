@@ -60,23 +60,25 @@ const getAllFootballMatches = async (req, res) => {
 
 // for match graphs
 const getFootballMatchStatictics = async (req, res) => {
-  console.log("[+] Getting FootballMatchesStats");
+  console.log("[+] Getting FootballMatcheStats");
   console.log(req.originalUrl);
   try {
-    const query = {};
+    const match_key = req.params.matchKey;
+    const query = { match_key: match_key };
     const projection = {
       event_home_team: 1,
       event_away_team: 1,
       event_date: 1,
       statistics: 1,
+      goalscorers: 1,
     };
     const sortingQuery = { event_date: 1, _id: 1 };
-    const matches = await MatchFootball.find(query, projection).sort(
+    const match = await MatchFootball.findOne(query, projection).sort(
       sortingQuery
     );
     const response = {
       status: "OK",
-      matches: matches,
+      match: match,
     };
     res.json(response);
   } catch (err) {

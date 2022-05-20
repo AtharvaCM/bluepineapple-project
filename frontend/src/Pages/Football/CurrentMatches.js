@@ -1,7 +1,8 @@
-import { React, useEffect, useState } from 'react'
-import FinishedMatches from '../../Api/footballApi/FinishedMatches'
-import { Card, Table, CardGroup, Container, Dropdown } from 'react-bootstrap'
+import { React, useEffect, useState } from "react";
+import FinishedMatches from "../../Api/footballApi/FinishedMatches";
+import { Card, Table, CardGroup, Container, Dropdown } from "react-bootstrap";
 import Marquee from "react-fast-marquee";
+
 import { useHistory } from "react-router-dom"
 import FootballSubNavBar from './FootballSubNavBar';
 import Alert from 'react-bootstrap/Alert'
@@ -29,21 +30,21 @@ function CurrentMatches() {
   useEffect(() => {
     FinishedMatches().then((data) => {
       setcurrentMatches(data.matches);
-      setsort(data.matches)
+      setsort(data.matches);
       //console.log(data)
-    })
-  }, [])
+    });
+  }, []);
   console.log(currentMatches);
 
   let history = useHistory();
 
   const cardClickHadler = (e) => {
-    console.log('clicked on card', e);
+    console.log("clicked on card", e);
     history.push({
       pathname: "/football/Scores/MatchSummary",
-      state: { e }, //passing prop to the component
+      state: { match: e }, //passing prop to the component
     });
-  }
+  };
 
   const seriesHandler = (e) => {
 
@@ -59,28 +60,27 @@ function CurrentMatches() {
     if (e === 'Premier League') {
       const updatedMatches = currentMatches.filter((data) => {
         return data.league_name === e;
-      })
+      });
       setsort(updatedMatches);
 
       console.log(updatedMatches);
     }
 
-    if (e === 'Cup - Round of 32') {
+    if (e === "Cup - Round of 32") {
       const updatedMatches = currentMatches.filter((data) => {
         return data.league_name === e;
-      })
+      });
       setsort(updatedMatches);
       console.log(updatedMatches);
     }
 
-    if (e === 'All') {
+    if (e === "All") {
       FinishedMatches().then((data) => {
         setsort(data.matches);
         //console.log(data)
-      })
+      });
     }
-
-  }
+  };
 
   const seasonHandler = (e) => {
     // setmessage(e);
@@ -96,23 +96,24 @@ function CurrentMatches() {
 
       const updatedMatches = currentMatches.filter((data) => {
         return data.league_season === e;
-      })
+      });
       setsort(updatedMatches);
       console.log(updatedMatches);
     }
 
-    if (e === '2022') {
+    if (e === "2022") {
       const updatedMatches = currentMatches.filter((data) => {
         return data.league_season === e;
-      })
+      });
       setsort(updatedMatches);
       console.log(updatedMatches);
     }
-  }
-
+  };
 
   return (
     <>
+
+
 
       {alert ? <Alert variant='dark' style={{ fontWeight: 'bold', textAlign: 'center' }}>
         Live Matches according to {message} !!!
@@ -177,8 +178,8 @@ function CurrentMatches() {
                   ))}
                 </TextField>
             </Card.Header>
-
           </Card>
+
         
         {sort ? sort.map((data, index) => {
 
@@ -265,9 +266,9 @@ function CurrentMatches() {
 
         }) : ''}
       
-    </>
 
+    </>
   );
 }
 
-export default CurrentMatches
+export default CurrentMatches;

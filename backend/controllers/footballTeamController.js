@@ -12,10 +12,18 @@ const getFootballTeamsList = async (req, res) => {
   console.log(req.originalUrl);
   // call DB
   try {
-    const league_id = req.params.league_id;
-   const query = { league_id: league_id };
-    const projection = { home_team_key: 1, away_team_key: 1 };
-    const matches = await MatchFootball.find(query);
+
+    const league_key = req.params.leagueKey;
+    console.log("league_key", league_key);
+    const query = { league_key: league_key };
+    const projection = {
+      home_team_key: 1,
+      event_home_team: 1,
+      away_team_key: 1,
+      event_away_team: 1,
+    };
+    const matches = await MatchFootball.find(query, projection);
+
     const key = "home_team_key";
     const teams = [
       ...new Map(matches.map((item) => [item[key], item])).values(),
