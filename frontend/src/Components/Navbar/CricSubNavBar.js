@@ -52,11 +52,14 @@ function CricSubNavBar({history}) {
 
   
 const routeChange =(e)=>{
-  console.log(e);
+  console.log('cricketNavBar',e);
+  
   history.push({
     pathname: "/Cricket/players/Playernfo",
-    state: { e },
+    state: {e},
   });
+  console.log('History:',history);
+
 }
 
   return (
@@ -66,7 +69,7 @@ const routeChange =(e)=>{
 
         <Nav.Item>
           <Nav.Link as={Link} to="/Cricket" style={activeTab(history,"/Cricket")}>
-             <b style={{color:'black'}}>CricHome</b>    
+             <b style={{color:'black'}}>Cricket</b>    
           </Nav.Link>
         </Nav.Item>
 
@@ -135,15 +138,7 @@ const routeChange =(e)=>{
                   style={{backgroundColor:'#F2F2F2'}}
                   onChange={(event) => { setsearch(event.target.value) }}
                 />
-                <Button
-                  style={{
-                    color: "white",
-                    fontWeight: "bold",
-                    backgroundColor: "#71C6DD",
-                  }}
-                >
-                  Search
-                </Button>
+                
               </Form> 
       </Nav>
 

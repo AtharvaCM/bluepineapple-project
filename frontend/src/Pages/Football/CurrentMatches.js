@@ -128,7 +128,7 @@ function CurrentMatches() {
                   variant="filled"
                   size="small"
                   sx={{ml:4,width:200}}
-                  helperText="Series"
+                  helperText="Leagues"
                 >
                   {SeriesType.map((option) => (
 
@@ -198,7 +198,7 @@ function CurrentMatches() {
                     <td>Series : {sort === null ? 'N/A' : data.league_name}</td>
                     <td>League Season : {sort === null ? 'N/A' : data.league_season}</td>
                     <td>{sort === null ? 'N/A' : data.league_round}</td>
-                    <td>Status : {sort === null ? 'N/A' : data.event_status === 'Finished' ? <span style={{ border: '5px', backgroundColor: 'green', borderRadius: '5px' }}>{data.event_status}</span> : data.event_status}</td>
+                    <td>Status : {sort === null ? 'N/A' : data.event_status === 'Finished' ? <span style={{ border: '5px',borderRadius: '5px' }}>{data.event_status}</span> : data.event_status}</td>
                   </tr>
                 </Table>
               </Card.Header>

@@ -21,7 +21,7 @@ function FootballSubNavBar({history}) {
       style={{backgroundColor:'#00796B'}} justify>
 
         <Nav.Item>
-          <Nav.Link as={Link} to="/football" style={activeTab(history,"/Football")}>
+          <Nav.Link as={Link} to="/Football" style={activeTab(history,"/Football")}>
              <b style={{color:'black'}}><RiLiveFill></RiLiveFill>Live Scores</b>    
           </Nav.Link>
         </Nav.Item>

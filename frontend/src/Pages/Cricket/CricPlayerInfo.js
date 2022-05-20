@@ -6,22 +6,26 @@ import PlayerDetailsAPI from '../../Api/PlayerDetailsAPI';
 import { useEffect, useState } from 'react';
 
 function CricPlayerInfo(prop) {
-    console.log(prop.location.state.e)
+    console.log('cricinfoId',prop.location.state.e.id)
     const [PlayerDetails,setPlayerDetails]=useState(null)
 
     useEffect(() => {
     PlayerDetailsAPI(prop.location.state.e.id)
       .then((response) => {
         setPlayerDetails(response.data);
-        console.log(response.data);
+        console.log('playerdetailfromplayerInfo:',response.data);
       })
       .catch((err) => console.log(err));
     },[]);
+
+    
+
+
     if (PlayerDetails === null )
     return null 
     else
     {
-        console.log(PlayerDetails[0].bowling)
+        console.log('playerainfo',PlayerDetails[0].bowling)
     return (
         <>
         <CricSubNavBar/>
@@ -40,7 +44,7 @@ function CricPlayerInfo(prop) {
                     <Card.Body>
                         <table>
                             <tr colSpan={2}>
-                                 <th><h5>Personal Information</h5></th>
+                                 <h5 style={{fontWeight:'bold'}}>Personal Information</h5>
                             </tr>
                             <tr>
                                 <td><h5>Born:</h5></td>
@@ -61,10 +65,10 @@ function CricPlayerInfo(prop) {
                 </Col>
                 <Col sm={12} md={6}>
                 <Card style={{backgroundColor:'#ffffe6',color:'black'}} className="mb-1">
-                    <h5>Debut</h5>
-                    <p>Test : {PlayerDetails[0].batting.test.debut}</p>
-                    <p>ODI : {PlayerDetails[0].batting.odi.debut}</p>
-                    <p>T20 : {PlayerDetails[0].batting.t20.debut}</p>
+                    <h5 className='ms-2 mt-2' style={{fontWeight:'bold'}}>Debut</h5>
+                    <p className='ms-2' >Test : {PlayerDetails[0].batting.test.debut}</p>
+                    <p className='ms-2' >ODI : {PlayerDetails[0].batting.odi.debut}</p>
+                    <p className='ms-2' >T20 : {PlayerDetails[0].batting.t20.debut}</p>
                     </Card>
                 
                 </Col>
@@ -73,8 +77,8 @@ function CricPlayerInfo(prop) {
             {/*batting details*/}
                 <Card style={{backgroundColor:'#ffffe6',color:'black'}} className="mb-1">
                   <Card.Body>
-                    <h5>Batting Career Summary</h5>
-                    <table className='table' style={{color:'black'}}>
+                    <h5 style={{fontWeight:'bold'}}>Batting Career Summary</h5>
+                    <table className='table mt-2' style={{color:'black'}}>
                         <tr>
                             <th>Type</th>
                             <th>Matches</th>
@@ -83,8 +87,7 @@ function CricPlayerInfo(prop) {
                             <th>High score</th>
                             <th>Average</th>
                             <th>Strike Rate</th>
-                            {/* <th>100</th>
-                            <th>50</th> */}
+                            
                         </tr>
                         <tr>
                             <td>Test</td>
@@ -125,14 +128,14 @@ function CricPlayerInfo(prop) {
 
             <Card style={{backgroundColor:'#ffffe6',color:'black'}} className="mb-3">
                 <Card.Body>
-                    <h5>Bowling Career Summary</h5>
+                    <h5 style={{fontWeight:'bold'}}>Bowling Career Summary</h5>
                     <table className='table' style={{color:'black'}}>
                         <tr>
                             <th>Type</th>
                             <th>Matches</th>
                             <th>Innings</th>
                             <th>Wickets</th>
-                            <th>High score</th>
+                            <th>Economy</th>
                             <th>Average</th>
                             <th>Strike Rate</th>
                             <th>5w</th>

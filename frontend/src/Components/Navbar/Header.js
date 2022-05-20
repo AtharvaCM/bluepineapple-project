@@ -12,14 +12,14 @@ function Header() {
 
         <Nav variant="pills" defaultActiveKey="/" style={{ backgroundColor: THEME.colorPrimary,color:'white' }} className="justify-content-center" >
           <Nav.Item>
-            <Nav.Link href="/" as={Link} to='/'>Home</Nav.Link>
+            <Nav.Link href="/" as={Link} to='/'><b style={{color:'white'}}>Home</b></Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="link-1" as={Link} to='/Football'>Football</Nav.Link>
+            <Nav.Link eventKey="link-1" as={Link} to='/Football'><b style={{color:'white'}}>Football</b></Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link eventKey="link-2" as={Link} to='/Cricket'>
-              Cricket
+              <b style={{color:'white'}}>Cricket</b>
             </Nav.Link>
           </Nav.Item>
         </Nav>

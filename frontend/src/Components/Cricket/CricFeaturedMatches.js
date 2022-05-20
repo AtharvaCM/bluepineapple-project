@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import CurrentMatchesAPI from "../../Api/CurrentMatchesAPI";
 import Spinner from "../../Components/Spinner";
 import { MdFeaturedPlayList } from "react-icons/md";
+import Marquee from "react-fast-marquee";
 
 function CricFeaturedMatches() {
   const [match, setmatch] = useState(null);
@@ -32,6 +33,24 @@ function CricFeaturedMatches() {
     let limit = match.slice(0, 4);
     return (
       <>
+        <Card style={{backgroundColor:'#F7F7F7'}}>
+          <Card.Header>
+          <Marquee gradient={false} speed={30}>
+            {match.map((data)=>{
+            return(
+              <>
+              <span>&nbsp;&nbsp;||&nbsp;&nbsp;</span>
+              <span style={{color:'blue'}}>{ data.status}</span>
+              </>
+            )
+          }
+            
+            )}
+
+            </Marquee>
+          </Card.Header>
+        </Card>
+
         <Card className="mt-2 ms-2 me-3" style={{ backgroundColor: "#C8CDCD" }}>
           <Card.Header style={{ backgroundColor: "#dcdcdc", color: "black" }}>
             <MdFeaturedPlayList /> Featured Matches

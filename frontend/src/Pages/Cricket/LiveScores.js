@@ -32,7 +32,7 @@ function LiveScores() {
       .catch((err) => console.log(err));
   };
 
-  //console.log(currentMatches);
+  console.log(sortdata);
 
   const matchHandler = (e) => {
     if (e === "t20") {
@@ -40,7 +40,7 @@ function LiveScores() {
         return data.matchType === e;
       });
       setsortdata(updatedMatches);
-      console.log(updatedMatches);
+      //console.log(updatedMatches);
     }
 
     if (e === "odi") {
@@ -48,7 +48,7 @@ function LiveScores() {
         return data.matchType === e;
       });
       setsortdata(updatedMatches);
-      console.log(updatedMatches);
+      //console.log(updatedMatches);
     }
 
     if (e === "test") {
@@ -66,6 +66,7 @@ function LiveScores() {
   };
 
   const dateHandler = (e) => {
+
     if (e === "ascending") {
       const date = sortdate.sort(function (a, b) {
         let c = a.date;
@@ -81,7 +82,7 @@ function LiveScores() {
         return 0;
       });
 
-      console.log(date);
+      //console.log(date);
       setsortdata(date);
     }
 
@@ -103,7 +104,7 @@ function LiveScores() {
         .reverse();
 
       setsortdata(date);
-      console.log(date);
+      //console.log(date);
     }
 
     //
@@ -120,8 +121,6 @@ function LiveScores() {
       <>
         <CricSubNavBar></CricSubNavBar>
 
-        
-          
             <Card>
               <Card.Header>
                 <Dropdown className="d-inline mx-5">
