@@ -118,7 +118,7 @@ function CricRankBatting() {
                   ? null
                   : Details.map((player,index) => {
                     return (
-                      <tr key={player.id}>
+                      <tr key={player.id} style={{cursor:'pointer'}}>
                         <td>{index+1}</td>
                         <td>
                           <img

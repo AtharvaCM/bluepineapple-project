@@ -27,7 +27,7 @@ function LeagueInfo(e) {
     <>
       <FootballSubNavBar></FootballSubNavBar>
       <Card>
-        <Card.Header style={{ textAlign: 'center' }}><h5>{e.location.state.e.league_name}</h5></Card.Header>
+        <Card.Header style={{ textAlign: 'center',fontWeight:'bold',fontSize:'1.8rem'}}>The {e.location.state.e.league_name}</Card.Header>
         <Stack direction="row" spacing={2}>
         <Button variant="contained" color={activeComponent === 'schedule'?'success':'primary'} onClick={()=>setactiveComponent('schedule')}>
          League Matches

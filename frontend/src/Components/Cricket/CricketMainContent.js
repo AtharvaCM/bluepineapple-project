@@ -10,6 +10,7 @@ import SeriesApi from "../../Api/SeriesAPI";
 import { useEffect, useState } from "react";
 import { SiStarship } from "react-icons/si";
 import { GiFinishLine } from "react-icons/gi";
+import {useHistory} from 'react-router-dom'
 
 function CricketMainContent() {
   const [news, setnews] = useState(null);
@@ -33,6 +34,17 @@ function CricketMainContent() {
   }, []);
 
   console.log(series);
+
+let history = useHistory();
+const routeChange = ()=>{
+  history.push({
+    pathname: "/Cricket/Series",
+    
+  });
+}
+
+
+
   if (news === null) {
     return <></>;
   } else {
@@ -50,6 +62,7 @@ function CricketMainContent() {
                       className="mt-2"
                       style={{ backgroundColor: "white" }}
                       key={index}
+                      onClick={()=>routeChange()}
                     >
                      
                         <Card.Header

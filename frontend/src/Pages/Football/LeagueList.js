@@ -56,9 +56,9 @@ function LeagueList() {
                   </tr>
                   </thead>
                   <tbody>
-                  {league ? league.map((data, key) => {
+                  {league ? league.map((data, index) => {
                     return (
-                      <tr onClick={()=>routeChange(data)}>
+                      <tr onClick={()=>routeChange(data)} key={index} style={{cursor:'pointer'}}>
                         <td>
                           <Image src={data.country_logo} roundedCircle fluid style={{width:'4rem',alignSelf:'center'}}></Image>
                           </td>

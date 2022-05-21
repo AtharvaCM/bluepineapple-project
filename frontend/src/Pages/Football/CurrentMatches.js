@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from "react";
 import FinishedMatches from "../../Api/footballApi/FinishedMatches";
-import { Card, Table, CardGroup, Container, Dropdown } from "react-bootstrap";
+import { Card, Table, CardGroup} from "react-bootstrap";
 import Marquee from "react-fast-marquee";
 
 import { useHistory } from "react-router-dom"

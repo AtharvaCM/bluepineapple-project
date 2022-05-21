@@ -32,10 +32,10 @@ function LandingPage() {
     let limitFootBall = news.slice(3, 6);
     return (
       <>
-        <Carousel>
+        <Carousel style={{maxHeight:'300px'}}>
           {limit.map((data, index) => {
             return (
-              <Carousel.Item key={index}>
+              <Carousel.Item key={index} style={{maxHeight:'300px'}}>
                 <img
                   className="d-block w-100"
                   src={data.urlToImage}
@@ -54,7 +54,7 @@ function LandingPage() {
         <Carousel>
           {limitFootBall.map((data, index) => {
             return (
-              <Carousel.Item key={index}>
+              <Carousel.Item key={index} style={{maxHeight:'300px'}}>
                 <img
                   className="d-block w-100"
                   src={data.urlToImage}
