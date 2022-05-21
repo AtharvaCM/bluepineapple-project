@@ -1,6 +1,6 @@
-const LeagueWiseMatchesApi = async (league_id) => {
+const footballPointsTable = async (league_id) => {
     try {
-      const url = `http://127.0.0.1:5000/api/v1/football/allMatches/${league_id}`;
+      const url = `http://127.0.0.1:5000/api/v1/football/standings/${league_id}`;
       const response = await fetch(url, {
         method: "GET",
         headers: {},
@@ -14,4 +14,4 @@ const LeagueWiseMatchesApi = async (league_id) => {
       console.log(`{ error: ${err.message || err.toString()} }`);
     }
   };
-  export default LeagueWiseMatchesApi;
+  export default footballPointsTable;
