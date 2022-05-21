@@ -1,6 +1,6 @@
-const LeagueWiseMatchesApi = async (team_name) => {
+const FootballNewsApi = async () => {
     try {
-      const url = `http://127.0.0.1:5000/api/v1/football/allMatches/${team_name}`;
+      const url = "http://127.0.0.1:5000/api/v1/football/news";
       const response = await fetch(url, {
         method: "GET",
         headers: {},
@@ -14,4 +14,5 @@ const LeagueWiseMatchesApi = async (team_name) => {
       console.log(`{ error: ${err.message || err.toString()} }`);
     }
   };
-  export default LeagueWiseMatchesApi;
+  export default FootballNewsApi;
+  

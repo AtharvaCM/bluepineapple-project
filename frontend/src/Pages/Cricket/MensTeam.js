@@ -8,11 +8,13 @@ import { useHistory } from "react-router-dom";
 
 function MensTeam() {
   const [teams, setTeams] = useState(null);
+  
 
   const getTeams = () => {
     TeamsAPI()
       .then((response) => {
         setTeams(response.teams);
+        console.log(response.teams);
       })
       .catch((err) => console.log(err));
   };

@@ -1,41 +1,47 @@
-import {React,useState,useEffect} from 'react'
+import { React, useState} from 'react'
 import FootballSubNavBar from './FootballSubNavBar'
-import FinishedMatches from '../../Api/footballApi/FinishedMatches'
-//import LeagueWiseMatchesApi from '../../Api/footballApi/LeagueWiseMatchesApi'
+
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import { Card } from 'react-bootstrap'
+import LeagueSchedule from '../../Components/Football/League/LeagueSchedule'
+import LeagueTeams from '../../Components/Football/League/LeagueTeams'
 
 function LeagueInfo(e) {
 
-    const [data, setdata] = useState(null)
-    const [league, setleague] = useState()
-    
-    useEffect(() => {
-      FinishedMatches().then((data) => {
-        setdata(data.matches);
-        //console.log('matches by league:',data)
-      })
-    }, [])
-    
-    let leagueName = e.location.state.e.league_name;
+  
+  const [activeComponent, setactiveComponent] = useState('schedule')
 
-    if(leagueName === "Premier League" && data !== null){
-      const updatedMatches = data.filter((data) => {
-        return data.league_name === leagueName;
-      })
-      //
-      console.log(updatedMatches);
-      setleague(updatedMatches);
-      
-    }
-     
-    console.log(league);
-           
 
-    
+  
 
-    
+
+  //console.log('league', league);
+
+
+
+
+
   return (
     <>
-    <FootballSubNavBar></FootballSubNavBar>
+      <FootballSubNavBar></FootballSubNavBar>
+      <Card>
+        <Card.Header style={{ textAlign: 'center' }}><h5>{e.location.state.e.league_name}</h5></Card.Header>
+        <Stack direction="row" spacing={2}>
+        <Button variant="contained" color="success" onClick={()=>setactiveComponent('schedule')}>
+         League Matches
+        </Button>
+        <Button variant="outlined" color="error" onClick={()=>setactiveComponent('matches')}>
+          Teams
+        </Button>
+        </Stack>
+      </Card>
+
+      {
+
+        activeComponent === 'schedule'?(<LeagueSchedule e={e}></LeagueSchedule>):activeComponent === 'matches'?(<LeagueTeams></LeagueTeams>):null
+        
+      }
     </>
   )
 }
