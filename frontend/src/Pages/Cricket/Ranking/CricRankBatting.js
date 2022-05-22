@@ -59,7 +59,7 @@ function CricRankBatting() {
       <CricSubNavBar />
       <CricRankingNavbar />
       <div>
-        <Container>
+    
           <Card  className="mx-auto, w-100 ,my-auto mb-2 mt-2" >
 
             <Card.Header>
@@ -144,7 +144,6 @@ function CricRankBatting() {
               </Card.Body>
               
           </Card>
-        </Container>
       </div>
     </>
   );

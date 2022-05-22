@@ -6,7 +6,7 @@ import "../../../Resources/Styles/TeamSubNavBar.css";
 function Teams() {
   return (
     <>
-      <div className="container mt-2">
+      <div className="mt-2">
         <Card style={{ backgroundColor: "white" }}>
           <Card.Header>
             <Card.Text style={{ fontSize: "30px", fontWeight: "bold" }}>
@@ -20,14 +20,14 @@ function Teams() {
                 Mens
               </Link>
             </span>
-            <span className="me-5 teamSpan">
+            {/* <span className="me-5 teamSpan">
               <Link
                 to="/Cricket/Team/Women"
                 style={{ textDecoration: "none", color: "black" }}
               >
                 Women
               </Link>
-            </span>
+            </span> */}
             {/* <span className="me-5 teamSpan">
               <Link to="/" style={{ textDecoration: "none", color: "black" }}>
                 IPL

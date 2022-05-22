@@ -54,7 +54,6 @@ function CricRankBowling() {
       <CricSubNavBar />
       <CricRankingNavbar />
       <div>
-        <Container>
           <Card
             className="mx-auto, w-100 ,my-auto mb-2 mt-2" >
             <div className="mt-3 mb-3 d-flex justify-content-center">
@@ -138,7 +137,7 @@ function CricRankBowling() {
               </Table>
               </div>
           </Card>
-        </Container>
+        
       </div>
     </>
   );

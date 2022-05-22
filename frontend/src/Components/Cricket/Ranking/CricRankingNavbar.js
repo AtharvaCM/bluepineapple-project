@@ -16,7 +16,7 @@ function CricRankingNavbar({history})
 {
     return (
         <>
-            <div className='container'>
+            <div>
             <Card style={{backgroundColor:'white',color:'black'}} className='mb-2 mt-2'> 
                 <Card.Body>
                     <h3>ICC Cricket Rankings</h3>

@@ -33,16 +33,15 @@ function LeagueList() {
       <FootballSubNavBar></FootballSubNavBar>
 
       <div>
-        <Container className='mt-2'>
-          <Container>
+        
+          
             <Card>
               <Card.Text style={{ fontSize: '2rem', textAlign: 'center', fontWeight: 'bold' }}>Top Leagues</Card.Text>
             </Card>
-          </Container>
-        </Container>
+        
+       
 
-        <Container>
-          <Container>
+       
 
 
             <Card>
@@ -78,8 +77,7 @@ function LeagueList() {
             </Card>
 
 
-          </Container>
-        </Container>
+          
 
       </div>
 

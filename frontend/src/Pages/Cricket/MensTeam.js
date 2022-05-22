@@ -39,7 +39,7 @@ function MensTeam() {
     <>
       <CricSubNavBar></CricSubNavBar>
       <TeamSubNavBar></TeamSubNavBar>
-      <div className="container">
+      <div>
         <Card
           style={{ backgroundColor: "white", color: "black" }}
           className="mb-2 mt-2"
