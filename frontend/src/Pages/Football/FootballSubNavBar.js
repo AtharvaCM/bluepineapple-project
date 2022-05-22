@@ -3,7 +3,8 @@ import { Nav, Form, FormControl, Button } from "react-bootstrap";
 import { Link,withRouter} from "react-router-dom";
 import { RiLiveFill, RiNewspaperFill } from "react-icons/ri";
 import { AiFillThunderbolt } from "react-icons/ai";
-
+import {SiTableau} from 'react-icons/si'
+import {GiStairsGoal} from 'react-icons/gi'
 const activeTab = (history,path) =>{
   
   if(history.location.pathname === path)
@@ -33,7 +34,7 @@ function FootballSubNavBar({history}) {
             to="/Football/LeagueList"
             style={activeTab(history,"/Football/LeagueList")}  
           >
-            <b style={{color:'black'}}>Leagues</b>
+            <b style={{color:'black'}}><SiTableau></SiTableau> Leagues</b>
           </Nav.Link>
         </Nav.Item>
 
@@ -55,7 +56,7 @@ function FootballSubNavBar({history}) {
             to="/football/Ranking"
             style={activeTab(history,"/football/Ranking")}  
           >
-            <b style={{color:'black'}}><AiFillThunderbolt></AiFillThunderbolt> Rankings</b>
+            <b style={{color:'black'}}><GiStairsGoal></GiStairsGoal> Rankings</b>
           </Nav.Link>
         </Nav.Item>
         

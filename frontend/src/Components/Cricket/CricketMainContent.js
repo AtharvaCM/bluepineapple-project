@@ -60,7 +60,7 @@ const routeChange = ()=>{
                   return (
                     <Card
                       className="mt-2"
-                      style={{ backgroundColor: "white" }}
+                      style={{ backgroundColor: "white",cursor:'pointer'}}
                       key={index}
                       onClick={()=>routeChange()}
                     >
