@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from 'react'
 import LeagueListApi from '../../Api/footballApi/LeagueListApi'
-import { Card, Container, Table} from 'react-bootstrap'
+import { Card,Table} from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
 import FootballSubNavBar from './FootballSubNavBar'
 import { useHistory } from 'react-router-dom'
