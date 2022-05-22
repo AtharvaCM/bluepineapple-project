@@ -54,7 +54,7 @@ function LandingPage() {
         <Carousel>
           {limitFootBall.map((data, index) => {
             return (
-              <Carousel.Item key={index} style={{maxHeight:'300px'}}>
+              <Carousel.Item key={index} style={{maxHeight:'350px'}}>
                 <img
                   className="d-block w-100"
                   src={data.urlToImage}

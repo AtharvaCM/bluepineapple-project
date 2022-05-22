@@ -17,7 +17,7 @@ function Teams() {
                 to="/Cricket/Team/Men"
                 style={{ textDecoration: "none", color: "black" }}
               >
-                Mens
+                Men
               </Link>
             </span>
             {/* <span className="me-5 teamSpan">
