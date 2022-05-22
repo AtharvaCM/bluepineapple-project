@@ -128,6 +128,17 @@ const routeChange =(e)=>{
           </Nav.Link>
         </Nav.Item>
 
+        <Nav.Item>
+          <Nav.Link
+            eventKey="link-5"
+            as={Link}
+            to="/Cricket/Gallery"
+            style={activeTab(history,"/Cricket/Gallery")}  
+          >
+            <b style={{color:'black'}}><FaHandshake></FaHandshake>Gallery</b>
+          </Nav.Link>
+        </Nav.Item>
+
 
         <Form className="d-flex">
                 <FormControl
