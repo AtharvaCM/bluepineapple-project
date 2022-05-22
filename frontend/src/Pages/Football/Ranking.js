@@ -10,7 +10,7 @@ function Ranking() {
     return (
         <>
         <FootballSubNavBar></FootballSubNavBar>
-        <div className='container'>
+        
             <Card>
                 <Card.Header>
                     <h2>FIFA RANKINGS</h2>
@@ -40,7 +40,6 @@ function Ranking() {
                     </div>
                 </Card.Body>
             </Card>
-        </div>
         </>
 
     )
