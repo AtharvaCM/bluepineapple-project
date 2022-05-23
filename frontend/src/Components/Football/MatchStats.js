@@ -13,6 +13,7 @@ import {
 import { Chart as ChartJS } from "chart.js/auto";
 import { Chart } from "react-chartjs-2";
 import { COLORS, THEME } from "../../Constants/colors";
+import { Timeline } from "../Timeline";
 
 const doughnutChartBGColors = [
   COLORS.chartGreen,
@@ -94,7 +95,10 @@ function MatchStats({ match }) {
             response.match.statistics[3] !== undefined &&
             response.match.statistics[4] !== undefined
           ) {
-            const labels = ["On Target", "Off Target"];
+            const labels = [
+              response.match.event_home_team,
+              response.match.event_away_team,
+            ];
             const onTargetData = [
               Object.values(response.match.statistics[3]).slice(1, 2)[0],
               Object.values(response.match.statistics[3]).slice(2, 3)[0],
@@ -130,32 +134,40 @@ function MatchStats({ match }) {
           if (response.match.goalscorers !== undefined) {
             const data = response.match.goalscorers.map((goal) => {
               const goalTime = Object.values(goal).slice(0, 1)[0];
-              return typeof parseInt(goalTime) === Number
-                ? parseInt(goalTime)
-                : eval(goalTime);
-              // console.log(data);
-            });
-            const labels = response.match.goalscorers.map((goal) => {
-              const scorers =
+              const scorer =
                 Object.values(goal).slice(1, 2)[0] === ""
                   ? Object.values(goal).slice(6, 7)[0]
                   : Object.values(goal).slice(1, 2)[0];
-              return scorers;
+              const team =
+                Object.values(goal).slice(1, 2)[0] === ""
+                  ? response.match.event_home_team
+                  : response.match.event_away_team;
+
+              return {
+                date:
+                  typeof parseInt(goalTime) === Number
+                    ? parseInt(goalTime)
+                    : eval(goalTime),
+                event: scorer,
+                team: team,
+              };
+              // console.log(data);
             });
             console.log("goals", data);
-            setGoalscorers({
-              labels: labels,
-              datasets: [
-                {
-                  label: `Time`,
-                  data: data,
-                  backgroundColor: lineChartBGColors,
-                  pointRadius: lineChartPointRadius,
-                  pointHoverRadius: lineChartPointHoverRadius,
-                  borderColor: COLORS.lineChartBorder,
-                },
-              ],
-            });
+            // setGoalscorers({
+            //   labels: labels,
+            //   datasets: [
+            //     {
+            //       label: `Time`,
+            //       data: data,
+            //       backgroundColor: lineChartBGColors,
+            //       pointRadius: lineChartPointRadius,
+            //       pointHoverRadius: lineChartPointHoverRadius,
+            //       borderColor: COLORS.lineChartBorder,
+            //     },
+            //   ],
+            // });
+            setGoalscorers(data);
           }
         })
         .catch((err) => console.log(err));
@@ -199,15 +211,19 @@ function MatchStats({ match }) {
     );
   };
 
+  // const scoreTimelineCard = () => {
+  //   return (
+  //     <>
+  //       <Card style={{ backgroundColor: "white" }}>
+  //         <Card.Header style={{ color: "black" }}>Timeline</Card.Header>
+  //         <Card.Body>{goalscorers === null ? null : timelineChart()}</Card.Body>
+  //       </Card>
+  //     </>
+  //   );
+  // };
+
   const scoreTimelineCard = () => {
-    return (
-      <>
-        <Card style={{ backgroundColor: "white" }}>
-          <Card.Header style={{ color: "black" }}>Timeline</Card.Header>
-          <Card.Body>{goalscorers === null ? null : timelineChart()}</Card.Body>
-        </Card>
-      </>
-    );
+    return <Timeline events={goalscorers}></Timeline>;
   };
 
   const statsCard = () => {
