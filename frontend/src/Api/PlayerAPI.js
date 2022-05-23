@@ -18,5 +18,4 @@ const PlayerAPI = async (teamID) => {
     console.log(`{ error: ${err.message || err.toString()} }`);
   }
 };
-
 export default PlayerAPI;

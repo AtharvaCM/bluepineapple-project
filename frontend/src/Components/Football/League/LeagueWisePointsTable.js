@@ -9,8 +9,9 @@ function LeagueWisePointsTable({ e }) {
 
   const [pointsTable, setpointsTable] = useState([])
 
+  let key = e.location.state.e.league_key;
+
   useEffect(() => {
-    const key = e.location.state.e.league_key
     footballPointsTable(key).then((data) => {
      
       setpointsTable(data.standings)
@@ -41,11 +42,11 @@ function LeagueWisePointsTable({ e }) {
               <th>Last Updated</th>
             </tr>
           </thead>
-          {pointsTable.map((data, key) => {
+          {pointsTable.map((data, index) => {
            
             return (
               <>
-              <tbody>
+              <tbody key={index}>
               <tr>
                 <td>{data.standing_place}</td>
                 <td>{data.standing_team}</td>
@@ -62,9 +63,6 @@ function LeagueWisePointsTable({ e }) {
               </>
               )
           })}
-          <tbody>
-
-          </tbody>
         </Table>
         </Container>
 

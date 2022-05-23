@@ -6,7 +6,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Badge from 'react-bootstrap/Badge'
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import { experimentalStyled as styled } from '@mui/material/styles';
 
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';

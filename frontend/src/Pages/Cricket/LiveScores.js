@@ -4,7 +4,6 @@ import {
   CardGroup,
   Button,
   Table,
-  Container,
   Dropdown,
 } from "react-bootstrap";
 import CricSubNavBar from "../../Components/Navbar/CricSubNavBar";
@@ -31,7 +30,7 @@ function LiveScores() {
       .catch((err) => console.log(err));
   };
 
-  console.log(sortdata);
+ 
 
   const matchHandler = (e) => {
     if (e === "t20") {
@@ -81,7 +80,6 @@ function LiveScores() {
         return 0;
       });
 
-      //console.log(date);
       setsortdata(date);
     }
 
@@ -103,7 +101,7 @@ function LiveScores() {
         .reverse();
 
       setsortdata(date);
-      //console.log(date);
+      
     }
 
    

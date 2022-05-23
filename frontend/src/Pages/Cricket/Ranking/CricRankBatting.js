@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-//import { Link } from "react-router-dom";
+
 import CricRankingNavbar from "../../../Components/Cricket/Ranking/CricRankingNavbar";
-import { Button, Card, Table, Container } from "react-bootstrap";
+import { Button, Card, Table} from "react-bootstrap";
 import CricSubNavBar from "../../../Components/Navbar/CricSubNavBar";
 import { useHistory } from "react-router-dom";
 import {

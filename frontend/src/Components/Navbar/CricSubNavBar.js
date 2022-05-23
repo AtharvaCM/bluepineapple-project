@@ -1,18 +1,14 @@
 import { React, useState, useEffect } from "react";
-import Navbar from "react-bootstrap/Navbar";
 import {
   Nav,
-  Button,
   Form,
   FormControl,
-  Container,
   ListGroup,
   Image
 } from "react-bootstrap";
 import { Link,withRouter} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../Resources/Styles/CricSubNavBar.css";
-import { useHistory } from "react-router-dom";
 import PlayerAPI from "../../Api/PlayerAPI";
 import {
   RiTeamFill,
@@ -22,7 +18,6 @@ import {
 } from "react-icons/ri";
 import { FaHandshake } from "react-icons/fa";
 import { AiFillThunderbolt } from "react-icons/ai";
-import { THEME } from "../../Constants/colors";
 
 
 const activeTab = (history,path) =>{
@@ -135,7 +130,7 @@ const routeChange =(e)=>{
             to="/Cricket/Gallery"
             style={activeTab(history,"/Cricket/Gallery")}  
           >
-            <b style={{color:'black'}}><FaHandshake></FaHandshake>Gallery</b>
+            <b style={{color:'black'}}><RiGalleryFill></RiGalleryFill>Gallery</b>
           </Nav.Link>
         </Nav.Item>
 
@@ -176,15 +171,5 @@ const routeChange =(e)=>{
   );
 }
 
-const styles = {
-  navbar: {
-    backgroundColor: THEME.colorPrimary,
-    color: "white",
-  },
-  navLink: {
-    color: THEME.colorLight,
-    fontWeight: "bold",
-  },
-};
 
 export default withRouter(CricSubNavBar)

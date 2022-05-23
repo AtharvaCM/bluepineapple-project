@@ -20,7 +20,7 @@ function CricketMainContent() {
     NewsInfo()
       .then((data) => {
         setnews(data.articles);
-        console.log(data.articles);
+       
       })
       .catch((err) => console.log(err));
   }, []);
@@ -33,7 +33,7 @@ function CricketMainContent() {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(series);
+ 
 
 let history = useHistory();
 const routeChange = ()=>{

@@ -20,7 +20,6 @@ function CricFeaturedMatches() {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(match);
 
 
   let history = useHistory()

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card,Nav,Navbar} from 'react-bootstrap';
+import {Card,Nav} from 'react-bootstrap';
 import {Link,withRouter} from 'react-router-dom';
 
 
@@ -33,13 +33,6 @@ function CricRankingNavbar({history})
                             </Nav.Link>
                         </Nav.Item>
                     </Nav>
-                    {/* <Navbar className='py-0' style={{backgroundColor:'white'}}>
-                    <Nav className="me-auto">
-                        <Nav.Link as={Link} to='/Cricket/Ranking/Batting' style={{color:'black'}}>Batting</Nav.Link>
-                        <Nav.Link as={Link} to='/Cricket/Ranking/Bowling' style={{color:'black'}}>Bowling</Nav.Link>
-                       
-                    </Nav>
-                    </Navbar> */}
                 </Card.Body>
             </Card>
             </div>

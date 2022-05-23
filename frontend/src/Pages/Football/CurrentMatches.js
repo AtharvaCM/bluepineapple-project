@@ -5,15 +5,12 @@ import Marquee from "react-fast-marquee";
 
 import { useHistory } from "react-router-dom"
 import FootballSubNavBar from './FootballSubNavBar';
-import Alert from 'react-bootstrap/Alert'
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 
 function CurrentMatches() {
   const [currentMatches, setcurrentMatches] = useState(null)
   const [sort, setsort] = useState(null)
-  const [alert, setalert] = useState(false)
-  const [message, setmessage] = useState('')
   const [seriesOptions, setseriesOption] = useState('All')
   const [leagueOptions, setlegueOptions] = useState('2022')
   const [matchStatus, setmatchStatus] = useState('Completed')
@@ -94,10 +91,6 @@ function CurrentMatches() {
   return (
     <>
 
-      {alert ? <Alert variant='dark' style={{ fontWeight: 'bold', textAlign: 'center' }}>
-        Live Matches according to {message} !!!
-      </Alert> : ''}
-
         <FootballSubNavBar></FootballSubNavBar>
           <Card>
             <Card.Header>
@@ -166,6 +159,7 @@ function CurrentMatches() {
             <Card className="mt-2" onClick={() => cardClickHadler(data)} style={{ boxShadow: '23px solid white', border: 'none' }} key={index}>
               <Card.Header>
                 <Table className="table table-borderless">
+                  <tbody>
                   <tr>
                     <td style={{ fontSize: "35px", fontWeight: "bold" }} colSpan={3}>
                       {sort === null ? 'N/A' : data.event_home_team} VS {sort === null ? 'N/A' : sort[0].event_away_team}
@@ -180,6 +174,7 @@ function CurrentMatches() {
                     <td>{sort === null ? 'N/A' : data.league_round}</td>
                     <td>Status : {sort === null ? 'N/A' : data.event_status === 'Finished' ? <span style={{ border: '5px',borderRadius: '5px' }}>{data.event_status}</span> : data.event_status}</td>
                   </tr>
+                  </tbody>
                 </Table>
               </Card.Header>
 
