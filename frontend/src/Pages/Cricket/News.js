@@ -6,7 +6,6 @@ import CricSubNavBar from "../../Components/Navbar/CricSubNavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import { experimentalStyled as styled } from '@mui/material/styles';
 
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -24,7 +23,7 @@ function News() {
     NewsInfo()
       .then((data) => {
         setnews(data.articles);
-        console.log(data.articles);
+        
       })
       .catch((err) => console.log(err));
   }, []);

@@ -4,7 +4,6 @@ import {
   CardGroup,
   Button,
   Table,
-  Container,
   Dropdown,
 } from "react-bootstrap";
 import CricSubNavBar from "../../Components/Navbar/CricSubNavBar";
@@ -23,8 +22,7 @@ function LiveScores() {
   const getdata = () => {
     currentMatchesApi()
       .then((data) => {
-        //setcurrentMatches(...currentMatches,data.data)
-        //console.log(data.data);
+        
         setcurrentMatches(data.data);
         setsortdata(data.data);
         setsortDate(data.data);
@@ -32,7 +30,7 @@ function LiveScores() {
       .catch((err) => console.log(err));
   };
 
-  console.log(sortdata);
+ 
 
   const matchHandler = (e) => {
     if (e === "t20") {
@@ -40,7 +38,7 @@ function LiveScores() {
         return data.matchType === e;
       });
       setsortdata(updatedMatches);
-      //console.log(updatedMatches);
+     
     }
 
     if (e === "odi") {
@@ -48,7 +46,7 @@ function LiveScores() {
         return data.matchType === e;
       });
       setsortdata(updatedMatches);
-      //console.log(updatedMatches);
+      
     }
 
     if (e === "test") {
@@ -56,12 +54,12 @@ function LiveScores() {
         return data.matchType === e;
       });
       setsortdata(updatedMatches);
-      //console.log(updatedMatches);
+      
     }
 
     if (e === "all") {
       setsortdata(currentMatches);
-      //console.log(updatedMatches);
+      
     }
   };
 
@@ -82,7 +80,6 @@ function LiveScores() {
         return 0;
       });
 
-      //console.log(date);
       setsortdata(date);
     }
 
@@ -104,19 +101,18 @@ function LiveScores() {
         .reverse();
 
       setsortdata(date);
-      //console.log(date);
+      
     }
 
-    //
-    //console.log(sort);
+   
   };
 
-  console.log(sortdata);
+  
 
   if (currentMatches === null) {
     return <Spinner></Spinner>;
   } else {
-    //console.log(currentMatches[0].teamInfo[0]);
+    
     return (
       <>
         <CricSubNavBar></CricSubNavBar>
@@ -179,7 +175,6 @@ function LiveScores() {
         
         {sortdata ? (
           sortdata.map((data, index) => {
-            console.log(data);
             return (
                 
                   <Card className="mt-2 mb-2" bg="light" key={index}>

@@ -44,6 +44,7 @@ const getAllFootballMatches = async (req, res) => {
   console.log("[+] Getting AllFootballMatches");
   console.log(req.originalUrl);
   try {
+
     const league_key = req.params.leagueKey;
     console.log("league_key", league_key);
     const query = { league_key: league_key };

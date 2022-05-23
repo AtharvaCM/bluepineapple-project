@@ -1,18 +1,14 @@
 import { React, useState, useEffect } from "react";
-import Navbar from "react-bootstrap/Navbar";
 import {
   Nav,
-  Button,
   Form,
   FormControl,
-  Container,
   ListGroup,
   Image
 } from "react-bootstrap";
 import { Link,withRouter} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../Resources/Styles/CricSubNavBar.css";
-import { useHistory } from "react-router-dom";
 import PlayerAPI from "../../Api/PlayerAPI";
 import {
   RiTeamFill,
@@ -22,7 +18,6 @@ import {
 } from "react-icons/ri";
 import { FaHandshake } from "react-icons/fa";
 import { AiFillThunderbolt } from "react-icons/ai";
-import { THEME } from "../../Constants/colors";
 
 
 const activeTab = (history,path) =>{
@@ -52,13 +47,13 @@ function CricSubNavBar({history}) {
 
   
 const routeChange =(e)=>{
-  console.log('cricketNavBar',e);
+  
   
   history.push({
     pathname: "/Cricket/players/Playernfo",
     state: {e},
   });
-  console.log('History:',history);
+ 
 
 }
 
@@ -128,6 +123,17 @@ const routeChange =(e)=>{
           </Nav.Link>
         </Nav.Item>
 
+        <Nav.Item>
+          <Nav.Link
+            eventKey="link-5"
+            as={Link}
+            to="/Cricket/Gallery"
+            style={activeTab(history,"/Cricket/Gallery")}  
+          >
+            <b style={{color:'black'}}><RiGalleryFill></RiGalleryFill>Gallery</b>
+          </Nav.Link>
+        </Nav.Item>
+
 
         <Form className="d-flex">
                 <FormControl
@@ -165,15 +171,5 @@ const routeChange =(e)=>{
   );
 }
 
-const styles = {
-  navbar: {
-    backgroundColor: THEME.colorPrimary,
-    color: "white",
-  },
-  navLink: {
-    color: THEME.colorLight,
-    fontWeight: "bold",
-  },
-};
 
 export default withRouter(CricSubNavBar)

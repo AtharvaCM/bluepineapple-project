@@ -15,7 +15,7 @@ function TeamInfo() {
   const [activeComponent, setActiveComponent] = useState("schedule");
 
   const clickHandler = (e) => {
-    console.log(e, "clicked");
+   
     setActiveComponent(e);
   };
 
@@ -47,12 +47,6 @@ function TeamInfo() {
               >
                 Schedule
               </span>
-              {/* <span
-                className="me-5 teamSpan"
-                onClick={() => clickHandler("news")}
-              >
-                News
-              </span> */}
               <span
                 className="me-5 teamSpan"
                 onClick={() => clickHandler("players")}

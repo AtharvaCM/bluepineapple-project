@@ -37,9 +37,6 @@ function MatchStats({ match }) {
       console.log("match_key", match.event_key);
       MatchStatsAPI(match.event_key)
         .then((response) => {
-          // parse the repsonse
-          console.log("response", response);
-          // for subs data
           if (response.match.statistics[0] !== undefined) {
             const labels = Object.keys(response.match.statistics[0]).slice(1);
             const data = Object.values(response.match.statistics[0]).slice(1);
@@ -103,8 +100,7 @@ function MatchStats({ match }) {
               Object.values(response.match.statistics[4]).slice(1, 2)[0],
               Object.values(response.match.statistics[4]).slice(2, 3)[0],
             ];
-            console.log("onTarget", onTargetData);
-            console.log("offTarget", offTargetData);
+            
             setTotalAttacksData({
               labels: labels,
               datasets: [
@@ -133,7 +129,7 @@ function MatchStats({ match }) {
               return typeof parseInt(goalTime) === Number
                 ? parseInt(goalTime)
                 : eval(goalTime);
-              // console.log(data);
+              
             });
             const labels = response.match.goalscorers.map((goal) => {
               const scorers =
@@ -142,7 +138,7 @@ function MatchStats({ match }) {
                   : Object.values(goal).slice(1, 2)[0];
               return scorers;
             });
-            console.log("goals", data);
+            
             setGoalscorers({
               labels: labels,
               datasets: [

@@ -14,7 +14,7 @@ function MensTeam() {
     TeamsAPI()
       .then((response) => {
         setTeams(response.teams);
-        console.log(response.teams);
+        
       })
       .catch((err) => console.log(err));
   };
@@ -27,19 +27,19 @@ function MensTeam() {
 
   let history = useHistory();
   const routeChange = (e) => {
-    console.log(e);
+   
     history.push({
       pathname: "/Cricket/Team/TeamInfo",
       state: { id: e }, //passing prop to the component
     });
-    //console.log(history.push('/'))
+    
   };
 
   return (
     <>
       <CricSubNavBar></CricSubNavBar>
       <TeamSubNavBar></TeamSubNavBar>
-      <div className="container">
+      <div>
         <Card
           style={{ backgroundColor: "white", color: "black" }}
           className="mb-2 mt-2"
