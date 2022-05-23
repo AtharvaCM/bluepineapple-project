@@ -7,7 +7,7 @@ console.log("[+] Fetching Cricket News Artiles from https://newsapi.org");
 
 const connectToMongo = require("../dbConfig");
 connectToMongo();
-const NewsArticleCricket = require("../models/cricket/newsArticleModel");
+const NewsArticleCricket = require("../models/cricket/newsCricketModel");
 
 fetch = require("node-fetch");
 

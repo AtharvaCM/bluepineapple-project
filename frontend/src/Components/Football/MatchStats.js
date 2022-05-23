@@ -34,6 +34,7 @@ function MatchStats({ match }) {
 
   useEffect(() => {
     const getMatchStats = () => {
+      console.log("match_key", match.event_key);
       MatchStatsAPI(match.event_key)
         .then((response) => {
           if (response.match.statistics[0] !== undefined) {
