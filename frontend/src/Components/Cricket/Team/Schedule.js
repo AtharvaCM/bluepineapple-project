@@ -12,7 +12,6 @@ function Schedule({ team }) {
       .catch((err) => console.log(err));
   }, [team]);
 
-  console.log("matches", matches);
 
   return (
     <>

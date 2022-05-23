@@ -5,33 +5,31 @@ import FootballSubNavBar from './FootballSubNavBar'
 import footballRanking from '../../Api/footballApi/footballRanking';
 
 function Ranking() {
-    console.log('hello from football ranking')
-    console.log(footballRanking);
     return (
         <>
         <FootballSubNavBar></FootballSubNavBar>
-        <div className='container'>
+        
             <Card>
                 <Card.Header>
                     <h2>FIFA RANKINGS</h2>
                 </Card.Header>
                 <Card.Body>
                     <div className="d-flex justify-content-center">
-                    <Table className='w-75' style={{backgroundColor:'#ffffe6'}}>
+                    <Table  style={{backgroundColor:'#F7F7F7'}}>
                         <thead>
                         <tr>
-                            <th>Position</th>
-                            <th>Flag</th>
-                            <th>Team</th>
+                            <th style={{fontSize:'25px'}}>Position</th>
+                            <th style={{fontSize:'25px'}}>Flag</th>
+                            <th style={{fontSize:'25px'}}>Team</th>
                         </tr>
                         </thead>
                         <tbody>
                         {footballRanking.map(Team => {
                             return (
                                 <tr key={Team.position}>
-                                  <td>{Team.position}</td>
+                                  <td style={{fontWeight:'bold',fontSize:'20px'}}>{Team.position}</td>
                                   <td><img src={Team.flag_img} alt='img' width={100}></img></td>
-                                 <td>{Team.name}</td>
+                                 <td style={{fontWeight:'bold',fontSize:'20px'}}>{Team.name}</td>
                                 </tr>  
                             )  
                         })}
@@ -40,7 +38,6 @@ function Ranking() {
                     </div>
                 </Card.Body>
             </Card>
-        </div>
         </>
 
     )

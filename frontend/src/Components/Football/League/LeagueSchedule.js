@@ -1,10 +1,8 @@
 import { React, useState, useEffect } from 'react'
-import Paper from '@mui/material/Paper';
+
 import Table from 'react-bootstrap/Table';
-import { Col, Image, Row } from 'react-bootstrap/'
-import Avatar from '@mui/material/Avatar';
-import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
+import { Col, Row,Container } from 'react-bootstrap'
+
 import LeagueWiseMatchesApi from '../../../Api/footballApi/LeagueWiseMatchesApi'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
@@ -12,78 +10,71 @@ import Button from 'react-bootstrap/Button'
 
 function LeagueSchedule({ e }) {
   const [league, setleague] = useState([])
-  console.log(e.location.state.e.league_name)
+
+
+  let league_key = e.location.state.e.league_key;
 
   useEffect(() => {
 
-    let leagueName = e.location.state.e.league_name;
-    if (leagueName === 'Cup') {
-      LeagueWiseMatchesApi('Cup - Round of 32').then((data) => {
+    
+    if (league_key === '423') {
+      LeagueWiseMatchesApi('423').then((data) => {
         setleague(data.matches);
       })
     }
-    if (leagueName === 'Premier League') {
-      LeagueWiseMatchesApi('Premier League').then((data) => {
+    if (league_key === '177') {
+      LeagueWiseMatchesApi('177').then((data) => {
         setleague(data.matches);
       })
     }
-    //console.log('scheduleLeague',league);
-  }, [])
-
-
-  console.log(league);
+  })
 
   return (
     <>
-     
-        <Table className='mt-2'>
-          <tbody>
-            <Row>
-              <Col style={{textAlign:'center',fontSize:'1.5rem',fontWeight:'bold'}}>Match</Col>
-              <Col style={{textAlign:'center',fontSize:'1.5rem',fontWeight:'bold'}}>Date / Time</Col>
-              <Col style={{textAlign:'center',fontSize:'1.5rem',fontWeight:'bold'}}>Status</Col>
-              <Col style={{textAlign:'center',fontSize:'1.5rem',fontWeight:'bold'}}>Final score</Col>
-              <Col></Col>
+    <Card>
+    <Container>
+     <Card.Header>
+        <Table className='mt-2' striped bordered>
+            <Card >
+            <Row >
+              <Col style={{textAlign:'center',fontSize:'1.2rem',fontWeight:'bold'}}>Match</Col>
+              <Col style={{textAlign:'center',fontSize:'1.2rem',fontWeight:'bold'}}>Date / Time</Col>
+              <Col style={{textAlign:'center',fontSize:'1.2rem',fontWeight:'bold'}}>Status</Col>
+              <Col style={{textAlign:'center',fontSize:'1.2rem',fontWeight:'bold'}}>Final score</Col>
+              
             </Row>
-          </tbody>
+            </Card>
         </Table>
+        </Card.Header>
 
         {league.length && league.map((data, index) => {
           return (
             
              <>
-             <Card>
-               <Table>
-                 <tbody>
+             <Card key={index}>
+               <Table striped bordered hover>
+                 
                    <Row>
-                     <Col style={{textAlign:'center',fontWeight:'bold',fontSize:'21px'}}>
+                     <Col style={{textAlign:'center',fontWeight:'bold',fontSize:'1.2rem'}} className="mt-4">
                      {data.event_home_team} vs {data.event_away_team}
                      </Col>
-                     <Col style={{textAlign:'center',fontSize:'21px'}}>{data.event_date} / {data.event_time} Hrs</Col>
-                     <Col style={{textAlign:'center',fontSize:'21px'}}>{data.event_status === ''?'NA':data.event_status}</Col>
-                     <Col style={{textAlign:'center',fontWeight:'bold',fontSize:'21px'}}>{data.event_ft_result === ''?'NA':data.event_ft_result}</Col>
-                     <Col><Button>View Details</Button></Col>
+                     <Col style={{textAlign:'center',fontSize:'1.2rem'}} className="mt-4">{data.event_date} / {data.event_time} Hrs</Col>
+                     <Col style={{textAlign:'center',fontSize:'1.2rem'}} className="mt-4">{data.event_status === ''?'NA':data.event_status}</Col>
+                     <Col style={{textAlign:'center',fontWeight:'bold',fontSize:'1.2rem'}} className="mt-4">{data.event_ft_result === ''?'NA':data.event_ft_result}</Col>
+                     
                    </Row>
-                 </tbody>
+                
                </Table>
              </Card>
              </>
             
-            // <tr key={index}>
-            //   <td style={{ maxHeight: '80px', maxWidth: '80px' }}>
-            //     <Image alt="img1" src={data.home_team_logo} roundedCircle style={{ maxHeight: '80px', maxWidth: '80px' }}></Image>
-            //   </td>
-            //   <td style={{fontWeight:'bold',textAlign:'center'}}>{data.event_home_team}</td>
-            //   <td >Vs</td>
-            //   <td style={{fontWeight:'bold',textAlign:'center'}}> {data.event_away_team}</td>
-            //   <td ><Image alt="img1" src={data.away_team_logo} roundedCircle style={{ maxHeight: '80px', maxWidth: '80px' }}></Image></td>
-            // </tr>
           )
         })
 
       }
 
-
+</Container>
+</Card>
     </>
   )
 }

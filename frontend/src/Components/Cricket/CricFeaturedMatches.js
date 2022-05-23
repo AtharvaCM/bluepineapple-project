@@ -7,6 +7,7 @@ import CurrentMatchesAPI from "../../Api/CurrentMatchesAPI";
 import Spinner from "../../Components/Spinner";
 import { MdFeaturedPlayList } from "react-icons/md";
 import Marquee from "react-fast-marquee";
+import {useHistory} from 'react-router-dom'
 
 function CricFeaturedMatches() {
   const [match, setmatch] = useState(null);
@@ -19,7 +20,15 @@ function CricFeaturedMatches() {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(match);
+
+
+  let history = useHistory()
+  const routeChange = ()=>{
+    history.push({
+      pathname: "/Cricket/LiveScore",
+      
+    });
+  }
 
   if (match === null) {
     return (
@@ -35,12 +44,12 @@ function CricFeaturedMatches() {
       <>
         <Card style={{backgroundColor:'#F7F7F7'}}>
           <Card.Header>
-          <Marquee gradient={false} speed={30}>
+          <Marquee gradient={false} speed={30} style={{cursor:'pointer'}} pauseOnHover>
             {match.map((data)=>{
             return(
               <>
               <span>&nbsp;&nbsp;||&nbsp;&nbsp;</span>
-              <span style={{color:'blue'}}>{ data.status}</span>
+              <span style={{color:'blue'}} onClick={()=>routeChange()}>{ data.status}</span>
               </>
             )
           }
@@ -68,7 +77,10 @@ function CricFeaturedMatches() {
                         fontWeight: "bold",
                         textAlign: "center",
                         color: "black",
+                        cursor:'pointer'
                       }}
+
+                      onClick={()=>routeChange()}
                     >
                       {data.name}
                     </Card.Text>

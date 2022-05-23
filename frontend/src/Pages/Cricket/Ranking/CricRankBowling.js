@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 //import { Link } from "react-router-dom";
 import CricRankingNavbar from "../../../Components/Cricket/Ranking/CricRankingNavbar";
-import { Button, Card, Table, Container } from "react-bootstrap";
+import { Button, Card, Table} from "react-bootstrap";
 import CricSubNavBar from "../../../Components/Navbar/CricSubNavBar";
 import { useHistory } from "react-router-dom";
 import { CricRankBowlingkTestApi,CricRankBowlingkOdiApi,CricRankBowlingkT20Api} from "../../../Api/PlayerRankingApi";
@@ -19,7 +19,7 @@ function CricRankBowling() {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(Details);
+  
 
   const routeChange = (e) => {
     history.push({
@@ -54,7 +54,6 @@ function CricRankBowling() {
       <CricSubNavBar />
       <CricRankingNavbar />
       <div>
-        <Container>
           <Card
             className="mx-auto, w-100 ,my-auto mb-2 mt-2" >
             <div className="mt-3 mb-3 d-flex justify-content-center">
@@ -96,15 +95,15 @@ function CricRankBowling() {
               </Button>
             </div>
               <div className="mx-5">
-              <Table  style={{backgroundColor:'#ffffe6'}}>
+              <Table  style={{backgroundColor:'#F7F7F7'}}>
                 <thead>
                 <tr >
-                  <th style={{ fontSize: "3.5vh" }}>Pos</th>
+                  <th style={{ fontSize: "3.5vh" }}>Position</th>
+                  <th style={{ fontSize: "3.5vh" }}></th>
                   <th
-                    colSpan={2}
                     style={{ textAlign: "center", fontSize: "3.5vh" }}
                   >
-                    Batsman
+                    Bowler
                   </th>
                 </tr>
                 </thead>
@@ -113,7 +112,7 @@ function CricRankBowling() {
                   ? null
                   : Details.map((player,index) => {
                     return (
-                      <tr key={player.id}>
+                      <tr key={player.id} style={{cursor:'pointer'}}>
                         <td>{index+1}</td>
                         <td>
                           <img
@@ -138,7 +137,7 @@ function CricRankBowling() {
               </Table>
               </div>
           </Card>
-        </Container>
+        
       </div>
     </>
   );

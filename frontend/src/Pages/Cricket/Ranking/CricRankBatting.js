@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-//import { Link } from "react-router-dom";
+
 import CricRankingNavbar from "../../../Components/Cricket/Ranking/CricRankingNavbar";
-import { Button, Card, Table, Container } from "react-bootstrap";
+import { Button, Card, Table} from "react-bootstrap";
 import CricSubNavBar from "../../../Components/Navbar/CricSubNavBar";
 import { useHistory } from "react-router-dom";
 import {
@@ -23,10 +23,10 @@ function CricRankBatting() {
       .catch((err) => console.log(err));
   }, []);
 
-  //console.log(Details);
+  
 
   const routeChange = (e) => {
-    //console.log(e);
+   
     history.push({
       pathname: "/Cricket/players/Playernfo",
       state: { e },
@@ -59,7 +59,7 @@ function CricRankBatting() {
       <CricSubNavBar />
       <CricRankingNavbar />
       <div>
-        <Container>
+    
           <Card  className="mx-auto, w-100 ,my-auto mb-2 mt-2" >
 
             <Card.Header>
@@ -105,12 +105,13 @@ function CricRankBatting() {
             </Card.Header>
             <Card.Body>
               <div className="mx-5">
-              <Table  style={{backgroundColor:'#ffffe6'}}>
+              <Table  style={{backgroundColor:'#F7F7F7'}}>
                 <thead>
                 <tr>
 
-                  <th style={{ fontSize: "3.5vh" }}>Pos</th>
-                  <th colSpan={2} style={{ textAlign: "center", fontSize: "3.5vh" }}>Batsman</th>
+                  <th style={{ fontSize: "3.5vh" }}>Position</th>
+                  <th style={{ fontSize: "3.5vh" }}></th>
+                  <th style={{ textAlign: "center", fontSize: "3.5vh" }}>Batsman</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -118,7 +119,7 @@ function CricRankBatting() {
                   ? null
                   : Details.map((player,index) => {
                     return (
-                      <tr key={player.id}>
+                      <tr key={player.id} style={{cursor:'pointer'}}>
                         <td>{index+1}</td>
                         <td>
                           <img
@@ -144,7 +145,6 @@ function CricRankBatting() {
               </Card.Body>
               
           </Card>
-        </Container>
       </div>
     </>
   );

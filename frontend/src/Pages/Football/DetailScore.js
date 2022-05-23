@@ -11,7 +11,6 @@ function DetailScore() {
 
   useEffect(() => {
     const match = location.state.match;
-    console.log(match);
     setMatch(match);
   }, [location.state.match]);
 
