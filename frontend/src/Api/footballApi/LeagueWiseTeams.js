@@ -1,6 +1,6 @@
 const LeagueWiseTeams = async (id) => {
     try {
-      const url = `http://127.0.0.1:5000/api/v1/football/teamList/${id}`;
+      const url = `http://127.0.0.1:5000/api/v1/football/teamsList/${id}`;
       const response = await fetch(url, {
         method: "GET",
         headers: {},

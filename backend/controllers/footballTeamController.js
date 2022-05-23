@@ -14,7 +14,7 @@ const getFootballTeamsList = async (req, res) => {
   // call DB
   try {
     const league_key = req.params.leagueKey;
-    console.log("league_key", league_key);
+    console.log(league_key, league_key);
     const query = { league_key: league_key };
     const matches = await MatchFootball.find(query);
 
