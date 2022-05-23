@@ -15,7 +15,7 @@ function TeamInfo() {
   const [activeComponent, setActiveComponent] = useState("schedule");
 
   const clickHandler = (e) => {
-    console.log(e, "clicked");
+   
     setActiveComponent(e);
   };
 

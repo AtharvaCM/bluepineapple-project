@@ -5,14 +5,14 @@ import Card from 'react-bootstrap/Card'
 import { Container } from 'react-bootstrap';
 
 function LeagueWisePointsTable({ e }) {
-  console.log(e.location.state.e.league_key);
+  
 
   const [pointsTable, setpointsTable] = useState([])
 
   useEffect(() => {
     const key = e.location.state.e.league_key
     footballPointsTable(key).then((data) => {
-      //console.log(data);
+     
       setpointsTable(data.standings)
     }).catch(err => console.log(err))
   }, [])
@@ -42,7 +42,7 @@ function LeagueWisePointsTable({ e }) {
             </tr>
           </thead>
           {pointsTable.map((data, key) => {
-             console.log('pointsTable:',data);
+           
             return (
               <>
               <tbody>

@@ -9,18 +9,12 @@ import MensTeam from "./MensTeam";
 function Teams() {
   return (
     <>
-      {/* <Router> */}
       <div>
         <CricSubNavBar></CricSubNavBar>
         <TeamSubNavBar></TeamSubNavBar>
         <MensTeam></MensTeam>
-
-        {/* <Switch>
-            <Route exact path="/Cricket/Teams" component={MensTeam} ></Route>
-            <Route exact path="/Cricket/Team/Women" component={WomensTeam}></Route>
-          </Switch> */}
       </div>
-      {/* </Router> */}
+      
     </>
   );
 }

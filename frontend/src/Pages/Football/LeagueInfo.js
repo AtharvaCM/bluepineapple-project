@@ -13,16 +13,6 @@ function LeagueInfo(e) {
   
   const [activeComponent, setactiveComponent] = useState('schedule')
 
-
-  
-
-
-  //console.log('league', league);
-
-
-
-
-
   return (
     <>
       <FootballSubNavBar></FootballSubNavBar>

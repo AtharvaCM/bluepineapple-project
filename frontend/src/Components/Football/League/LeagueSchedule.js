@@ -10,7 +10,6 @@ import Button from 'react-bootstrap/Button'
 
 function LeagueSchedule({ e }) {
   const [league, setleague] = useState([])
-  console.log(e.location.state.e.league_name)
 
 
   let league_key = e.location.state.e.league_key;
@@ -28,11 +27,7 @@ function LeagueSchedule({ e }) {
         setleague(data.matches);
       })
     }
-    //console.log('scheduleLeague',league);
   })
-
-
-  console.log(league);
 
   return (
     <>

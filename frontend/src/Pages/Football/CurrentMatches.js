@@ -30,16 +30,15 @@ function CurrentMatches() {
   useEffect(() => {
     FinishedMatches().then((data) => {
       setcurrentMatches(data.matches);
-      setsort(data.matches);
-      //console.log(data)
+      setsort(data.matches);  
     });
   }, []);
-  console.log(currentMatches);
+ 
 
   let history = useHistory();
 
   const cardClickHadler = (e) => {
-    console.log("clicked on card", e);
+
     history.push({
       pathname: "/football/Scores/MatchSummary",
       state: { match: e }, //passing prop to the component
@@ -47,13 +46,6 @@ function CurrentMatches() {
   };
 
   const seriesHandler = (e) => {
-
-    //setmessage(e);
-
-    // setalert(true);
-    // setTimeout(() => {
-    //   setalert(false);
-    // }, 3000);
 
     setseriesOption(e);
 
@@ -63,7 +55,6 @@ function CurrentMatches() {
       });
       setsort(updatedMatches);
 
-      console.log(updatedMatches);
     }
 
     if (e === "Cup - Round of 32") {
@@ -71,34 +62,24 @@ function CurrentMatches() {
         return data.league_name === e;
       });
       setsort(updatedMatches);
-      console.log(updatedMatches);
-    }
+      }
 
     if (e === "All") {
       FinishedMatches().then((data) => {
         setsort(data.matches);
-        //console.log(data)
       });
     }
   };
 
   const seasonHandler = (e) => {
-    // setmessage(e);
-    // setalert(true);
-    // setTimeout(() => {
-    //   setalert(false);
-    // }, 3000);
-
     setlegueOptions(e);
 
-    console.log(e === '2021/2022');
     if (e === '2021/2022') {
 
       const updatedMatches = currentMatches.filter((data) => {
         return data.league_season === e;
       });
-      setsort(updatedMatches);
-      console.log(updatedMatches);
+      setsort(updatedMatches)
     }
 
     if (e === "2022") {
@@ -106,14 +87,12 @@ function CurrentMatches() {
         return data.league_season === e;
       });
       setsort(updatedMatches);
-      console.log(updatedMatches);
+      
     }
   };
 
   return (
     <>
-
-
 
       {alert ? <Alert variant='dark' style={{ fontWeight: 'bold', textAlign: 'center' }}>
         Live Matches according to {message} !!!

@@ -10,9 +10,9 @@ function Series() {
   useEffect(() => {
     SeriesApi()
       .then((data) => {
-        console.log(data.series[0]);
+        
         setseries(data.series);
-        //setseriesInfo(data.data[0]);
+        
       })
       .catch((err) => console.log(err));
   }, []);

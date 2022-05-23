@@ -5,8 +5,6 @@ import FootballSubNavBar from './FootballSubNavBar'
 import footballRanking from '../../Api/footballApi/footballRanking';
 
 function Ranking() {
-    console.log('hello from football ranking')
-    console.log(footballRanking);
     return (
         <>
         <FootballSubNavBar></FootballSubNavBar>

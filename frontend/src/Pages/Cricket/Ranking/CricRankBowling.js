@@ -19,7 +19,7 @@ function CricRankBowling() {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(Details);
+  
 
   const routeChange = (e) => {
     history.push({
@@ -95,15 +95,15 @@ function CricRankBowling() {
               </Button>
             </div>
               <div className="mx-5">
-              <Table  style={{backgroundColor:'#ffffe6'}}>
+              <Table  style={{backgroundColor:'#F7F7F7'}}>
                 <thead>
                 <tr >
-                  <th style={{ fontSize: "3.5vh" }}>Pos</th>
+                  <th style={{ fontSize: "3.5vh" }}>Position</th>
+                  <th style={{ fontSize: "3.5vh" }}></th>
                   <th
-                    colSpan={2}
                     style={{ textAlign: "center", fontSize: "3.5vh" }}
                   >
-                    Batsman
+                    Bowler
                   </th>
                 </tr>
                 </thead>

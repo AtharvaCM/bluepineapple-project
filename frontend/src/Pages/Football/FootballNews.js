@@ -24,7 +24,6 @@ function News() {
         FootballNewsApi()
             .then((data) => {
                 setnews(data.articles);
-                console.log(data.articles);
             })
             .catch((err) => console.log(err));
     }, []);

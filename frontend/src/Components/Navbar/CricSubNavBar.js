@@ -52,13 +52,13 @@ function CricSubNavBar({history}) {
 
   
 const routeChange =(e)=>{
-  console.log('cricketNavBar',e);
+  
   
   history.push({
     pathname: "/Cricket/players/Playernfo",
     state: {e},
   });
-  console.log('History:',history);
+ 
 
 }
 

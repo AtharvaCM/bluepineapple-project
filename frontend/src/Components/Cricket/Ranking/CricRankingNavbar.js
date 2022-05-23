@@ -7,7 +7,7 @@ const activeTab = (history,path) =>{
   
     if(history.location.pathname === path)
     {
-      return {backgroundColor:'white',color:'black'};
+      return {backgroundColor:'#00796B',color:'black'};
     }
   };
   
@@ -21,7 +21,7 @@ function CricRankingNavbar({history})
                 <Card.Body>
                     <h3>ICC Cricket Rankings</h3>
 
-                    <Nav style={{backgroundColor:'#00796B'}} justify>
+                    <Nav style={{backgroundColor:'white'}} justify>
                         <Nav.Item>
                             <Nav.Link  as={Link} to="/Cricket/Ranking/Batting" style={activeTab(history,"/Cricket/Ranking/Batting")}>
                             <b style={{color:'black'}}>Batting</b> 

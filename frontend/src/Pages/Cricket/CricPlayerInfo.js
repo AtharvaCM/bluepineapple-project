@@ -6,14 +6,14 @@ import PlayerDetailsAPI from '../../Api/PlayerDetailsAPI';
 import { useEffect, useState } from 'react';
 
 function CricPlayerInfo(prop) {
-    console.log('cricinfoId',prop.location.state.e.id)
+    
     const [PlayerDetails,setPlayerDetails]=useState(null)
 
     useEffect(() => {
     PlayerDetailsAPI(prop.location.state.e.id)
       .then((response) => {
         setPlayerDetails(response.data);
-        console.log('playerdetailfromplayerInfo:',response.data);
+       
       })
       .catch((err) => console.log(err));
     },[]);
@@ -25,7 +25,7 @@ function CricPlayerInfo(prop) {
     return null 
     else
     {
-        console.log('playerainfo',PlayerDetails[0].bowling)
+       
     return (
         <>
         <CricSubNavBar/>

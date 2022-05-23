@@ -9,7 +9,6 @@ const activeTab = (history,path) =>{
   
   if(history.location.pathname === path)
   {
-    //console.log('history.location.pathname',history.location.pathname,'path:',path);
     return {backgroundColor:'white',color:'black'};
   }
 };

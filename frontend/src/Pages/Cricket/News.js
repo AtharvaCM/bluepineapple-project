@@ -24,7 +24,7 @@ function News() {
     NewsInfo()
       .then((data) => {
         setnews(data.articles);
-        console.log(data.articles);
+        
       })
       .catch((err) => console.log(err));
   }, []);

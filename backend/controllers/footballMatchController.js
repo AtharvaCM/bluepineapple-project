@@ -65,7 +65,7 @@ const getFootballMatchStatictics = async (req, res) => {
   console.log(req.originalUrl);
   try {
     const match_key = req.params.matchKey;
-    const query = { match_key: match_key };
+    const query = { event_key: match_key };
     const projection = {
       event_home_team: 1,
       event_away_team: 1,
