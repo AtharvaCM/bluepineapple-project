@@ -2,6 +2,7 @@
 
 export const MatchStatsAPI = async (matchKey) => {
   try {
+    console.log("matchKey", matchKey);
     const url = `http://127.0.0.1:5000/api/v1/football/stats/match/${matchKey}`;
     const response = await fetch(url, {
       method: "GET",
