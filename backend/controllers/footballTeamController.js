@@ -16,12 +16,6 @@ const getFootballTeamsList = async (req, res) => {
     const league_key = req.params.leagueKey;
     console.log("league_key", league_key);
     const query = { league_key: league_key };
-    const projection = {
-      home_team_key: 1,
-      event_home_team: 1,
-      away_team_key: 1,
-      event_away_team: 1,
-    };
     const matches = await MatchFootball.find(query);
 
     const key = "home_team_key";
@@ -52,17 +46,6 @@ const getFootballTeamsList = async (req, res) => {
         res.json(response);
       })
       .catch((err) => console.log(err));
-  } catch (err) {
-    res.json({ error: err.message || err.toString() });
-  }
-};
-
-const getFootballTeam = async (teamKey) => {
-  console.log("[+] Getting FootballTeam");
-  try {
-    const query = { team_key: teamKey };
-    const team = await TeamFootball.findOne(query);
-    res.json(team);
   } catch (err) {
     res.json({ error: err.message || err.toString() });
   }
