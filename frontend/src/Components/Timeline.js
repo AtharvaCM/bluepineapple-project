@@ -42,9 +42,9 @@ export function Timeline({ events }) {
       <Card>
         <Card.Header>Goal Timeline</Card.Header>
         <Card.Body style={{ background: "transparent" }}>
-          <h4 style={{ color: THEME.colorDark }}>Start</h4>
+          <h4 style={{ color: THEME.colorDark }}>Start - 00:00</h4>
           {events === null ? null : timelineCard()}
-          <h4 style={{ color: THEME.colorDark }}>End</h4>
+          <h4 style={{ color: THEME.colorDark }}>End - 90:00</h4>
         </Card.Body>
       </Card>
     </>
