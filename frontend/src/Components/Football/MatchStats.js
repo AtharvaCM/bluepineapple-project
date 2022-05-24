@@ -140,29 +140,13 @@ function MatchStats({ match }) {
                   : response.match.event_away_team;
 
               return {
-                date:
-                  typeof parseInt(goalTime) === Number
-                    ? parseInt(goalTime)
-                    : eval(goalTime),
+                date: goalTime,
                 event: scorer,
                 team: team,
               };
               // console.log(data);
             });
             console.log("goals", data);
-            // setGoalscorers({
-            //   labels: labels,
-            //   datasets: [
-            //     {
-            //       label: `Time`,
-            //       data: data,
-            //       backgroundColor: lineChartBGColors,
-            //       pointRadius: lineChartPointRadius,
-            //       pointHoverRadius: lineChartPointHoverRadius,
-            //       borderColor: COLORS.lineChartBorder,
-            //     },
-            //   ],
-            // });
             setGoalscorers(data);
           }
         })
@@ -252,7 +236,7 @@ function MatchStats({ match }) {
       <>
         <StackedBarChart
           chartData={totalAttacksData}
-          title={`Home team vs Away team`}
+          title={`${match.event_home_team} vs ${match.event_away_team}`}
         ></StackedBarChart>
       </>
     );
