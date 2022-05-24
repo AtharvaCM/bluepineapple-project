@@ -34,7 +34,7 @@ function TeamInfo() {
   return (
     <>
       <CricSubNavBar></CricSubNavBar>
-      <div className="container mt-2 mb-2">
+      <div className=" mt-2 mb-2">
         {team === null || team === undefined ? null : (
           <Card style={{ backgroundColor: "white" }}>
             <Card.Header>

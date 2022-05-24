@@ -27,6 +27,7 @@ function CurrentMatches() {
   useEffect(() => {
     FinishedMatches().then((data) => {
       setcurrentMatches(data.matches);
+      console.log(data.matches);
       setsort(data.matches);  
     });
   }, []);

@@ -16,7 +16,7 @@ function Schedule({ team }) {
   return (
     <>
       {matches === null || matches === undefined ? null : (
-        <div className="container">
+        <div >
           {matches.map((data, index) => {
             return (
               <Card

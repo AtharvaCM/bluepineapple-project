@@ -136,8 +136,8 @@ function MatchStats({ match }) {
                   : Object.values(goal).slice(1, 2)[0];
               const team =
                 Object.values(goal).slice(1, 2)[0] === ""
-                  ? response.match.event_home_team
-                  : response.match.event_away_team;
+                  ? response.match.event_away_team
+                  : response.match.event_home_team;
 
               return {
                 date: goalTime,
@@ -257,13 +257,12 @@ function MatchStats({ match }) {
 
   return (
     <>
-      <Container>
         {scoreTimelineCard()}
         <div className="mt-4"></div>
         {statsCard()}
         <div className="mt-4"></div>
         {totalAttacksCard()}
-      </Container>
+      
     </>
   );
 }

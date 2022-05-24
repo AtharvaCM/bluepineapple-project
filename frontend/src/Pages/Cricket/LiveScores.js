@@ -9,6 +9,7 @@ import {
 import CricSubNavBar from "../../Components/Navbar/CricSubNavBar";
 import currentMatchesApi from "../../Api/CurrentMatchesAPI";
 import Spinner from "../../Components/Spinner";
+import Marquee from "react-fast-marquee";
 
 function LiveScores() {
   const [currentMatches, setcurrentMatches] = useState(null);
@@ -244,13 +245,13 @@ function LiveScores() {
                           >
                             <Card.Title
                               style={{
-                                textAlign: "center",
+                                textAlign: "left",
                                 fontWeight: "bold",
-                                fontSize: "15px",
-                                color: "black",
+                                fontSize: "17px",
+                                color: "#00796B",
                               }}
                             >
-                              Status : {data.status}
+                              <Marquee gradient={false} speed={30}> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Status : {data.status}</Marquee>
                             </Card.Title>
 
                             <Card.Text

@@ -43,12 +43,14 @@ function News() {
       <>
         <CricSubNavBar></CricSubNavBar>
 
+        <Card style={{backgroundColor:'#F7F7F7'}}>
+
         <Container sx={{ mt: 2 }}>
 
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
             {news.map((data, index) => (
-              <Grid item xs={4} key={index}>
+              <Grid item xs={3} key={index}>
                 <Badge pill bg="danger">{data.source.name}</Badge>
                 <Card sx={{ maxWidth: 345 }}>
                   <CardMedia
@@ -66,7 +68,7 @@ function News() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" href={data.url} target="_blank">Learn More</Button>
+                    <Button size="small" href={data.url} target="_blank" style={{fontWeight:'bold'}}>Learn More</Button>
                   </CardActions>
                 </Card>
               </Grid>
@@ -74,6 +76,7 @@ function News() {
           </Grid>
         </Box>
         </Container>
+        </Card>
 
       </>
     );

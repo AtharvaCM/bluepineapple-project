@@ -27,19 +27,19 @@ function CricPlayerInfo(prop) {
 
         return (
             <>
-                <CricSubNavBar />
-                <div className='container mt-2' style={{ backgroundColor: '#FFFFFF' }} >
+                {/* <CricSubNavBar /> */}
+                <div className='mt-2' style={{ backgroundColor: '#FFFFFF' }} >
                     <table style={{ color: 'black' }} className="mt-2">
-                        <tr>
-                            <th><img src={PlayerDetails[0].img_src} className="rounded float-left mt-2 mb-2" alt="..."></img></th>
+                        <tr style={{alignItems:'center'}}>
+                            <th><img src={PlayerDetails[0].img_src} className="rounded float-left mt-2 mb-2 ms-2" alt="..."></img></th>
                             <th><h1>{PlayerDetails[0].name}</h1></th>
                         </tr>
 
 
                     </table>
                     <Row>
-                        <Col md={5} sm={12}>
-                            <Card style={{ backgroundColor: '#ffffe6', color: 'black' }} className="mb-1">
+                        <Col md={6} sm={12}>
+                            <Card style={{ backgroundColor: '#F7F7F7', color: 'black' }} className="mb-1">
                                 <Card.Body>
                                     <table>
                                         <tbody>
@@ -47,15 +47,15 @@ function CricPlayerInfo(prop) {
                                                 <h5 style={{ fontWeight: 'bold' }}>Personal Information</h5>
                                             </tr>
                                             <tr>
-                                                <td><h5>Born:</h5></td>
+                                                <td>Born:</td>
                                                 <td>{PlayerDetails[0].date_of_birth} ({prop.location.state.e.age})</td>
                                             </tr>
                                             <tr>
-                                                <td><h5>Birth place:</h5></td>
+                                                <td>Birth place:</td>
                                                 <td>{PlayerDetails[0].birth_place}</td>
                                             </tr>
                                             <tr>
-                                                <td><h5>Role</h5></td>
+                                                <td>Role</td>
                                                 <td>{PlayerDetails[0].role}</td>
                                             </tr>
                                         </tbody>
@@ -63,19 +63,37 @@ function CricPlayerInfo(prop) {
                                 </Card.Body>
                             </Card>
                         </Col>
-                        <Col sm={12} md={6}>
-                            <Card style={{ backgroundColor: '#ffffe6', color: 'black' }} className="mb-1">
-                                <h5 className='ms-2 mt-2' style={{ fontWeight: 'bold' }}>Debut</h5>
-                                <p className='ms-2' >Test : {PlayerDetails[0].batting.test.debut}</p>
-                                <p className='ms-2' >ODI : {PlayerDetails[0].batting.odi.debut}</p>
-                                <p className='ms-2' >T20 : {PlayerDetails[0].batting.t20.debut}</p>
+                        <Col sm={12} md={6} >
+                            <Card style={{ backgroundColor: '#F7F7F7', color: 'black' }} className="mb-1">
+                                <Card.Body>
+                                    <table>
+                                    <tbody>
+                                        <tr classNam="mt-2">
+                                            <h5  style={{ fontWeight: 'bold'}}>Debut</h5>
+                                        </tr>
+                                        <tr>
+                                            <td>Test :</td>
+                                        <td>{PlayerDetails[0].batting.test.debut}</td>
+                                        </tr>
+                                        <tr>
+                                        <td>ODI :</td>
+                                        <td>{PlayerDetails[0].batting.odi.debut}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>T20 :</td>
+                                        <td>{PlayerDetails[0].batting.t20.debut}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                </Card.Body>
                             </Card>
 
                         </Col>
                     </Row>
 
                     {/*batting details*/}
-                    <Card style={{ backgroundColor: '#ffffe6', color: 'black' }} className="mb-1">
+                    <Card style={{ backgroundColor: '#F7F7F7', color: 'black' }} className="mb-1">
                         <Card.Body>
                             <h5 style={{ fontWeight: 'bold' }}>Batting Career Summary</h5>
                             <table className='table mt-2' style={{ color: 'black' }}>
@@ -126,7 +144,7 @@ function CricPlayerInfo(prop) {
                         </Card.Body>
                     </Card>
 
-                    <Card style={{ backgroundColor: '#ffffe6', color: 'black' }} className="mb-3">
+                    <Card style={{ backgroundColor: '#F7F7F7', color: 'black' }} className="mb-3">
                         <Card.Body>
                             <h5 style={{ fontWeight: 'bold' }}>Bowling Career Summary</h5>
                             <table className='table' style={{ color: 'black' }}>

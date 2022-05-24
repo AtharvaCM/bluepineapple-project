@@ -69,23 +69,7 @@ function Gallery() {
         }
       </div>
 
-      <ReactPaginate
-        previousLabel={'<<prev'}
-        nextLabel={'Next>>'}
-        breakLabel={'...'}
-        pageCount={62}
-        marginPagesDisplayed={5}
-        onPageChange={handleClick}
-        containerClassName={'pagination justify-content-center'}
-        pageClassName={'page-item'}
-        pageLinkClassName={'page-link'}
-        previousClassName={'page-item'}
-        previousLinkClassName={'page-link'}
-        nextClassName={'page-item'}
-        nextLinkClassName={'page-link'}
-        breakLinkClassName={'page-link'}
-        activeClassName={'active'}
-      />
+      
     </>
   );
 }

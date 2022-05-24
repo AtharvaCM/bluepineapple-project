@@ -17,7 +17,7 @@ function DetailScore() {
   const matchCard = () => {
     return (
       <Card
-        className="mt-2 ms-5 me-5"
+        className="mt-2"
         style={{ boxShadow: "23px solid white", border: "none" }}
       >
         <Card.Header>
@@ -61,7 +61,6 @@ function DetailScore() {
                     <span
                       style={{
                         border: "5px",
-                        backgroundColor: "green",
                         borderRadius: "5px",
                       }}
                     >

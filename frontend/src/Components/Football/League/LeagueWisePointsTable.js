@@ -23,10 +23,10 @@ function LeagueWisePointsTable({ e }) {
 
   return (
     <>
-      <Card>
+      <Card style={{backgroundColor:'#F7F7F7'}}>
         <h3 className='mt-4 mb-4' style={{ textAlign: 'center', fontWeight: 'bold' }}>{e.location.state.e.league_name} Points Table</h3>
 
-        <Container>
+        
         <Table striped bordered hover>
           <thead>
             <tr>
@@ -64,7 +64,7 @@ function LeagueWisePointsTable({ e }) {
               )
           })}
         </Table>
-        </Container>
+       
 
       </Card>
 

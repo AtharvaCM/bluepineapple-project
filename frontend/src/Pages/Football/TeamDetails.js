@@ -20,16 +20,16 @@ function TeamDetails() {
                 <Table striped hover>
                     <thead>
                         <tr style={{fontWeight:'bold'}}>
-                            <td>Sr.no</td>
+                            <td>Sr.No</td>
                             <td>Name</td>
                             <td>Number</td>
                             <td>Country</td>
                             <td>Player Type</td>
-                            <td>Player age</td>
+                            <td>Player Age</td>
                             <td>Matches Played</td>
                             <td>Goals Scored</td>
-                            <td>Yellow cards</td>
-                            <td>Red cards</td>
+                            <td>Yellow Cards</td>
+                            <td>Red Cards</td>
                         </tr>
                         </thead>
                         <tbody>

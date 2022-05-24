@@ -32,7 +32,7 @@ function LeagueSchedule({ e }) {
   return (
     <>
     <Card>
-    <Container>
+   
      <Card.Header>
         <Table className='mt-2' striped bordered>
             <Card >
@@ -73,7 +73,7 @@ function LeagueSchedule({ e }) {
 
       }
 
-</Container>
+
 </Card>
     </>
   )

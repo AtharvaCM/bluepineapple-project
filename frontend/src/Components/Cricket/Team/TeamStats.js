@@ -208,11 +208,11 @@ function TeamStats({ team }) {
 
   return (
     <>
-      <Container>
+      
         {chartData === null || winPercentage === null ? null : odiCard()}
         {chartData === null || winPercentage === null ? null : testCard()}
         {chartData === null || winPercentage === null ? null : t20Card()}
-      </Container>
+      
     </>
   );
 }
