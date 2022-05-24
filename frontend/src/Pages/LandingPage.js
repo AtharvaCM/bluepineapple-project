@@ -16,12 +16,12 @@ function LandingPage() {
   useEffect(() => {
 
    
-    axios.get("https://api.unsplash.com/search/photos?page=1&per_page=10&query=sports&client_id=J-xAGd8R7QHuRsKiznwL6R-yhGK8-X64-Oj0HG1A9Q0").then((response)=>{
+    axios.get("https://api.unsplash.com/search/photos?page=1&per_page=30&query=sports&client_id=J-xAGd8R7QHuRsKiznwL6R-yhGK8-X64-Oj0HG1A9Q0").then((response)=>{
     
       setimage(response.data.results)
     }).catch(err => console.log(err))
   
-    axios.get("https://images.unsplash.com/photo-1546608235-3310a2494cdf?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMzA5Njl8MHwxfHNlYXJjaHw3fHxmb290YmFsbHxlbnwwfHx8fDE2NTM0MTQ2NjM&ixlib=rb-1.2.1&q=80").then((response)=>{
+    axios.get("https://api.unsplash.com/search/photos?page=1&per_page=3&query=cricket&client_id=J-xAGd8R7QHuRsKiznwL6R-yhGK8-X64-Oj0HG1A9Q0").then((response)=>{
      
       setcricket(response.data.results)
     }).catch(err => console.log(err))
@@ -41,14 +41,16 @@ function LandingPage() {
    
     return (
       <>
-        <Carousel>
+      <div >
+        <Carousel >
           {image.map((data, index) => {
             return (
-              <Carousel.Item key={index}>
+              <Carousel.Item key={index} interval={2000}>
                 <img
                   className="d-block w-100"
                   src={data.urls.regular}
                   alt="Third slide"
+                  style={{height:'650px'}}
                 />
 
                 <Carousel.Caption>
@@ -77,6 +79,7 @@ function LandingPage() {
             );
           })}
         </Carousel> */}
+        </div>
       </>
     );
   }
