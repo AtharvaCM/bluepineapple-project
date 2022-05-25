@@ -11,10 +11,18 @@ import currentMatchesApi from "../../Api/CurrentMatchesAPI";
 import Spinner from "../../Components/Spinner";
 import Marquee from "react-fast-marquee";
 
+import TextField from '@mui/material/TextField';
+import MenuItem from '@mui/material/MenuItem';
+
 function LiveScores() {
   const [currentMatches, setcurrentMatches] = useState(null);
   const [sortdata, setsortdata] = useState(null);
   const [sortdate, setsortDate] = useState(null);
+  const [matchOption,setmatchOption] = useState('All')
+  const [sortOption,setsortOption] = useState('Latest')
+
+  const matchType =['All','Test','T20','ODI']
+  const sortType = ['Latest','oldest']
 
   useEffect(() => {
     getdata();
@@ -33,7 +41,12 @@ function LiveScores() {
 
  
 
-  const matchHandler = (e) => {
+  const matchHandler = (prop) => {
+ 
+    setmatchOption(prop);
+
+    let e = prop.toLowerCase();
+
     if (e === "t20") {
       const updatedMatches = currentMatches.filter((data) => {
         return data.matchType === e;
@@ -66,7 +79,9 @@ function LiveScores() {
 
   const dateHandler = (e) => {
 
-    if (e === "ascending") {
+    setsortOption(e);
+
+    if (e === "oldest") {
       const date = sortdate.sort(function (a, b) {
         let c = a.date;
         let d = b.date;
@@ -84,7 +99,7 @@ function LiveScores() {
       setsortdata(date);
     }
 
-    if (e === "descending") {
+    if (e === "Latest") {
       const date = sortdate
         .sort(function (a, b) {
           let c = a.date;
@@ -120,56 +135,42 @@ function LiveScores() {
 
             <Card>
               <Card.Header>
-                <Dropdown className="d-inline mx-5">
-                  <Dropdown.Toggle
-                    id="dropdown-basic"
-                    style={{
-                      backgroundColor: "#E9DCC9",
-                      border: "none",
-                      color: "black",
-                    }}
-                  >
-                    Match Type
-                  </Dropdown.Toggle>
 
-                  <Dropdown.Menu>
-                    <Dropdown.Item onClick={() => matchHandler("test")}>
-                      Test
-                    </Dropdown.Item>
-                    <Dropdown.Item onClick={() => matchHandler("t20")}>
-                      T20
-                    </Dropdown.Item>
-                    <Dropdown.Item onClick={() => matchHandler("odi")}>
-                      ODI
-                    </Dropdown.Item>
-                    <Dropdown.Item onClick={() => matchHandler("all")}>
-                      All
-                    </Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
+              <TextField
+                  id="filled-hidden-label-small"
+                  select
+                  value={matchOption}
+                  variant="filled"
+                  size="small"
+                  sx={{ml:4,width:200}}
+                  helperText="Match Type"
+                >
+                  {matchType.map((option) => (
+
+                    <MenuItem key={option} value={option} onClick={() => matchHandler(option)}>
+                      {option}
+                    </MenuItem>
+                  ))}
+                </TextField>
 
                 {/* //sort by date */}
-                <Dropdown className="d-inline mx-5">
-                  <Dropdown.Toggle
-                    id="dropdown-basic"
-                    style={{
-                      backgroundColor: "#E9DCC9",
-                      border: "none",
-                      color: "black",
-                    }}
-                  >
-                    Sort by Date
-                  </Dropdown.Toggle>
 
-                  <Dropdown.Menu>
-                    <Dropdown.Item onClick={() => dateHandler("ascending")}>
-                      LATEST
-                    </Dropdown.Item>
-                    <Dropdown.Item onClick={() => dateHandler("descending")}>
-                      OLDEST
-                    </Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
+                <TextField
+                  id="filled-hidden-label-small"
+                  select
+                  value={sortOption}
+                  variant="filled"
+                  size="small"
+                  sx={{ml:4,width:200}}
+                  helperText="Sort By Time"
+                >
+                  {sortType.map((option) => (
+
+                    <MenuItem key={option} value={option} onClick={() => dateHandler(option)}>
+                      {option}
+                    </MenuItem>
+                  ))}
+                </TextField>
               </Card.Header>
             </Card>
           

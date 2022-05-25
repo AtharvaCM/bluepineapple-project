@@ -7,7 +7,7 @@ import axios from 'axios'
 function LandingPage() {
 
   const [image,setimage] = useState(null)
-  const [cricket,setcricket] = useState(null)
+ // const [cricket,setcricket] = useState(null)
 
 
   
@@ -21,15 +21,15 @@ function LandingPage() {
       setimage(response.data.results)
     }).catch(err => console.log(err))
   
-    axios.get("https://api.unsplash.com/search/photos?page=1&per_page=3&query=cricket&client_id=J-xAGd8R7QHuRsKiznwL6R-yhGK8-X64-Oj0HG1A9Q0").then((response)=>{
+    // axios.get("https://api.unsplash.com/search/photos?page=1&per_page=3&query=cricket&client_id=J-xAGd8R7QHuRsKiznwL6R-yhGK8-X64-Oj0HG1A9Q0").then((response)=>{
      
-      setcricket(response.data.results)
-    }).catch(err => console.log(err))
+    //   setcricket(response.data.results)
+    // }).catch(err => console.log(err))
   
   }, []);
 
   
-  if (image === null || cricket ===  null) {
+  if (image === null) {
     return (
       <>
         <div className="container align-middle">
@@ -61,24 +61,7 @@ function LandingPage() {
           })}
         </Carousel>
 
-        {/* <Carousel>
-          {cricket.map((data, index) => {
-            return (
-              <Carousel.Item key={index}>
-                <img
-                  className="d-block w-100"
-                  src={data.urls.regular}
-                  alt="Third slide"
-                />
-
-                <Carousel.Caption>
-                 
-                  {<p>{data.description}</p>}
-                </Carousel.Caption>
-              </Carousel.Item>
-            );
-          })}
-        </Carousel> */}
+      
         </div>
       </>
     );

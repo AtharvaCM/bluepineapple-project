@@ -12,9 +12,7 @@ function Header() {
 
         <Nav variant="pills" defaultActiveKey="/" style={{ backgroundColor: THEME.colorPrimary, color: 'white' }} className="justify-content-center" >
 
-          <Nav.Item className="mr-">
-            <Nav.Link ><b style={{ color: 'white',alignSelf:"left" }}>SportsLive</b></Nav.Link>
-          </Nav.Item>
+          
           <Nav.Item>
             <Nav.Link href="/" as={Link} to='/'><b style={{ color: 'white' }}>Home</b></Nav.Link>
           </Nav.Item>
