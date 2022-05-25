@@ -1,10 +1,9 @@
-
 const PlayerAPI = async (teamID) => {
   try {
     const url =
       teamID === null || teamID === undefined
-        ? "http://127.0.0.1:5000/api/v1/cricket/players/"
-        : `http://127.0.0.1:5000/api/v1/cricket/${teamID}/players/`;
+        ? "https://sports-live-bluepineapple.herokuapp.com/api/v1/cricket/players/"
+        : `https://sports-live-bluepineapple.herokuapp.com/api/v1/cricket/${teamID}/players/`;
     const response = await fetch(url, {
       method: "GET",
       headers: {},

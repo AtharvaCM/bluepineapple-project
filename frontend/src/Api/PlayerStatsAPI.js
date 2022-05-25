@@ -2,7 +2,7 @@
 
 export const PlayerStatsRunsInPastFiveYearsAPI = async (playerID) => {
   try {
-    const url = `http://127.0.0.1:5000/api/v1/cricket/stats/players/${playerID}`;
+    const url = `https://sports-live-bluepineapple.herokuapp.com/api/v1/cricket/stats/players/${playerID}`;
     const response = await fetch(url, {
       method: "GET",
       headers: {},
