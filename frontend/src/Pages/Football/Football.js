@@ -1,11 +1,11 @@
 import React from "react";
-import FootballMainContent from "./FootballMainContent";
-import FootballSubNavBar from "./FootballSubNavBar";
+//import FootballMainContent from "./FootballMainContent";
+import CurrentMatches from "./CurrentMatches";
 
 function Football() {
   return (
     <>
-      <FootballMainContent></FootballMainContent>
+      <CurrentMatches></CurrentMatches>
     </>
   );
 }

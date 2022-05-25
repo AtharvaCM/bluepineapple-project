@@ -5,7 +5,7 @@ import {
   TeamStatsTotalMatchesAPI,
   TeamStatsWinPercentageByYearAPI,
 } from "../../../Api/TeamStatsAPI";
-import { BarChart, PieChart, DoughnutChart, LineChart } from "../Chart";
+import { BarChart, PieChart, DoughnutChart, LineChart } from "../../Chart";
 import { Chart as ChartJS } from "chart.js/auto";
 import { Chart } from "react-chartjs-2";
 import { COLORS } from "../../../Constants/colors";
@@ -208,11 +208,11 @@ function TeamStats({ team }) {
 
   return (
     <>
-      <Container>
+      
         {chartData === null || winPercentage === null ? null : odiCard()}
         {chartData === null || winPercentage === null ? null : testCard()}
         {chartData === null || winPercentage === null ? null : t20Card()}
-      </Container>
+      
     </>
   );
 }

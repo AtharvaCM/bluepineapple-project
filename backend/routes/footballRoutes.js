@@ -11,9 +11,11 @@ const {
   getFootballLeaguesList,
   getFootballNews,
   getFootballGalleryList,
+  getFootballStandings,
 } = require("../controllers/footballController");
 
 router.get("/leaguesList", getFootballLeaguesList);
+router.get("/standings/:leagueKey", getFootballStandings);
 
 router.get("/news", getFootballNews);
 
@@ -29,7 +31,7 @@ const {
 router.get("/currentMatches", getCurrentFootballMatches);
 router.get("/finishedMatches", getFootballFinishedMatches);
 router.get("/allMatches/:leagueKey", getAllFootballMatches);
-router.get("/stats/allMatches/", getFootballMatchStatictics);
+router.get("/stats/match/:matchKey", getFootballMatchStatictics);
 
 const {
   getFootballTeamsList,

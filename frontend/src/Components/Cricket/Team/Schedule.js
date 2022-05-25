@@ -12,12 +12,11 @@ function Schedule({ team }) {
       .catch((err) => console.log(err));
   }, [team]);
 
-  console.log("matches", matches);
 
   return (
     <>
       {matches === null || matches === undefined ? null : (
-        <div className="container">
+        <div >
           {matches.map((data, index) => {
             return (
               <Card

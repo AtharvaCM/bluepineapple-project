@@ -10,6 +10,7 @@ import SeriesApi from "../../Api/SeriesAPI";
 import { useEffect, useState } from "react";
 import { SiStarship } from "react-icons/si";
 import { GiFinishLine } from "react-icons/gi";
+import {useHistory} from 'react-router-dom'
 
 function CricketMainContent() {
   const [news, setnews] = useState(null);
@@ -19,7 +20,7 @@ function CricketMainContent() {
     NewsInfo()
       .then((data) => {
         setnews(data.articles);
-        console.log(data.articles);
+       
       })
       .catch((err) => console.log(err));
   }, []);
@@ -32,7 +33,18 @@ function CricketMainContent() {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(series);
+ 
+
+let history = useHistory();
+const routeChange = ()=>{
+  history.push({
+    pathname: "/Cricket/Series",
+    
+  });
+}
+
+
+
   if (news === null) {
     return <></>;
   } else {
@@ -48,15 +60,17 @@ function CricketMainContent() {
                   return (
                     <Card
                       className="mt-2"
-                      style={{ backgroundColor: "white" }}
+                      style={{ backgroundColor: "white",cursor:'pointer'}}
                       key={index}
+                      onClick={()=>routeChange()}
                     >
-                      <Card.Body>
-                        <Card.Title
+                     
+                        <Card.Header
                           style={{ color: "black", fontWeight: "bold" }}
                         >
                           {data.name}
-                        </Card.Title>
+                        </Card.Header>
+                        <Card.Body>
                         <Card.Text style={{ color: "black" }}>
                           <SiStarship /> Star Date : {data.startDate}
                         </Card.Text>

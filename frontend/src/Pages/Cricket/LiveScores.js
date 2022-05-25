@@ -4,17 +4,25 @@ import {
   CardGroup,
   Button,
   Table,
-  Container,
   Dropdown,
 } from "react-bootstrap";
 import CricSubNavBar from "../../Components/Navbar/CricSubNavBar";
 import currentMatchesApi from "../../Api/CurrentMatchesAPI";
 import Spinner from "../../Components/Spinner";
+import Marquee from "react-fast-marquee";
+
+import TextField from '@mui/material/TextField';
+import MenuItem from '@mui/material/MenuItem';
 
 function LiveScores() {
   const [currentMatches, setcurrentMatches] = useState(null);
   const [sortdata, setsortdata] = useState(null);
   const [sortdate, setsortDate] = useState(null);
+  const [matchOption,setmatchOption] = useState('All')
+  const [sortOption,setsortOption] = useState('Latest')
+
+  const matchType =['All','Test','T20','ODI']
+  const sortType = ['Latest','oldest']
 
   useEffect(() => {
     getdata();
@@ -23,8 +31,7 @@ function LiveScores() {
   const getdata = () => {
     currentMatchesApi()
       .then((data) => {
-        //setcurrentMatches(...currentMatches,data.data)
-        //console.log(data.data);
+        
         setcurrentMatches(data.data);
         setsortdata(data.data);
         setsortDate(data.data);
@@ -32,15 +39,20 @@ function LiveScores() {
       .catch((err) => console.log(err));
   };
 
-  //console.log(currentMatches);
+ 
 
-  const matchHandler = (e) => {
+  const matchHandler = (prop) => {
+ 
+    setmatchOption(prop);
+
+    let e = prop.toLowerCase();
+
     if (e === "t20") {
       const updatedMatches = currentMatches.filter((data) => {
         return data.matchType === e;
       });
       setsortdata(updatedMatches);
-      console.log(updatedMatches);
+     
     }
 
     if (e === "odi") {
@@ -48,7 +60,7 @@ function LiveScores() {
         return data.matchType === e;
       });
       setsortdata(updatedMatches);
-      console.log(updatedMatches);
+      
     }
 
     if (e === "test") {
@@ -56,17 +68,20 @@ function LiveScores() {
         return data.matchType === e;
       });
       setsortdata(updatedMatches);
-      //console.log(updatedMatches);
+      
     }
 
     if (e === "all") {
       setsortdata(currentMatches);
-      //console.log(updatedMatches);
+      
     }
   };
 
   const dateHandler = (e) => {
-    if (e === "ascending") {
+
+    setsortOption(e);
+
+    if (e === "oldest") {
       const date = sortdate.sort(function (a, b) {
         let c = a.date;
         let d = b.date;
@@ -81,11 +96,10 @@ function LiveScores() {
         return 0;
       });
 
-      console.log(date);
       setsortdata(date);
     }
 
-    if (e === "descending") {
+    if (e === "Latest") {
       const date = sortdate
         .sort(function (a, b) {
           let c = a.date;
@@ -103,89 +117,69 @@ function LiveScores() {
         .reverse();
 
       setsortdata(date);
-      console.log(date);
+      
     }
 
-    //
-    //console.log(sort);
+   
   };
 
-  console.log(sortdata);
+  
 
   if (currentMatches === null) {
     return <Spinner></Spinner>;
   } else {
-    //console.log(currentMatches[0].teamInfo[0]);
+    
     return (
       <>
         <CricSubNavBar></CricSubNavBar>
 
-        <Container className="mt-2">
-          <Container>
             <Card>
               <Card.Header>
-                <Dropdown className="d-inline mx-5">
-                  <Dropdown.Toggle
-                    id="dropdown-basic"
-                    style={{
-                      backgroundColor: "#E9DCC9",
-                      border: "none",
-                      color: "black",
-                    }}
-                  >
-                    Match Type
-                  </Dropdown.Toggle>
 
-                  <Dropdown.Menu>
-                    <Dropdown.Item onClick={() => matchHandler("test")}>
-                      Test
-                    </Dropdown.Item>
-                    <Dropdown.Item onClick={() => matchHandler("t20")}>
-                      T20
-                    </Dropdown.Item>
-                    <Dropdown.Item onClick={() => matchHandler("odi")}>
-                      ODI
-                    </Dropdown.Item>
-                    <Dropdown.Item onClick={() => matchHandler("all")}>
-                      All
-                    </Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
+              <TextField
+                  id="filled-hidden-label-small"
+                  select
+                  value={matchOption}
+                  variant="filled"
+                  size="small"
+                  sx={{ml:4,width:200}}
+                  helperText="Match Type"
+                >
+                  {matchType.map((option) => (
+
+                    <MenuItem key={option} value={option} onClick={() => matchHandler(option)}>
+                      {option}
+                    </MenuItem>
+                  ))}
+                </TextField>
 
                 {/* //sort by date */}
-                <Dropdown className="d-inline mx-5">
-                  <Dropdown.Toggle
-                    id="dropdown-basic"
-                    style={{
-                      backgroundColor: "#E9DCC9",
-                      border: "none",
-                      color: "black",
-                    }}
-                  >
-                    Sort by Date
-                  </Dropdown.Toggle>
 
-                  <Dropdown.Menu>
-                    <Dropdown.Item onClick={() => dateHandler("ascending")}>
-                      LATEST
-                    </Dropdown.Item>
-                    <Dropdown.Item onClick={() => dateHandler("descending")}>
-                      OLDEST
-                    </Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
+                <TextField
+                  id="filled-hidden-label-small"
+                  select
+                  value={sortOption}
+                  variant="filled"
+                  size="small"
+                  sx={{ml:4,width:200}}
+                  helperText="Sort By Time"
+                >
+                  {sortType.map((option) => (
+
+                    <MenuItem key={option} value={option} onClick={() => dateHandler(option)}>
+                      {option}
+                    </MenuItem>
+                  ))}
+                </TextField>
               </Card.Header>
             </Card>
-          </Container>
-        </Container>
-
+          
+        
         {sortdata ? (
           sortdata.map((data, index) => {
-            console.log(data);
             return (
-              <Container key={index}>
-                <Container>
-                  <Card className="mt-2 ms-5 me-5 mb-2" bg="light">
+                
+                  <Card className="mt-2 mb-2" bg="light" key={index}>
                     <Card.Header>
                       <Table
                         className="table table-borderless"
@@ -252,13 +246,13 @@ function LiveScores() {
                           >
                             <Card.Title
                               style={{
-                                textAlign: "center",
+                                textAlign: "left",
                                 fontWeight: "bold",
-                                fontSize: "15px",
-                                color: "black",
+                                fontSize: "17px",
+                                color: "#00796B",
                               }}
                             >
-                              Status : {data.status}
+                              <Marquee gradient={false} speed={30}> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Status : {data.status}</Marquee>
                             </Card.Title>
 
                             <Card.Text
@@ -330,8 +324,6 @@ function LiveScores() {
                       </CardGroup>
                     </Card.Body>
                   </Card>
-                </Container>
-              </Container>
             );
           })
         ) : (

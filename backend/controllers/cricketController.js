@@ -5,7 +5,7 @@ Exports: getCurrentCricketMatches, getCricketNews, getCricketSeriesList
 */
 
 const CurrentMatches = require("../models/cricket/currentMatchesModel");
-const newsArticles = require("../models/newsArticleModel");
+const NewsArticlesCricket = require("../models/cricket/newsCricketModel");
 const Series = require("../models/cricket/seriesModel");
 
 const getCurrentCricketMatches = async (req, res) => {
@@ -27,12 +27,11 @@ const getCricketNews = async (req, res) => {
   console.log("[+] Getting CricketNews");
   console.log(req.originalUrl);
   try {
-    const articles = await newsArticles.find();
+    const articles = await NewsArticlesCricket.find();
     const response = {
       status: "OK",
       articles: articles,
     };
-    console.log("[+] getCricketNews Status = ", response.status);
     res.json(response);
   } catch (err) {
     res.json({ error: err.message || err.toString() });

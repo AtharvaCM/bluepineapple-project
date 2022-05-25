@@ -15,7 +15,7 @@ function TeamInfo() {
   const [activeComponent, setActiveComponent] = useState("schedule");
 
   const clickHandler = (e) => {
-    console.log(e, "clicked");
+   
     setActiveComponent(e);
   };
 
@@ -34,7 +34,7 @@ function TeamInfo() {
   return (
     <>
       <CricSubNavBar></CricSubNavBar>
-      <div className="container mt-2 mb-2">
+      <div className=" mt-2 mb-2">
         {team === null || team === undefined ? null : (
           <Card style={{ backgroundColor: "white" }}>
             <Card.Header>
@@ -46,12 +46,6 @@ function TeamInfo() {
                 onClick={() => clickHandler("schedule")}
               >
                 Schedule
-              </span>
-              <span
-                className="me-5 teamSpan"
-                onClick={() => clickHandler("news")}
-              >
-                News
               </span>
               <span
                 className="me-5 teamSpan"

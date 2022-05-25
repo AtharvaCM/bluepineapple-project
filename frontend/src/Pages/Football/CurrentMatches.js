@@ -1,140 +1,166 @@
-import { React, useEffect, useState } from 'react'
-import FinishedMatches from '../../Api/footballApi/FinishedMatches'
-import { Card, Table, CardGroup, Container, Dropdown } from 'react-bootstrap'
+import { React, useEffect, useState } from "react";
+import FinishedMatches from "../../Api/footballApi/FinishedMatches";
+import { Card, Table, CardGroup} from "react-bootstrap";
 import Marquee from "react-fast-marquee";
+
 import { useHistory } from "react-router-dom"
 import FootballSubNavBar from './FootballSubNavBar';
+import TextField from '@mui/material/TextField';
+import MenuItem from '@mui/material/MenuItem';
 
 function CurrentMatches() {
   const [currentMatches, setcurrentMatches] = useState(null)
   const [sort, setsort] = useState(null)
+  const [seriesOptions, setseriesOption] = useState('All')
+  const [leagueOptions, setlegueOptions] = useState('2022')
+  const [matchStatus, setmatchStatus] = useState('Completed')
+
+
+
+  const SeriesType = ['All', 'Premier League', 'Cup - Round of 32'];
+  const seasonType = ['2022', '2021/22'];
+  const matchType = ['Completed','Ongong','All'];
+
+
+
+
   useEffect(() => {
     FinishedMatches().then((data) => {
       setcurrentMatches(data.matches);
-      setsort(data.matches)
-      //console.log(data)
-    })
-  }, [])
-  console.log(currentMatches);
+      console.log(data.matches);
+      setsort(data.matches);  
+    });
+  }, []);
+ 
 
   let history = useHistory();
 
   const cardClickHadler = (e) => {
-    console.log('clicked on card', e);
+
     history.push({
       pathname: "/football/Scores/MatchSummary",
-      state: { e }, //passing prop to the component
+      state: { match: e }, //passing prop to the component
     });
-  }
+  };
 
   const seriesHandler = (e) => {
-    //console.log(e);
+
+    setseriesOption(e);
+
     if (e === 'Premier League') {
       const updatedMatches = currentMatches.filter((data) => {
         return data.league_name === e;
-      })
+      });
       setsort(updatedMatches);
-      console.log(updatedMatches);
+
     }
 
-    if (e === 'Cup - Round of 32') {
+    if (e === "Cup - Round of 32") {
       const updatedMatches = currentMatches.filter((data) => {
         return data.league_name === e;
-      })
+      });
       setsort(updatedMatches);
-      console.log(updatedMatches);
-    }
+      }
 
-    if (e === 'All') {
+    if (e === "All") {
       FinishedMatches().then((data) => {
         setsort(data.matches);
-        //console.log(data)
-      })
+      });
     }
-
-  }
+  };
 
   const seasonHandler = (e) => {
-    console.log(e === '2021/2022');
+    setlegueOptions(e);
+
     if (e === '2021/2022') {
 
       const updatedMatches = currentMatches.filter((data) => {
         return data.league_season === e;
-      })
-      setsort(updatedMatches);
-      console.log(updatedMatches);
+      });
+      setsort(updatedMatches)
     }
 
-    if (e === '2022') {
+    if (e === "2022") {
       const updatedMatches = currentMatches.filter((data) => {
         return data.league_season === e;
-      })
+      });
       setsort(updatedMatches);
-      console.log(updatedMatches);
+      
     }
-  }
-
+  };
 
   return (
     <>
-    <FootballSubNavBar></FootballSubNavBar>
-      <Container className='mt-2'>
-        <Container>
+
+        <FootballSubNavBar></FootballSubNavBar>
           <Card>
             <Card.Header>
-              <div className="mt-2 me-2 mb-2 d-flex">
+                <TextField
+                  id="filled-hidden-label-small"
+                  select
+                  value={seriesOptions}
+                  variant="filled"
+                  size="small"
+                  sx={{ml:4,width:200}}
+                  helperText="Leagues"
+                >
+                  {SeriesType.map((option) => (
 
-                <Dropdown className="d-inline mx-5">
-                  <Dropdown.Toggle id="dropdown-basic" style={{ backgroundColor: '#E9DCC9', border: 'none', color: 'black' }}>
-                    Series
-                  </Dropdown.Toggle>
-
-                  <Dropdown.Menu>
-                    <Dropdown.Item onClick={() => seriesHandler('Premier League')}>Premier League</Dropdown.Item>
-                    <Dropdown.Item onClick={() => seriesHandler('Cup - Round of 32')}>Cup - Round of 32</Dropdown.Item>
-                    <Dropdown.Item onClick={() => seriesHandler('All')}>All</Dropdown.Item>
-                    <Dropdown.Item onClick={() => seriesHandler('Other')}>Other</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
-
-
-
-                <Dropdown className="d-inline mx-5" >
-                  <Dropdown.Toggle style={{ backgroundColor: '#E9DCC9', border: 'none', color: 'black' }} id="dropdown-basic">
-                    Status
-                  </Dropdown.Toggle>
-
-                  <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">Finished</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">OnGoing</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
+                    <MenuItem key={option} value={option} onClick={() => seriesHandler(option)}>
+                      {option}
+                    </MenuItem>
+                  ))}
+                </TextField>
 
 
+                <TextField
+                  id="filled-hidden-label-small"
+                  select
+                  value={matchStatus}
+                  variant="filled"
+                  size="small"
+                  sx={{ml:5,width:200}}
+                  helperText="Match Status"
+                >
+                  {matchType.map((option) => (
 
-                <Dropdown className="d-inline mx-5" align="end">
-                  <Dropdown.Toggle style={{ backgroundColor: '#E9DCC9', border: 'none', color: 'black' }} id="dropdown-basic">
-                    League Season
-                  </Dropdown.Toggle>
+                    <MenuItem key={option} value={option}>
+                      {option}
+                    </MenuItem>
+                  ))}
+                </TextField>
 
-                  <Dropdown.Menu>
-                    <Dropdown.Item onClick={() => seasonHandler('2022')}>2022</Dropdown.Item>
-                    <Dropdown.Item onClick={() => seasonHandler('2021/2022')}>2021/2022</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
 
-              </div>
+
+
+
+                <TextField
+                  id="filled-hidden-label-small"
+                  select
+                  value={leagueOptions}
+                  variant="filled"
+                  size="small"
+                  sx={{ml:5,width:200}}
+                  helperText="Season"
+                >
+                  {seasonType.map((option) => (
+
+                    <MenuItem key={option} value={option} onClick={() => seasonHandler(option)}>
+                      {option}
+                    </MenuItem>
+                  ))}
+                </TextField>
             </Card.Header>
-
           </Card>
-        </Container>
+
+        
         {sort ? sort.map((data, index) => {
-          
+
           return (
-            <Card className="mt-2 ms-5 me-5" onClick={() => cardClickHadler(data)} style={{ boxShadow: '23px solid white', border: 'none' }} key={index}>
+            <Card className="mt-2" onClick={() => cardClickHadler(data)} style={{ boxShadow: '23px solid white', border: 'none' }} key={index}>
               <Card.Header>
                 <Table className="table table-borderless">
+                  <tbody>
                   <tr>
                     <td style={{ fontSize: "35px", fontWeight: "bold" }} colSpan={3}>
                       {sort === null ? 'N/A' : data.event_home_team} VS {sort === null ? 'N/A' : sort[0].event_away_team}
@@ -147,8 +173,9 @@ function CurrentMatches() {
                     <td>Series : {sort === null ? 'N/A' : data.league_name}</td>
                     <td>League Season : {sort === null ? 'N/A' : data.league_season}</td>
                     <td>{sort === null ? 'N/A' : data.league_round}</td>
-                    <td>Status : {sort === null ? 'N/A' : data.event_status === 'Finished' ? <span style={{ border: '5px', backgroundColor: 'green', borderRadius: '5px' }}>{data.event_status}</span> : data.event_status}</td>
+                    <td>Status : {sort === null ? 'N/A' : data.event_status === 'Finished' ? <span style={{ border: '5px',borderRadius: '5px' }}>{data.event_status}</span> : data.event_status}</td>
                   </tr>
+                  </tbody>
                 </Table>
               </Card.Header>
 
@@ -213,10 +240,10 @@ function CurrentMatches() {
 
 
         }) : ''}
-      </Container>
-    </>
+      
 
+    </>
   );
 }
 
-export default CurrentMatches
+export default CurrentMatches;

@@ -40,6 +40,55 @@ export const BarChart = ({ chartData, title }) => {
   );
 };
 
+export const StackedBarChart = ({ chartData, title }) => {
+  return (
+    <div>
+      <Bar
+        height={400}
+        width={500}
+        data={chartData}
+        options={{
+          backgroundColor: "white",
+          color: "black",
+          plugins: {
+            title: {
+              display: true,
+              text: title,
+              color: "black",
+              font: {
+                size: 30,
+              },
+            },
+            legend: {
+              display: true,
+              position: "bottom",
+            },
+          },
+          responsive: true,
+          interaction: {
+            intersect: false,
+          },
+          scales: {
+            x: {
+              ticks: {
+                color: "white",
+              },
+              stacked: true,
+            },
+            y: {
+              ticks: {
+                color: "white",
+              },
+              stacked: true,
+            },
+          },
+          maintainAspectRatio: false,
+        }}
+      />
+    </div>
+  );
+};
+
 export const PieChart = ({ chartData, title }) => {
   return (
     <div>

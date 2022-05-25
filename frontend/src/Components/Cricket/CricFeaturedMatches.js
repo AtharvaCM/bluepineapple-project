@@ -1,11 +1,13 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { CardGroup, Container } from "react-bootstrap";
+import { CardGroup} from "react-bootstrap";
 import { useEffect, useState } from "react";
 import CurrentMatchesAPI from "../../Api/CurrentMatchesAPI";
 import Spinner from "../../Components/Spinner";
 import { MdFeaturedPlayList } from "react-icons/md";
+import Marquee from "react-fast-marquee";
+import {useHistory} from 'react-router-dom'
 
 function CricFeaturedMatches() {
   const [match, setmatch] = useState(null);
@@ -18,7 +20,15 @@ function CricFeaturedMatches() {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(match);
+
+
+  let history = useHistory()
+  const routeChange = ()=>{
+    history.push({
+      pathname: "/Cricket/LiveScore",
+      
+    });
+  }
 
   if (match === null) {
     return (
@@ -32,8 +42,26 @@ function CricFeaturedMatches() {
     let limit = match.slice(0, 4);
     return (
       <>
-        <Card className="mt-2 ms-2 me-3" style={{ backgroundColor: "#696D97" }}>
-          <Card.Header style={{ backgroundColor: "#0336FF", color: "white" }}>
+        <Card style={{backgroundColor:'#F7F7F7'}}>
+          <Card.Header>
+          <Marquee gradient={false} speed={30} style={{cursor:'pointer'}} pauseOnHover>
+            {match.map((data)=>{
+            return(
+              <>
+              <span>&nbsp;&nbsp;||&nbsp;&nbsp;</span>
+              <span style={{color:'blue'}} onClick={()=>routeChange()}>{ data.status}</span>
+              </>
+            )
+          }
+            
+            )}
+
+            </Marquee>
+          </Card.Header>
+        </Card>
+
+        <Card className="mt-2 ms-2 me-3" style={{ backgroundColor: "#C8CDCD" }}>
+          <Card.Header style={{ backgroundColor: "#dcdcdc", color: "black" }}>
             <MdFeaturedPlayList /> Featured Matches
           </Card.Header>
           <CardGroup>
@@ -42,7 +70,6 @@ function CricFeaturedMatches() {
                 <Card
                   key={index}
                   style={{ backgroundColor: "whitesmoke" }}
-                  className="mt-1"
                 >
                   <Card.Body>
                     <Card.Text
@@ -50,7 +77,10 @@ function CricFeaturedMatches() {
                         fontWeight: "bold",
                         textAlign: "center",
                         color: "black",
+                        cursor:'pointer'
                       }}
+
+                      onClick={()=>routeChange()}
                     >
                       {data.name}
                     </Card.Text>

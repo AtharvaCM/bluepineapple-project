@@ -1,4 +1,3 @@
-// returns Cricket Team Info
 
 const TeamInfoAPI = async (teamID) => {
   try {

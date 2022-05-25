@@ -22,11 +22,11 @@ function PlayerListComponent({ team }) {
   return (
     <>
       {players === null || players === undefined ? null : (
-        <div className="container">
+        <div>
           <Row>
             {players.map((data, index) => {
               return (
-                <Col key={index} sm="12" md="6">
+                <Col key={index} sm="10" md="4">
                   <Card
                     style={{
                       backgroundColor: "white",

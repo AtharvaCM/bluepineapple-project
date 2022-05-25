@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import { Container, Table, Card, Accordion } from "react-bootstrap";
+import { Table, ListGroup } from "react-bootstrap";
 import CricSubNavBar from "../../Components/Navbar/CricSubNavBar";
 import SeriesApi from "../../Api/SeriesAPI";
 import Spinner from "../../Components/Spinner";
@@ -10,9 +10,9 @@ function Series() {
   useEffect(() => {
     SeriesApi()
       .then((data) => {
-        console.log(data.series[0]);
+        
         setseries(data.series);
-        //setseriesInfo(data.data[0]);
+        
       })
       .catch((err) => console.log(err));
   }, []);
@@ -23,7 +23,61 @@ function Series() {
     return (
       <>
         <CricSubNavBar />
-        <Container fluid>
+
+        {
+          series.map((data, index) => {
+            return (
+              <ListGroup as="ul" className="mt-2" key={index}>
+                <ListGroup.Item as="li" style={{ fontWeight: "bold",backgroundColor:'#DCDCDC'}} >
+                {series ? data.name : ""}
+                </ListGroup.Item>
+                <ListGroup.Item as="li">
+                  <Table
+                    striped
+                    bordered
+                    hover
+                    variant="light"
+                    className="mt-2"
+                  >
+                    <thead>
+                      <tr>
+                        <th>Start Date</th>
+                        <th>{series ? data.startDate : ""}</th>
+                      </tr>
+                      <tr>
+                        <th>End Date</th>
+                        <th>{series ? data.endDate : ""}</th>
+                      </tr>
+                      <tr>
+                        <th>ODI</th>
+                        <th>{series ? data.odi : ""}</th>
+                      </tr>
+                      <tr>
+                        <th>T20</th>
+                        <th>{series ? data.t20 : ""}</th>
+                      </tr>
+                      <tr>
+                        <th>Test Match</th>
+                        <th>{series ? data.test : ""}</th>
+                      </tr>
+                      <tr>
+                        <th>Total Matches</th>
+                        <th>
+                          {series
+                            ? data.odi + data.t20 + data.test
+                            : ""}
+                        </th>
+                      </tr>
+                    </thead>
+                  </Table>
+                </ListGroup.Item>
+
+
+              </ListGroup>
+            )
+          })
+        }
+        {/* <Container fluid>
           <Accordion className="mt-2 mb-2" alwaysOpen>
             {series.map((data, index) => {
               return (
@@ -83,7 +137,7 @@ function Series() {
               );
             })}
           </Accordion>
-        </Container>
+        </Container> */}
       </>
     );
   }
