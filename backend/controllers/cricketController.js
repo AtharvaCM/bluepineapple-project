@@ -1,38 +1,60 @@
 /*
 Created: 20th, April, 2022
-Updated: 20th, April, 2022
-Author: AtharvaCM
 Synopsis: Contains controller functions related to cricket routes.
-Exports: 
+Exports: getCurrentCricketMatches, getCricketNews, getCricketSeriesList
 */
 
-const express = require("express");
+const CurrentMatches = require("../models/cricket/currentMatchesModel");
+const NewsArticlesCricket = require("../models/cricket/newsCricketModel");
+const Series = require("../models/cricket/seriesModel");
 
-const Team = require("../models/cricket/teamModel");
-
-const getCricketTeams = async (req, res) => {
-  // call DB
+const getCurrentCricketMatches = async (req, res) => {
+  console.log("[+] Getting CurrentCricketMatches");
+  console.log(req.originalUrl);
+  // return capped current matches
   try {
-    const teams = await Team.find();
-    res.json(teams);
+    const matches = await CurrentMatches.find();
+    const response = {
+      data: matches[0].data,
+    };
+    res.json(response);
   } catch (err) {
     res.json({ error: err.message || err.toString() });
   }
 };
 
-const getCricketTeamDetails = async (req, res) => {
-  // call DB
+const getCricketNews = async (req, res) => {
+  console.log("[+] Getting CricketNews");
+  console.log(req.originalUrl);
   try {
-    const teamID = req.params.id;
-    console.log("teamID", teamID);
-    const team = await Team.findOne({ id: teamID });
-    res.json(team);
+    const articles = await NewsArticlesCricket.find();
+    const response = {
+      status: "OK",
+      articles: articles,
+    };
+    res.json(response);
+  } catch (err) {
+    res.json({ error: err.message || err.toString() });
+  }
+};
+
+const getCricketSeriesList = async (req, res) => {
+  console.log("[+] Getting CricketSeriesList");
+  console.log(req.originalUrl);
+  try {
+    const series = await Series.find();
+    const response = {
+      status: "Ok",
+      series: series,
+    };
+    res.json(response);
   } catch (err) {
     res.json({ error: err.message || err.toString() });
   }
 };
 
 module.exports = {
-  getCricketTeams,
-  getCricketTeamDetails,
+  getCurrentCricketMatches,
+  getCricketSeriesList,
+  getCricketNews,
 };

@@ -1,7 +1,5 @@
 /*
 Created: 15th, April, 2022
-Updated: 20th, April, 2022
-Author: AtharvaCM
 Synopsis: App's entry point, handles high level functions
 Exports: 
 */
@@ -14,18 +12,21 @@ const port = process.env.PORT;
 
 var cors = require("cors");
 
+// init bree
+const bree = require("./bree");
+bree.start();
+
 const connectToMongo = require("./dbConfig");
 connectToMongo();
 
 const routerCricket = require("./routes/cricketRoutes");
+const routerFootball = require("./routes/footballRoutes");
 
+app.use(cors());
 app.use("/api/v1/cricket", routerCricket);
-
-// app.get("/", (req, res) => {
-//   res.send("Hello World!");
-// });
+app.use("/api/v1/football", routerFootball);
 
 app.listen(port, () => {
-  console.log(`Sports Live app listening on port ${port}`);
-  console.log(`Open in browser http://127.0.0.1:${port}`);
+  console.log(`[+] Sports Live app listening on port ${port}`);
+  console.log(`[+] Open in browser http://127.0.0.1:${port}`);
 });
