@@ -1,28 +1,21 @@
 import { React, useEffect, useState } from "react";
-import {
-  Card,
-  CardGroup,
-  Button,
-  Table,
-  Dropdown,
-} from "react-bootstrap";
+import { Card, CardGroup, Button, Table } from "react-bootstrap";
 import CricSubNavBar from "../../Components/Navbar/CricSubNavBar";
 import currentMatchesApi from "../../Api/CurrentMatchesAPI";
-import Spinner from "../../Components/Spinner";
 import Marquee from "react-fast-marquee";
 
-import TextField from '@mui/material/TextField';
-import MenuItem from '@mui/material/MenuItem';
+import TextField from "@mui/material/TextField";
+import MenuItem from "@mui/material/MenuItem";
 
 function LiveScores() {
   const [currentMatches, setcurrentMatches] = useState(null);
   const [sortdata, setsortdata] = useState(null);
   const [sortdate, setsortDate] = useState(null);
-  const [matchOption,setmatchOption] = useState('All')
-  const [sortOption,setsortOption] = useState('Latest')
+  const [matchOption, setmatchOption] = useState("All");
+  const [sortOption, setsortOption] = useState("Latest");
 
-  const matchType =['All','Test','T20','ODI']
-  const sortType = ['Latest','oldest']
+  const matchType = ["All", "Test", "T20", "ODI"];
+  const sortType = ["Latest", "Oldest"];
 
   useEffect(() => {
     getdata();
@@ -31,7 +24,6 @@ function LiveScores() {
   const getdata = () => {
     currentMatchesApi()
       .then((data) => {
-        
         setcurrentMatches(data.data);
         setsortdata(data.data);
         setsortDate(data.data);
@@ -39,10 +31,7 @@ function LiveScores() {
       .catch((err) => console.log(err));
   };
 
- 
-
   const matchHandler = (prop) => {
- 
     setmatchOption(prop);
 
     let e = prop.toLowerCase();
@@ -52,15 +41,14 @@ function LiveScores() {
         return data.matchType === e;
       });
       setsortdata(updatedMatches);
-     
     }
 
     if (e === "odi") {
       const updatedMatches = currentMatches.filter((data) => {
         return data.matchType === e;
       });
+      console.log("updatedMatches", updatedMatches);
       setsortdata(updatedMatches);
-      
     }
 
     if (e === "test") {
@@ -68,20 +56,17 @@ function LiveScores() {
         return data.matchType === e;
       });
       setsortdata(updatedMatches);
-      
     }
 
     if (e === "all") {
       setsortdata(currentMatches);
-      
     }
   };
 
   const dateHandler = (e) => {
-
     setsortOption(e);
 
-    if (e === "oldest") {
+    if (e === "Oldest") {
       const date = sortdate.sort(function (a, b) {
         let c = a.date;
         let d = b.date;
@@ -117,68 +102,78 @@ function LiveScores() {
         .reverse();
 
       setsortdata(date);
-      
     }
-
-   
   };
 
-  
+  const emtpyResponseMsg = () => {
+    return (
+      <>
+        <Card>
+          <Card.Body>
+            <h3 className="text-center">Data not found!!!</h3>
+          </Card.Body>
+        </Card>
+      </>
+    );
+  };
 
   if (currentMatches === null) {
-    return <Spinner></Spinner>;
+    return null;
   } else {
-    
     return (
       <>
         <CricSubNavBar></CricSubNavBar>
 
-            <Card>
-              <Card.Header>
-
-              <TextField
-                  id="filled-hidden-label-small"
-                  select
-                  value={matchOption}
-                  variant="filled"
-                  size="small"
-                  sx={{ml:4,width:200}}
-                  helperText="Match Type"
+        <Card>
+          <Card.Header>
+            <TextField
+              id="filled-hidden-label-small"
+              select
+              value={matchOption}
+              variant="filled"
+              size="small"
+              sx={{ ml: 4, width: 200 }}
+              helperText="Match Type"
+            >
+              {matchType.map((option) => (
+                <MenuItem
+                  key={option}
+                  value={option}
+                  onClick={() => matchHandler(option)}
                 >
-                  {matchType.map((option) => (
+                  {option}
+                </MenuItem>
+              ))}
+            </TextField>
 
-                    <MenuItem key={option} value={option} onClick={() => matchHandler(option)}>
-                      {option}
-                    </MenuItem>
-                  ))}
-                </TextField>
+            {/* //sort by date */}
 
-                {/* //sort by date */}
-
-                <TextField
-                  id="filled-hidden-label-small"
-                  select
-                  value={sortOption}
-                  variant="filled"
-                  size="small"
-                  sx={{ml:4,width:200}}
-                  helperText="Sort By Time"
+            <TextField
+              id="filled-hidden-label-small"
+              select
+              value={sortOption}
+              variant="filled"
+              size="small"
+              sx={{ ml: 4, width: 200 }}
+              helperText="Sort By Time"
+            >
+              {sortType.map((option) => (
+                <MenuItem
+                  key={option}
+                  value={option}
+                  onClick={() => dateHandler(option)}
                 >
-                  {sortType.map((option) => (
+                  {option}
+                </MenuItem>
+              ))}
+            </TextField>
+          </Card.Header>
+        </Card>
 
-                    <MenuItem key={option} value={option} onClick={() => dateHandler(option)}>
-                      {option}
-                    </MenuItem>
-                  ))}
-                </TextField>
-              </Card.Header>
-            </Card>
-          
-        
-        {sortdata ? (
-          sortdata.map((data, index) => {
-            return (
-                
+        {sortdata
+          ? sortdata.length !== 0
+            ? sortdata.map((data, index) => {
+                return (
                   <Card className="mt-2 mb-2" bg="light" key={index}>
                     <Card.Header>
                       <Table
@@ -252,7 +247,13 @@ function LiveScores() {
                                 color: "#00796B",
                               }}
                             >
-                              <Marquee gradient={false} speed={30}> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Status : {data.status}</Marquee>
+                              <Marquee gradient={false} speed={30}>
+                                {" "}
+                                <span>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </span>
+                                Status : {data.status}
+                              </Marquee>
                             </Card.Title>
 
                             <Card.Text
@@ -324,11 +325,10 @@ function LiveScores() {
                       </CardGroup>
                     </Card.Body>
                   </Card>
-            );
-          })
-        ) : (
-          <Spinner></Spinner>
-        )}
+                );
+              })
+            : emtpyResponseMsg()
+          : null}
       </>
     );
   }
