@@ -2,6 +2,7 @@ import { React, useEffect, useState } from "react";
 import CricSubNavBar from "../../Components/Navbar/CricSubNavBar";
 import "../../Resources/Styles/Gallery.css";
 import axios from "axios";
+import Spinner from "../../Components/Spinner";
 import ReactPaginate from "react-paginate";
 
 function Gallery() {
@@ -57,16 +58,18 @@ function Gallery() {
       />
 
       <div className="masonry">
-        {cricket === null
-          ? null
-          : cricket.map((data, index) => {
-              return (
-                <div className="item" key={index}>
-                  <h5>{data.alt_description}</h5>
-                  <img src={data.urls.small} alt="img" />
-                </div>
-              );
-            })}
+        {cricket === null ? (
+          <Spinner></Spinner>
+        ) : (
+          cricket.map((data, index) => {
+            return (
+              <div className="item" key={index}>
+                <h5>{data.alt_description}</h5>
+                <img src={data.urls.small} alt="img" />
+              </div>
+            );
+          })
+        )}
       </div>
     </>
   );

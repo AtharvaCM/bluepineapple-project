@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { Badge } from "react-bootstrap";
 import NewsInfo from "../../Api/NewsAPI";
+import Spinner from "../../Components/Spinner";
 import CricSubNavBar from "../../Components/Navbar/CricSubNavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Box from "@mui/material/Box";
@@ -24,8 +25,6 @@ function News() {
       })
       .catch((err) => console.log(err));
   }, []);
-
-
 
   if (news === null) {
     return (

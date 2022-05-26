@@ -1,7 +1,8 @@
 import { React, useEffect, useState } from "react";
-import { Card, CardGroup, Button, Table } from "react-bootstrap";
+import { Card, CardGroup, Button, Table, Dropdown } from "react-bootstrap";
 import CricSubNavBar from "../../Components/Navbar/CricSubNavBar";
 import currentMatchesApi from "../../Api/CurrentMatchesAPI";
+import Spinner from "../../Components/Spinner";
 import Marquee from "react-fast-marquee";
 
 import TextField from "@mui/material/TextField";
@@ -15,7 +16,7 @@ function LiveScores() {
   const [sortOption, setsortOption] = useState("Latest");
 
   const matchType = ["All", "Test", "T20", "ODI"];
-  const sortType = ["Latest", "Oldest"];
+  const sortType = ["Latest", "oldest"];
 
   useEffect(() => {
     getdata();
@@ -47,7 +48,6 @@ function LiveScores() {
       const updatedMatches = currentMatches.filter((data) => {
         return data.matchType === e;
       });
-      console.log("updatedMatches", updatedMatches);
       setsortdata(updatedMatches);
     }
 
@@ -66,7 +66,7 @@ function LiveScores() {
   const dateHandler = (e) => {
     setsortOption(e);
 
-    if (e === "Oldest") {
+    if (e === "oldest") {
       const date = sortdate.sort(function (a, b) {
         let c = a.date;
         let d = b.date;
@@ -105,20 +105,8 @@ function LiveScores() {
     }
   };
 
-  const emtpyResponseMsg = () => {
-    return (
-      <>
-        <Card>
-          <Card.Body>
-            <h3 className="text-center">Data not found!!!</h3>
-          </Card.Body>
-        </Card>
-      </>
-    );
-  };
-
   if (currentMatches === null) {
-    return null;
+    return <Spinner></Spinner>;
   } else {
     return (
       <>
@@ -170,165 +158,160 @@ function LiveScores() {
           </Card.Header>
         </Card>
 
-        {sortdata
-          ? sortdata.length !== 0
-            ? sortdata.map((data, index) => {
-                return (
-                  <Card className="mt-2 mb-2" bg="light" key={index}>
-                    <Card.Header>
-                      <Table
-                        className="table table-borderless"
-                        style={{ backgroundColor: "white" }}
-                      >
-                        <tbody>
-                          <tr>
-                            <td
-                              style={{
-                                fontSize: "35px",
-                                fontWeight: "bold",
-                                color: "black",
-                              }}
-                              colSpan={3}
-                            >
-                              {data.name}
-                            </td>
-                          </tr>
-
-                          <tr
-                            style={{
-                              fontSize: "15px",
-                              fontWeight: "bold",
-                              color: "black",
-                            }}
-                          >
-                            <td>Venue : {data.venue}</td>
-                            <td>Date : {data.date}</td>
-                            <td>
-                              Match Type :{" "}
-                              {data.hasOwnProperty("matchType")
-                                ? data.matchType
-                                : "N/A"}
-                            </td>
-                          </tr>
-                        </tbody>
-                      </Table>
-                    </Card.Header>
-
-                    <Card.Body>
-                      <CardGroup>
-                        <Card style={{ borderColor: "white" }}>
-                          <Card.Body
-                            style={{
-                              height: "250px",
-                              width: "250px",
-                              alignSelf: "center",
-                            }}
-                          >
-                            <Card.Img
-                              variant="top"
-                              src={data.teamInfo[0].img}
-                            />
-                          </Card.Body>
-                        </Card>
-
-                        <Card style={{ borderColor: "white" }}>
-                          <Card.Body
-                            style={{
-                              height: "250px",
-                              width: "250px",
-                              alignSelf: "center",
-                            }}
-                          >
-                            <Card.Title
-                              style={{
-                                textAlign: "left",
-                                fontWeight: "bold",
-                                fontSize: "17px",
-                                color: "#00796B",
-                              }}
-                            >
-                              <Marquee gradient={false} speed={30}>
-                                {" "}
-                                <span>
-                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                </span>
-                                Status : {data.status}
-                              </Marquee>
-                            </Card.Title>
-
-                            <Card.Text
-                              style={{
-                                fontSize: "20px",
-                                textAlign: "center",
-                                fontWeight: "bold",
-                                color: "black",
-                                marginTop: "25px",
-                              }}
-                            >
-                              {data.teamInfo[0].shortname} :{" "}
-                              {data.score[0] ? data.score[0].r : "-"} /{" "}
-                              {data.score[0] ? data.score[0].w : "-"} (
-                              {data.score[0] ? data.score[0].o : "-"})
-                            </Card.Text>
-
-                            <Card.Text
-                              style={{
-                                fontSize: "20px",
-                                textAlign: "center",
-                                fontWeight: "bold",
-                                color: "black",
-                              }}
-                            >
-                              {data.teamInfo[1]
-                                ? data.teamInfo[1].shortname
-                                : ""}{" "}
-                              : {data.score[1] ? data.score[1].r : "-"} /{" "}
-                              {data.score[1] ? data.score[1].w : "-"} (
-                              {data.score[1] ? data.score[1].o : "-"})
-                            </Card.Text>
-                          </Card.Body>
-                          <Button
-                            style={{
-                              alignSelf: "center",
-                              backgroundColor: "#71C6DD",
-                              fontWeight: "bold",
-                            }}
-                            onClick={() => window.location.reload(false)}
-                          >
-                            Refresh
-                          </Button>
-                        </Card>
-
-                        <Card
+        {sortdata ? (
+          sortdata.map((data, index) => {
+            return (
+              <Card className="mt-2 mb-2" bg="light" key={index}>
+                <Card.Header>
+                  <Table
+                    className="table table-borderless"
+                    style={{ backgroundColor: "white" }}
+                  >
+                    <tbody>
+                      <tr>
+                        <td
                           style={{
-                            backgroundColor: "white",
-                            borderColor: "white",
+                            fontSize: "35px",
+                            fontWeight: "bold",
+                            color: "black",
+                          }}
+                          colSpan={3}
+                        >
+                          {data.name}
+                        </td>
+                      </tr>
+
+                      <tr
+                        style={{
+                          fontSize: "15px",
+                          fontWeight: "bold",
+                          color: "black",
+                        }}
+                      >
+                        <td>Venue : {data.venue}</td>
+                        <td>Date : {data.date}</td>
+                        <td>
+                          Match Type :{" "}
+                          {data.hasOwnProperty("matchType")
+                            ? data.matchType
+                            : "N/A"}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </Table>
+                </Card.Header>
+
+                <Card.Body>
+                  <CardGroup>
+                    <Card style={{ borderColor: "white" }}>
+                      <Card.Body
+                        style={{
+                          height: "250px",
+                          width: "250px",
+                          alignSelf: "center",
+                        }}
+                      >
+                        <Card.Img variant="top" src={data.teamInfo[0].img} />
+                      </Card.Body>
+                    </Card>
+
+                    <Card style={{ borderColor: "white" }}>
+                      <Card.Body
+                        style={{
+                          height: "250px",
+                          width: "250px",
+                          alignSelf: "center",
+                        }}
+                      >
+                        <Card.Title
+                          style={{
+                            textAlign: "left",
+                            fontWeight: "bold",
+                            fontSize: "17px",
+                            color: "#00796B",
                           }}
                         >
-                          <Card.Body
-                            style={{
-                              height: "250px",
-                              width: "250px",
-                              alignSelf: "center",
-                            }}
-                          >
-                            <Card.Img
-                              variant="top"
-                              src={
-                                data.teamInfo[1]
-                                  ? data.teamInfo[1].img
-                                  : "https://placeit-assets1.s3-accelerate.amazonaws.com/custom-pages/cricket-logo-maker/All-Star-Cricket-Team-Logo-Maker-for-Cricket-Teams.png"
-                              }
-                            />
-                          </Card.Body>
-                        </Card>
-                      </CardGroup>
-                    </Card.Body>
-                  </Card>
-                );
-              })
-            : emtpyResponseMsg()
-          : null}
+                          <Marquee gradient={false} speed={30}>
+                            {" "}
+                            <span>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                            Status : {data.status}
+                          </Marquee>
+                        </Card.Title>
+
+                        <Card.Text
+                          style={{
+                            fontSize: "20px",
+                            textAlign: "center",
+                            fontWeight: "bold",
+                            color: "black",
+                            marginTop: "25px",
+                          }}
+                        >
+                          {data.teamInfo[0].shortname} :{" "}
+                          {data.score[0] ? data.score[0].r : "-"} /{" "}
+                          {data.score[0] ? data.score[0].w : "-"} (
+                          {data.score[0] ? data.score[0].o : "-"})
+                        </Card.Text>
+
+                        <Card.Text
+                          style={{
+                            fontSize: "20px",
+                            textAlign: "center",
+                            fontWeight: "bold",
+                            color: "black",
+                          }}
+                        >
+                          {data.teamInfo[1] ? data.teamInfo[1].shortname : ""} :{" "}
+                          {data.score[1] ? data.score[1].r : "-"} /{" "}
+                          {data.score[1] ? data.score[1].w : "-"} (
+                          {data.score[1] ? data.score[1].o : "-"})
+                        </Card.Text>
+                      </Card.Body>
+                      <Button
+                        style={{
+                          alignSelf: "center",
+                          backgroundColor: "#71C6DD",
+                          fontWeight: "bold",
+                        }}
+                        onClick={() => window.location.reload(false)}
+                      >
+                        Refresh
+                      </Button>
+                    </Card>
+
+                    <Card
+                      style={{
+                        backgroundColor: "white",
+                        borderColor: "white",
+                      }}
+                    >
+                      <Card.Body
+                        style={{
+                          height: "250px",
+                          width: "250px",
+                          alignSelf: "center",
+                        }}
+                      >
+                        <Card.Img
+                          variant="top"
+                          src={
+                            data.teamInfo[1]
+                              ? data.teamInfo[1].img
+                              : "https://placeit-assets1.s3-accelerate.amazonaws.com/custom-pages/cricket-logo-maker/All-Star-Cricket-Team-Logo-Maker-for-Cricket-Teams.png"
+                          }
+                        />
+                      </Card.Body>
+                    </Card>
+                  </CardGroup>
+                </Card.Body>
+              </Card>
+            );
+          })
+        ) : (
+          <Spinner></Spinner>
+        )}
       </>
     );
   }

@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from "react";
 import NewsInfo from "../../../Api/NewsAPI";
+import Spinner from "../../Spinner";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { motion } from "framer-motion";
 
@@ -26,7 +27,7 @@ function TeamNews() {
   }, []);
 
   if (news === null) {
-    return null;
+    return <Spinner></Spinner>;
   } else {
     return (
       <>

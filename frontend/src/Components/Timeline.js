@@ -1,7 +1,6 @@
 import { React } from "react";
 import { Card } from "react-bootstrap";
 import { RiFootballLine } from "react-icons/ri";
-import Spinner from "./Spinner";
 
 import {
   VerticalTimeline,
@@ -14,7 +13,7 @@ export function Timeline({ events }) {
   console.log(events);
   const timelineCard = () => {
     return (
-      <VerticalTimeline layout="1-column-left" lineColor={THEME.colorLight}>
+      <VerticalTimeline layout="1-column-left" lineColor={THEME.colorDark}>
         {events.map((event, index) => (
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
@@ -42,9 +41,7 @@ export function Timeline({ events }) {
   return (
     <>
       <Card>
-        <Card.Header className="text-center fw-bold fs-3">
-          Goal Timeline
-        </Card.Header>
+        <Card.Header>Goal Timeline</Card.Header>
         <Card.Body
           style={{
             backgroundImage:
@@ -54,13 +51,7 @@ export function Timeline({ events }) {
           }}
         >
           <h4 style={{ color: "whitesmoke" }}>Start - 00:00</h4>
-          {events === null ? (
-            <div className="container text-center mt-5">
-              <Spinner loading={true}></Spinner>
-            </div>
-          ) : (
-            timelineCard()
-          )}
+          {events === null ? null : timelineCard()}
           <h4 style={{ color: "whitesmoke" }}>End - 90:00</h4>
         </Card.Body>
       </Card>

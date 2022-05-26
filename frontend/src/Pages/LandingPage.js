@@ -6,7 +6,6 @@ import axios from "axios";
 
 function LandingPage() {
   const [image, setimage] = useState(null);
-  const [loading, setLoading] = useState(true);
   // const [cricket,setcricket] = useState(null)
 
   useEffect(() => {
@@ -16,7 +15,6 @@ function LandingPage() {
       )
       .then((response) => {
         setimage(response.data.results);
-        setLoading(!loading);
       })
       .catch((err) => console.log(err));
 
@@ -24,13 +22,13 @@ function LandingPage() {
 
     //   setcricket(response.data.results)
     // }).catch(err => console.log(err))
-  }, [loading]);
+  }, []);
 
   if (image === null) {
     return (
       <>
-        <div className="container text-center mt-5">
-          <Spinner loading={loading}></Spinner>
+        <div className="container align-middle">
+          <Spinner></Spinner>
         </div>
       </>
     );

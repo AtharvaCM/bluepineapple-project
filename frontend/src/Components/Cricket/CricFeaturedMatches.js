@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { CardGroup } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import CurrentMatchesAPI from "../../Api/CurrentMatchesAPI";
+import Spinner from "../../Components/Spinner";
 import { MdFeaturedPlayList } from "react-icons/md";
 import Marquee from "react-fast-marquee";
 import { useHistory } from "react-router-dom";
@@ -29,7 +30,9 @@ function CricFeaturedMatches() {
   if (match === null) {
     return (
       <>
-        <div className="container align-middle"></div>
+        <div className="container align-middle">
+          <Spinner></Spinner>
+        </div>
       </>
     );
   } else {
