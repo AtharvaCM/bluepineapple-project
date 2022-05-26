@@ -1,7 +1,7 @@
 /* eslint-disable no-eval */
 /* eslint-disable no-unused-vars */
 import { React, useEffect, useState } from "react";
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Row } from "react-bootstrap";
 import { MatchStatsAPI } from "../../Api/footballApi/MatchStatsAPI";
 import {
   BarChart,
@@ -20,11 +20,6 @@ const doughnutChartBGColors = [
   COLORS.chartRed,
   COLORS.chartOrange,
 ];
-
-const lineChartBGColors = [THEME.colorButton];
-
-const lineChartPointRadius = 7;
-const lineChartPointHoverRadius = 8;
 
 function MatchStats({ match }) {
   const [subsData, setSubsData] = useState(null);
@@ -210,7 +205,12 @@ function MatchStats({ match }) {
     return (
       <>
         <Card style={{ backgroundColor: "white" }}>
-          <Card.Header style={{ color: "black" }}>Match Stats</Card.Header>
+          <Card.Header
+            style={{ color: "black" }}
+            className="text-center fw-bold fs-3"
+          >
+            Match Stats
+          </Card.Header>
           <Card.Body>
             <Row>
               <Col sm="12" md="6">
@@ -246,7 +246,12 @@ function MatchStats({ match }) {
     return (
       <>
         <Card style={{ backgroundColor: "white" }}>
-          <Card.Header style={{ color: "black" }}>Total Attacks</Card.Header>
+          <Card.Header
+            style={{ color: "black" }}
+            className="text-center fw-bold fs-3"
+          >
+            Total Attacks
+          </Card.Header>
           <Card.Body>
             {totalAttacksData === null ? null : totalAttacksChart()}
           </Card.Body>
@@ -257,12 +262,11 @@ function MatchStats({ match }) {
 
   return (
     <>
-        {scoreTimelineCard()}
-        <div className="mt-4"></div>
-        {statsCard()}
-        <div className="mt-4"></div>
-        {totalAttacksCard()}
-      
+      {scoreTimelineCard()}
+      <div className="mt-4"></div>
+      {statsCard()}
+      <div className="mt-4"></div>
+      {totalAttacksCard()}
     </>
   );
 }
