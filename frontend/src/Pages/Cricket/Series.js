@@ -2,7 +2,6 @@ import { React, useState, useEffect } from "react";
 import { Table, ListGroup, Card } from "react-bootstrap";
 import CricSubNavBar from "../../Components/Navbar/CricSubNavBar";
 import SeriesApi from "../../Api/SeriesAPI";
-import Spinner from "../../Components/Spinner";
 import { FormControl, Form } from "react-bootstrap";
 
 function Series() {
@@ -34,7 +33,7 @@ function Series() {
   };
 
   if (series === null) {
-    return <Spinner></Spinner>;
+    return null;
   } else {
     return (
       <>
