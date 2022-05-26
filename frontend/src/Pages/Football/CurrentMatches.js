@@ -157,7 +157,7 @@ function CurrentMatches() {
         {sort ? sort.map((data, index) => {
 
           return (
-            <Card className="mt-2" onClick={() => cardClickHadler(data)} style={{ boxShadow: '23px solid white', border: 'none' }} key={index}>
+            <Card className="mt-2" onClick={() => cardClickHadler(data)} style={{ boxShadow: '23px solid white', border: 'none',cursor:'pointer'}} key={index}>
               <Card.Header>
                 <Table className="table table-borderless">
                   <tbody>
