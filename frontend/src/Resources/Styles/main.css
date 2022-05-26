@@ -6,3 +6,12 @@
 body {
   font-family: sans-serif;
 }
+
+.landing-video-container {
+  height: calc(100vh - 40px) !important;
+  overflow: hidden;
+}
+
+.landing-video {
+  width: 100vw !important;
+}
