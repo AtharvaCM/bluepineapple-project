@@ -42,7 +42,10 @@ function LandingPage() {
     return (
       <>
       <div >
-        <Carousel >
+        <video autoPlay>
+          <source src='../Resources/Videos/sports.mp4' type='video/mp4'/>
+        </video>
+        {/* <Carousel >
           {image.map((data, index) => {
             return (
               <Carousel.Item key={index} interval={2000}>
@@ -59,7 +62,7 @@ function LandingPage() {
               </Carousel.Item>
             );
           })}
-        </Carousel>
+        </Carousel> */}
 
       
         </div>
