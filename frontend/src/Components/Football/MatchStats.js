@@ -186,17 +186,6 @@ function MatchStats({ match }) {
     );
   };
 
-  // const scoreTimelineCard = () => {
-  //   return (
-  //     <>
-  //       <Card style={{ backgroundColor: "white" }}>
-  //         <Card.Header style={{ color: "black" }}>Timeline</Card.Header>
-  //         <Card.Body>{goalscorers === null ? null : timelineChart()}</Card.Body>
-  //       </Card>
-  //     </>
-  //   );
-  // };
-
   const scoreTimelineCard = () => {
     return <Timeline events={goalscorers}></Timeline>;
   };

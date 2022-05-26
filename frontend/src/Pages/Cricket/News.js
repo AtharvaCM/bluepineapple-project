@@ -25,6 +25,8 @@ function News() {
       .catch((err) => console.log(err));
   }, []);
 
+
+
   if (news === null) {
     return (
       <>
