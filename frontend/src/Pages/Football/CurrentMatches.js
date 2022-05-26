@@ -13,6 +13,7 @@ function CurrentMatches() {
   const [sort, setsort] = useState(null);
   const [seriesOptions, setseriesOption] = useState("All");
   const [leagueOptions, setlegueOptions] = useState("2022");
+  // eslint-disable-next-line no-unused-vars
   const [matchStatus, setmatchStatus] = useState("Completed");
 
   const SeriesType = ["All", "Premier League", "Cup - Round of 32"];
