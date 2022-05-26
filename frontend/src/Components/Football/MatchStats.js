@@ -257,12 +257,11 @@ function MatchStats({ match }) {
 
   return (
     <>
-        {scoreTimelineCard()}
-        <div className="mt-4"></div>
-        {statsCard()}
-        <div className="mt-4"></div>
-        {totalAttacksCard()}
-      
+      {scoreTimelineCard()}
+      <div className="mt-4"></div>
+      {statsCard()}
+      <div className="mt-4"></div>
+      {totalAttacksCard()}
     </>
   );
 }

@@ -14,6 +14,14 @@ function DetailScore() {
     setMatch(match);
   }, [location.state.match]);
 
+  const homeLabel = () => {
+    return <span style={{ color: "black", fontSize: "25px" }}>(Home)</span>;
+  };
+
+  const awayLabel = () => {
+    return <span style={{ color: "black", fontSize: "25px" }}>(Away)</span>;
+  };
+
   const matchCard = () => {
     return (
       <Card
@@ -24,17 +32,15 @@ function DetailScore() {
           <Table className="table table-borderless">
             <tbody>
               <tr>
-                <td
-                  style={{ fontSize: "35px", fontWeight: "bold" }}
-                  colSpan={3}
-                >
+                <td style={{ fontSize: "35px" }} colSpan={3}>
                   {match.event_home_team === null
                     ? "N/A"
                     : match.event_home_team}{" "}
-                  VS{" "}
+                  {homeLabel()} vs{" "}
                   {match.event_away_team === null
                     ? "N/A"
-                    : match.event_away_team}
+                    : match.event_away_team}{" "}
+                  {awayLabel()}{" "}
                 </td>
               </tr>
 
