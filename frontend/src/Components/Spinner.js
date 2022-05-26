@@ -1,12 +1,9 @@
 import React from "react";
-import "../Resources/Styles/Spinner.css";
+import PacmanLoader from "react-spinners/PacmanLoader";
+import { THEME } from "../Constants/colors";
 
-function Spinner() {
-  return (
-     <>
-       <div className="spinner"></div>
-     </>
-  );
+function Spinner(loading) {
+  return <PacmanLoader loading={loading} color={THEME.colorSecondary} />;
 }
 
 export default Spinner;
