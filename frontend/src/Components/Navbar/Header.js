@@ -140,8 +140,8 @@ const Header = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+              {pages.map((page,index) => (
+                <MenuItem key={page} onClick={handleCloseNavMenu} key={index}>
                   <Typography textAlign="center">
                     <Link
                       to={`/${page}`}
@@ -174,10 +174,11 @@ const Header = () => {
             Sports Live
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+            {pages.map((page,index) => (
               <Link
                 to={`/${page}`}
                 style={{ textDecoration: "none", color: "white" }}
+                key={index}
               >
                 <Button
                   key={page}

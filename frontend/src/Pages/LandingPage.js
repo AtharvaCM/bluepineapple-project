@@ -70,7 +70,7 @@ import React from "react";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 
-import myVideo from "../Resources/";
+import myVideo from "../Resources/Videos/sports.mp4";
 
 function LandingPage() {
   return (
@@ -85,4 +85,4 @@ function LandingPage() {
   );
 }
 
-export default Landing;
+export default LandingPage;

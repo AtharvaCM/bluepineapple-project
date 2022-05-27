@@ -12,3 +12,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/* Home page */
+
+.landing-container {
+  padding: 0 !important;
+  height: calc(100vh - 68.5px);
+}
+
+.landing-video-container {
+  height: calc(100vh - 68.5px) !important;
+  overflow: hidden;
+}
+
+.landing-video {
+  width: 100vw !important;
+}
