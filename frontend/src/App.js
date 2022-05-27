@@ -31,7 +31,7 @@ function App() {
         <div style={{ backgroundColor: THEME.bgColor }}>
           <Header></Header>
           <Switch>
-            <Route exact path="/" component={LandingPage}></Route>
+            <Route exact path="/Home" component={LandingPage}></Route>
             <Route exact path="/Cricket" component={Cricket}></Route>
             <Route exact path="/Cricket/Gallery" component={Gallery}></Route>
             <Route exact path="/Cricket/News" component={News}></Route>
