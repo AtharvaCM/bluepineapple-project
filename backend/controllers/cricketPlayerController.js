@@ -172,7 +172,7 @@ const getCricketPlayerBowlingODIRankingsList = async (req, res) => {
       age: 1,
       birth_place: 1,
       role: 1,
-      "bowling.t20.ranking": 1,
+      "bowling.odi.ranking": 1,
     };
     const collation = { locale: "en_US", numericOrdering: true };
 
