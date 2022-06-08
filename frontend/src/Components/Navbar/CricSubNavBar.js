@@ -56,7 +56,7 @@ function CricSubNavBar({ history }) {
             to="/Cricket/Team/Men"
             style={activeTab(history, "/Cricket/Team/Men")}
           >
-            <b style={{ color: "black" }}>
+            <b style={{ color: "black" }} className="my-auto">
               <RiTeamFill />
               Teams
             </b>
