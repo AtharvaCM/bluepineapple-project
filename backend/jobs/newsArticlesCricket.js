@@ -64,7 +64,6 @@ const updateArticle = (obj) => {
       }
     }
   );
-  s;
 };
 
 const storeResponse = (req) => {
