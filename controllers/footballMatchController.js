@@ -28,7 +28,7 @@ const getFootballFinishedMatches = async (req, res) => {
   console.log(req.originalUrl);
   try {
     const query = { event_status: "Finished" };
-    const sortingQuery = { event_date: 1, _id: 1 };
+    const sortingQuery = { event_date: -1, _id: 1 };
     const matches = await MatchFootball.find(query).sort(sortingQuery);
     const response = {
       status: "OK",
